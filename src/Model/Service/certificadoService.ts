@@ -2,7 +2,7 @@ import { prismaNovo, prismaAntigo } from "../../../prisma";
 import { certificado } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 
-export default class ClientesService{
+export default class CertificadoService{
 	async troca(){
 		try {
 			const certificadosAntigos = await prismaAntigo.certificado.findMany({});

@@ -3,7 +3,7 @@ import { condicoes_pagamento } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
-export default class condicoesPagamentoService{
+export default class CondicoesPagamentoService{
 	async troca(){
 		try {
 			const condicoesPagamentoAntigos = await prismaAntigo.condicoes_pagamento.findMany({});

@@ -4,7 +4,7 @@ import { ErrorResponse } from "../Error/ErrorResponse";
 import { vendedores } from "../../../prisma/databases/novoprisma";
 import { convertBigIntToString } from "../Utils";
 
-export default class ClientesService{
+export default class VendedoresService{
 	async troca(){
 		try {
 			const vendedoresAntigos = await prismaAntigo.vendedores.findMany({});
