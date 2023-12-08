@@ -1,0 +1,38 @@
+import { prismaAntigo, prismaNovo } from "../../../prisma";
+import { ErrorResponse } from "../Error/ErrorResponse";
+import { convertBigIntToString } from "../Utils";
+
+export default class FornecedoresService{
+	async troca(){
+		try {
+			const fornecedoresAntigos = await prismaAntigo.fornecedores.findMany({});
+			const fornecedoresNovos = fornecedoresAntigos.map((fornecedoresAntigo)=>({
+				id_forn: parseInt(convertBigIntToString(fornecedoresAntigo.id)),
+				fantasia_forn: fornecedoresAntigo.fantasia,
+				razao_social_forn: fornecedoresAntigo.razaoSocial,
+				status_forn: fornecedoresAntigo.status,
+				cpf_cnpj_forn: fornecedoresAntigo.cpfCnpj,
+				tipo_forn: fornecedoresAntigo.tipo,
+				insc_estadual_forn: fornecedoresAntigo.inscEstadual,
+				cep_forn: fornecedoresAntigo.cep,
+				logradouro_forn: fornecedoresAntigo.logradouro,
+				numero_forn: fornecedoresAntigo.numero,
+				complemento_forn: fornecedoresAntigo.complemento,
+				bairro_forn: fornecedoresAntigo.bairro,
+				cidade_forn: fornecedoresAntigo.cidade,
+				uf_forn: fornecedoresAntigo.uf,
+				email_forn: fornecedoresAntigo.email,
+				celular_forn: fornecedoresAntigo.celular,
+				telefone_forn: fornecedoresAntigo.telefone,
+				fax_forn: fornecedoresAntigo.fax,
+				pessoa_contato_forn: fornecedoresAntigo.pessoaContato,
+				observacoes_forn: fornecedoresAntigo.observacoes
+			}));
+			if(fornecedoresNovos.length > 0){
+				await prismaNovo.fornecedores.createMany({data: fornecedoresNovos});
+			}
+		} catch (error) {
+			throw new ErrorResponse(500, "Erro interno do servidor ao trocar fornecedores: " + error);
+		}
+	}
+}

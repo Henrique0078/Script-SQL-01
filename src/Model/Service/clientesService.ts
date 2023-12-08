@@ -3,7 +3,7 @@ import { ErrorResponse } from "../Error/ErrorResponse";
 import { clienteNovo } from "../Interfaces/clientesInterface";
 import { convertBigIntToString } from "../Utils";
 
-export default class clientesService{
+export default class ClientesService{
 	async troca(){
 		try {
 			const clientesAntigos = await prismaAntigo.clientes.findMany({});
@@ -31,9 +31,11 @@ export default class clientesService{
 				nm_contato_cliente: clienteAntigo.contato_nome,
 				id_condicao_pagamento_sirius_cliente: clienteAntigo.condicao_pagamento_id_sirius,
 			}));
-			return await prismaNovo.clientes.createMany({data: clientes});
+			if(clientes.length > 0){
+				await prismaNovo.clientes.createMany({data: clientes});
+			}
 		} catch (error) {
-			throw new ErrorResponse(500, "Erro interno do servidor");
+			throw new ErrorResponse(500, "Erro interno do servidor ao trocar clientes: " + error);
 		}
 	}
 }

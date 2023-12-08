@@ -358,13 +358,13 @@ exports.Prisma.ProdutosScalarFieldEnum = {
   vlr_un_trib_prod: 'vlr_un_trib_prod',
   saldo_prod: 'saldo_prod',
   status_prod: 'status_prod',
-  texto_produto: 'texto_produto',
-  novo_produto: 'novo_produto',
-  acucar_produto: 'acucar_produto',
-  lactose_produto: 'lactose_produto',
-  gluten_produto: 'gluten_produto',
-  vegetariano_produto: 'vegetariano_produto',
-  vegano_produto: 'vegano_produto'
+  texto_prod: 'texto_prod',
+  novo_prod: 'novo_prod',
+  acucar_prod: 'acucar_prod',
+  lactose_prod: 'lactose_prod',
+  gluten_prod: 'gluten_prod',
+  vegetariano_prod: 'vegetariano_prod',
+  vegano_prod: 'vegano_prod'
 };
 
 exports.Prisma.Produtos_extrasScalarFieldEnum = {

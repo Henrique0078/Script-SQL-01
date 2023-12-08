@@ -1,5 +1,5 @@
 generator client {
-    provider        = "prisma-client-js"
+  provider        = "prisma-client-js"
   output          = "./databases/novoprisma"
   previewFeatures = ["views"]
   binaryTargets   = ["native", "debian-openssl-1.1.x"]
@@ -339,13 +339,13 @@ model produtos {
   vlr_un_trib_prod       Decimal?                 @db2.Decimal(20, 10)
   saldo_prod             Decimal?                 @db2.Decimal(15, 3)
   status_prod            String                   @db2.VarChar(1)
-  texto_produto          String?                  @db2.VarChar(200)
-  novo_produto           Boolean?                 @default(false)
-  acucar_produto         Boolean?                 @default(false)
-  lactose_produto        Boolean?                 @default(false)
-  gluten_produto         Boolean?                 @default(false)
-  vegetariano_produto    Boolean?                 @default(false)
-  vegano_produto         Boolean?                 @default(false)
+  texto_prod             String?                  @db2.VarChar(200)
+  novo_prod              Boolean?                 @default(false)
+  acucar_prod            Boolean?                 @default(false)
+  lactose_prod           Boolean?                 @default(false)
+  gluten_prod            Boolean?                 @default(false)
+  vegetariano_prod       Boolean?                 @default(false)
+  vegano_prod            Boolean?                 @default(false)
   clientes_produtos      clientes_produtos[]
   listas_precos_produtos listas_precos_produtos[]
   pedidos_venda_itens    pedidos_venda_itens[]

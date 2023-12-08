@@ -26407,13 +26407,13 @@ export namespace Prisma {
     vlr_un_trib_prod: Decimal | null
     saldo_prod: Decimal | null
     status_prod: string | null
-    texto_produto: string | null
-    novo_produto: boolean | null
-    acucar_produto: boolean | null
-    lactose_produto: boolean | null
-    gluten_produto: boolean | null
-    vegetariano_produto: boolean | null
-    vegano_produto: boolean | null
+    texto_prod: string | null
+    novo_prod: boolean | null
+    acucar_prod: boolean | null
+    lactose_prod: boolean | null
+    gluten_prod: boolean | null
+    vegetariano_prod: boolean | null
+    vegano_prod: boolean | null
   }
 
   export type ProdutosMaxAggregateOutputType = {
@@ -26434,13 +26434,13 @@ export namespace Prisma {
     vlr_un_trib_prod: Decimal | null
     saldo_prod: Decimal | null
     status_prod: string | null
-    texto_produto: string | null
-    novo_produto: boolean | null
-    acucar_produto: boolean | null
-    lactose_produto: boolean | null
-    gluten_produto: boolean | null
-    vegetariano_produto: boolean | null
-    vegano_produto: boolean | null
+    texto_prod: string | null
+    novo_prod: boolean | null
+    acucar_prod: boolean | null
+    lactose_prod: boolean | null
+    gluten_prod: boolean | null
+    vegetariano_prod: boolean | null
+    vegano_prod: boolean | null
   }
 
   export type ProdutosCountAggregateOutputType = {
@@ -26461,13 +26461,13 @@ export namespace Prisma {
     vlr_un_trib_prod: number
     saldo_prod: number
     status_prod: number
-    texto_produto: number
-    novo_produto: number
-    acucar_produto: number
-    lactose_produto: number
-    gluten_produto: number
-    vegetariano_produto: number
-    vegano_produto: number
+    texto_prod: number
+    novo_prod: number
+    acucar_prod: number
+    lactose_prod: number
+    gluten_prod: number
+    vegetariano_prod: number
+    vegano_prod: number
     _all: number
   }
 
@@ -26512,13 +26512,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: true
     saldo_prod?: true
     status_prod?: true
-    texto_produto?: true
-    novo_produto?: true
-    acucar_produto?: true
-    lactose_produto?: true
-    gluten_produto?: true
-    vegetariano_produto?: true
-    vegano_produto?: true
+    texto_prod?: true
+    novo_prod?: true
+    acucar_prod?: true
+    lactose_prod?: true
+    gluten_prod?: true
+    vegetariano_prod?: true
+    vegano_prod?: true
   }
 
   export type ProdutosMaxAggregateInputType = {
@@ -26539,13 +26539,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: true
     saldo_prod?: true
     status_prod?: true
-    texto_produto?: true
-    novo_produto?: true
-    acucar_produto?: true
-    lactose_produto?: true
-    gluten_produto?: true
-    vegetariano_produto?: true
-    vegano_produto?: true
+    texto_prod?: true
+    novo_prod?: true
+    acucar_prod?: true
+    lactose_prod?: true
+    gluten_prod?: true
+    vegetariano_prod?: true
+    vegano_prod?: true
   }
 
   export type ProdutosCountAggregateInputType = {
@@ -26566,13 +26566,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: true
     saldo_prod?: true
     status_prod?: true
-    texto_produto?: true
-    novo_produto?: true
-    acucar_produto?: true
-    lactose_produto?: true
-    gluten_produto?: true
-    vegetariano_produto?: true
-    vegano_produto?: true
+    texto_prod?: true
+    novo_prod?: true
+    acucar_prod?: true
+    lactose_prod?: true
+    gluten_prod?: true
+    vegetariano_prod?: true
+    vegano_prod?: true
     _all?: true
   }
 
@@ -26680,13 +26680,13 @@ export namespace Prisma {
     vlr_un_trib_prod: Decimal | null
     saldo_prod: Decimal | null
     status_prod: string
-    texto_produto: string | null
-    novo_produto: boolean | null
-    acucar_produto: boolean | null
-    lactose_produto: boolean | null
-    gluten_produto: boolean | null
-    vegetariano_produto: boolean | null
-    vegano_produto: boolean | null
+    texto_prod: string | null
+    novo_prod: boolean | null
+    acucar_prod: boolean | null
+    lactose_prod: boolean | null
+    gluten_prod: boolean | null
+    vegetariano_prod: boolean | null
+    vegano_prod: boolean | null
     _count: ProdutosCountAggregateOutputType | null
     _avg: ProdutosAvgAggregateOutputType | null
     _sum: ProdutosSumAggregateOutputType | null
@@ -26726,13 +26726,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: boolean
     saldo_prod?: boolean
     status_prod?: boolean
-    texto_produto?: boolean
-    novo_produto?: boolean
-    acucar_produto?: boolean
-    lactose_produto?: boolean
-    gluten_produto?: boolean
-    vegetariano_produto?: boolean
-    vegano_produto?: boolean
+    texto_prod?: boolean
+    novo_prod?: boolean
+    acucar_prod?: boolean
+    lactose_prod?: boolean
+    gluten_prod?: boolean
+    vegetariano_prod?: boolean
+    vegano_prod?: boolean
     clientes_produtos?: boolean | produtos$clientes_produtosArgs<ExtArgs>
     listas_precos_produtos?: boolean | produtos$listas_precos_produtosArgs<ExtArgs>
     pedidos_venda_itens?: boolean | produtos$pedidos_venda_itensArgs<ExtArgs>
@@ -26759,13 +26759,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: boolean
     saldo_prod?: boolean
     status_prod?: boolean
-    texto_produto?: boolean
-    novo_produto?: boolean
-    acucar_produto?: boolean
-    lactose_produto?: boolean
-    gluten_produto?: boolean
-    vegetariano_produto?: boolean
-    vegano_produto?: boolean
+    texto_prod?: boolean
+    novo_prod?: boolean
+    acucar_prod?: boolean
+    lactose_prod?: boolean
+    gluten_prod?: boolean
+    vegetariano_prod?: boolean
+    vegano_prod?: boolean
   }
 
   export type produtosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -26805,13 +26805,13 @@ export namespace Prisma {
       vlr_un_trib_prod: Prisma.Decimal | null
       saldo_prod: Prisma.Decimal | null
       status_prod: string
-      texto_produto: string | null
-      novo_produto: boolean | null
-      acucar_produto: boolean | null
-      lactose_produto: boolean | null
-      gluten_produto: boolean | null
-      vegetariano_produto: boolean | null
-      vegano_produto: boolean | null
+      texto_prod: string | null
+      novo_prod: boolean | null
+      acucar_prod: boolean | null
+      lactose_prod: boolean | null
+      gluten_prod: boolean | null
+      vegetariano_prod: boolean | null
+      vegano_prod: boolean | null
     }, ExtArgs["result"]["produtos"]>
     composites: {}
   }
@@ -27232,13 +27232,13 @@ export namespace Prisma {
     readonly vlr_un_trib_prod: FieldRef<"produtos", 'Decimal'>
     readonly saldo_prod: FieldRef<"produtos", 'Decimal'>
     readonly status_prod: FieldRef<"produtos", 'String'>
-    readonly texto_produto: FieldRef<"produtos", 'String'>
-    readonly novo_produto: FieldRef<"produtos", 'Boolean'>
-    readonly acucar_produto: FieldRef<"produtos", 'Boolean'>
-    readonly lactose_produto: FieldRef<"produtos", 'Boolean'>
-    readonly gluten_produto: FieldRef<"produtos", 'Boolean'>
-    readonly vegetariano_produto: FieldRef<"produtos", 'Boolean'>
-    readonly vegano_produto: FieldRef<"produtos", 'Boolean'>
+    readonly texto_prod: FieldRef<"produtos", 'String'>
+    readonly novo_prod: FieldRef<"produtos", 'Boolean'>
+    readonly acucar_prod: FieldRef<"produtos", 'Boolean'>
+    readonly lactose_prod: FieldRef<"produtos", 'Boolean'>
+    readonly gluten_prod: FieldRef<"produtos", 'Boolean'>
+    readonly vegetariano_prod: FieldRef<"produtos", 'Boolean'>
+    readonly vegano_prod: FieldRef<"produtos", 'Boolean'>
   }
     
 
@@ -36176,13 +36176,13 @@ export namespace Prisma {
     vlr_un_trib_prod: 'vlr_un_trib_prod',
     saldo_prod: 'saldo_prod',
     status_prod: 'status_prod',
-    texto_produto: 'texto_produto',
-    novo_produto: 'novo_produto',
-    acucar_produto: 'acucar_produto',
-    lactose_produto: 'lactose_produto',
-    gluten_produto: 'gluten_produto',
-    vegetariano_produto: 'vegetariano_produto',
-    vegano_produto: 'vegano_produto'
+    texto_prod: 'texto_prod',
+    novo_prod: 'novo_prod',
+    acucar_prod: 'acucar_prod',
+    lactose_prod: 'lactose_prod',
+    gluten_prod: 'gluten_prod',
+    vegetariano_prod: 'vegetariano_prod',
+    vegano_prod: 'vegano_prod'
   };
 
   export type ProdutosScalarFieldEnum = (typeof ProdutosScalarFieldEnum)[keyof typeof ProdutosScalarFieldEnum]
@@ -37996,13 +37996,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFilter<"produtos"> | string
-    texto_produto?: StringNullableFilter<"produtos"> | string | null
-    novo_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    acucar_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    lactose_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    gluten_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    vegetariano_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    vegano_produto?: BoolNullableFilter<"produtos"> | boolean | null
+    texto_prod?: StringNullableFilter<"produtos"> | string | null
+    novo_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    acucar_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    lactose_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    gluten_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    vegetariano_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    vegano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     clientes_produtos?: Clientes_produtosListRelationFilter
     listas_precos_produtos?: Listas_precos_produtosListRelationFilter
     pedidos_venda_itens?: Pedidos_venda_itensListRelationFilter
@@ -38028,13 +38028,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: SortOrderInput | SortOrder
     saldo_prod?: SortOrderInput | SortOrder
     status_prod?: SortOrder
-    texto_produto?: SortOrderInput | SortOrder
-    novo_produto?: SortOrderInput | SortOrder
-    acucar_produto?: SortOrderInput | SortOrder
-    lactose_produto?: SortOrderInput | SortOrder
-    gluten_produto?: SortOrderInput | SortOrder
-    vegetariano_produto?: SortOrderInput | SortOrder
-    vegano_produto?: SortOrderInput | SortOrder
+    texto_prod?: SortOrderInput | SortOrder
+    novo_prod?: SortOrderInput | SortOrder
+    acucar_prod?: SortOrderInput | SortOrder
+    lactose_prod?: SortOrderInput | SortOrder
+    gluten_prod?: SortOrderInput | SortOrder
+    vegetariano_prod?: SortOrderInput | SortOrder
+    vegano_prod?: SortOrderInput | SortOrder
     clientes_produtos?: clientes_produtosOrderByRelationAggregateInput
     listas_precos_produtos?: listas_precos_produtosOrderByRelationAggregateInput
     pedidos_venda_itens?: pedidos_venda_itensOrderByRelationAggregateInput
@@ -38063,13 +38063,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFilter<"produtos"> | string
-    texto_produto?: StringNullableFilter<"produtos"> | string | null
-    novo_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    acucar_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    lactose_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    gluten_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    vegetariano_produto?: BoolNullableFilter<"produtos"> | boolean | null
-    vegano_produto?: BoolNullableFilter<"produtos"> | boolean | null
+    texto_prod?: StringNullableFilter<"produtos"> | string | null
+    novo_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    acucar_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    lactose_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    gluten_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    vegetariano_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    vegano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     clientes_produtos?: Clientes_produtosListRelationFilter
     listas_precos_produtos?: Listas_precos_produtosListRelationFilter
     pedidos_venda_itens?: Pedidos_venda_itensListRelationFilter
@@ -38095,13 +38095,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: SortOrderInput | SortOrder
     saldo_prod?: SortOrderInput | SortOrder
     status_prod?: SortOrder
-    texto_produto?: SortOrderInput | SortOrder
-    novo_produto?: SortOrderInput | SortOrder
-    acucar_produto?: SortOrderInput | SortOrder
-    lactose_produto?: SortOrderInput | SortOrder
-    gluten_produto?: SortOrderInput | SortOrder
-    vegetariano_produto?: SortOrderInput | SortOrder
-    vegano_produto?: SortOrderInput | SortOrder
+    texto_prod?: SortOrderInput | SortOrder
+    novo_prod?: SortOrderInput | SortOrder
+    acucar_prod?: SortOrderInput | SortOrder
+    lactose_prod?: SortOrderInput | SortOrder
+    gluten_prod?: SortOrderInput | SortOrder
+    vegetariano_prod?: SortOrderInput | SortOrder
+    vegano_prod?: SortOrderInput | SortOrder
     _count?: produtosCountOrderByAggregateInput
     _avg?: produtosAvgOrderByAggregateInput
     _max?: produtosMaxOrderByAggregateInput
@@ -38130,13 +38130,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: DecimalNullableWithAggregatesFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: DecimalNullableWithAggregatesFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringWithAggregatesFilter<"produtos"> | string
-    texto_produto?: StringNullableWithAggregatesFilter<"produtos"> | string | null
-    novo_produto?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
-    acucar_produto?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
-    lactose_produto?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
-    gluten_produto?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
-    vegetariano_produto?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
-    vegano_produto?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
+    texto_prod?: StringNullableWithAggregatesFilter<"produtos"> | string | null
+    novo_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
+    acucar_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
+    lactose_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
+    gluten_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
+    vegetariano_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
+    vegano_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
   }
 
   export type produtos_extrasWhereInput = {
@@ -40374,13 +40374,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
@@ -40406,13 +40406,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -40437,13 +40437,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
@@ -40469,13 +40469,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -40501,13 +40501,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
   }
 
   export type produtosUpdateManyMutationInput = {
@@ -40527,13 +40527,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type produtosUncheckedUpdateManyInput = {
@@ -40554,13 +40554,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type produtos_extrasCreateInput = {
@@ -42668,13 +42668,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: SortOrder
     saldo_prod?: SortOrder
     status_prod?: SortOrder
-    texto_produto?: SortOrder
-    novo_produto?: SortOrder
-    acucar_produto?: SortOrder
-    lactose_produto?: SortOrder
-    gluten_produto?: SortOrder
-    vegetariano_produto?: SortOrder
-    vegano_produto?: SortOrder
+    texto_prod?: SortOrder
+    novo_prod?: SortOrder
+    acucar_prod?: SortOrder
+    lactose_prod?: SortOrder
+    gluten_prod?: SortOrder
+    vegetariano_prod?: SortOrder
+    vegano_prod?: SortOrder
   }
 
   export type produtosAvgOrderByAggregateInput = {
@@ -42706,13 +42706,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: SortOrder
     saldo_prod?: SortOrder
     status_prod?: SortOrder
-    texto_produto?: SortOrder
-    novo_produto?: SortOrder
-    acucar_produto?: SortOrder
-    lactose_produto?: SortOrder
-    gluten_produto?: SortOrder
-    vegetariano_produto?: SortOrder
-    vegano_produto?: SortOrder
+    texto_prod?: SortOrder
+    novo_prod?: SortOrder
+    acucar_prod?: SortOrder
+    lactose_prod?: SortOrder
+    gluten_prod?: SortOrder
+    vegetariano_prod?: SortOrder
+    vegano_prod?: SortOrder
   }
 
   export type produtosMinOrderByAggregateInput = {
@@ -42733,13 +42733,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: SortOrder
     saldo_prod?: SortOrder
     status_prod?: SortOrder
-    texto_produto?: SortOrder
-    novo_produto?: SortOrder
-    acucar_produto?: SortOrder
-    lactose_produto?: SortOrder
-    gluten_produto?: SortOrder
-    vegetariano_produto?: SortOrder
-    vegano_produto?: SortOrder
+    texto_prod?: SortOrder
+    novo_prod?: SortOrder
+    acucar_prod?: SortOrder
+    lactose_prod?: SortOrder
+    gluten_prod?: SortOrder
+    vegetariano_prod?: SortOrder
+    vegano_prod?: SortOrder
   }
 
   export type produtosSumOrderByAggregateInput = {
@@ -45773,13 +45773,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
@@ -45804,13 +45804,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -45916,13 +45916,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
@@ -45947,13 +45947,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -46936,13 +46936,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
@@ -46967,13 +46967,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -47035,13 +47035,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
@@ -47066,13 +47066,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -48125,13 +48125,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
@@ -48156,13 +48156,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -48354,13 +48354,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
@@ -48385,13 +48385,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -48833,13 +48833,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
@@ -48864,13 +48864,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -48934,13 +48934,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
@@ -48965,13 +48965,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -49065,13 +49065,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
@@ -49096,13 +49096,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
     saldo_prod?: Decimal | DecimalJsLike | number | string | null
     status_prod: string
-    texto_produto?: string | null
-    novo_produto?: boolean | null
-    acucar_produto?: boolean | null
-    lactose_produto?: boolean | null
-    gluten_produto?: boolean | null
-    vegetariano_produto?: boolean | null
-    vegano_produto?: boolean | null
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -49218,13 +49218,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
@@ -49249,13 +49249,13 @@ export namespace Prisma {
     vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     status_prod?: StringFieldUpdateOperationsInput | string
-    texto_produto?: NullableStringFieldUpdateOperationsInput | string | null
-    novo_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    acucar_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    lactose_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    gluten_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegetariano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vegano_produto?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
