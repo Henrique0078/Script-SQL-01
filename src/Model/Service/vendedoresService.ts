@@ -43,12 +43,11 @@ export default class ClientesService{
 				telefone_vendedor: vendedorAntigo.telefone,
 				uf_vendedor: vendedorAntigo.uf,
 			}));
-
 			if(vendedores.length > 0){
 				await prismaNovo.vendedores.createMany({data: vendedores});
 			}
 		} catch (error) {
-			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Certificado: " + error);
+			throw new ErrorResponse(500, "Erro interno do servidor ao trocar vendedores: " + error);
 		}
 	}
 }
