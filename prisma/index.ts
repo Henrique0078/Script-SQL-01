@@ -1,16 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient as OldPrismaClient }  from "./databases/antigoprisma";
+import { PrismaClient as NewPrismaClient} from "./databases/novoprisma";
 
-const createPrismaClient = (databaseUrl: string) => {
-	return new PrismaClient({
-		datasources: {
-			db: {
-				url: databaseUrl,
-			},
-		},
-	});
-};
-
-const prismaNovo = createPrismaClient(process.env.DATABASE_URL || "");
-const prismaAntigo = createPrismaClient(process.env.DATABASE2_URL || "");
+const prismaAntigo = new OldPrismaClient();
+const prismaNovo = new NewPrismaClient();
 
 export { prismaAntigo, prismaNovo };

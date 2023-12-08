@@ -1,5 +1,8 @@
 generator client {
-  provider = "prisma-client-js"
+    provider        = "prisma-client-js"
+  output          = "./databases/novoprisma"
+  previewFeatures = ["views"]
+  binaryTargets   = ["native", "debian-openssl-1.1.x"]
 }
 
 datasource db2 {
