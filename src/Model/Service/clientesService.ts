@@ -31,7 +31,7 @@ export default class clientesService{
 				nm_contato_cliente: clienteAntigo.contato_nome,
 				id_condicao_pagamento_sirius_cliente: clienteAntigo.condicao_pagamento_id_sirius,
 			}));
-			await prismaNovo.clientes.createMany({data: clientes});
+			return await prismaNovo.clientes.createMany({data: clientes});
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor");
 		}

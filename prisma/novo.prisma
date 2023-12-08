@@ -1,0 +1,468 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db2 {
+  provider = "mysql"
+  url      = env("DATABASE2_URL")
+}
+
+model atividades_grupos {
+  id_ag                 Int     @id @default(autoincrement())
+  id_grupos_usuarios_ag Int
+  id_atividade_ag       Int
+  valor_ag              Int?    @default(0)
+  descricao_ag          String? @db2.VarChar(60)
+}
+
+model carousel_images {
+  id_ci             Int          @id @default(autoincrement())
+  id_restaurante_ci Int
+  id_imagem_ci      Int?
+  ordem_number_ci   Int
+  imagens           imagens?     @relation(fields: [id_imagem_ci], references: [id_imagem], onDelete: NoAction, onUpdate: NoAction, map: "fk_ci_imagens_idx")
+  restaurantes      restaurantes @relation(fields: [id_restaurante_ci], references: [id_restaurante], onDelete: NoAction, onUpdate: NoAction, map: "fk_ci_restaurantes_idx")
+
+  @@index([id_imagem_ci], map: "fk_ci_imagens_idx")
+  @@index([id_restaurante_ci], map: "fk_ci_restaurantes_idx")
+}
+
+model certificado {
+  id_certificado    Int     @id @default(autoincrement())
+  senha_certificado String? @db2.VarChar(15)
+  serie_certificado String? @db2.VarChar(30)
+  nm_certificado    String? @db2.VarChar(30)
+  path_certificado  String? @db2.VarChar(250)
+}
+
+model clientes {
+  id_cliente                           Int                  @id @default(autoincrement())
+  id_sirius_cliente                    Int?                 @unique(map: "id_sirius_cliente_UNIQUE")
+  status_cliente                       String               @db2.VarChar(1)
+  created_at_cliente                   DateTime             @db2.DateTime(6)
+  updated_at_cliente                   DateTime             @db2.DateTime(6)
+  razao_social_cliente                 String               @db2.VarChar(60)
+  fantasia_cliente                     String?              @db2.VarChar(60)
+  cpf_cliente                          String               @unique(map: "cpf_cliente_UNIQUE") @db2.VarChar(11)
+  cnpj_cliente                         String               @unique(map: "cnpj_cliente_UNIQUE") @db2.VarChar(14)
+  id_estrangeiro_cliente               String?              @db2.VarChar(20)
+  ind_ie_cliente                       String?              @db2.VarChar(1)
+  insc_estadual_cliente                String?              @db2.VarChar(15)
+  insc_municipal_cliente               String?              @db2.VarChar(15)
+  tipo_cliente                         String               @db2.Char(1)
+  exclusivo_cliente                    Int?                 @default(0)
+  id_vendedor_cliente                  Int?                 @default(0)
+  id_vendedor_sirius_cliente           Int?                 @default(0)
+  id_lista_preco_cliente               Int?                 @default(0)
+  id_condicao_pagamento_cliente        Int?
+  contato_cliente                      String?              @db2.VarChar(60)
+  nm_contato_cliente                   String?              @db2.VarChar(60)
+  id_condicao_pagamento_sirius_cliente Int?
+  condicoes_pagamento                  condicoes_pagamento? @relation(fields: [id_condicao_pagamento_cliente], references: [id_cp], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_condicao_pagamento_idx")
+  clientes_produtos                    clientes_produtos[]
+  contatos                             contatos[]
+  enderecos                            enderecos[]
+  pedidos_venda                        pedidos_venda[]
+
+  @@index([id_condicao_pagamento_cliente], map: "fk_cliente_condicao_pagamento_idx")
+}
+
+model clientes_produtos {
+  id_clipro         Int      @id @default(autoincrement())
+  valor_clipro      Decimal  @db2.Decimal(20, 10)
+  id_cliente_clipro Int
+  id_produto_clipro Int
+  id_sirius_clipro  Int?
+  clientes          clientes @relation(fields: [id_cliente_clipro], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_clipro_clientes_idx")
+  produtos          produtos @relation(fields: [id_produto_clipro], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_clipro_produtos_idx")
+
+  @@index([id_cliente_clipro], map: "fk_clipro_clientes_idx")
+  @@index([id_produto_clipro], map: "fk_clipro_produtos_idx")
+}
+
+model condicoes_pagamento {
+  id_cp         Int             @id @default(autoincrement())
+  id_sirius_cp  Int?            @unique(map: "id_sirius_cp_UNIQUE")
+  descricao_cp  String          @db2.VarChar(50)
+  clientes      clientes[]
+  pedidos_venda pedidos_venda[]
+}
+
+model contatos {
+  id_contato         Int      @id @default(autoincrement())
+  nm_contato         String   @db2.VarChar(60)
+  tipo_contato       String   @db2.VarChar(1)
+  id_cliente_contato Int
+  clientes           clientes @relation(fields: [id_cliente_contato], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_contato_clientes_idx")
+
+  @@index([id_cliente_contato], map: "fk_contato_clientes_idx")
+}
+
+model enderecos {
+  id_endereco              Int      @id @default(autoincrement())
+  cep_endereco             String   @db2.VarChar(8)
+  logradouro_endereco      String   @db2.VarChar(60)
+  numero_endereco          String   @db2.VarChar(8)
+  complemento_endereco     String   @db2.VarChar(60)
+  bairro_endereco          String   @db2.VarChar(60)
+  cidade_endereco          String   @db2.VarChar(60)
+  cod_mun_endereco         String   @db2.VarChar(7)
+  cod_uf_endereco          String   @db2.VarChar(2)
+  uf_endereco              String   @db2.VarChar(2)
+  id_cliente_endereco      Int
+  tipo_endereco_endereco   String   @db2.VarChar(1)
+  status_endereco          String?  @default("A") @db2.Char(1)
+  tipo_logradouro_endereco String   @db2.VarChar(45)
+  clientes                 clientes @relation(fields: [id_cliente_endereco], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_enderecos_clientes_idx")
+
+  @@index([id_cliente_endereco], map: "fk_enderecos_clientes_idx")
+}
+
+model extras {
+  id_extra        Int               @id @default(autoincrement())
+  titulo_extra    String            @db2.VarChar(200)
+  texto_extra     String?           @db2.VarChar(200)
+  preco_extra     Decimal           @db2.Decimal(20, 10)
+  produtos_extras produtos_extras[]
+}
+
+model first_page_images {
+  id_fpi             Int          @id @default(autoincrement())
+  id_restaurante_fpi Int
+  id_imagem_fpi      Int?
+  imagens            imagens?     @relation(fields: [id_imagem_fpi], references: [id_imagem], onDelete: NoAction, onUpdate: NoAction, map: "fk_fpi_imagens_idx")
+  restaurantes       restaurantes @relation(fields: [id_restaurante_fpi], references: [id_restaurante], onDelete: NoAction, onUpdate: NoAction, map: "fk_fpi_restaurantes_idx")
+
+  @@index([id_imagem_fpi], map: "fk_fpi_imagens_idx")
+  @@index([id_restaurante_fpi], map: "fk_fpi_restaurantes_idx")
+}
+
+model fornecedores {
+  id_forn             Int     @id @default(autoincrement())
+  fantasia_forn       String? @db2.VarChar(80)
+  razao_social_forn   String  @db2.VarChar(80)
+  status_forn         String? @db2.Char(1)
+  cpf_cnpj_forn       String? @db2.VarChar(14)
+  tipo_forn           String? @db2.Char(1)
+  insc_estadual_forn  String? @db2.VarChar(80)
+  cep_forn            String? @db2.VarChar(80)
+  logradouro_forn     String? @db2.VarChar(80)
+  numero_forn         Int?
+  complemento_forn    String? @db2.VarChar(80)
+  bairro_forn         String? @db2.VarChar(80)
+  cidade_forn         String? @db2.VarChar(80)
+  uf_forn             String? @db2.Char(2)
+  email_forn          String? @db2.VarChar(80)
+  celular_forn        String? @db2.VarChar(80)
+  telefone_forn       String? @db2.VarChar(80)
+  fax_forn            String? @db2.VarChar(80)
+  pessoa_contato_forn String? @db2.VarChar(80)
+  observacoes_forn    String? @db2.VarChar(255)
+}
+
+model grupos_usuarios {
+  id_gu                    Int                        @id @default(autoincrement())
+  nm_gu                    String                     @unique(map: "nm_gu_UNIQUE") @db2.VarChar(100)
+  permissoes               permissoes[]
+  usuarios_grupos_usuarios usuarios_grupos_usuarios[]
+}
+
+model imagens {
+  id_imagem         Int                 @id @default(autoincrement())
+  imagem            Bytes?
+  desc_imagem       String?             @db2.VarChar(256)
+  carousel_images   carousel_images[]
+  first_page_images first_page_images[]
+  menus             menus[]
+  restaurantes      restaurantes[]
+}
+
+model listas_precos {
+  id_lp                  Int                      @id @default(autoincrement())
+  descricao_lp           String                   @db2.VarChar(100)
+  id_sirius_lp           Int?                     @unique(map: "id_sirius_lp_UNIQUE")
+  listas_precos_produtos listas_precos_produtos[]
+}
+
+model listas_precos_produtos {
+  id_lpp                Int            @id @default(autoincrement())
+  id_lista_lpp          Int?           @default(0)
+  id_produto_lpp        Int?           @default(0)
+  valor_lpp             Decimal?       @default(0.00) @db2.Decimal(15, 2)
+  id_produto_sirius_lpp Int?
+  listas_precos         listas_precos? @relation(fields: [id_lista_lpp], references: [id_lp], onDelete: NoAction, onUpdate: NoAction, map: "fk_lpp_listas_precos_idx")
+  produtos              produtos?      @relation(fields: [id_produto_lpp], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_lpp_produtos_idx")
+
+  @@index([id_lista_lpp], map: "fk_lpp_listas_precos_idx")
+  @@index([id_produto_lpp], map: "fk_lpp_produtos_idx")
+}
+
+model menus {
+  id_menu             Int          @id @default(autoincrement())
+  id_restaurante_menu Int
+  id_imagem_menu      Int?
+  titulo_menu         String       @db2.VarChar(200)
+  texto_menu          String?      @db2.VarChar(200)
+  imagens             imagens?     @relation(fields: [id_imagem_menu], references: [id_imagem], onDelete: NoAction, onUpdate: NoAction, map: "fk_menu_imagens_idx")
+  restaurantes        restaurantes @relation(fields: [id_restaurante_menu], references: [id_restaurante], onDelete: NoAction, onUpdate: NoAction, map: "fk_menu_restaurantes_idx")
+  submenus            submenus[]
+
+  @@index([id_imagem_menu], map: "fk_menu_imagens_idx")
+  @@index([id_restaurante_menu], map: "fk_menu_restaurantes_idx")
+}
+
+model modalidade_frete {
+  id_mf         Int             @id @default(autoincrement())
+  nm_mf         String          @db2.VarChar(141)
+  valor_mf      Int             @unique(map: "valor_mf_UNIQUE")
+  pedidos_venda pedidos_venda[]
+}
+
+model parametros {
+  id_parametro        Int     @id @default(autoincrement())
+  nm_parametro        String? @db2.VarChar(255)
+  valor_parametro     Int?
+  descricao_parametro String? @db2.VarChar(255)
+}
+
+model pedidos_venda {
+  id_pv                                                                     Int                        @id @default(autoincrement())
+  numero_pv                                                                 Int?
+  id_vendedor_pv                                                            Int?
+  id_cliente_pv                                                             Int?
+  id_usuario_pv                                                             Int?
+  desconto_pv                                                               Decimal?                   @db2.Decimal(20, 10)
+  valor_bruto_pv                                                            Decimal                    @db2.Decimal(20, 10)
+  valor_liquido_pv                                                          Decimal?                   @db2.Decimal(20, 10)
+  status_pv                                                                 String                     @db2.VarChar(1)
+  observacoes_pv                                                            String?                    @db2.VarChar(80)
+  data_criacao_pv                                                           DateTime                   @db2.DateTime(0)
+  cliente_contato_pv                                                        String?                    @db2.VarChar(45)
+  data_realizacao_pv                                                        DateTime?                  @db2.DateTime(0)
+  data_sincronizacao_pv                                                     DateTime?                  @db2.DateTime(0)
+  id_condicao_pagamento_pv                                                  Int?
+  entrega_cep_pv                                                            String?                    @db2.VarChar(8)
+  entrega_logradouro_pv                                                     String?                    @db2.VarChar(60)
+  entrega_numero_pv                                                         String?                    @db2.VarChar(8)
+  entrega_complemento_pv                                                    String?                    @db2.VarChar(60)
+  entrega_bairro_pv                                                         String?                    @db2.VarChar(60)
+  entrega_cidade_pv                                                         String?                    @db2.VarChar(60)
+  entrega_uf_pv                                                             String?                    @db2.VarChar(2)
+  id_transportadores_pv                                                     Int?
+  id_modalidade_frete_pv                                                    Int?
+  id_cliente_escolheu_pv                                                    String?                    @db2.VarChar(40)
+  pagamento_pv                                                              Decimal?                   @db2.Decimal(20, 10)
+  troco_pv                                                                  Decimal?                   @db2.Decimal(20, 10)
+  clientes                                                                  clientes?                  @relation(fields: [id_cliente_pv], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_clientes_idx")
+  condicoes_pagamento                                                       condicoes_pagamento?       @relation(fields: [id_condicao_pagamento_pv], references: [id_cp], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_condicoes_pagamento_idx")
+  modalidade_frete                                                          modalidade_frete?          @relation(fields: [id_modalidade_frete_pv], references: [id_mf], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_modalidade_frete_idx")
+  transportadores                                                           transportadores?           @relation(fields: [id_transportadores_pv], references: [id_transportador], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_transportadores_idx")
+  vendedores                                                                vendedores?                @relation(fields: [id_vendedor_pv], references: [id_vendedor], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_vendedores_idx")
+  pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda pedidos_venda_itens[]      @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda")
+  pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda      pedidos_venda_itens[]      @relation("pedidos_venda_itens_id_pedido_pviTopedidos_venda")
+  pedidos_venda_pagamentos                                                  pedidos_venda_pagamentos[]
+  produtos_movimentacoes                                                    produtos_movimentacoes[]
+
+  @@index([id_cliente_pv], map: "fk_pv_clientes_idx")
+  @@index([id_condicao_pagamento_pv], map: "fk_pv_condicoes_pagamento_idx")
+  @@index([id_modalidade_frete_pv], map: "fk_pv_modalidade_frete_idx")
+  @@index([id_transportadores_pv], map: "fk_pv_transportadores_idx")
+  @@index([id_vendedor_pv], map: "fk_pv_vendedores_idx")
+}
+
+model pedidos_venda_itens {
+  id_pvi                                                              Int            @id @default(autoincrement())
+  id_pedido_pvi                                                       Int?
+  id_produto_pvi                                                      Int?
+  id_produto_sirius_pvi                                               Int?
+  prod_descricao_pvi                                                  String?        @db2.VarChar(120)
+  prod_unidade_pvi                                                    String?        @db2.VarChar(6)
+  prod_quantidade_pvi                                                 Decimal        @db2.Decimal(15, 3)
+  prod_valor_unitario_pvi                                             Decimal        @db2.Decimal(20, 10)
+  prod_ean_pvi                                                        String?        @db2.VarChar(14)
+  prod_codigo_pvi                                                     String?        @db2.VarChar(60)
+  valor_total_pvi                                                     Decimal?       @db2.Decimal(20, 10)
+  id_lista_preco_pvi                                                  Int?
+  pedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda pedidos_venda? @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda", fields: [id_lista_preco_pvi], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_lista_preco_idx")
+  pedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_venda      pedidos_venda? @relation("pedidos_venda_itens_id_pedido_pviTopedidos_venda", fields: [id_pedido_pvi], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_pedido_idx")
+  produtos                                                            produtos?      @relation(fields: [id_produto_pvi], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_produto_idx")
+
+  @@index([id_lista_preco_pvi], map: "fk_pvi_lista_preco_idx")
+  @@index([id_pedido_pvi], map: "fk_pvi_pedido_idx")
+  @@index([id_produto_pvi], map: "fk_pvi_produto_idx")
+}
+
+model pedidos_venda_pagamentos {
+  id_pvp              Int            @id @default(autoincrement())
+  id_pedido_pvp       Int?
+  forma_pagamento_pvp String         @db2.VarChar(2)
+  valor_pvp           Decimal        @db2.Decimal(20, 10)
+  data_criacao_pvp    DateTime       @db2.DateTime(0)
+  data_vencimento_pvp DateTime       @db2.DateTime(0)
+  pedidos_venda       pedidos_venda? @relation(fields: [id_pedido_pvp], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvp_pedido_idx")
+
+  @@index([id_pedido_pvp], map: "fk_pvp_pedido_idx")
+}
+
+model permissoes {
+  id_permissao                Int             @id @default(autoincrement())
+  id_grupo_usuarios_permissao Int
+  nm_permissao                String          @db2.VarChar(45)
+  modulo_permissao            String          @db2.VarChar(45)
+  criar_permissao             Int             @default(0)
+  ler_permissao               Int             @default(0)
+  atualizar_permissao         Int             @default(0)
+  deletar_permissao           Int             @default(0)
+  grupos_usuarios             grupos_usuarios @relation(fields: [id_grupo_usuarios_permissao], references: [id_gu], onDelete: NoAction, onUpdate: NoAction, map: "fk_permissoes_grupos_usuarios_idx")
+
+  @@index([id_grupo_usuarios_permissao], map: "fk_permissoes_grupos_usuarios_idx")
+}
+
+model produtos {
+  id_prod                Int                      @id @default(autoincrement())
+  id_sirius_prod         Int?                     @unique(map: "id_sirius_prod_UNIQUE")
+  cod_prod               String                   @unique(map: "cod_prod_UNIQUE") @db2.VarChar(60)
+  descricao_prod         String                   @db2.VarChar(120)
+  cod_ean_prod           String                   @unique(map: "cod_ean_prod_UNIQUE") @db2.VarChar(14)
+  ncm_prod               String                   @db2.VarChar(8)
+  cfop_prod              String                   @db2.VarChar(4)
+  un_com_prod            String?                  @db2.VarChar(6)
+  qtd_com_prod           Decimal?                 @db2.Decimal(15, 3)
+  vlr_un_com_prod        Decimal?                 @db2.Decimal(20, 10)
+  vlr_prod               Decimal?                 @db2.Decimal(20, 10)
+  cod_ean_trib_prod      String?                  @db2.VarChar(14)
+  un_trib_prod           String?                  @db2.VarChar(6)
+  qtd_trib_prod          Decimal?                 @db2.Decimal(15, 3)
+  vlr_un_trib_prod       Decimal?                 @db2.Decimal(20, 10)
+  saldo_prod             Decimal?                 @db2.Decimal(15, 3)
+  status_prod            String                   @db2.VarChar(1)
+  texto_produto          String?                  @db2.VarChar(200)
+  novo_produto           Boolean?                 @default(false)
+  acucar_produto         Boolean?                 @default(false)
+  lactose_produto        Boolean?                 @default(false)
+  gluten_produto         Boolean?                 @default(false)
+  vegetariano_produto    Boolean?                 @default(false)
+  vegano_produto         Boolean?                 @default(false)
+  clientes_produtos      clientes_produtos[]
+  listas_precos_produtos listas_precos_produtos[]
+  pedidos_venda_itens    pedidos_venda_itens[]
+  produtos_extras        produtos_extras[]
+  produtos_movimentacoes produtos_movimentacoes[]
+}
+
+model produtos_extras {
+  id_produto_pe Int
+  id_extra_pe   Int
+  extras        extras   @relation(fields: [id_extra_pe], references: [id_extra], onDelete: NoAction, onUpdate: NoAction, map: "fk_pe_extras_idx")
+  produtos      produtos @relation(fields: [id_produto_pe], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_pe_produtos_idx")
+
+  @@id([id_produto_pe, id_extra_pe])
+  @@index([id_extra_pe], map: "fk_pe_extras_idx")
+  @@index([id_produto_pe], map: "fk_pe_produtos_idx")
+}
+
+model produtos_movimentacoes {
+  id_pm                 Int            @id @default(autoincrement())
+  id_pedido_venda_pm    Int?
+  id_produto_pm         Int
+  id_usuario_pm         Int
+  saldo_anterior_pm     Decimal?       @db2.Decimal(15, 3)
+  saldo_atual_pm        Decimal?       @db2.Decimal(15, 3)
+  quantidade_pm         Decimal        @db2.Decimal(15, 3)
+  tipo_movimentacao_pm  String
+  data_hora_pm          DateTime       @default(now())
+  numero_nota_fiscal_pm Int?
+  observacao_pm         String?
+  pedidos_venda         pedidos_venda? @relation(fields: [id_pedido_venda_pm], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pm_pedido_venda_idx")
+  produtos              produtos       @relation(fields: [id_produto_pm], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_pm_produtos_idx")
+
+  @@index([id_pedido_venda_pm], map: "fk_pm_pedido_venda_idx")
+  @@index([id_produto_pm], map: "fk_pm_produtos_idx")
+}
+
+model restaurantes {
+  id_restaurante         Int                 @id @default(autoincrement())
+  id_empresa_restaurante Int
+  id_imagem_restaurante  Int?
+  nm_restaurante         String?             @db2.VarChar(149)
+  carousel_images        carousel_images[]
+  first_page_images      first_page_images[]
+  menus                  menus[]
+  imagens                imagens?            @relation(fields: [id_imagem_restaurante], references: [id_imagem], onDelete: NoAction, onUpdate: NoAction, map: "fk_restaurante_imagens_idx")
+
+  @@index([id_imagem_restaurante], map: "fk_restaurante_imagens_idx")
+}
+
+model submenus {
+  id_submenu      Int     @id @default(autoincrement())
+  id_menu_submenu Int
+  titulo_submenu  String  @db2.VarChar(200)
+  texto_submenu   String? @db2.VarChar(200)
+  menus           menus   @relation(fields: [id_menu_submenu], references: [id_menu], onDelete: NoAction, onUpdate: NoAction, map: "fk_submenu_menus_idx")
+
+  @@index([id_menu_submenu], map: "fk_submenus_menus_idx")
+}
+
+model transportadores {
+  id_transportador        Int             @id @default(autoincrement())
+  id_sirius_transportador Int             @unique(map: "id_sirius_transportador_UNIQUE")
+  nm_transportador        String          @db2.VarChar(120)
+  status_transportador    String          @default("A") @db2.VarChar(1)
+  pedidos_venda           pedidos_venda[]
+}
+
+model usuarios_grupos_usuarios {
+  id_ugu                 Int             @id @default(autoincrement())
+  id_usuario_ugu         Int             @unique(map: "id_usuario_ugu_UNIQUE")
+  id_grupos_usuarios_ugu Int
+  grupos_usuarios        grupos_usuarios @relation(fields: [id_grupos_usuarios_ugu], references: [id_gu], onDelete: NoAction, onUpdate: NoAction, map: "fk_ugu_grupos_usuarios_idx")
+
+  @@index([id_grupos_usuarios_ugu], map: "fk_ugu_grupos_usuarios_idx")
+}
+
+model vendedores {
+  id_vendedor                   Int                   @id @default(autoincrement())
+  id_sirius_vendedor            Int?                  @unique(map: "id_sirius_vendedor_UNIQUE")
+  nm_vendedor                   String                @db2.VarChar(80)
+  apelido_vendedor              String?               @db2.VarChar(80)
+  status_vendedor               String                @db2.Char(1)
+  cpf_vendedor                  String?               @unique(map: "cpf_vendedor_UNIQUE") @db2.VarChar(14)
+  cnpj_vendedor                 String?               @unique(map: "cnpj_vendedor_UNIQUE") @db2.VarChar(18)
+  insc_estadual_vendedor        String?               @db2.VarChar(15)
+  rg_vendedor                   String?               @unique(map: "rg_vendedor_UNIQUE") @db2.VarChar(12)
+  telefone_vendedor             String?               @db2.VarChar(21)
+  celular_vendedor              String?               @db2.VarChar(20)
+  email_vendedor                String?               @db2.VarChar(80)
+  fax_vendedor                  String?               @db2.VarChar(80)
+  pessoa_contato_vendedor       String?               @db2.VarChar(80)
+  cep_vendedor                  String?               @db2.VarChar(10)
+  logradouro_vendedor           String?               @db2.VarChar(80)
+  numero_vendedor               Int?
+  complemento_vendedor          String?               @db2.VarChar(80)
+  bairro_vendedor               String?               @db2.VarChar(80)
+  regiao_vendedor               String?               @db2.VarChar(80)
+  cidade_vendedor               String?               @db2.VarChar(80)
+  uf_vendedor                   String?               @db2.Char(2)
+  departamento_vendedor         String?               @db2.VarChar(80)
+  porcentagem_comissao_vendedor Decimal?              @db2.Decimal(7, 4)
+  porcentagem_desc_max_vendedor Decimal?              @db2.Decimal(7, 4)
+  nm_banco_vendedor             String?               @db2.VarChar(80)
+  numero_banco_vendedor         String?               @db2.VarChar(80)
+  agencia_vendedor              String?               @db2.VarChar(80)
+  digito_agencia_vendedor       String?               @db2.VarChar(80)
+  conta_vendedor                String?               @db2.VarChar(80)
+  digito_conta_vendedor         String?               @db2.VarChar(80)
+  observacoes_vendedor          String?               @db2.VarChar(255)
+  pedidos_venda                 pedidos_venda[]
+  vendedores_usuarios           vendedores_usuarios[]
+}
+
+model vendedores_usuarios {
+  id_vu                 Int         @id @default(autoincrement())
+  id_usuario_vu         Int?        @unique(map: "id_usuario_vu_UNIQUE")
+  id_vendedor_vu        Int?
+  id_sirius_vendedor_vu Int?        @unique(map: "id_sirius_vendedor_vu_UNIQUE")
+  vendedores            vendedores? @relation(fields: [id_vendedor_vu], references: [id_vendedor], onDelete: NoAction, onUpdate: NoAction, map: "fk_vu_vendedores_idx")
+
+  @@index([id_vendedor_vu], map: "fk_vu_vendedores_idx")
+}

@@ -10,7 +10,7 @@ const createPrismaClient = (databaseUrl: string) => {
 	});
 };
 
-const prismaAntigo = createPrismaClient(process.env.DATABASE_URL || "");
-const prismaNovo = createPrismaClient(process.env.DATABASE2_URL || "");
+const prismaNovo = createPrismaClient(process.env.DATABASE_URL || "");
+const prismaAntigo = createPrismaClient(process.env.DATABASE2_URL || "");
 
 export { prismaAntigo, prismaNovo };
