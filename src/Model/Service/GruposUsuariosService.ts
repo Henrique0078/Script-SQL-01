@@ -15,6 +15,9 @@ export default class GruposUsuariosService{
 				const antigoCertiticado = await prismaAntigo.grupos_usuarios.count();
 				console.log(antigoCertiticado, " registros localizados em Grupos Usuarios antigo");
 				console.log(totalProdutos, " registros adicionados em Grupos Usuarios novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Grupos usuarios vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Grupos Usuarios: " + error);

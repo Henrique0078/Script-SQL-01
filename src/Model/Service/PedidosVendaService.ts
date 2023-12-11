@@ -21,7 +21,7 @@ export default class PedidosVendaService{
 				cliente_contato_pv: PedidosVenda.cliente_contato,
 				data_realizacao_pv: PedidosVenda.data_realizacao,
 				data_sincronizacao_pv: PedidosVenda.data_sincronizacao,
-				id_condicao_pagamento_pv: parseInt(convertBigIntToString(PedidosVenda.condicao_pagamento_id)),
+				id_condicao_pagamento_pv: parseInt(convertBigIntToString(PedidosVenda.condicao_pagamento_id)) > 0 ? parseInt(convertBigIntToString(PedidosVenda.condicao_pagamento_id)) : null,
 				entrega_cep_pv: PedidosVenda.entrega_cep,
 				entrega_logradouro_pv: PedidosVenda.entrega_logradouro,
 				entrega_numero_pv: PedidosVenda.entrega_numero,
@@ -29,9 +29,9 @@ export default class PedidosVendaService{
 				entrega_bairro_pv: PedidosVenda.entrega_bairro,
 				entrega_cidade_pv: PedidosVenda.entrega_cidade,
 				entrega_uf_pv: PedidosVenda.entrega_uf,
-				id_transportadores_pv: PedidosVenda.id_transportador_sirius,
-				id_modalidade_frete_pv: PedidosVenda.modalidade_frete,
-				id_cliente_encolheu_pv: PedidosVenda.id_pedido_cliente,
+				id_transportadores_pv: PedidosVenda.id_transportador_sirius > 0 ? PedidosVenda.id_transportador_sirius : null,
+				id_modalidade_frete_pv: PedidosVenda.modalidade_frete > 0 ? PedidosVenda.modalidade_frete : null,
+				id_cliente_escolheu_pv: PedidosVenda.id_pedido_cliente,
 				pagamento_pv: null,
 				troco_pv: null
 			}));
@@ -41,6 +41,9 @@ export default class PedidosVendaService{
 				const antigoCertiticado = await prismaAntigo.pedidos_venda.count();
 				console.log(antigoCertiticado, " registros localizados em Pedidos venda antigo");
 				console.log(totalProdutos, " registros adicionados em Pedidos venda novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Pedidos Venda vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Pedidos Venda: " + error);

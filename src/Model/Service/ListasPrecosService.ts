@@ -17,6 +17,9 @@ export default class ListasPrecos{
 				const antigoCertiticado = await prismaAntigo.listas_precos.count();
 				console.log(antigoCertiticado, " registros localizados em Listas precos antigo");
 				console.log(totalProdutos, " registros adicionados em Listas precos novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Lista Preco vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Lista Precos: " + error);

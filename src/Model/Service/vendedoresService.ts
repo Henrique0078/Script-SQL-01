@@ -9,6 +9,8 @@ export default class VendedoresService{
 		try {
 			const vendedoresAntigos = await prismaAntigo.vendedores.findMany({});
 			const vendedores: vendedores[] = vendedoresAntigos.map((vendedorAntigo) => ({
+				id_sirius_vendedor: parseInt(convertBigIntToString(vendedorAntigo.id_sirius)),
+				id_vendedor: parseInt(convertBigIntToString(vendedorAntigo.id)),
 				agencia_vendedor: vendedorAntigo.agencia,
 				apelido_vendedor: vendedorAntigo.apelido,
 				bairro_vendedor: vendedorAntigo.bairro,
@@ -24,13 +26,10 @@ export default class VendedoresService{
 				digito_conta_vendedor: vendedorAntigo.digitoConta,
 				email_vendedor: vendedorAntigo.email,
 				fax_vendedor: vendedorAntigo.fax,
-				id_sirius_vendedor: parseInt(convertBigIntToString(vendedorAntigo.id_sirius)),
-				id_vendedor: parseInt(convertBigIntToString(vendedorAntigo.id)),
 				insc_estadual_vendedor: vendedorAntigo.inscEstadual,
 				logradouro_vendedor: vendedorAntigo.logradouro,
-				nome_vendedor: vendedorAntigo.nome,
-				nm_banco_vendedor: vendedorAntigo.numeroBanco,
 				nm_vendedor: vendedorAntigo.nome,
+				nm_banco_vendedor: vendedorAntigo.numeroBanco,
 				numero_banco_vendedor: vendedorAntigo.numeroBanco,
 				numero_vendedor: vendedorAntigo.numero,
 				observacoes_vendedor: vendedorAntigo.observacoes,
@@ -49,6 +48,9 @@ export default class VendedoresService{
 				const antigoCertiticado = await prismaAntigo.vendedores.count();
 				console.log(antigoCertiticado, " registros localizados em Vendedores antigo");
 				console.log(totalProdutos, " registros adicionados em Vendedores novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Vendedores vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar vendedores: " + error);

@@ -19,6 +19,9 @@ export default class CertificadoService{
 				const antigoCertiticado = await prismaAntigo.certificado.count();
 				console.log(antigoCertiticado, " registros localizados em Certificado antigo");
 				console.log(totalProdutos, " registros adicionados em Certificado novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Certificado vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Certificado: " + error);

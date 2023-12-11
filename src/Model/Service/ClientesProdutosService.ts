@@ -21,6 +21,9 @@ export default class ClientesProdutosService{
 				const antigoCertiticado = await prismaAntigo.clientes_x_produtos.count();
 				console.log(antigoCertiticado, " registros localizados em Cliente Produtos antigo");
 				console.log(totalProdutos, " registros adicionados em Cliente Produtos novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Clientes Produtos vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar clientes: " + error);

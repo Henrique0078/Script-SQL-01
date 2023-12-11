@@ -11,11 +11,14 @@ datasource db2 {
 }
 
 model atividades_grupos {
-  id_ag                 Int     @id @default(autoincrement())
+  id_ag                 Int             @id @default(autoincrement())
   id_grupos_usuarios_ag Int
   id_atividade_ag       Int
-  valor_ag              Int?    @default(0)
-  descricao_ag          String? @db2.VarChar(60)
+  valor_ag              Int?            @default(0)
+  descricao_ag          String?         @db2.VarChar(60)
+  grupos_usuarios       grupos_usuarios @relation(fields: [id_grupos_usuarios_ag], references: [id_gu], onDelete: NoAction, onUpdate: NoAction, map: "fk_ag_grupos_usuarios_idx")
+
+  @@index([id_grupos_usuarios_ag], map: "fk_ag_grupos_usuarios_idx")
 }
 
 model carousel_images {
@@ -46,8 +49,8 @@ model clientes {
   updated_at_cliente                   DateTime             @db2.DateTime(6)
   razao_social_cliente                 String               @db2.VarChar(60)
   fantasia_cliente                     String?              @db2.VarChar(60)
-  cpf_cliente                          String               @unique(map: "cpf_cliente_UNIQUE") @db2.VarChar(11)
-  cnpj_cliente                         String               @unique(map: "cnpj_cliente_UNIQUE") @db2.VarChar(14)
+  cpf_cliente                          String               @db2.VarChar(11)
+  cnpj_cliente                         String               @db2.VarChar(14)
   id_estrangeiro_cliente               String?              @db2.VarChar(20)
   ind_ie_cliente                       String?              @db2.VarChar(1)
   insc_estadual_cliente                String?              @db2.VarChar(15)
@@ -166,6 +169,7 @@ model fornecedores {
 model grupos_usuarios {
   id_gu                    Int                        @id @default(autoincrement())
   nm_gu                    String                     @unique(map: "nm_gu_UNIQUE") @db2.VarChar(100)
+  atividades_grupos        atividades_grupos[]
   permissoes               permissoes[]
   usuarios_grupos_usuarios usuarios_grupos_usuarios[]
 }
@@ -324,9 +328,9 @@ model permissoes {
 model produtos {
   id_prod                Int                      @id @default(autoincrement())
   id_sirius_prod         Int?                     @unique(map: "id_sirius_prod_UNIQUE")
-  cod_prod               String                   @unique(map: "cod_prod_UNIQUE") @db2.VarChar(60)
+  cod_prod               String?                  @db2.VarChar(60)
   descricao_prod         String                   @db2.VarChar(120)
-  cod_ean_prod           String                   @unique(map: "cod_ean_prod_UNIQUE") @db2.VarChar(14)
+  cod_ean_prod           String?                  @db2.VarChar(14)
   ncm_prod               String                   @db2.VarChar(8)
   cfop_prod              String                   @db2.VarChar(4)
   un_com_prod            String?                  @db2.VarChar(6)
@@ -429,10 +433,10 @@ model vendedores {
   nm_vendedor                   String                @db2.VarChar(80)
   apelido_vendedor              String?               @db2.VarChar(80)
   status_vendedor               String                @db2.Char(1)
-  cpf_vendedor                  String?               @unique(map: "cpf_vendedor_UNIQUE") @db2.VarChar(14)
-  cnpj_vendedor                 String?               @unique(map: "cnpj_vendedor_UNIQUE") @db2.VarChar(18)
+  cpf_vendedor                  String?               @db2.VarChar(14)
+  cnpj_vendedor                 String?               @db2.VarChar(18)
   insc_estadual_vendedor        String?               @db2.VarChar(15)
-  rg_vendedor                   String?               @unique(map: "rg_vendedor_UNIQUE") @db2.VarChar(12)
+  rg_vendedor                   String?               @db2.VarChar(12)
   telefone_vendedor             String?               @db2.VarChar(21)
   celular_vendedor              String?               @db2.VarChar(20)
   email_vendedor                String?               @db2.VarChar(80)

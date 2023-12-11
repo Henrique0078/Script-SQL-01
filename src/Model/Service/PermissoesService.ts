@@ -21,6 +21,9 @@ export default class PermissoesService{
 				const antigoCertiticado = await prismaAntigo.permissoes.count();
 				console.log(antigoCertiticado, " registros localizados em Permissoes antigo");
 				console.log(totalProdutos, " registros adicionados em Permissoes novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Permissoes vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Permissoes: " + error);

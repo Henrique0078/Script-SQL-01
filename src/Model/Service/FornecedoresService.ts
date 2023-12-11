@@ -34,6 +34,9 @@ export default class FornecedoresService{
 				const antigoCertiticado = await prismaAntigo.fornecedores.count();
 				console.log(antigoCertiticado, " registros localizados em Fornecedores antigo");
 				console.log(totalProdutos, " registros adicionados em Fornecedores novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Fornecedores vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar fornecedores: " + error);

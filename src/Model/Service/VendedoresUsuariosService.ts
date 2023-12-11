@@ -18,6 +18,9 @@ export default class VendedoresUsuarios{
 				const antigoCertiticado = await prismaAntigo.vendedores_x_usuarios.count();
 				console.log(antigoCertiticado, " registros localizados em Vendedores Usuarios antigo");
 				console.log(totalProdutos, " registros adicionados em Vendedores Usuarios novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Vendedores usuarios vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Vendedores Usuarios: " + error);

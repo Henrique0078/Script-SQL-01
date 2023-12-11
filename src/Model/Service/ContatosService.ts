@@ -19,6 +19,9 @@ export default class ContatosService{
 				const antigoCertiticado = await prismaAntigo.contatos.count();
 				console.log(antigoCertiticado, " registros localizados em Contatos antigo");
 				console.log(totalProdutos, " registros adicionados em Contatos novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Contatos vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Pedidos venda itens: " + error);

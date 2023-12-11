@@ -17,6 +17,9 @@ export default class ParametrosService{
 				const antigoCertiticado = await prismaAntigo.parametros.count();
 				console.log(antigoCertiticado, " registros localizados em Parametros antigo");
 				console.log(totalProdutos, " registros adicionados em Parametros novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Parametros vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Parametros: " + error);

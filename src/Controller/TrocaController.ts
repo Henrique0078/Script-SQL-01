@@ -1,3 +1,4 @@
+import { prismaNovo } from "../../prisma";
 import CertificadoService from "../Model/Service/CertificadoService";
 import ClientesProdutosService from "../Model/Service/ClientesProdutosService";
 import ClientesService from "../Model/Service/ClientesService";
@@ -22,7 +23,7 @@ import VendedoresUsuarios from "../Model/Service/VendedoresUsuariosService";
 export class TrocaController{
 	async troca(){
 		const certificado = new CertificadoService();
-		const vendedores = new VendedoresService();
+		const vendedores = new VendedoresService(); //funfou
 		const condicao_pagamento = new CondicoesPagamentoService();
 		const clientes = new ClientesService();
 		const enderecos = new EnderecosService();
@@ -42,25 +43,37 @@ export class TrocaController{
 		const pedidos_venda_pagamentos = new PedidosVendaPagamentosService();
 		const clientes_produtos = new ClientesProdutosService();
         
-		certificado.troca();
-		vendedores.troca();
-		condicao_pagamento.troca();
-		clientes.troca();
-		enderecos.troca();
-		contatos.troca();
-		fornecedores.troca();
-		grupos_usuarios.troca();
-		vendedores_usuarios.troca();
-		usuarios_grupos_usuarios.troca();
-		permissoes.troca();
-		parametros.troca();
-		transportadores.troca();
-		produtos.troca();
-		lista_preco.troca();
-		listas_precos_produtos.troca();
-		pedidos_venda.troca();
-		pedidos_venda_itens.troca();
-		pedidos_venda_pagamentos.troca();
-		clientes_produtos.troca();
+		await certificado.troca();
+		await vendedores.troca();
+		await condicao_pagamento.troca();
+		const condicaoPagamentoAntigaComMaiorPK = await prismaNovo.condicoes_pagamento.findFirst({
+			orderBy: {
+				id_cp: "desc",
+			},
+		});
+		await clientes.troca(condicaoPagamentoAntigaComMaiorPK.id_cp);
+		await enderecos.troca();
+		await contatos.troca();
+		await fornecedores.troca();
+		await grupos_usuarios.troca();
+		await vendedores_usuarios.troca();
+		await usuarios_grupos_usuarios.troca();
+		await permissoes.troca();
+		await parametros.troca();
+		await transportadores.troca();
+		await produtos.troca();
+		await lista_preco.troca();
+		const listaPrecoNovaComMaiorPK = await prismaNovo.listas_precos.findFirst({
+			orderBy: {
+				id_lp: "desc",
+			},
+		});
+		await listas_precos_produtos.troca();
+		await pedidos_venda.troca();
+		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp);
+		await pedidos_venda_pagamentos.troca();
+		await clientes_produtos.troca();
+		console.log("-----------------------------------------------------");
+		console.log("CABOOOOOOOOOOOOOOOOOOOOOOOOOOU");
 	}
 }

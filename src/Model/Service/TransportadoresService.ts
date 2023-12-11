@@ -17,6 +17,9 @@ export default class TransportadoreService{
 				const antigoCertiticado = await prismaAntigo.transportadores.count();
 				console.log(antigoCertiticado, " registros localizados em Transportadores antigo");
 				console.log(totalProdutos, " registros adicionados em Transportadores novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Transportadores vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Transportadores: " + error);

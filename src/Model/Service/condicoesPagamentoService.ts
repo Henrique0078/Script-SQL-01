@@ -18,6 +18,9 @@ export default class CondicoesPagamentoService{
 				const antigoCertiticado = await prismaAntigo.condicoes_pagamento.count();
 				console.log(antigoCertiticado, " registros localizados em condicoes pagamento antigo");
 				console.log(totalProdutos, " registros adicionados em condicoes pagamento novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Condicoes pagamento vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Condições de Pagamento: " + error);

@@ -5,7 +5,7 @@ import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
 export default class PedidosVendaItensService{
-	async troca(){
+	async troca(listaPrecoNovaComMaiorPK: number){
 		try {
 			const PedidosVendaItensAntigos = await prismaAntigo.pedidos_venda_itens.findMany({});
 			const PedidosVendaItensNovos: pedidos_venda_itens[] = PedidosVendaItensAntigos.map((PedidosVendaItens)=>({
@@ -20,7 +20,7 @@ export default class PedidosVendaItensService{
 				prod_ean_pvi: null,
 				prod_codigo_pvi: PedidosVendaItens.codigo,
 				valor_total_pvi: PedidosVendaItens.valor_total,
-				id_lista_preco_pvi: PedidosVendaItens.idListaPreco
+				id_lista_preco_pvi: PedidosVendaItens.idListaPreco > 0 && PedidosVendaItens.idListaPreco < listaPrecoNovaComMaiorPK ? PedidosVendaItens.idListaPreco : null
 			}));
 			if(PedidosVendaItensNovos.length > 0){
 				await prismaNovo.pedidos_venda_itens.createMany({data: PedidosVendaItensNovos});
@@ -28,6 +28,9 @@ export default class PedidosVendaItensService{
 				const antigoCertiticado = await prismaAntigo.pedidos_venda_itens.count();
 				console.log(antigoCertiticado, " registros localizados em Pedidos venda itens antigo");
 				console.log(totalProdutos, " registros adicionados em Pedidos venda itens novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Pedidos Venda Itens vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Pedidos venda itens: " + error);

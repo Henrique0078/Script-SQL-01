@@ -4,13 +4,15 @@ import { clienteNovo } from "../Interfaces/clientesInterface";
 import { convertBigIntToString } from "../Utils";
 
 export default class ClientesService{
-	async troca(){
+	async troca(condicao_pagamento: number){
 		try {
 			const clientesAntigos = await prismaAntigo.clientes.findMany({});
 			const clientes: clienteNovo[] = clientesAntigos.map((clienteAntigo) => ({
 				id_cliente: parseInt(convertBigIntToString(clienteAntigo.id)),
 				id_sirius_cliente: parseInt(convertBigIntToString(clienteAntigo.id_sirius)),
 				status_cliente: clienteAntigo.status,
+				id_lista_preco_cliente: parseInt(convertBigIntToString(clienteAntigo.lista_preco_id)) > 0 ? parseInt(convertBigIntToString(clienteAntigo.lista_preco_id)) : null,
+				id_condicao_pagamento_cliente: parseInt(convertBigIntToString(clienteAntigo.condicao_pagamento_id)) > 0 && parseInt(convertBigIntToString(clienteAntigo.condicao_pagamento_id)) < condicao_pagamento ? parseInt(convertBigIntToString(clienteAntigo.condicao_pagamento_id)) : null,
 				created_at_cliente: clienteAntigo.dataFoiCadastrado,
 				updated_at_cliente: clienteAntigo.dataUltimaAtualizacao,
 				razao_social_cliente: clienteAntigo.razaoSocial,
@@ -25,8 +27,6 @@ export default class ClientesService{
 				exclusivo_cliente: clienteAntigo.exclusivo,
 				id_vendedor_cliente: parseInt(convertBigIntToString(clienteAntigo.vendedor_id)),
 				id_vendedor_sirius_cliente: parseInt(convertBigIntToString(clienteAntigo.vendedor_id_sirius)),
-				id_lista_preco_cliente: parseInt(convertBigIntToString(clienteAntigo.lista_preco_id)),
-				id_condicao_pagamento_cliente: parseInt(convertBigIntToString(clienteAntigo.condicao_pagamento_id)),
 				contato_cliente: clienteAntigo.contato,
 				nm_contato_cliente: clienteAntigo.contato_nome,
 				id_condicao_pagamento_sirius_cliente: clienteAntigo.condicao_pagamento_id_sirius,
@@ -37,6 +37,9 @@ export default class ClientesService{
 				const antigoCertiticado = await prismaAntigo.clientes.count();
 				console.log(antigoCertiticado, " registros localizados em Clientes antigo");
 				console.log(totalProdutos, " registros adicionados em Clientes novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Clientes vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar clientes: " + error);

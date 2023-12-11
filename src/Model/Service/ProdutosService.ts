@@ -9,9 +9,9 @@ export default class ProdutosService{
 			const ProdutosNovos = ProdutosAntigos.map((ProdutosAntigo)=>({
 				id_prod: parseInt(convertBigIntToString(ProdutosAntigo.id)),
 				id_sirius_prod: parseInt(convertBigIntToString(ProdutosAntigo.id_sirius)),
-				cod_prod: ProdutosAntigo.codProduto,
+				cod_prod: ProdutosAntigo.codProduto != "" ? ProdutosAntigo.codProduto : null,
 				descricao_prod: ProdutosAntigo.descricao,
-				cod_ean_prod: ProdutosAntigo.codEAN,
+				cod_ean_prod: ProdutosAntigo.codEAN != "" ? ProdutosAntigo.codEAN : null,
 				ncm_prod: ProdutosAntigo.ncm,
 				cfop_prod: ProdutosAntigo.cfop,
 				un_com_prod: ProdutosAntigo.unCom,
@@ -38,6 +38,9 @@ export default class ProdutosService{
 				const antigoCertiticado = await prismaAntigo.produtos.count();
 				console.log(antigoCertiticado, " registros localizados em Produtos antigo");
 				console.log(totalProdutos, " registros adicionados em Produtos novo");
+				console.log("-----------------------------------------------------");
+			}else{
+				console.log("Produtos vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Produtos: " + error);
