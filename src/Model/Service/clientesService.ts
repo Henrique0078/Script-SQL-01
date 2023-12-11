@@ -33,6 +33,10 @@ export default class ClientesService{
 			}));
 			if(clientes.length > 0){
 				await prismaNovo.clientes.createMany({data: clientes});
+				const totalProdutos = await prismaNovo.clientes.count();
+				const antigoCertiticado = await prismaAntigo.clientes.count();
+				console.log(antigoCertiticado, " registros localizados em Clientes antigo");
+				console.log(totalProdutos, " registros adicionados em Clientes novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar clientes: " + error);

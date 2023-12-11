@@ -13,6 +13,10 @@ export default class ParametrosService{
 			}));
 			if(ParametrosNovos.length > 0){
 				await prismaNovo.parametros.createMany({data: ParametrosNovos});
+				const totalProdutos = await prismaNovo.parametros.count();
+				const antigoCertiticado = await prismaAntigo.parametros.count();
+				console.log(antigoCertiticado, " registros localizados em Parametros antigo");
+				console.log(totalProdutos, " registros adicionados em Parametros novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Parametros: " + error);

@@ -25,6 +25,10 @@ export default class EnderecosService{
 			}));
 			if(EnderecosNovos.length > 0){
 				await prismaNovo.enderecos.createMany({data: EnderecosNovos});
+				const totalProdutos = await prismaNovo.enderecos.count();
+				const antigoCertiticado = await prismaAntigo.enderecos.count();
+				console.log(antigoCertiticado, " registros localizados em Produtos antigo");
+				console.log(totalProdutos, " registros adicionados em Produtos novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Enderecos: " + error);

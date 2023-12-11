@@ -34,6 +34,10 @@ export default class ProdutosService{
 			}));
 			if(ProdutosNovos.length > 0){
 				await prismaNovo.produtos.createMany({data: ProdutosNovos});
+				const totalProdutos = await prismaNovo.produtos.count();
+				const antigoCertiticado = await prismaAntigo.produtos.count();
+				console.log(antigoCertiticado, " registros localizados em Produtos antigo");
+				console.log(totalProdutos, " registros adicionados em Produtos novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Produtos: " + error);

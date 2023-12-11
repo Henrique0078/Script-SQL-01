@@ -13,6 +13,10 @@ export default class TransportadoreService{
 			}));
 			if(TransportadoresNovos.length > 0){
 				await prismaNovo.transportadores.createMany({data: TransportadoresNovos});
+				const totalProdutos = await prismaNovo.transportadores.count();
+				const antigoCertiticado = await prismaAntigo.transportadores.count();
+				console.log(antigoCertiticado, " registros localizados em Transportadores antigo");
+				console.log(totalProdutos, " registros adicionados em Transportadores novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Transportadores: " + error);

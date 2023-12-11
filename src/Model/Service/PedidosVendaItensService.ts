@@ -24,6 +24,10 @@ export default class PedidosVendaItensService{
 			}));
 			if(PedidosVendaItensNovos.length > 0){
 				await prismaNovo.pedidos_venda_itens.createMany({data: PedidosVendaItensNovos});
+				const totalProdutos = await prismaNovo.pedidos_venda_itens.count();
+				const antigoCertiticado = await prismaAntigo.pedidos_venda_itens.count();
+				console.log(antigoCertiticado, " registros localizados em Pedidos venda itens antigo");
+				console.log(totalProdutos, " registros adicionados em Pedidos venda itens novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Pedidos venda itens: " + error);

@@ -17,6 +17,10 @@ export default class PermissoesService{
 			}));
 			if (PermissoesNovas.length > 0){
 				await prismaNovo.permissoes.createMany({data: PermissoesNovas});
+				const totalProdutos = await prismaNovo.permissoes.count();
+				const antigoCertiticado = await prismaAntigo.permissoes.count();
+				console.log(antigoCertiticado, " registros localizados em Permissoes antigo");
+				console.log(totalProdutos, " registros adicionados em Permissoes novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Permissoes: " + error);

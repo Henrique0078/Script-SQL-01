@@ -15,6 +15,10 @@ export default class ListasPrecosProdutos{
 			}));
 			if(ListasPrecosProdutosNovos.length > 0){
 				await prismaNovo.listas_precos_produtos.createMany({data: ListasPrecosProdutosNovos});
+				const totalProdutos = await prismaNovo.listas_precos_produtos.count();
+				const antigoCertiticado = await prismaAntigo.listas_precos_x_produtos.count();
+				console.log(antigoCertiticado, " registros localizados em Listas precos Produtos antigo");
+				console.log(totalProdutos, " registros adicionados em Listas precos Produtos novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Listas precos produtos: " + error);

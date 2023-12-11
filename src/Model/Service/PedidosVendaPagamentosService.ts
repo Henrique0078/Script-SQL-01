@@ -17,6 +17,10 @@ export default class PedidosVendaPagamentosService{
 			}));
 			if(PedidosVendaPagamentosNovos.length > 0){
 				await prismaNovo.pedidos_venda_pagamentos.createMany({data: PedidosVendaPagamentosNovos});
+				const totalProdutos = await prismaNovo.pedidos_venda_pagamentos.count();
+				const antigoCertiticado = await prismaAntigo.pedidos_venda_pagamentos.count();
+				console.log(antigoCertiticado, " registros localizados em Pedidos venda pagamentos antigo");
+				console.log(totalProdutos, " registros adicionados em Pedidos venda pagamentos novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Pedidos Venda Pagamentos: " + error);

@@ -3,7 +3,7 @@ import { contatos } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
-export default class PedidosVendaItensService{
+export default class ContatosService{
 	async troca(){
 		try {
 			const ContatosAntigos = await prismaAntigo.contatos.findMany({});
@@ -15,6 +15,10 @@ export default class PedidosVendaItensService{
 			}));
 			if(ContatosNovos.length > 0){
 				await prismaNovo.contatos.createMany({data: ContatosNovos});
+				const totalProdutos = await prismaNovo.contatos.count();
+				const antigoCertiticado = await prismaAntigo.contatos.count();
+				console.log(antigoCertiticado, " registros localizados em Contatos antigo");
+				console.log(totalProdutos, " registros adicionados em Contatos novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Pedidos venda itens: " + error);

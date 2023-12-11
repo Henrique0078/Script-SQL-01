@@ -37,6 +37,10 @@ export default class PedidosVendaService{
 			}));
 			if(PedidosVendaNovos.length > 0){
 				await prismaNovo.pedidos_venda.createMany({data: PedidosVendaNovos});
+				const totalProdutos = await prismaNovo.pedidos_venda.count();
+				const antigoCertiticado = await prismaAntigo.pedidos_venda.count();
+				console.log(antigoCertiticado, " registros localizados em Pedidos venda antigo");
+				console.log(totalProdutos, " registros adicionados em Pedidos venda novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Pedidos Venda: " + error);

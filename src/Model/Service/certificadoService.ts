@@ -15,6 +15,10 @@ export default class CertificadoService{
 			}));
 			if(certificados.length > 0){
 				await prismaNovo.certificado.createMany({data: certificados});
+				const totalProdutos = await prismaNovo.certificado.count();
+				const antigoCertiticado = await prismaAntigo.certificado.count();
+				console.log(antigoCertiticado, " registros localizados em Certificado antigo");
+				console.log(totalProdutos, " registros adicionados em Certificado novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Certificado: " + error);

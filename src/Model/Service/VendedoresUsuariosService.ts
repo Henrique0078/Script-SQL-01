@@ -14,6 +14,10 @@ export default class VendedoresUsuarios{
 			}));
 			if(vendedoresUsuariosNovos.length > 0){
 				await prismaNovo.vendedores_usuarios.createMany({data: vendedoresUsuariosNovos});
+				const totalProdutos = await prismaNovo.vendedores_usuarios.count();
+				const antigoCertiticado = await prismaAntigo.vendedores_x_usuarios.count();
+				console.log(antigoCertiticado, " registros localizados em Vendedores Usuarios antigo");
+				console.log(totalProdutos, " registros adicionados em Vendedores Usuarios novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Vendedores Usuarios: " + error);

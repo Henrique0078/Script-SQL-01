@@ -13,6 +13,10 @@ export default class ListasPrecos{
 			}));
 			if(ListaPrecosNovas.length > 0){
 				await prismaNovo.listas_precos.createMany({data: ListaPrecosNovas});
+				const totalProdutos = await prismaNovo.listas_precos.count();
+				const antigoCertiticado = await prismaAntigo.listas_precos.count();
+				console.log(antigoCertiticado, " registros localizados em Listas precos antigo");
+				console.log(totalProdutos, " registros adicionados em Listas precos novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Lista Precos: " + error);

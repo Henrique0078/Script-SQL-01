@@ -30,6 +30,10 @@ export default class FornecedoresService{
 			}));
 			if(fornecedoresNovos.length > 0){
 				await prismaNovo.fornecedores.createMany({data: fornecedoresNovos});
+				const totalProdutos = await prismaNovo.fornecedores.count();
+				const antigoCertiticado = await prismaAntigo.fornecedores.count();
+				console.log(antigoCertiticado, " registros localizados em Fornecedores antigo");
+				console.log(totalProdutos, " registros adicionados em Fornecedores novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar fornecedores: " + error);

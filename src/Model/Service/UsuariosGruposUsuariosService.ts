@@ -13,6 +13,10 @@ export default class UsuariosGruposUsuarios{
 			}));
 			if(UsuariosGruposUsuariosNovos.length > 0){
 				await prismaNovo.usuarios_grupos_usuarios.createMany({data: UsuariosGruposUsuariosNovos});
+				const totalProdutos = await prismaNovo.usuarios_grupos_usuarios.count();
+				const antigoCertiticado = await prismaAntigo.usuarios_x_grupos.count();
+				console.log(antigoCertiticado, " registros localizados em Usuarios Grupos antigo");
+				console.log(totalProdutos, " registros adicionados em Usuarios Grupos novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Usuarios Grupos Usuarios: " + error);

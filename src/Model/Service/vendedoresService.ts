@@ -45,6 +45,10 @@ export default class VendedoresService{
 			}));
 			if(vendedores.length > 0){
 				await prismaNovo.vendedores.createMany({data: vendedores});
+				const totalProdutos = await prismaNovo.vendedores.count();
+				const antigoCertiticado = await prismaAntigo.vendedores.count();
+				console.log(antigoCertiticado, " registros localizados em Vendedores antigo");
+				console.log(totalProdutos, " registros adicionados em Vendedores novo");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar vendedores: " + error);
