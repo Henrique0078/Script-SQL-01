@@ -22,6 +22,7 @@ export class migracao{
 				await createDatabase(empresasNew[i].banco_empresa);
 				const {velhoPrisma,novoPrisma} = this.gerarPrismas(empresasOld[i],empresasNew[i]);
 
+
 			}
 		} catch (error:any) {
 			throw new ErrorResponse(500,"FUDEU TUDO");
