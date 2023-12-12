@@ -6,7 +6,7 @@ import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
 export default class PedidosVendaItensService{
-	async troca(listaPrecoNovaComMaiorPK: number){
+	async troca(listaPrecoNovaComMaiorPK: number,prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const PedidosVendaItensAntigos = await prismaAntigo.pedidos_venda_itens.findMany({});
 			const PedidosVendaItensNovos: pedidos_venda_itens[] = PedidosVendaItensAntigos.map((PedidosVendaItens)=>({
