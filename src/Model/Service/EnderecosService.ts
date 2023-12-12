@@ -1,10 +1,11 @@
-import { prismaAntigo, prismaNovo } from "../../../prisma";
+import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { enderecos } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
 export default class EnderecosService{
-	async troca(){
+	async troca(prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const EnderecosAntigos = await prismaAntigo.enderecos.findMany({});
 			const EnderecosNovos : enderecos[] = EnderecosAntigos.map((EnderecosAntigo)=>({

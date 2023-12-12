@@ -1,8 +1,9 @@
-import { prismaAntigo, prismaNovo } from "../../../prisma";
+import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 
 export default class ParametrosService{
-	async troca(){
+	async troca(prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const ParametrosAntigos = await prismaAntigo.parametros.findMany({});
 			const ParametrosNovos = ParametrosAntigos.map((ParametrosAntigo)=>({

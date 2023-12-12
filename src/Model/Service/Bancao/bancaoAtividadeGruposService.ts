@@ -1,8 +1,9 @@
-import { prismaBancao, prismaNovo } from "../../../../prisma";
+import { prismaBancao } from "../../../../prisma";
+import { PrismaClient as PrismaClientNovo } from "../../../../prisma/databases/novoprisma";
 import { atividades_grupos } from "../../../../prisma/databases/novoprisma";
 
 export default class BancaoAtividadeGruposService {
-	async troca() {
+	async troca(prismaNovo:PrismaClientNovo) {
 		const grupoUsuarios = await prismaNovo.grupos_usuarios.findMany({});
 		const atividades = await prismaBancao.atividades.findMany({});
 		const atividadesXGrupos: atividades_grupos[] = [];

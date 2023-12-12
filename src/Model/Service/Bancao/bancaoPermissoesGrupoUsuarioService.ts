@@ -1,10 +1,11 @@
+import { prismaBancao } from "../../../../prisma";
 import { permissoes } from "../../../../prisma/databases/novoprisma";
-import {  prismaBancao, prismaNovo } from "../../../../prisma";
+import { PrismaClient as PrismaClientNovo } from "../../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../../Error/ErrorResponse";
 
 
 export default class BancaoPermissoesGrupoUsuarioService{
-	async troca(){
+	async troca(prismaNovo:PrismaClientNovo){
 		try {
 
 			const gruposUsuarios  = await prismaNovo.grupos_usuarios.findMany({});

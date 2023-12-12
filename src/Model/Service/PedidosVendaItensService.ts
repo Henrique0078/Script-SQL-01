@@ -1,11 +1,12 @@
 import { Decimal } from "@prisma/client/runtime/library";
-import { prismaAntigo, prismaNovo } from "../../../prisma";
+import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { pedidos_venda_itens } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
 export default class PedidosVendaItensService{
-	async troca(listaPrecoNovaComMaiorPK: number){
+	async troca(listaPrecoNovaComMaiorPK: number,prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const PedidosVendaItensAntigos = await prismaAntigo.pedidos_venda_itens.findMany({});
 			const PedidosVendaItensNovos: pedidos_venda_itens[] = PedidosVendaItensAntigos.map((PedidosVendaItens)=>({

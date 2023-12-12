@@ -1,9 +1,10 @@
-import { prismaAntigo, prismaNovo } from "../../../prisma";
+import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
 export default class UsuariosGruposUsuarios{
-	async troca(){
+	async troca(prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const UsuariosGruposUsuariosAntigos = await prismaAntigo.usuarios_x_grupos.findMany({});
 			const UsuariosGruposUsuariosNovos = UsuariosGruposUsuariosAntigos.map((UsuariosGruposUsuariosAntigo)=>({
@@ -24,6 +25,6 @@ export default class UsuariosGruposUsuarios{
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar Usuarios Grupos Usuarios: " + error);
 		}
-		
+
 	}
 }

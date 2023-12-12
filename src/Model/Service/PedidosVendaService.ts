@@ -1,9 +1,10 @@
-import { prismaAntigo, prismaNovo } from "../../../prisma";
+import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
 export default class PedidosVendaService{
-	async troca(){
+	async troca(prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const PedidosVendaAntigo = await prismaAntigo.pedidos_venda.findMany({});
 			const PedidosVendaNovos = PedidosVendaAntigo.map((PedidosVenda)=>({
