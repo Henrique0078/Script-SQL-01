@@ -1,0 +1,78 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "./databases/bancaoAntigoprisma"
+  previewFeatures = ["views"]
+  binaryTargets   = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db2 {
+  provider = "mysql"
+  url      = env("DATABASE4_URL")
+}
+
+model parametros {
+  id             Int    @id @unique(map: "id_UNIQUE") @default(autoincrement())
+  parametro      String @unique(map: "parametro_UNIQUE") @db2.VarChar(80)
+  valorParametro Int
+  descricao      String @db2.VarChar(256)
+}
+
+model atividades {
+  id_atividade Int     @id @default(autoincrement())
+  atividade    String? @unique(map: "atividade") @db2.VarChar(20)
+  valor        Int?    @default(0)
+  descricao    String? @db2.VarChar(60)
+}
+
+model empresas {
+  id                  Int                   @id @unique(map: "id") @default(autoincrement())
+  cnpj                String                @db2.VarChar(18)
+  xRazaoSocial        String                @db2.VarChar(60)
+  xFant               String                @db2.VarChar(60)
+  xLgr                String                @db2.VarChar(60)
+  nro                 String                @db2.VarChar(60)
+  xCpl                String                @db2.VarChar(60)
+  xBairro             String                @db2.VarChar(60)
+  cMun                String                @db2.VarChar(7)
+  xMun                String                @db2.VarChar(60)
+  uf                  String                @db2.Char(2)
+  cep                 String                @db2.VarChar(8)
+  fone                String                @db2.VarChar(14)
+  ie                  String                @db2.VarChar(14)
+  crt                 String                @db2.VarChar(1)
+  token               String                @unique(map: "token") @db2.VarChar(128)
+  banco               String                @db2.VarChar(100)
+  status              String                @db2.VarChar(1)
+  email               String?               @db2.VarChar(129)
+  idAtualizacaoBanco  Int?                  @default(0)
+  usuarios_x_empresas usuarios_x_empresas[]
+}
+
+model modulos {
+  id_modulo Int     @id @default(autoincrement())
+  modulo    String? @unique(map: "modulo") @db2.VarChar(50)
+}
+
+model usuarios {
+  id                  Int                   @id @unique(map: "id") @default(autoincrement())
+  nome                String?               @db2.VarChar(60)
+  ultimo_nome         String?               @db2.VarChar(60)
+  email               String?               @db2.VarChar(150)
+  senha               String?
+  celular             String?               @db2.VarChar(14)
+  status              String?               @default("A") @db2.Char(1)
+  user_token          String                @unique(map: "user_token") @db2.VarChar(128)
+  exclusivo           String?               @default("N") @db2.Char(1)
+  usuarios_x_empresas usuarios_x_empresas[]
+}
+
+model usuarios_x_empresas {
+  id         Int      @id @unique(map: "id") @default(autoincrement())
+  id_empresa Int
+  id_usuario Int
+  empresas   empresas @relation(fields: [id_empresa], references: [id], onUpdate: Restrict, map: "usuarios_x_empresas_ibfk_1")
+  usuarios   usuarios @relation(fields: [id_usuario], references: [id], onUpdate: Restrict, map: "usuarios_x_empresas_ibfk_2")
+
+  @@index([id_empresa], map: "id_empresa")
+  @@index([id_usuario], map: "id_usuario")
+}

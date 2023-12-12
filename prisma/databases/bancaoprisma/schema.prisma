@@ -1,0 +1,90 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "./databases/bancaoprisma"
+  previewFeatures = ["views"]
+  binaryTargets   = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db2 {
+  provider = "mysql"
+  url      = env("DATABASE3_URL")
+}
+
+model parametros {
+  id_parametro        Int    @id @default(autoincrement())
+  nm_parametro        String @unique(map: "nm_parametro_UNIQUE") @db2.VarChar(80)
+  valor_parametro     Int
+  descricao_parametro String @db2.VarChar(256)
+}
+
+model atividades {
+  id_atividade        Int     @id @default(autoincrement())
+  nm_atividade        String? @unique(map: "nm_atividade_UNIQUE") @db2.VarChar(150)
+  valor_atividade     Int?    @default(0)
+  descricao_atividade String? @db2.VarChar(150)
+}
+
+model empresas {
+  id_empresa                 Int               @id @default(autoincrement())
+  cnpj_empresa               String            @unique(map: "cnpj_empresa_UNIQUE") @db2.VarChar(18)
+  razao_social_empresa       String            @db2.VarChar(60)
+  nome_fantasia_empresa      String            @db2.VarChar(60)
+  logradouro_empresa         String            @db2.VarChar(60)
+  numero_empresa             String            @db2.VarChar(60)
+  complemento_empresa        String            @db2.VarChar(60)
+  bairro_empresa             String            @db2.VarChar(60)
+  codigo_municipal_empresa   String            @db2.VarChar(7)
+  municipio_empresa          String            @db2.VarChar(60)
+  uf_empresa                 String            @db2.Char(2)
+  cep_empresa                String            @db2.VarChar(8)
+  telefone_empresa           String            @db2.VarChar(14)
+  inscricao_estadual_empresa String            @db2.VarChar(14)
+  certificado_empresa        String            @db2.VarChar(1)
+  banco_empresa              String            @db2.VarChar(100)
+  status_empresa             String            @db2.VarChar(1)
+  email_empresa              String?           @db2.VarChar(129)
+  versao_banco_empresa       Int?              @default(0)
+  modulo_empresa             modulo_empresa[]
+  usuario_empresa            usuario_empresa[]
+}
+
+model modulo_empresa {
+  id_modulo_me  Int
+  id_empresa_me Int
+  empresas      empresas @relation(fields: [id_empresa_me], references: [id_empresa], onUpdate: Restrict, map: "fk_me_empresas_idx")
+  modulos       modulos  @relation(fields: [id_empresa_me], references: [id_modulo], onUpdate: Restrict, map: "fk_me_modulos_idx")
+
+  @@id([id_modulo_me, id_empresa_me])
+  @@index([id_empresa_me], map: "fk_me_empresas_idx")
+  @@index([id_empresa_me], map: "fk_me_modulos_idx")
+}
+
+model modulos {
+  id_modulo         Int              @id @default(autoincrement())
+  nm_modulo         String?          @unique(map: "nm_modulo_UNIQUE") @db2.VarChar(50)
+  modulo_empresa    modulo_empresa[]
+
+
+}
+
+model usuario_empresa {
+  id_ue         Int      @id @default(autoincrement())
+  id_usuario_ue Int
+  id_empresa_ue Int
+  empresas      empresas @relation(fields: [id_empresa_ue], references: [id_empresa], onUpdate: Restrict, map: "fk_ue_empresa_idx")
+  usuarios      usuarios @relation(fields: [id_usuario_ue], references: [id_usuario], onUpdate: Restrict, map: "fk_ue_usuario_idx")
+
+  @@index([id_empresa_ue], map: "fk_ue_empresa_idx")
+  @@index([id_usuario_ue], map: "fk_ue_usuario_idx")
+}
+
+model usuarios {
+  id_usuario          Int               @id @default(autoincrement())
+  nm_usuario          String?           @db2.VarChar(60)
+  ultimo_nome_usuario String?           @db2.VarChar(60)
+  email_usuario       String?           @unique(map: "email_usuario_UNIQUE") @db2.VarChar(150)
+  senha_usuario       String?
+  celular_usuario     String?           @db2.VarChar(14)
+  status_usuario      String?           @default("A") @db2.Char(1)
+  usuario_empresa     usuario_empresa[]
+}

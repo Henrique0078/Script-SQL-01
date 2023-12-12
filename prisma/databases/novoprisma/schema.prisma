@@ -7,7 +7,7 @@ generator client {
 
 datasource db2 {
   provider = "mysql"
-  url      = env("DATABASE3_URL")
+  url      = env("DATABASE2_URL")
 }
 
 model atividades_grupos {
