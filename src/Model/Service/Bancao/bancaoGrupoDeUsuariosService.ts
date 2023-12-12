@@ -1,8 +1,8 @@
 import { grupos_usuarios } from "../../../../prisma/databases/novoprisma";
 import {  prismaNovo } from "../../../../prisma";
 import { ErrorResponse } from "../../Error/ErrorResponse";
-import permissoesService from "./bancaoPermissoesGrupoUsuarioService";
-import atividadesXgrupoService from "./bancaoAtividadeGruposService";
+import BancaoPermissoesGrupoUsuarioService from "./bancaoPermissoesGrupoUsuarioService";
+import BancaoAtividadeGruposService from "./bancaoAtividadeGruposService";
 
 
 export default class BancaoGrupoDeUsuariosService{
@@ -12,8 +12,8 @@ export default class BancaoGrupoDeUsuariosService{
 			if(gruposUsuarios.length > 0){
 				await prismaNovo.grupos_usuarios.createMany({data: gruposUsuarios});
 
-				const PermissoesService = new permissoesService();
-				const AtividadeService = new atividadesXgrupoService();
+				const PermissoesService = new BancaoPermissoesGrupoUsuarioService();
+				const AtividadeService = new BancaoAtividadeGruposService();
 
 				await PermissoesService.troca();
 				await AtividadeService.troca();

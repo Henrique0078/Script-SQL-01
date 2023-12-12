@@ -27,7 +27,9 @@ export default class BancaoPermissoesGrupoUsuarioService{
 			if(gruposUsuarios.length > 0){
 				await prismaNovo.permissoes.createMany({data: permissoes});
 				const permissoesCount = await prismaNovo.permissoes.count();
-				console.log("Registros depermissoes" + permissoesCount.toString);
+				console.log("Registros de permissoes" + permissoesCount.toString);
+			}else{
+				console.log("Grupos usuarios vazio");
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar parametros: " + error);

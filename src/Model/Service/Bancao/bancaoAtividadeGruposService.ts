@@ -16,12 +16,13 @@ export default class BancaoAtividadeGruposService {
 					descricao_ag: atividades[j].descricao_atividade,
 				});
 			}
-
 		}
 		if(atividadesXGrupos.length > 0){
 			await prismaNovo.atividades_grupos.createMany({data: atividadesXGrupos});
 			const totalParametro = await  prismaNovo.atividades_grupos.count();
 			console.log(totalParametro, " registros adicionados em Atividades Novas");
+		}else{
+			console.log("Atividades Grupos vazio");
 		}
 	}
 }

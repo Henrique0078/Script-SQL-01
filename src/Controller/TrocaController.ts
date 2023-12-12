@@ -56,11 +56,11 @@ export class TrocaController{
 		await enderecos.troca(prismaNovo,prismaVelho);
 		await contatos.troca(prismaNovo,prismaVelho);
 		await fornecedores.troca(prismaNovo,prismaVelho);
-		//await grupos_usuarios.troca(prismaNovo,prismaVelho);
+		//await grupos_usuarios.troca(prismaNovo,prismaVelho); //vai ser feita em bancao_grupo_usuarios
 		await bancao_grupo_usuarios.troca(prismaNovo,prismaVelho);
 		await vendedores_usuarios.troca(prismaNovo,prismaVelho);
 		//await usuarios_grupos_usuarios.troca(prismaNovo,prismaVelho);  //pode ficar vazia no inicio devido ao zerofill do grupoUsuarios
-		//await permissoes.troca(prismaNovo,prismaVelho);
+		//await permissoes.troca(prismaNovo,prismaVelho); //vai ser feita em bancao_grupo_usuarios
 		await parametros.troca(prismaNovo,prismaVelho);
 		await transportadores.troca(prismaNovo,prismaVelho);
 		await produtos.troca(prismaNovo,prismaVelho);
