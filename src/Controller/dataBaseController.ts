@@ -5,6 +5,7 @@ export default async function createDatabase(nomeBanco:string) {
 		host: process.env.HOST,
 		user: process.env.USUARIO,
 		password: process.env.SENHA,
+		multipleStatements: true,
 	});
 
 	try {
@@ -648,7 +649,7 @@ export default async function createDatabase(nomeBanco:string) {
 		-- --------------------------------------------------------------
 		-- Triggers
 		-- --------------------------------------------------------------
-		DELIMITER //
+		
 		CREATE TRIGGER atualiza_valor_bruto
 		AFTER INSERT ON pedidos_venda_itens
 		FOR EACH ROW
@@ -657,10 +658,10 @@ export default async function createDatabase(nomeBanco:string) {
 			UPDATE pedidos_venda
 			SET valor_bruto_pv = valor_bruto_pv + NEW.valor_total_pvi
 			WHERE id_pv = NEW.id_pedido_pvi;
-		END //
-		DELIMITER ;
+		END;
+		
 
-		DELIMITER //
+		
 		CREATE TRIGGER before_insert_produtos_movimentacoes
 		BEFORE INSERT ON produtos_movimentacoes
 		FOR EACH ROW
@@ -683,8 +684,8 @@ export default async function createDatabase(nomeBanco:string) {
 
 			-- Preencher a coluna data_e_hora com a data e hora atual
 			SET NEW.data_hora_pm = NOW(3);
-		END //
-		DELIMITER ;`;
+		END;
+		`;
 
 		// Executar a consulta SQL
 		await connection.query(createDatabaseSQL);
