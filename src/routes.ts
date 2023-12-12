@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { TrocaController } from "./Controller/TrocaController";
+import { migracao } from "./Controller/AutomaticController";
 
 const router = Router();
 
-router.get("/bora", new TrocaController().troca);
+router.get("/bora", new migracao().init);
 
 export{router};

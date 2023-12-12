@@ -51,13 +51,13 @@ export class TrocaController{
 			orderBy: {
 				id_cp: "desc",
 			},
-		},);
+		});
 		await clientes.troca(condicaoPagamentoAntigaComMaiorPK.id_cp,prismaNovo,prismaVelho);
 		await enderecos.troca(prismaNovo,prismaVelho);
 		await contatos.troca(prismaNovo,prismaVelho);
 		await fornecedores.troca(prismaNovo,prismaVelho);
 		//await grupos_usuarios.troca(prismaNovo,prismaVelho); //vai ser feita em bancao_grupo_usuarios
-		await bancao_grupo_usuarios.troca(prismaNovo,prismaVelho);
+		await bancao_grupo_usuarios.troca(prismaNovo);
 		await vendedores_usuarios.troca(prismaNovo,prismaVelho);
 		//await usuarios_grupos_usuarios.troca(prismaNovo,prismaVelho);  //pode ficar vazia no inicio devido ao zerofill do grupoUsuarios
 		//await permissoes.troca(prismaNovo,prismaVelho); //vai ser feita em bancao_grupo_usuarios
@@ -72,7 +72,7 @@ export class TrocaController{
 		});
 		await listas_precos_produtos.troca(prismaNovo,prismaVelho);
 		await pedidos_venda.troca(prismaNovo,prismaVelho);
-		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp);
+		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp, prismaNovo,prismaVelho);
 		await pedidos_venda_pagamentos.troca(prismaNovo,prismaVelho);
 		await clientes_produtos.troca(prismaNovo,prismaVelho);
 		console.log("-----------------------------------------------------");
