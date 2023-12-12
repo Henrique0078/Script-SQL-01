@@ -1,10 +1,11 @@
-import { prismaNovo, prismaAntigo } from "../../../prisma";
+import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { clienteNovo } from "../Interfaces/clientesInterface";
 import { convertBigIntToString } from "../Utils";
 
 export default class ClientesService{
-	async troca(condicao_pagamento: number){
+	async troca(condicao_pagamento: number,prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const clientesAntigos = await prismaAntigo.clientes.findMany({});
 			const clientes: clienteNovo[] = clientesAntigos.map((clienteAntigo) => ({

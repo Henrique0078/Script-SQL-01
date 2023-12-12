@@ -1,11 +1,11 @@
-import { grupos_usuarios } from "./../../../../prisma/databases/novoprisma/index.d";
+import { grupos_usuarios } from "../../../../prisma/databases/novoprisma";
 import {  prismaNovo } from "../../../../prisma";
 import { ErrorResponse } from "../../Error/ErrorResponse";
-import permissoesService from "./permissoesGruposUsuariosService";
-import atividadesXgrupoService from "./atividadesXgrupoService";
+import permissoesService from "./bancaoPermissoesGrupoUsuarioService";
+import atividadesXgrupoService from "./bancaoAtividadeGruposService";
 
 
-export default class gruposUsuariosService{
+export default class BancaoGrupoDeUsuariosService{
 	async troca(){
 		try {
 			const gruposUsuarios : grupos_usuarios[] = [{id_gu:1,nm_gu:"Supervisor"},{id_gu:2,nm_gu:"Comum"}];

@@ -1,9 +1,10 @@
-import { prismaNovo, prismaAntigo } from "../../../prisma";
+import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { certificado } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 
 export default class CertificadoService{
-	async troca(){
+	async troca(prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const certificadosAntigos = await prismaAntigo.certificado.findMany({});
 			const certificados :certificado[] = certificadosAntigos.map((certificadoAntigo) => ({

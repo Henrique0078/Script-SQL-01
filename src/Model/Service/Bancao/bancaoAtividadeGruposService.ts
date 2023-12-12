@@ -1,7 +1,7 @@
 import { prismaBancao, prismaNovo } from "../../../../prisma";
 import { atividades_grupos } from "../../../../prisma/databases/novoprisma";
 
-export default class atividadesXgrupoService {
+export default class BancaoAtividadeGruposService {
 	async troca() {
 		const grupoUsuarios = await prismaNovo.grupos_usuarios.findMany({});
 		const atividades = await prismaBancao.atividades.findMany({});

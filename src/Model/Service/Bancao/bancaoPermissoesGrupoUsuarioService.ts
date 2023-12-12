@@ -1,9 +1,9 @@
-import { permissoes } from "./../../../../prisma/databases/novoprisma/index.d";
+import { permissoes } from "../../../../prisma/databases/novoprisma";
 import {  prismaBancao, prismaNovo } from "../../../../prisma";
 import { ErrorResponse } from "../../Error/ErrorResponse";
 
 
-export default class permissoesService{
+export default class BancaoPermissoesGrupoUsuarioService{
 	async troca(){
 		try {
 
