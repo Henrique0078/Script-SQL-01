@@ -72,7 +72,7 @@ export class TrocaController{
 		});
 		await listas_precos_produtos.troca(prismaNovo,prismaVelho);
 		await pedidos_venda.troca(prismaNovo,prismaVelho);
-		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp);
+		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp,prismaNovo,prismaVelho);
 		await pedidos_venda_pagamentos.troca(prismaNovo,prismaVelho);
 		await clientes_produtos.troca(prismaNovo,prismaVelho);
 		console.log("-----------------------------------------------------");
