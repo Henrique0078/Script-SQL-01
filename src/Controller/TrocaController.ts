@@ -71,9 +71,14 @@ export class TrocaController{
 				id_lp: "desc",
 			},
 		});
+		const listaPrecoNovaComMenorPK = await prismaNovo.listas_precos.findFirst({
+			orderBy: {
+				id_lp: "asc",
+			},
+		});
 		await listas_precos_produtos.troca(prismaNovo,prismaVelho);
 		await pedidos_venda.troca(prismaNovo,prismaVelho);
-		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp, prismaNovo,prismaVelho);
+		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp, listaPrecoNovaComMenorPK.id_lp, prismaNovo,prismaVelho);
 		await pedidos_venda_pagamentos.troca(prismaNovo,prismaVelho);
 		await clientes_produtos.troca(prismaNovo,prismaVelho);
 		console.log("-----------------------------------------------------");

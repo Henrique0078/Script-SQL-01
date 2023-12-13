@@ -6,7 +6,7 @@ import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
 export default class PedidosVendaItensService{
-	async troca(listaPrecoNovaComMaiorPK: number,prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
+	async troca(listaPrecoNovaComMaiorPK: number, listaPrecoNovaComMenorPK: number,prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
 		try {
 			const PedidosVendaItensAntigos = await prismaAntigo.pedidos_venda_itens.findMany({});
 			const PedidosVendaItensNovos: pedidos_venda_itens[] = PedidosVendaItensAntigos.map((PedidosVendaItens)=>({
@@ -21,7 +21,7 @@ export default class PedidosVendaItensService{
 				prod_ean_pvi: null,
 				prod_codigo_pvi: PedidosVendaItens.codigo,
 				valor_total_pvi: PedidosVendaItens.valor_total,
-				id_lista_preco_pvi: PedidosVendaItens.idListaPreco > 0 && PedidosVendaItens.idListaPreco < listaPrecoNovaComMaiorPK ? PedidosVendaItens.idListaPreco : null
+				id_lista_preco_pvi: PedidosVendaItens.idListaPreco >= listaPrecoNovaComMenorPK && PedidosVendaItens.idListaPreco < listaPrecoNovaComMaiorPK ? PedidosVendaItens.idListaPreco : null
 			}));
 			if(PedidosVendaItensNovos.length > 0){
 				await prismaNovo.pedidos_venda_itens.createMany({data: PedidosVendaItensNovos});
