@@ -203,12 +203,14 @@ export default async function createDatabase(nomeBanco: string) {
 		await queryAsync(fornecedores, connectionBanquinho);
 
 		const grupoUsuarios =`
-			CREATE TABLE grupos_usuarios (
+		CREATE TABLE grupos_usuarios (
 			id_gu int NOT NULL AUTO_INCREMENT,
 			nm_gu varchar(100) NOT NULL,
+			pg_inicial_gu varchar(45) NOT NULL DEFAULT 'pedido-venda',
 			PRIMARY KEY (id_gu),
-			UNIQUE KEY nm_gu_UNIQUE (nm_gu ASC)
-			); `;
+			UNIQUE KEY nm_gu_UNIQUE (nm_gu)
+		  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+		  `;
 		await queryAsync(grupoUsuarios, connectionBanquinho);
 
 		const vendedoresUsuarios = `
@@ -747,6 +749,8 @@ export default async function createDatabase(nomeBanco: string) {
 			END;
 			`;
 		await queryAsync(before_insert_produtos_movimentacoes_trigger, connectionBanquinho);
+
+
 
 		console.log("Banco de dados criado com sucesso!");
 	} catch (error) {
