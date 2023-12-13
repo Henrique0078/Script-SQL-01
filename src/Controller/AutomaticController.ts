@@ -22,8 +22,8 @@ export class migracao {
 			}
 
 			//pega nome das empresa antigas e novas
-			const empresasOld = await prismaBancaoAntigo.empresas.findMany({});
-			const empresasNew = await prismaBancao.empresas.findMany({});
+			let empresasOld = await prismaBancaoAntigo.empresas.findMany({});
+			let empresasNew = await prismaBancao.empresas.findMany({});
 			
 			const nomesDesejadosAntigos = [
 				"b68241843000113",
@@ -32,6 +32,7 @@ export class migracao {
 				"b50275217000182",
 				"b50275217000282"
 			];
+
 			const nomesDesejadosNovos = [
 				"b68241843000113_2",
 				"b68241843000213_2",
@@ -40,20 +41,20 @@ export class migracao {
 				"b50275217000282_2"
 			];
 
-			const empresasNovasFiltradas = empresasNew.filter(empresa => nomesDesejadosAntigos.includes(empresa.banco_empresa));
-			const empresasAntigasFiltradas = empresasOld.filter(empresa => nomesDesejadosNovos.includes(empresa.banco));
+			empresasNew = empresasNew.filter(empresa => nomesDesejadosNovos.includes(empresa.banco_empresa));
+			empresasOld = empresasOld.filter(empresa => nomesDesejadosAntigos.includes(empresa.banco));
 
-			for (let i = 0; i < empresasNovasFiltradas.length; i++) {
-				await createDatabase(empresasNovasFiltradas[i].banco_empresa);
-				const empresaVelha = empresasAntigasFiltradas[i];
-				const empresaNova = empresasNovasFiltradas[i];
+			for (let i = 0; i < empresasNew.length; i++) {
+				await createDatabase(empresasNew[i].banco_empresa);
+				const empresaVelha = empresasOld[i];
+				const empresaNova = empresasNew[i];
 				const { velhoPrisma, novoPrisma } = gerarPrismas(empresaVelha,empresaNova);
-				console.log(empresasNovasFiltradas[i].banco_empresa);
+				console.log(empresasNew[i].banco_empresa);
 				const Service = new TrocaController();
 				await Service.troca(novoPrisma, velhoPrisma);
 			}
-			console.log("----------------------------------------------------");
-			console.log("----------------Cabo de vez agora iru---------------");
+			console.log("-------------------------------------------");
+			console.log("------------------Terminou-----------------");
 		} catch (error: any) {
 			throw new ErrorResponse(500, error);
 		}
