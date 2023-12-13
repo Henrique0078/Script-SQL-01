@@ -46,6 +46,7 @@ export class TrocaController{
 
 		await certificado.troca(prismaNovo,prismaVelho);
 		await vendedores.troca(prismaNovo,prismaVelho);
+		// const vendedorNovoComMaiorPK = await prismaNovo.vendedores.findFirst({});
 		await condicao_pagamento.troca(prismaNovo,prismaVelho);
 		const condicaoPagamentoAntigaComMaiorPK = await prismaNovo.condicoes_pagamento.findFirst({
 			orderBy: {

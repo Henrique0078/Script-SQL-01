@@ -11,8 +11,8 @@ export default class PedidosVendaItensService{
 			const PedidosVendaItensAntigos = await prismaAntigo.pedidos_venda_itens.findMany({});
 			const PedidosVendaItensNovos: pedidos_venda_itens[] = PedidosVendaItensAntigos.map((PedidosVendaItens)=>({
 				id_pvi: parseInt(convertBigIntToString(PedidosVendaItens.id)),
-				id_pedido_pvi: parseInt(convertBigIntToString(PedidosVendaItens.pedido_id)),
-				id_produto_pvi: parseInt(convertBigIntToString(PedidosVendaItens.produto_id)),
+				id_pedido_pvi: parseInt(convertBigIntToString(PedidosVendaItens.pedido_id)) > 0 ? parseInt(convertBigIntToString(PedidosVendaItens.pedido_id)) : null,
+				id_produto_pvi: parseInt(convertBigIntToString(PedidosVendaItens.produto_id)) > 0 ? parseInt(convertBigIntToString(PedidosVendaItens.produto_id)) : null,
 				id_produto_sirius_pvi: parseInt(convertBigIntToString(PedidosVendaItens.produto_sirius_id)),
 				prod_descricao_pvi: PedidosVendaItens.descricao,
 				prod_unidade_pvi: PedidosVendaItens.unidade,

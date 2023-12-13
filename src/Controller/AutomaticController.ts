@@ -33,6 +33,7 @@ export class migracao {
 				const empresaVelha = empresasOld[i];
 				const empresaNova = empresasNew[i];
 				const { velhoPrisma, novoPrisma } = gerarPrismas(empresaVelha,empresaNova);
+				console.log(empresasNew[i].banco_empresa);
 				const Service = new TrocaController();
 				await Service.troca(novoPrisma, velhoPrisma);
 			}
@@ -42,8 +43,8 @@ export class migracao {
 	}
 }
 export function gerarPrismas(empresaVelha: empresasVelhas, empresanova: empresasNovas) {
-	const newUrl = `mysql://avelino:coxinha123@192.168.0.144:3306/${empresanova.banco_empresa}?schema=public`;
-	const oldUrl = `mysql://avelino:coxinha123@192.168.0.144:3306/${empresaVelha.banco}?schema=public`;
+	const newUrl = `mysql://avelino:coxinha123@192.168.0.144:3306/${empresanova.banco_empresa.replace(/\s/g, "")}?schema=public`;
+	const oldUrl = `mysql://avelino:coxinha123@192.168.0.144:3306/${empresaVelha.banco.replace(/\s/g, "")}?schema=public`;
 	const velhoPrisma = new OldPrismaClient({
 		datasources: {
 			db: {

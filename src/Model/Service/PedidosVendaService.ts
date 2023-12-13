@@ -9,10 +9,10 @@ export default class PedidosVendaService{
 			const PedidosVendaAntigo = await prismaAntigo.pedidos_venda.findMany({});
 			const PedidosVendaNovos = PedidosVendaAntigo.map((PedidosVenda)=>({
 				id_pv: parseInt(convertBigIntToString(PedidosVenda.id)),
-				numero_pv: PedidosVenda.numero,
-				id_vendedor_pv: parseInt(convertBigIntToString(PedidosVenda.vendedor_id)),
-				id_cliente_pv: parseInt(convertBigIntToString(PedidosVenda.cliente_id)),
-				id_usuario_pv: parseInt(convertBigIntToString(PedidosVenda.usuario_id)),
+				numero_pv: PedidosVenda.numero > 0 ? PedidosVenda.numero : null,
+				id_vendedor_pv: parseInt(convertBigIntToString(PedidosVenda.vendedor_id)) > 0 ? parseInt(convertBigIntToString(PedidosVenda.vendedor_id)) : null,
+				id_cliente_pv: parseInt(convertBigIntToString(PedidosVenda.cliente_id)) > 0 ? parseInt(convertBigIntToString(PedidosVenda.cliente_id)) : null,
+				id_usuario_pv: parseInt(convertBigIntToString(PedidosVenda.usuario_id)) > 0 ? parseInt(convertBigIntToString(PedidosVenda.usuario_id)) : null,
 				desconto_pv: PedidosVenda.desconto,
 				valor_bruto_pv: PedidosVenda.valor_bruto,
 				valor_liquido_pv: PedidosVenda.valor_liquido,

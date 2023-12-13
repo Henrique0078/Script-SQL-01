@@ -14,14 +14,14 @@ export default class BancaoPermissoesGrupoUsuarioService{
 			for (let i = 0; i < gruposUsuarios.length; i++) {
 				for (let j = 0; j < modulos.length; j++) {
 					permissoes.push({
-						id_permissao:i+j+1,
+						id_permissao:undefined,
 						nm_permissao:gruposUsuarios[i].nm_gu,
 						modulo_permissao: modulos[j].nm_modulo,
 						id_grupo_usuarios_permissao: gruposUsuarios[i].id_gu,
-						criar_permissao: modulos[j].nm_modulo == "Supervisor"? 1 : 0,
-						ler_permissao:  modulos[j].nm_modulo == "Supervisor"? 1 : 0,
-						atualizar_permissao: modulos[j].nm_modulo == "Supervisor"? 1 : 0,
-						deletar_permissao: modulos[j].nm_modulo == "Supervisor"? 1 : 0,
+						criar_permissao: gruposUsuarios[i].nm_gu == "Supervisor"? 1 : 0,
+						ler_permissao:  gruposUsuarios[i].nm_gu == "Supervisor"? 1 : 0,
+						atualizar_permissao: gruposUsuarios[i].nm_gu == "Supervisor"? 1 : 0,
+						deletar_permissao: gruposUsuarios[i].nm_gu == "Supervisor"? 1 : 0,
 					});
 				}
 			}
