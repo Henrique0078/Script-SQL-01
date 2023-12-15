@@ -12,6 +12,7 @@ datasource db2 {
 
 model atividades_grupos {
   id_ag                 Int             @id @default(autoincrement())
+  nm_atividade_ag       String?         @db2.VarChar(151)
   id_grupos_usuarios_ag Int
   id_atividade_ag       Int
   valor_ag              Int?            @default(0)
@@ -65,12 +66,14 @@ model clientes {
   nm_contato_cliente                   String?              @db2.VarChar(60)
   id_condicao_pagamento_sirius_cliente Int?
   condicoes_pagamento                  condicoes_pagamento? @relation(fields: [id_condicao_pagamento_cliente], references: [id_cp], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_condicao_pagamento_idx")
+  listas_precos                        listas_precos?       @relation(fields: [id_lista_preco_cliente], references: [id_lp], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_listas_precos_idx")
   clientes_produtos                    clientes_produtos[]
   contatos                             contatos[]
   enderecos                            enderecos[]
   pedidos_venda                        pedidos_venda[]
 
   @@index([id_condicao_pagamento_cliente], map: "fk_cliente_condicao_pagamento_idx")
+  @@index([id_lista_preco_cliente], map: "fk_cliente_listas_precos_idx")
 }
 
 model clientes_produtos {
@@ -169,6 +172,7 @@ model fornecedores {
 model grupos_usuarios {
   id_gu                    Int                        @id @default(autoincrement())
   nm_gu                    String                     @unique(map: "nm_gu_UNIQUE") @db2.VarChar(100)
+  pg_inicial_gu            String?                    @db2.VarChar(30)
   atividades_grupos        atividades_grupos[]
   permissoes               permissoes[]
   usuarios_grupos_usuarios usuarios_grupos_usuarios[]
@@ -185,20 +189,22 @@ model imagens {
 }
 
 model listas_precos {
-  id_lp                  Int                      @id @default(autoincrement())
-  descricao_lp           String                   @db2.VarChar(100)
-  id_sirius_lp           Int?                     @unique(map: "id_sirius_lp_UNIQUE")
-  listas_precos_produtos listas_precos_produtos[]
+  id_lp                                                                     Int                      @id @default(autoincrement())
+  descricao_lp                                                              String                   @db2.VarChar(100)
+  id_sirius_lp                                                              Int?                     @unique(map: "id_sirius_lp_UNIQUE")
+  clientes                                                                  clientes[]
+  listas_precos_produtos                                                    listas_precos_produtos[]
+  pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda pedidos_venda_itens[]    @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda")
 }
 
 model listas_precos_produtos {
-  id_lpp                Int            @id @default(autoincrement())
-  id_lista_lpp          Int?           @default(0)
-  id_produto_lpp        Int?           @default(0)
-  valor_lpp             Decimal?       @default(0.00) @db2.Decimal(15, 2)
-  id_produto_sirius_lpp Int?
-  listas_precos         listas_precos? @relation(fields: [id_lista_lpp], references: [id_lp], onDelete: NoAction, onUpdate: NoAction, map: "fk_lpp_listas_precos_idx")
-  produtos              produtos?      @relation(fields: [id_produto_lpp], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_lpp_produtos_idx")
+  id_lpp         Int            @id @default(autoincrement())
+  id_lista_lpp   Int?           @default(0)
+  id_produto_lpp Int?           @default(0)
+  valor_lpp      Decimal?       @default(0.00) @db2.Decimal(15, 2)
+  id_sirius_lpp  Int?
+  listas_precos  listas_precos? @relation(fields: [id_lista_lpp], references: [id_lp], onDelete: NoAction, onUpdate: NoAction, map: "fk_lpp_listas_precos_idx")
+  produtos       produtos?      @relation(fields: [id_produto_lpp], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_lpp_produtos_idx")
 
   @@index([id_lista_lpp], map: "fk_lpp_listas_precos_idx")
   @@index([id_produto_lpp], map: "fk_lpp_produtos_idx")
@@ -233,42 +239,41 @@ model parametros {
 }
 
 model pedidos_venda {
-  id_pv                                                                     Int                        @id @default(autoincrement())
-  numero_pv                                                                 Int?
-  id_vendedor_pv                                                            Int?
-  id_cliente_pv                                                             Int?
-  id_usuario_pv                                                             Int?
-  desconto_pv                                                               Decimal?                   @db2.Decimal(20, 10)
-  valor_bruto_pv                                                            Decimal                    @db2.Decimal(20, 10)
-  valor_liquido_pv                                                          Decimal?                   @db2.Decimal(20, 10)
-  status_pv                                                                 String                     @db2.VarChar(1)
-  observacoes_pv                                                            String?                    @db2.VarChar(80)
-  data_criacao_pv                                                           DateTime                   @db2.DateTime(0)
-  cliente_contato_pv                                                        String?                    @db2.VarChar(45)
-  data_realizacao_pv                                                        DateTime?                  @db2.DateTime(0)
-  data_sincronizacao_pv                                                     DateTime?                  @db2.DateTime(0)
-  id_condicao_pagamento_pv                                                  Int?
-  entrega_cep_pv                                                            String?                    @db2.VarChar(8)
-  entrega_logradouro_pv                                                     String?                    @db2.VarChar(60)
-  entrega_numero_pv                                                         String?                    @db2.VarChar(8)
-  entrega_complemento_pv                                                    String?                    @db2.VarChar(60)
-  entrega_bairro_pv                                                         String?                    @db2.VarChar(60)
-  entrega_cidade_pv                                                         String?                    @db2.VarChar(60)
-  entrega_uf_pv                                                             String?                    @db2.VarChar(2)
-  id_transportadores_pv                                                     Int?
-  id_modalidade_frete_pv                                                    Int?
-  id_cliente_escolheu_pv                                                    String?                    @db2.VarChar(40)
-  pagamento_pv                                                              Decimal?                   @db2.Decimal(20, 10)
-  troco_pv                                                                  Decimal?                   @db2.Decimal(20, 10)
-  clientes                                                                  clientes?                  @relation(fields: [id_cliente_pv], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_clientes_idx")
-  condicoes_pagamento                                                       condicoes_pagamento?       @relation(fields: [id_condicao_pagamento_pv], references: [id_cp], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_condicoes_pagamento_idx")
-  modalidade_frete                                                          modalidade_frete?          @relation(fields: [id_modalidade_frete_pv], references: [id_mf], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_modalidade_frete_idx")
-  transportadores                                                           transportadores?           @relation(fields: [id_transportadores_pv], references: [id_transportador], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_transportadores_idx")
-  vendedores                                                                vendedores?                @relation(fields: [id_vendedor_pv], references: [id_vendedor], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_vendedores_idx")
-  pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda pedidos_venda_itens[]      @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda")
-  pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda      pedidos_venda_itens[]      @relation("pedidos_venda_itens_id_pedido_pviTopedidos_venda")
-  pedidos_venda_pagamentos                                                  pedidos_venda_pagamentos[]
-  produtos_movimentacoes                                                    produtos_movimentacoes[]
+  id_pv                                                                Int                        @id @default(autoincrement())
+  numero_pv                                                            Int?
+  id_vendedor_pv                                                       Int?
+  id_cliente_pv                                                        Int?
+  id_usuario_pv                                                        Int?
+  desconto_pv                                                          Decimal?                   @db2.Decimal(20, 10)
+  valor_bruto_pv                                                       Decimal                    @db2.Decimal(20, 10)
+  valor_liquido_pv                                                     Decimal?                   @db2.Decimal(20, 10)
+  status_pv                                                            String                     @db2.VarChar(1)
+  observacoes_pv                                                       String?                    @db2.VarChar(80)
+  data_criacao_pv                                                      DateTime                   @db2.DateTime(0)
+  cliente_contato_pv                                                   String?                    @db2.VarChar(45)
+  data_realizacao_pv                                                   DateTime?                  @db2.DateTime(0)
+  data_sincronizacao_pv                                                DateTime?                  @db2.DateTime(0)
+  id_condicao_pagamento_pv                                             Int?
+  entrega_cep_pv                                                       String?                    @db2.VarChar(8)
+  entrega_logradouro_pv                                                String?                    @db2.VarChar(60)
+  entrega_numero_pv                                                    String?                    @db2.VarChar(8)
+  entrega_complemento_pv                                               String?                    @db2.VarChar(60)
+  entrega_bairro_pv                                                    String?                    @db2.VarChar(60)
+  entrega_cidade_pv                                                    String?                    @db2.VarChar(60)
+  entrega_uf_pv                                                        String?                    @db2.VarChar(2)
+  id_transportadores_pv                                                Int?
+  id_modalidade_frete_pv                                               Int?
+  id_cliente_escolheu_pv                                               String?                    @db2.VarChar(40)
+  pagamento_pv                                                         Decimal?                   @db2.Decimal(20, 10)
+  troco_pv                                                             Decimal?                   @db2.Decimal(20, 10)
+  clientes                                                             clientes?                  @relation(fields: [id_cliente_pv], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_clientes_idx")
+  condicoes_pagamento                                                  condicoes_pagamento?       @relation(fields: [id_condicao_pagamento_pv], references: [id_cp], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_condicoes_pagamento_idx")
+  modalidade_frete                                                     modalidade_frete?          @relation(fields: [id_modalidade_frete_pv], references: [id_mf], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_modalidade_frete_idx")
+  transportadores                                                      transportadores?           @relation(fields: [id_transportadores_pv], references: [id_transportador], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_transportadores_idx")
+  vendedores                                                           vendedores?                @relation(fields: [id_vendedor_pv], references: [id_vendedor], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_vendedores_idx")
+  pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda pedidos_venda_itens[]      @relation("pedidos_venda_itens_id_pedido_pviTopedidos_venda")
+  pedidos_venda_pagamentos                                             pedidos_venda_pagamentos[]
+  produtos_movimentacoes                                               produtos_movimentacoes[]
 
   @@index([id_cliente_pv], map: "fk_pv_clientes_idx")
   @@index([id_condicao_pagamento_pv], map: "fk_pv_condicoes_pagamento_idx")
@@ -290,7 +295,7 @@ model pedidos_venda_itens {
   prod_codigo_pvi                                                     String?        @db2.VarChar(60)
   valor_total_pvi                                                     Decimal?       @db2.Decimal(20, 10)
   id_lista_preco_pvi                                                  Int?
-  pedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda pedidos_venda? @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda", fields: [id_lista_preco_pvi], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_lista_preco_idx")
+  pedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda listas_precos? @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda", fields: [id_lista_preco_pvi], references: [id_lp], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_lista_preco_idx")
   pedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_venda      pedidos_venda? @relation("pedidos_venda_itens_id_pedido_pviTopedidos_venda", fields: [id_pedido_pvi], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_pedido_idx")
   produtos                                                            produtos?      @relation(fields: [id_produto_pvi], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_produto_idx")
 

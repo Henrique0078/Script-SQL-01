@@ -53,6 +53,17 @@ export class TrocaController{
 				id_cp: "desc",
 			},
 		});
+		await lista_preco.troca(prismaNovo,prismaVelho); //Mudei de lugar por conta q cliente se relaciona com ela tambem
+		const listaPrecoNovaComMaiorPK = await prismaNovo.listas_precos.findFirst({
+			orderBy: {
+				id_lp: "desc",
+			},
+		});
+		const listaPrecoNovaComMenorPK = await prismaNovo.listas_precos.findFirst({
+			orderBy: {
+				id_lp: "asc",
+			},
+		});
 		await clientes.troca(condicaoPagamentoAntigaComMaiorPK.id_cp,prismaNovo,prismaVelho);
 		await enderecos.troca(prismaNovo,prismaVelho);
 		await contatos.troca(prismaNovo,prismaVelho);
@@ -65,17 +76,6 @@ export class TrocaController{
 		await parametros.troca(prismaNovo,prismaVelho);
 		await transportadores.troca(prismaNovo,prismaVelho);
 		await produtos.troca(prismaNovo,prismaVelho);
-		await lista_preco.troca(prismaNovo,prismaVelho);
-		const listaPrecoNovaComMaiorPK = await prismaNovo.listas_precos.findFirst({
-			orderBy: {
-				id_lp: "desc",
-			},
-		});
-		const listaPrecoNovaComMenorPK = await prismaNovo.listas_precos.findFirst({
-			orderBy: {
-				id_lp: "asc",
-			},
-		});
 		await listas_precos_produtos.troca(prismaNovo,prismaVelho);
 		await pedidos_venda.troca(prismaNovo,prismaVelho);
 		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp, listaPrecoNovaComMenorPK.id_lp, prismaNovo,prismaVelho);

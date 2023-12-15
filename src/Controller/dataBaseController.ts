@@ -101,11 +101,24 @@ export default async function createDatabase(nomeBanco: string) {
 			);`;
 		await queryAsync(condicao_pagamento, connectionBanquinho);
 
+		////////////LISTAS DE PREÇOS/////////////////////////
+
+		const listas_precos = `
+			CREATE TABLE listas_precos(
+			id_lp int NOT NULL AUTO_INCREMENT,
+			descricao_lp varchar(100) NOT NULL,
+			id_sirius_lp int DEFAULT NULL,
+			PRIMARY KEY(id_lp),
+			UNIQUE KEY id_sirius_lp_UNIQUE(id_sirius_lp ASC)
+			);
+			`;
+		await queryAsync(listas_precos, connectionBanquinho);
+
 		////////////CLIENTES//////////////////////////////
 
-
+		
 		const clientes = `
-			CREATE TABLE clientes (
+		CREATE TABLE clientes (
 			id_cliente int NOT NULL AUTO_INCREMENT,
 			id_sirius_cliente int DEFAULT NULL,
 			status_cliente varchar(1) NOT NULL,
@@ -131,10 +144,14 @@ export default async function createDatabase(nomeBanco: string) {
 			PRIMARY KEY (id_cliente),
 			UNIQUE KEY id_sirius_cliente_UNIQUE (id_sirius_cliente ASC),
 			INDEX fk_cliente_condicao_pagamento_idx (id_condicao_pagamento_cliente ASC),
-				CONSTRAINT fk_cliente_condicao_pagamento_idx
-					FOREIGN KEY (id_condicao_pagamento_cliente)
-					REFERENCES condicoes_pagamento (id_cp)
-			); `;
+			  CONSTRAINT fk_cliente_condicao_pagamento_idx 
+				  FOREIGN KEY (id_condicao_pagamento_cliente)
+				  REFERENCES condicoes_pagamento (id_cp),
+			INDEX fk_cliente_listas_precos_idx (id_lista_preco_cliente ASC), -- Adicionado 15/12/2023
+			  CONSTRAINT fk_cliente_listas_precos_idx 
+				  FOREIGN KEY (id_lista_preco_cliente)
+				  REFERENCES listas_precos (id_lp)
+		  ); `;
 		await queryAsync(clientes, connectionBanquinho);
 
 		const enderecos = `
@@ -487,29 +504,15 @@ export default async function createDatabase(nomeBanco: string) {
 			`;
 		await queryAsync(produtos_extras, connectionBanquinho);
 
-		////////////LISTAS DE PREÇOS/////////////////////////
-
-		const listas_precos = `
-			CREATE TABLE listas_precos(
-			id_lp int NOT NULL AUTO_INCREMENT,
-			descricao_lp varchar(100) NOT NULL,
-			id_sirius_lp int DEFAULT NULL,
-			PRIMARY KEY(id_lp),
-			UNIQUE KEY id_sirius_lp_UNIQUE(id_sirius_lp ASC)
-			);
-			`;
-		await queryAsync(listas_precos, connectionBanquinho);
-
 		////////////LISTAS DE PREÇOS PRODUTOS/////////////////
 
 		const listas_precos_produtos = `
 		CREATE TABLE listas_precos_produtos (
 			id_lpp int NOT NULL AUTO_INCREMENT,
-			id_sirius_lpp int DEFAULT NULL,
 			id_lista_lpp int DEFAULT '0',
 			id_produto_lpp int DEFAULT '0',
 			valor_lpp decimal(15,2) DEFAULT '0.00',
-			id_produto_sirius_lpp int DEFAULT NULL,
+			id_sirius_lpp int DEFAULT NULL,
 			PRIMARY KEY (id_lpp),
 			UNIQUE KEY id_sirius_lpp_UNIQUE (id_sirius_lpp),
 			KEY fk_lpp_listas_precos_idx (id_lista_lpp),
@@ -527,11 +530,10 @@ export default async function createDatabase(nomeBanco: string) {
 			id_ag int NOT NULL AUTO_INCREMENT,
 			id_grupos_usuarios_ag int NOT NULL,
 			id_atividade_ag int NOT NULL,
-			nm_atividade_ag varchar(150) DEFAULT NULL,
+			nm_atividade_ag varchar(151) DEFAULT NULL,
 			valor_ag int DEFAULT '0',
 			descricao_ag varchar(60) DEFAULT NULL,
 			PRIMARY KEY (id_ag),
-			UNIQUE KEY nm_atividade_ag_UNIQUE (nm_atividade_ag),
 			KEY fk_ag_grupos_usuarios_idx (id_grupos_usuarios_ag),
 			CONSTRAINT fk_ag_grupos_usuarios_idx FOREIGN KEY (id_grupos_usuarios_ag) REFERENCES grupos_usuarios (id_gu)
 		  );

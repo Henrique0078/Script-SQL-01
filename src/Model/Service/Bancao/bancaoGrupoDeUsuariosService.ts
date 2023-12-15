@@ -8,7 +8,7 @@ import BancaoAtividadeGruposService from "./bancaoAtividadeGruposService";
 export default class BancaoGrupoDeUsuariosService{
 	async troca(prismaNovo:PrismaClientNovo){
 		try {
-			const gruposUsuarios : grupos_usuarios[] = [{id_gu:1,nm_gu:"Supervisor"},{id_gu:2,nm_gu:"Comum"}];
+			const gruposUsuarios : grupos_usuarios[] = [{id_gu:1,nm_gu:"Supervisor", pg_inicial_gu:undefined},{id_gu:2,nm_gu:"Comum", pg_inicial_gu:undefined}];
 			if(gruposUsuarios.length > 0){
 				await prismaNovo.grupos_usuarios.createMany({data: gruposUsuarios});
 

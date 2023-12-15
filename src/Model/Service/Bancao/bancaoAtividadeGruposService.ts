@@ -12,6 +12,7 @@ export default class BancaoAtividadeGruposService {
 				atividadesXGrupos.push({
 					id_ag: undefined,
 					id_atividade_ag: atividades[j].id_atividade,
+					nm_atividade_ag: atividades[j].nm_atividade,
 					id_grupos_usuarios_ag: grupoUsuarios[i].id_gu,
 					valor_ag: atividades[j].valor_atividade,
 					descricao_ag: atividades[j].descricao_atividade,

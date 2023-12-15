@@ -12,7 +12,7 @@ export default class ListasPrecosProdutos{
 				id_lista_lpp: parseInt(convertBigIntToString(ListasPrecosProdutosAntigo.lista_id)),
 				id_produto_lpp: parseInt(convertBigIntToString(ListasPrecosProdutosAntigo.produto_id)),
 				valor_lpp: ListasPrecosProdutosAntigo.valor,
-				id_produto_sirius_lpp: parseInt(convertBigIntToString(ListasPrecosProdutosAntigo.id_sirius))
+				id_sirius_lpp: parseInt(convertBigIntToString(ListasPrecosProdutosAntigo.id_sirius))
 			}));
 			if(ListasPrecosProdutosNovos.length > 0){
 				await prismaNovo.listas_precos_produtos.createMany({data: ListasPrecosProdutosNovos});

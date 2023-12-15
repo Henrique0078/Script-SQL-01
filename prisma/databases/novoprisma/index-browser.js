@@ -109,6 +109,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.Atividades_gruposScalarFieldEnum = {
   id_ag: 'id_ag',
+  nm_atividade_ag: 'nm_atividade_ag',
   id_grupos_usuarios_ag: 'id_grupos_usuarios_ag',
   id_atividade_ag: 'id_atividade_ag',
   valor_ag: 'valor_ag',
@@ -231,7 +232,8 @@ exports.Prisma.FornecedoresScalarFieldEnum = {
 
 exports.Prisma.Grupos_usuariosScalarFieldEnum = {
   id_gu: 'id_gu',
-  nm_gu: 'nm_gu'
+  nm_gu: 'nm_gu',
+  pg_inicial_gu: 'pg_inicial_gu'
 };
 
 exports.Prisma.ImagensScalarFieldEnum = {
@@ -251,7 +253,7 @@ exports.Prisma.Listas_precos_produtosScalarFieldEnum = {
   id_lista_lpp: 'id_lista_lpp',
   id_produto_lpp: 'id_produto_lpp',
   valor_lpp: 'valor_lpp',
-  id_produto_sirius_lpp: 'id_produto_sirius_lpp'
+  id_sirius_lpp: 'id_sirius_lpp'
 };
 
 exports.Prisma.MenusScalarFieldEnum = {
