@@ -7,9 +7,10 @@ import { empresas as empresasNovas } from "../../prisma/databases/bancaoprisma";
 import { empresas as empresasVelhas } from "../../prisma/databases/bancaoAntigoprisma";
 import createDatabase from "./dataBaseController";
 import { TrocaController } from "./TrocaController";
+import { Request, Response } from "express";
 
 export class migracao {
-	async init() {
+	async init(req:Request, res:Response) {
 		try {
 			//atualizando nome Empresas
 			const empresas = await prismaBancao.empresas.findMany({});
@@ -24,21 +25,13 @@ export class migracao {
 			//pega nome das empresa antigas e novas
 			let empresasOld = await prismaBancaoAntigo.empresas.findMany({});
 			let empresasNew = await prismaBancao.empresas.findMany({});
-			
+
 			const nomesDesejadosAntigos = [
-				"b68241843000113",
-				"b68241843000213",
-				"b00739197000185",
-				"b50275217000182",
-				"b50275217000282"
+				"b15432558000113",
 			];
 
 			const nomesDesejadosNovos = [
-				"b68241843000113_2",
-				"b68241843000213_2",
-				"b00739197000185_2",
-				"b50275217000182_2",
-				"b50275217000282_2"
+				"b15432558000113_2",
 			];
 
 			empresasNew = empresasNew.filter(empresa => nomesDesejadosNovos.includes(empresa.banco_empresa));
@@ -55,14 +48,15 @@ export class migracao {
 			}
 			console.log("-------------------------------------------");
 			console.log("------------------Terminou-----------------");
+			res.status(200).json({message:"Ook"});
 		} catch (error: any) {
 			throw new ErrorResponse(500, error);
 		}
 	}
 }
 export function gerarPrismas(empresaVelha: empresasVelhas, empresanova: empresasNovas) {
-	const newUrl = `mysql://avelino:coxinha123@192.168.0.144:3306/${empresanova.banco_empresa.replace(/\s/g, "")}?schema=public`;
-	const oldUrl = `mysql://avelino:coxinha123@192.168.0.144:3306/${empresaVelha.banco.replace(/\s/g, "")}?schema=public`;
+	const newUrl = `mysql://root:soft@1973@localhost:3306/${empresanova.banco_empresa.replace(/\s/g, "")}?schema=public`;
+	const oldUrl = `mysql://root:soft@1973@localhost:3306/${empresaVelha.banco.replace(/\s/g, "")}?schema=public`;
 	const velhoPrisma = new OldPrismaClient({
 		datasources: {
 			db: {

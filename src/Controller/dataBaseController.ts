@@ -209,8 +209,7 @@ export default async function createDatabase(nomeBanco: string) {
 			pg_inicial_gu varchar(45) NOT NULL DEFAULT 'pedido-venda',
 			PRIMARY KEY (id_gu),
 			UNIQUE KEY nm_gu_UNIQUE (nm_gu)
-		  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-		  `;
+		  )  `;
 		await queryAsync(grupoUsuarios, connectionBanquinho);
 
 		const vendedoresUsuarios = `
@@ -504,40 +503,38 @@ export default async function createDatabase(nomeBanco: string) {
 		////////////LISTAS DE PREÇOS PRODUTOS/////////////////
 
 		const listas_precos_produtos = `
-			CREATE TABLE listas_precos_produtos(
+		CREATE TABLE listas_precos_produtos (
 			id_lpp int NOT NULL AUTO_INCREMENT,
+			id_sirius_lpp int DEFAULT NULL,
 			id_lista_lpp int DEFAULT '0',
 			id_produto_lpp int DEFAULT '0',
-			valor_lpp decimal(15, 2) DEFAULT '0.00',
+			valor_lpp decimal(15,2) DEFAULT '0.00',
 			id_produto_sirius_lpp int DEFAULT NULL,
-			PRIMARY KEY(id_lpp),
-			INDEX fk_lpp_listas_precos_idx(id_lista_lpp ASC),
-			CONSTRAINT fk_lpp_listas_precos_idx
-			FOREIGN KEY(id_lista_lpp)
-			REFERENCES listas_precos(id_lp),
-			INDEX fk_lpp_produtos_idx(id_produto_lpp ASC),
-			CONSTRAINT fk_lpp_produtos_idx
-			FOREIGN KEY(id_produto_lpp)
-			REFERENCES produtos(id_prod)
-			);
+			PRIMARY KEY (id_lpp),
+			UNIQUE KEY id_sirius_lpp_UNIQUE (id_sirius_lpp),
+			KEY fk_lpp_listas_precos_idx (id_lista_lpp),
+			KEY fk_lpp_produtos_idx (id_produto_lpp),
+			CONSTRAINT fk_lpp_listas_precos_idx FOREIGN KEY (id_lista_lpp) REFERENCES listas_precos (id_lp),
+			CONSTRAINT fk_lpp_produtos_idx FOREIGN KEY (id_produto_lpp) REFERENCES produtos (id_prod)
+		  );
 			`;
 		await queryAsync(listas_precos_produtos, connectionBanquinho);
 
 		////////////ATIVIDADES GRUPOS/////////////////////////
 
 		const atividades_grupos = `
-			CREATE TABLE atividades_grupos(
+		CREATE TABLE atividades_grupos (
 			id_ag int NOT NULL AUTO_INCREMENT,
 			id_grupos_usuarios_ag int NOT NULL,
 			id_atividade_ag int NOT NULL,
+			nm_atividade_ag varchar(150) DEFAULT NULL,
 			valor_ag int DEFAULT '0',
 			descricao_ag varchar(60) DEFAULT NULL,
-			PRIMARY KEY(id_ag),
-			INDEX fk_ag_grupos_usuarios_idx(id_grupos_usuarios_ag ASC),
-			CONSTRAINT fk_ag_grupos_usuarios_idx
-			FOREIGN KEY(id_grupos_usuarios_ag)
-			REFERENCES grupos_usuarios(id_gu)
-			);
+			PRIMARY KEY (id_ag),
+			UNIQUE KEY nm_atividade_ag_UNIQUE (nm_atividade_ag),
+			KEY fk_ag_grupos_usuarios_idx (id_grupos_usuarios_ag),
+			CONSTRAINT fk_ag_grupos_usuarios_idx FOREIGN KEY (id_grupos_usuarios_ag) REFERENCES grupos_usuarios (id_gu)
+		  );
 			`;
 		await queryAsync(atividades_grupos, connectionBanquinho);
 
