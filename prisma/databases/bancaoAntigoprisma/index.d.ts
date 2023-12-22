@@ -14,25 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model parametros
- * 
- */
-export type parametros = $Result.DefaultSelection<Prisma.$parametrosPayload>
-/**
- * Model atividades
- * 
- */
-export type atividades = $Result.DefaultSelection<Prisma.$atividadesPayload>
-/**
  * Model empresas
  * 
  */
 export type empresas = $Result.DefaultSelection<Prisma.$empresasPayload>
-/**
- * Model modulos
- * 
- */
-export type modulos = $Result.DefaultSelection<Prisma.$modulosPayload>
 /**
  * Model usuarios
  * 
@@ -43,6 +28,21 @@ export type usuarios = $Result.DefaultSelection<Prisma.$usuariosPayload>
  * 
  */
 export type usuarios_x_empresas = $Result.DefaultSelection<Prisma.$usuarios_x_empresasPayload>
+/**
+ * Model acoes
+ * 
+ */
+export type acoes = $Result.DefaultSelection<Prisma.$acoesPayload>
+/**
+ * Model acoes_x_grupos
+ * 
+ */
+export type acoes_x_grupos = $Result.DefaultSelection<Prisma.$acoes_x_gruposPayload>
+/**
+ * Model grupos_usuarios
+ * 
+ */
+export type grupos_usuarios = $Result.DefaultSelection<Prisma.$grupos_usuariosPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -51,8 +51,8 @@ export type usuarios_x_empresas = $Result.DefaultSelection<Prisma.$usuarios_x_em
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Parametros
- * const parametros = await prisma.parametros.findMany()
+ * // Fetch zero or more Empresas
+ * const empresas = await prisma.empresas.findMany()
  * ```
  *
  * 
@@ -72,8 +72,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Parametros
-   * const parametros = await prisma.parametros.findMany()
+   * // Fetch zero or more Empresas
+   * const empresas = await prisma.empresas.findMany()
    * ```
    *
    * 
@@ -167,26 +167,6 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<'extends', Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.parametros`: Exposes CRUD operations for the **parametros** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Parametros
-    * const parametros = await prisma.parametros.findMany()
-    * ```
-    */
-  get parametros(): Prisma.parametrosDelegate<ExtArgs>;
-
-  /**
-   * `prisma.atividades`: Exposes CRUD operations for the **atividades** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Atividades
-    * const atividades = await prisma.atividades.findMany()
-    * ```
-    */
-  get atividades(): Prisma.atividadesDelegate<ExtArgs>;
-
-  /**
    * `prisma.empresas`: Exposes CRUD operations for the **empresas** model.
     * Example usage:
     * ```ts
@@ -195,16 +175,6 @@ export class PrismaClient<
     * ```
     */
   get empresas(): Prisma.empresasDelegate<ExtArgs>;
-
-  /**
-   * `prisma.modulos`: Exposes CRUD operations for the **modulos** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Modulos
-    * const modulos = await prisma.modulos.findMany()
-    * ```
-    */
-  get modulos(): Prisma.modulosDelegate<ExtArgs>;
 
   /**
    * `prisma.usuarios`: Exposes CRUD operations for the **usuarios** model.
@@ -225,6 +195,36 @@ export class PrismaClient<
     * ```
     */
   get usuarios_x_empresas(): Prisma.usuarios_x_empresasDelegate<ExtArgs>;
+
+  /**
+   * `prisma.acoes`: Exposes CRUD operations for the **acoes** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Acoes
+    * const acoes = await prisma.acoes.findMany()
+    * ```
+    */
+  get acoes(): Prisma.acoesDelegate<ExtArgs>;
+
+  /**
+   * `prisma.acoes_x_grupos`: Exposes CRUD operations for the **acoes_x_grupos** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Acoes_x_grupos
+    * const acoes_x_grupos = await prisma.acoes_x_grupos.findMany()
+    * ```
+    */
+  get acoes_x_grupos(): Prisma.acoes_x_gruposDelegate<ExtArgs>;
+
+  /**
+   * `prisma.grupos_usuarios`: Exposes CRUD operations for the **grupos_usuarios** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Grupos_usuarios
+    * const grupos_usuarios = await prisma.grupos_usuarios.findMany()
+    * ```
+    */
+  get grupos_usuarios(): Prisma.grupos_usuariosDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -695,12 +695,12 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    parametros: 'parametros',
-    atividades: 'atividades',
     empresas: 'empresas',
-    modulos: 'modulos',
     usuarios: 'usuarios',
-    usuarios_x_empresas: 'usuarios_x_empresas'
+    usuarios_x_empresas: 'usuarios_x_empresas',
+    acoes: 'acoes',
+    acoes_x_grupos: 'acoes_x_grupos',
+    grupos_usuarios: 'grupos_usuarios'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -717,142 +717,10 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'parametros' | 'atividades' | 'empresas' | 'modulos' | 'usuarios' | 'usuarios_x_empresas'
+      modelProps: 'empresas' | 'usuarios' | 'usuarios_x_empresas' | 'acoes' | 'acoes_x_grupos' | 'grupos_usuarios'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
-      parametros: {
-        payload: Prisma.$parametrosPayload<ExtArgs>
-        fields: Prisma.parametrosFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.parametrosFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.parametrosFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload>
-          }
-          findFirst: {
-            args: Prisma.parametrosFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.parametrosFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload>
-          }
-          findMany: {
-            args: Prisma.parametrosFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload>[]
-          }
-          create: {
-            args: Prisma.parametrosCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload>
-          }
-          createMany: {
-            args: Prisma.parametrosCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.parametrosDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload>
-          }
-          update: {
-            args: Prisma.parametrosUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload>
-          }
-          deleteMany: {
-            args: Prisma.parametrosDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.parametrosUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.parametrosUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$parametrosPayload>
-          }
-          aggregate: {
-            args: Prisma.ParametrosAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateParametros>
-          }
-          groupBy: {
-            args: Prisma.parametrosGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<ParametrosGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.parametrosCountArgs<ExtArgs>,
-            result: $Utils.Optional<ParametrosCountAggregateOutputType> | number
-          }
-        }
-      }
-      atividades: {
-        payload: Prisma.$atividadesPayload<ExtArgs>
-        fields: Prisma.atividadesFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.atividadesFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.atividadesFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload>
-          }
-          findFirst: {
-            args: Prisma.atividadesFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.atividadesFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload>
-          }
-          findMany: {
-            args: Prisma.atividadesFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload>[]
-          }
-          create: {
-            args: Prisma.atividadesCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload>
-          }
-          createMany: {
-            args: Prisma.atividadesCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.atividadesDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload>
-          }
-          update: {
-            args: Prisma.atividadesUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload>
-          }
-          deleteMany: {
-            args: Prisma.atividadesDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.atividadesUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.atividadesUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$atividadesPayload>
-          }
-          aggregate: {
-            args: Prisma.AtividadesAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateAtividades>
-          }
-          groupBy: {
-            args: Prisma.atividadesGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<AtividadesGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.atividadesCountArgs<ExtArgs>,
-            result: $Utils.Optional<AtividadesCountAggregateOutputType> | number
-          }
-        }
-      }
       empresas: {
         payload: Prisma.$empresasPayload<ExtArgs>
         fields: Prisma.empresasFieldRefs
@@ -916,72 +784,6 @@ export namespace Prisma {
           count: {
             args: Prisma.empresasCountArgs<ExtArgs>,
             result: $Utils.Optional<EmpresasCountAggregateOutputType> | number
-          }
-        }
-      }
-      modulos: {
-        payload: Prisma.$modulosPayload<ExtArgs>
-        fields: Prisma.modulosFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.modulosFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.modulosFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload>
-          }
-          findFirst: {
-            args: Prisma.modulosFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.modulosFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload>
-          }
-          findMany: {
-            args: Prisma.modulosFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload>[]
-          }
-          create: {
-            args: Prisma.modulosCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload>
-          }
-          createMany: {
-            args: Prisma.modulosCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.modulosDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload>
-          }
-          update: {
-            args: Prisma.modulosUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload>
-          }
-          deleteMany: {
-            args: Prisma.modulosDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.modulosUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.modulosUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$modulosPayload>
-          }
-          aggregate: {
-            args: Prisma.ModulosAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateModulos>
-          }
-          groupBy: {
-            args: Prisma.modulosGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<ModulosGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.modulosCountArgs<ExtArgs>,
-            result: $Utils.Optional<ModulosCountAggregateOutputType> | number
           }
         }
       }
@@ -1114,6 +916,204 @@ export namespace Prisma {
           count: {
             args: Prisma.usuarios_x_empresasCountArgs<ExtArgs>,
             result: $Utils.Optional<Usuarios_x_empresasCountAggregateOutputType> | number
+          }
+        }
+      }
+      acoes: {
+        payload: Prisma.$acoesPayload<ExtArgs>
+        fields: Prisma.acoesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.acoesFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.acoesFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload>
+          }
+          findFirst: {
+            args: Prisma.acoesFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.acoesFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload>
+          }
+          findMany: {
+            args: Prisma.acoesFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload>[]
+          }
+          create: {
+            args: Prisma.acoesCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload>
+          }
+          createMany: {
+            args: Prisma.acoesCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.acoesDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload>
+          }
+          update: {
+            args: Prisma.acoesUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload>
+          }
+          deleteMany: {
+            args: Prisma.acoesDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.acoesUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.acoesUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoesPayload>
+          }
+          aggregate: {
+            args: Prisma.AcoesAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateAcoes>
+          }
+          groupBy: {
+            args: Prisma.acoesGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<AcoesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.acoesCountArgs<ExtArgs>,
+            result: $Utils.Optional<AcoesCountAggregateOutputType> | number
+          }
+        }
+      }
+      acoes_x_grupos: {
+        payload: Prisma.$acoes_x_gruposPayload<ExtArgs>
+        fields: Prisma.acoes_x_gruposFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.acoes_x_gruposFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.acoes_x_gruposFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload>
+          }
+          findFirst: {
+            args: Prisma.acoes_x_gruposFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.acoes_x_gruposFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload>
+          }
+          findMany: {
+            args: Prisma.acoes_x_gruposFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload>[]
+          }
+          create: {
+            args: Prisma.acoes_x_gruposCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload>
+          }
+          createMany: {
+            args: Prisma.acoes_x_gruposCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.acoes_x_gruposDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload>
+          }
+          update: {
+            args: Prisma.acoes_x_gruposUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload>
+          }
+          deleteMany: {
+            args: Prisma.acoes_x_gruposDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.acoes_x_gruposUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.acoes_x_gruposUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$acoes_x_gruposPayload>
+          }
+          aggregate: {
+            args: Prisma.Acoes_x_gruposAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateAcoes_x_grupos>
+          }
+          groupBy: {
+            args: Prisma.acoes_x_gruposGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<Acoes_x_gruposGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.acoes_x_gruposCountArgs<ExtArgs>,
+            result: $Utils.Optional<Acoes_x_gruposCountAggregateOutputType> | number
+          }
+        }
+      }
+      grupos_usuarios: {
+        payload: Prisma.$grupos_usuariosPayload<ExtArgs>
+        fields: Prisma.grupos_usuariosFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.grupos_usuariosFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.grupos_usuariosFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload>
+          }
+          findFirst: {
+            args: Prisma.grupos_usuariosFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.grupos_usuariosFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload>
+          }
+          findMany: {
+            args: Prisma.grupos_usuariosFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload>[]
+          }
+          create: {
+            args: Prisma.grupos_usuariosCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload>
+          }
+          createMany: {
+            args: Prisma.grupos_usuariosCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.grupos_usuariosDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload>
+          }
+          update: {
+            args: Prisma.grupos_usuariosUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload>
+          }
+          deleteMany: {
+            args: Prisma.grupos_usuariosDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.grupos_usuariosUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.grupos_usuariosUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$grupos_usuariosPayload>
+          }
+          aggregate: {
+            args: Prisma.Grupos_usuariosAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateGrupos_usuarios>
+          }
+          groupBy: {
+            args: Prisma.grupos_usuariosGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<Grupos_usuariosGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.grupos_usuariosCountArgs<ExtArgs>,
+            result: $Utils.Optional<Grupos_usuariosCountAggregateOutputType> | number
           }
         }
       }
@@ -1266,10 +1266,12 @@ export namespace Prisma {
    */
 
   export type EmpresasCountOutputType = {
+    grupos_usuarios: number
     usuarios_x_empresas: number
   }
 
   export type EmpresasCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    grupos_usuarios?: boolean | EmpresasCountOutputTypeCountGrupos_usuariosArgs
     usuarios_x_empresas?: boolean | EmpresasCountOutputTypeCountUsuarios_x_empresasArgs
   }
 
@@ -1283,6 +1285,14 @@ export namespace Prisma {
      * Select specific fields to fetch from the EmpresasCountOutputType
      */
     select?: EmpresasCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * EmpresasCountOutputType without action
+   */
+  export type EmpresasCountOutputTypeCountGrupos_usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: grupos_usuariosWhereInput
   }
 
 
@@ -1330,1802 +1340,86 @@ export namespace Prisma {
 
 
   /**
+   * Count Type AcoesCountOutputType
+   */
+
+  export type AcoesCountOutputType = {
+    acoes_x_grupos: number
+  }
+
+  export type AcoesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    acoes_x_grupos?: boolean | AcoesCountOutputTypeCountAcoes_x_gruposArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * AcoesCountOutputType without action
+   */
+  export type AcoesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcoesCountOutputType
+     */
+    select?: AcoesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * AcoesCountOutputType without action
+   */
+  export type AcoesCountOutputTypeCountAcoes_x_gruposArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: acoes_x_gruposWhereInput
+  }
+
+
+
+  /**
+   * Count Type Grupos_usuariosCountOutputType
+   */
+
+  export type Grupos_usuariosCountOutputType = {
+    acoes_x_grupos: number
+    usuarios_x_empresas: number
+  }
+
+  export type Grupos_usuariosCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    acoes_x_grupos?: boolean | Grupos_usuariosCountOutputTypeCountAcoes_x_gruposArgs
+    usuarios_x_empresas?: boolean | Grupos_usuariosCountOutputTypeCountUsuarios_x_empresasArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * Grupos_usuariosCountOutputType without action
+   */
+  export type Grupos_usuariosCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Grupos_usuariosCountOutputType
+     */
+    select?: Grupos_usuariosCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Grupos_usuariosCountOutputType without action
+   */
+  export type Grupos_usuariosCountOutputTypeCountAcoes_x_gruposArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: acoes_x_gruposWhereInput
+  }
+
+
+  /**
+   * Grupos_usuariosCountOutputType without action
+   */
+  export type Grupos_usuariosCountOutputTypeCountUsuarios_x_empresasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: usuarios_x_empresasWhereInput
+  }
+
+
+
+  /**
    * Models
    */
-
-  /**
-   * Model parametros
-   */
-
-  export type AggregateParametros = {
-    _count: ParametrosCountAggregateOutputType | null
-    _avg: ParametrosAvgAggregateOutputType | null
-    _sum: ParametrosSumAggregateOutputType | null
-    _min: ParametrosMinAggregateOutputType | null
-    _max: ParametrosMaxAggregateOutputType | null
-  }
-
-  export type ParametrosAvgAggregateOutputType = {
-    id: number | null
-    valorParametro: number | null
-  }
-
-  export type ParametrosSumAggregateOutputType = {
-    id: number | null
-    valorParametro: number | null
-  }
-
-  export type ParametrosMinAggregateOutputType = {
-    id: number | null
-    parametro: string | null
-    valorParametro: number | null
-    descricao: string | null
-  }
-
-  export type ParametrosMaxAggregateOutputType = {
-    id: number | null
-    parametro: string | null
-    valorParametro: number | null
-    descricao: string | null
-  }
-
-  export type ParametrosCountAggregateOutputType = {
-    id: number
-    parametro: number
-    valorParametro: number
-    descricao: number
-    _all: number
-  }
-
-
-  export type ParametrosAvgAggregateInputType = {
-    id?: true
-    valorParametro?: true
-  }
-
-  export type ParametrosSumAggregateInputType = {
-    id?: true
-    valorParametro?: true
-  }
-
-  export type ParametrosMinAggregateInputType = {
-    id?: true
-    parametro?: true
-    valorParametro?: true
-    descricao?: true
-  }
-
-  export type ParametrosMaxAggregateInputType = {
-    id?: true
-    parametro?: true
-    valorParametro?: true
-    descricao?: true
-  }
-
-  export type ParametrosCountAggregateInputType = {
-    id?: true
-    parametro?: true
-    valorParametro?: true
-    descricao?: true
-    _all?: true
-  }
-
-  export type ParametrosAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which parametros to aggregate.
-     */
-    where?: parametrosWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of parametros to fetch.
-     */
-    orderBy?: parametrosOrderByWithRelationInput | parametrosOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: parametrosWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` parametros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` parametros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned parametros
-    **/
-    _count?: true | ParametrosCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: ParametrosAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ParametrosSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: ParametrosMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: ParametrosMaxAggregateInputType
-  }
-
-  export type GetParametrosAggregateType<T extends ParametrosAggregateArgs> = {
-        [P in keyof T & keyof AggregateParametros]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateParametros[P]>
-      : GetScalarType<T[P], AggregateParametros[P]>
-  }
-
-
-
-
-  export type parametrosGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: parametrosWhereInput
-    orderBy?: parametrosOrderByWithAggregationInput | parametrosOrderByWithAggregationInput[]
-    by: ParametrosScalarFieldEnum[] | ParametrosScalarFieldEnum
-    having?: parametrosScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: ParametrosCountAggregateInputType | true
-    _avg?: ParametrosAvgAggregateInputType
-    _sum?: ParametrosSumAggregateInputType
-    _min?: ParametrosMinAggregateInputType
-    _max?: ParametrosMaxAggregateInputType
-  }
-
-  export type ParametrosGroupByOutputType = {
-    id: number
-    parametro: string
-    valorParametro: number
-    descricao: string
-    _count: ParametrosCountAggregateOutputType | null
-    _avg: ParametrosAvgAggregateOutputType | null
-    _sum: ParametrosSumAggregateOutputType | null
-    _min: ParametrosMinAggregateOutputType | null
-    _max: ParametrosMaxAggregateOutputType | null
-  }
-
-  type GetParametrosGroupByPayload<T extends parametrosGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<ParametrosGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof ParametrosGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], ParametrosGroupByOutputType[P]>
-            : GetScalarType<T[P], ParametrosGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type parametrosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    parametro?: boolean
-    valorParametro?: boolean
-    descricao?: boolean
-  }, ExtArgs["result"]["parametros"]>
-
-  export type parametrosSelectScalar = {
-    id?: boolean
-    parametro?: boolean
-    valorParametro?: boolean
-    descricao?: boolean
-  }
-
-
-  export type $parametrosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "parametros"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      parametro: string
-      valorParametro: number
-      descricao: string
-    }, ExtArgs["result"]["parametros"]>
-    composites: {}
-  }
-
-
-  type parametrosGetPayload<S extends boolean | null | undefined | parametrosDefaultArgs> = $Result.GetResult<Prisma.$parametrosPayload, S>
-
-  type parametrosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<parametrosFindManyArgs, 'select' | 'include' | 'distinct' > & {
-      select?: ParametrosCountAggregateInputType | true
-    }
-
-  export interface parametrosDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['parametros'], meta: { name: 'parametros' } }
-    /**
-     * Find zero or one Parametros that matches the filter.
-     * @param {parametrosFindUniqueArgs} args - Arguments to find a Parametros
-     * @example
-     * // Get one Parametros
-     * const parametros = await prisma.parametros.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends parametrosFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, parametrosFindUniqueArgs<ExtArgs>>
-    ): Prisma__parametrosClient<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one Parametros that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {parametrosFindUniqueOrThrowArgs} args - Arguments to find a Parametros
-     * @example
-     * // Get one Parametros
-     * const parametros = await prisma.parametros.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends parametrosFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, parametrosFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__parametrosClient<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first Parametros that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {parametrosFindFirstArgs} args - Arguments to find a Parametros
-     * @example
-     * // Get one Parametros
-     * const parametros = await prisma.parametros.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends parametrosFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, parametrosFindFirstArgs<ExtArgs>>
-    ): Prisma__parametrosClient<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first Parametros that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {parametrosFindFirstOrThrowArgs} args - Arguments to find a Parametros
-     * @example
-     * // Get one Parametros
-     * const parametros = await prisma.parametros.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends parametrosFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, parametrosFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__parametrosClient<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Parametros that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {parametrosFindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Parametros
-     * const parametros = await prisma.parametros.findMany()
-     * 
-     * // Get first 10 Parametros
-     * const parametros = await prisma.parametros.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const parametrosWithIdOnly = await prisma.parametros.findMany({ select: { id: true } })
-     * 
-    **/
-    findMany<T extends parametrosFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, parametrosFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a Parametros.
-     * @param {parametrosCreateArgs} args - Arguments to create a Parametros.
-     * @example
-     * // Create one Parametros
-     * const Parametros = await prisma.parametros.create({
-     *   data: {
-     *     // ... data to create a Parametros
-     *   }
-     * })
-     * 
-    **/
-    create<T extends parametrosCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, parametrosCreateArgs<ExtArgs>>
-    ): Prisma__parametrosClient<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many Parametros.
-     *     @param {parametrosCreateManyArgs} args - Arguments to create many Parametros.
-     *     @example
-     *     // Create many Parametros
-     *     const parametros = await prisma.parametros.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends parametrosCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, parametrosCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Parametros.
-     * @param {parametrosDeleteArgs} args - Arguments to delete one Parametros.
-     * @example
-     * // Delete one Parametros
-     * const Parametros = await prisma.parametros.delete({
-     *   where: {
-     *     // ... filter to delete one Parametros
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends parametrosDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, parametrosDeleteArgs<ExtArgs>>
-    ): Prisma__parametrosClient<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one Parametros.
-     * @param {parametrosUpdateArgs} args - Arguments to update one Parametros.
-     * @example
-     * // Update one Parametros
-     * const parametros = await prisma.parametros.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends parametrosUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, parametrosUpdateArgs<ExtArgs>>
-    ): Prisma__parametrosClient<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more Parametros.
-     * @param {parametrosDeleteManyArgs} args - Arguments to filter Parametros to delete.
-     * @example
-     * // Delete a few Parametros
-     * const { count } = await prisma.parametros.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends parametrosDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, parametrosDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Parametros.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {parametrosUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Parametros
-     * const parametros = await prisma.parametros.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends parametrosUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, parametrosUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Parametros.
-     * @param {parametrosUpsertArgs} args - Arguments to update or create a Parametros.
-     * @example
-     * // Update or create a Parametros
-     * const parametros = await prisma.parametros.upsert({
-     *   create: {
-     *     // ... data to create a Parametros
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Parametros we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends parametrosUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, parametrosUpsertArgs<ExtArgs>>
-    ): Prisma__parametrosClient<$Result.GetResult<Prisma.$parametrosPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of Parametros.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {parametrosCountArgs} args - Arguments to filter Parametros to count.
-     * @example
-     * // Count the number of Parametros
-     * const count = await prisma.parametros.count({
-     *   where: {
-     *     // ... the filter for the Parametros we want to count
-     *   }
-     * })
-    **/
-    count<T extends parametrosCountArgs>(
-      args?: Subset<T, parametrosCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], ParametrosCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Parametros.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParametrosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends ParametrosAggregateArgs>(args: Subset<T, ParametrosAggregateArgs>): Prisma.PrismaPromise<GetParametrosAggregateType<T>>
-
-    /**
-     * Group by Parametros.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {parametrosGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends parametrosGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: parametrosGroupByArgs['orderBy'] }
-        : { orderBy?: parametrosGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, parametrosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetParametrosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the parametros model
-   */
-  readonly fields: parametrosFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for parametros.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__parametrosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the parametros model
-   */ 
-  interface parametrosFieldRefs {
-    readonly id: FieldRef<"parametros", 'Int'>
-    readonly parametro: FieldRef<"parametros", 'String'>
-    readonly valorParametro: FieldRef<"parametros", 'Int'>
-    readonly descricao: FieldRef<"parametros", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * parametros findUnique
-   */
-  export type parametrosFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * Filter, which parametros to fetch.
-     */
-    where: parametrosWhereUniqueInput
-  }
-
-
-  /**
-   * parametros findUniqueOrThrow
-   */
-  export type parametrosFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * Filter, which parametros to fetch.
-     */
-    where: parametrosWhereUniqueInput
-  }
-
-
-  /**
-   * parametros findFirst
-   */
-  export type parametrosFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * Filter, which parametros to fetch.
-     */
-    where?: parametrosWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of parametros to fetch.
-     */
-    orderBy?: parametrosOrderByWithRelationInput | parametrosOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for parametros.
-     */
-    cursor?: parametrosWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` parametros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` parametros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of parametros.
-     */
-    distinct?: ParametrosScalarFieldEnum | ParametrosScalarFieldEnum[]
-  }
-
-
-  /**
-   * parametros findFirstOrThrow
-   */
-  export type parametrosFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * Filter, which parametros to fetch.
-     */
-    where?: parametrosWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of parametros to fetch.
-     */
-    orderBy?: parametrosOrderByWithRelationInput | parametrosOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for parametros.
-     */
-    cursor?: parametrosWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` parametros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` parametros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of parametros.
-     */
-    distinct?: ParametrosScalarFieldEnum | ParametrosScalarFieldEnum[]
-  }
-
-
-  /**
-   * parametros findMany
-   */
-  export type parametrosFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * Filter, which parametros to fetch.
-     */
-    where?: parametrosWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of parametros to fetch.
-     */
-    orderBy?: parametrosOrderByWithRelationInput | parametrosOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing parametros.
-     */
-    cursor?: parametrosWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` parametros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` parametros.
-     */
-    skip?: number
-    distinct?: ParametrosScalarFieldEnum | ParametrosScalarFieldEnum[]
-  }
-
-
-  /**
-   * parametros create
-   */
-  export type parametrosCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * The data needed to create a parametros.
-     */
-    data: XOR<parametrosCreateInput, parametrosUncheckedCreateInput>
-  }
-
-
-  /**
-   * parametros createMany
-   */
-  export type parametrosCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many parametros.
-     */
-    data: parametrosCreateManyInput | parametrosCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-
-  /**
-   * parametros update
-   */
-  export type parametrosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * The data needed to update a parametros.
-     */
-    data: XOR<parametrosUpdateInput, parametrosUncheckedUpdateInput>
-    /**
-     * Choose, which parametros to update.
-     */
-    where: parametrosWhereUniqueInput
-  }
-
-
-  /**
-   * parametros updateMany
-   */
-  export type parametrosUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update parametros.
-     */
-    data: XOR<parametrosUpdateManyMutationInput, parametrosUncheckedUpdateManyInput>
-    /**
-     * Filter which parametros to update
-     */
-    where?: parametrosWhereInput
-  }
-
-
-  /**
-   * parametros upsert
-   */
-  export type parametrosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * The filter to search for the parametros to update in case it exists.
-     */
-    where: parametrosWhereUniqueInput
-    /**
-     * In case the parametros found by the `where` argument doesn't exist, create a new parametros with this data.
-     */
-    create: XOR<parametrosCreateInput, parametrosUncheckedCreateInput>
-    /**
-     * In case the parametros was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<parametrosUpdateInput, parametrosUncheckedUpdateInput>
-  }
-
-
-  /**
-   * parametros delete
-   */
-  export type parametrosDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-    /**
-     * Filter which parametros to delete.
-     */
-    where: parametrosWhereUniqueInput
-  }
-
-
-  /**
-   * parametros deleteMany
-   */
-  export type parametrosDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which parametros to delete
-     */
-    where?: parametrosWhereInput
-  }
-
-
-  /**
-   * parametros without action
-   */
-  export type parametrosDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the parametros
-     */
-    select?: parametrosSelect<ExtArgs> | null
-  }
-
-
-
-  /**
-   * Model atividades
-   */
-
-  export type AggregateAtividades = {
-    _count: AtividadesCountAggregateOutputType | null
-    _avg: AtividadesAvgAggregateOutputType | null
-    _sum: AtividadesSumAggregateOutputType | null
-    _min: AtividadesMinAggregateOutputType | null
-    _max: AtividadesMaxAggregateOutputType | null
-  }
-
-  export type AtividadesAvgAggregateOutputType = {
-    id_atividade: number | null
-    valor: number | null
-  }
-
-  export type AtividadesSumAggregateOutputType = {
-    id_atividade: number | null
-    valor: number | null
-  }
-
-  export type AtividadesMinAggregateOutputType = {
-    id_atividade: number | null
-    atividade: string | null
-    valor: number | null
-    descricao: string | null
-  }
-
-  export type AtividadesMaxAggregateOutputType = {
-    id_atividade: number | null
-    atividade: string | null
-    valor: number | null
-    descricao: string | null
-  }
-
-  export type AtividadesCountAggregateOutputType = {
-    id_atividade: number
-    atividade: number
-    valor: number
-    descricao: number
-    _all: number
-  }
-
-
-  export type AtividadesAvgAggregateInputType = {
-    id_atividade?: true
-    valor?: true
-  }
-
-  export type AtividadesSumAggregateInputType = {
-    id_atividade?: true
-    valor?: true
-  }
-
-  export type AtividadesMinAggregateInputType = {
-    id_atividade?: true
-    atividade?: true
-    valor?: true
-    descricao?: true
-  }
-
-  export type AtividadesMaxAggregateInputType = {
-    id_atividade?: true
-    atividade?: true
-    valor?: true
-    descricao?: true
-  }
-
-  export type AtividadesCountAggregateInputType = {
-    id_atividade?: true
-    atividade?: true
-    valor?: true
-    descricao?: true
-    _all?: true
-  }
-
-  export type AtividadesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which atividades to aggregate.
-     */
-    where?: atividadesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of atividades to fetch.
-     */
-    orderBy?: atividadesOrderByWithRelationInput | atividadesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: atividadesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` atividades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` atividades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned atividades
-    **/
-    _count?: true | AtividadesCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: AtividadesAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: AtividadesSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: AtividadesMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: AtividadesMaxAggregateInputType
-  }
-
-  export type GetAtividadesAggregateType<T extends AtividadesAggregateArgs> = {
-        [P in keyof T & keyof AggregateAtividades]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateAtividades[P]>
-      : GetScalarType<T[P], AggregateAtividades[P]>
-  }
-
-
-
-
-  export type atividadesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: atividadesWhereInput
-    orderBy?: atividadesOrderByWithAggregationInput | atividadesOrderByWithAggregationInput[]
-    by: AtividadesScalarFieldEnum[] | AtividadesScalarFieldEnum
-    having?: atividadesScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: AtividadesCountAggregateInputType | true
-    _avg?: AtividadesAvgAggregateInputType
-    _sum?: AtividadesSumAggregateInputType
-    _min?: AtividadesMinAggregateInputType
-    _max?: AtividadesMaxAggregateInputType
-  }
-
-  export type AtividadesGroupByOutputType = {
-    id_atividade: number
-    atividade: string | null
-    valor: number | null
-    descricao: string | null
-    _count: AtividadesCountAggregateOutputType | null
-    _avg: AtividadesAvgAggregateOutputType | null
-    _sum: AtividadesSumAggregateOutputType | null
-    _min: AtividadesMinAggregateOutputType | null
-    _max: AtividadesMaxAggregateOutputType | null
-  }
-
-  type GetAtividadesGroupByPayload<T extends atividadesGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<AtividadesGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof AtividadesGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], AtividadesGroupByOutputType[P]>
-            : GetScalarType<T[P], AtividadesGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type atividadesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id_atividade?: boolean
-    atividade?: boolean
-    valor?: boolean
-    descricao?: boolean
-  }, ExtArgs["result"]["atividades"]>
-
-  export type atividadesSelectScalar = {
-    id_atividade?: boolean
-    atividade?: boolean
-    valor?: boolean
-    descricao?: boolean
-  }
-
-
-  export type $atividadesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "atividades"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id_atividade: number
-      atividade: string | null
-      valor: number | null
-      descricao: string | null
-    }, ExtArgs["result"]["atividades"]>
-    composites: {}
-  }
-
-
-  type atividadesGetPayload<S extends boolean | null | undefined | atividadesDefaultArgs> = $Result.GetResult<Prisma.$atividadesPayload, S>
-
-  type atividadesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<atividadesFindManyArgs, 'select' | 'include' | 'distinct' > & {
-      select?: AtividadesCountAggregateInputType | true
-    }
-
-  export interface atividadesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['atividades'], meta: { name: 'atividades' } }
-    /**
-     * Find zero or one Atividades that matches the filter.
-     * @param {atividadesFindUniqueArgs} args - Arguments to find a Atividades
-     * @example
-     * // Get one Atividades
-     * const atividades = await prisma.atividades.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends atividadesFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, atividadesFindUniqueArgs<ExtArgs>>
-    ): Prisma__atividadesClient<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one Atividades that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {atividadesFindUniqueOrThrowArgs} args - Arguments to find a Atividades
-     * @example
-     * // Get one Atividades
-     * const atividades = await prisma.atividades.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends atividadesFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, atividadesFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__atividadesClient<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first Atividades that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {atividadesFindFirstArgs} args - Arguments to find a Atividades
-     * @example
-     * // Get one Atividades
-     * const atividades = await prisma.atividades.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends atividadesFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, atividadesFindFirstArgs<ExtArgs>>
-    ): Prisma__atividadesClient<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first Atividades that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {atividadesFindFirstOrThrowArgs} args - Arguments to find a Atividades
-     * @example
-     * // Get one Atividades
-     * const atividades = await prisma.atividades.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends atividadesFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, atividadesFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__atividadesClient<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Atividades that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {atividadesFindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Atividades
-     * const atividades = await prisma.atividades.findMany()
-     * 
-     * // Get first 10 Atividades
-     * const atividades = await prisma.atividades.findMany({ take: 10 })
-     * 
-     * // Only select the `id_atividade`
-     * const atividadesWithId_atividadeOnly = await prisma.atividades.findMany({ select: { id_atividade: true } })
-     * 
-    **/
-    findMany<T extends atividadesFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, atividadesFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a Atividades.
-     * @param {atividadesCreateArgs} args - Arguments to create a Atividades.
-     * @example
-     * // Create one Atividades
-     * const Atividades = await prisma.atividades.create({
-     *   data: {
-     *     // ... data to create a Atividades
-     *   }
-     * })
-     * 
-    **/
-    create<T extends atividadesCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, atividadesCreateArgs<ExtArgs>>
-    ): Prisma__atividadesClient<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many Atividades.
-     *     @param {atividadesCreateManyArgs} args - Arguments to create many Atividades.
-     *     @example
-     *     // Create many Atividades
-     *     const atividades = await prisma.atividades.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends atividadesCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, atividadesCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Atividades.
-     * @param {atividadesDeleteArgs} args - Arguments to delete one Atividades.
-     * @example
-     * // Delete one Atividades
-     * const Atividades = await prisma.atividades.delete({
-     *   where: {
-     *     // ... filter to delete one Atividades
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends atividadesDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, atividadesDeleteArgs<ExtArgs>>
-    ): Prisma__atividadesClient<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one Atividades.
-     * @param {atividadesUpdateArgs} args - Arguments to update one Atividades.
-     * @example
-     * // Update one Atividades
-     * const atividades = await prisma.atividades.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends atividadesUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, atividadesUpdateArgs<ExtArgs>>
-    ): Prisma__atividadesClient<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more Atividades.
-     * @param {atividadesDeleteManyArgs} args - Arguments to filter Atividades to delete.
-     * @example
-     * // Delete a few Atividades
-     * const { count } = await prisma.atividades.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends atividadesDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, atividadesDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Atividades.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {atividadesUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Atividades
-     * const atividades = await prisma.atividades.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends atividadesUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, atividadesUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Atividades.
-     * @param {atividadesUpsertArgs} args - Arguments to update or create a Atividades.
-     * @example
-     * // Update or create a Atividades
-     * const atividades = await prisma.atividades.upsert({
-     *   create: {
-     *     // ... data to create a Atividades
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Atividades we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends atividadesUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, atividadesUpsertArgs<ExtArgs>>
-    ): Prisma__atividadesClient<$Result.GetResult<Prisma.$atividadesPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of Atividades.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {atividadesCountArgs} args - Arguments to filter Atividades to count.
-     * @example
-     * // Count the number of Atividades
-     * const count = await prisma.atividades.count({
-     *   where: {
-     *     // ... the filter for the Atividades we want to count
-     *   }
-     * })
-    **/
-    count<T extends atividadesCountArgs>(
-      args?: Subset<T, atividadesCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], AtividadesCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Atividades.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AtividadesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends AtividadesAggregateArgs>(args: Subset<T, AtividadesAggregateArgs>): Prisma.PrismaPromise<GetAtividadesAggregateType<T>>
-
-    /**
-     * Group by Atividades.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {atividadesGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends atividadesGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: atividadesGroupByArgs['orderBy'] }
-        : { orderBy?: atividadesGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, atividadesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAtividadesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the atividades model
-   */
-  readonly fields: atividadesFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for atividades.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__atividadesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the atividades model
-   */ 
-  interface atividadesFieldRefs {
-    readonly id_atividade: FieldRef<"atividades", 'Int'>
-    readonly atividade: FieldRef<"atividades", 'String'>
-    readonly valor: FieldRef<"atividades", 'Int'>
-    readonly descricao: FieldRef<"atividades", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * atividades findUnique
-   */
-  export type atividadesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * Filter, which atividades to fetch.
-     */
-    where: atividadesWhereUniqueInput
-  }
-
-
-  /**
-   * atividades findUniqueOrThrow
-   */
-  export type atividadesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * Filter, which atividades to fetch.
-     */
-    where: atividadesWhereUniqueInput
-  }
-
-
-  /**
-   * atividades findFirst
-   */
-  export type atividadesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * Filter, which atividades to fetch.
-     */
-    where?: atividadesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of atividades to fetch.
-     */
-    orderBy?: atividadesOrderByWithRelationInput | atividadesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for atividades.
-     */
-    cursor?: atividadesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` atividades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` atividades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of atividades.
-     */
-    distinct?: AtividadesScalarFieldEnum | AtividadesScalarFieldEnum[]
-  }
-
-
-  /**
-   * atividades findFirstOrThrow
-   */
-  export type atividadesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * Filter, which atividades to fetch.
-     */
-    where?: atividadesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of atividades to fetch.
-     */
-    orderBy?: atividadesOrderByWithRelationInput | atividadesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for atividades.
-     */
-    cursor?: atividadesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` atividades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` atividades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of atividades.
-     */
-    distinct?: AtividadesScalarFieldEnum | AtividadesScalarFieldEnum[]
-  }
-
-
-  /**
-   * atividades findMany
-   */
-  export type atividadesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * Filter, which atividades to fetch.
-     */
-    where?: atividadesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of atividades to fetch.
-     */
-    orderBy?: atividadesOrderByWithRelationInput | atividadesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing atividades.
-     */
-    cursor?: atividadesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` atividades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` atividades.
-     */
-    skip?: number
-    distinct?: AtividadesScalarFieldEnum | AtividadesScalarFieldEnum[]
-  }
-
-
-  /**
-   * atividades create
-   */
-  export type atividadesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * The data needed to create a atividades.
-     */
-    data?: XOR<atividadesCreateInput, atividadesUncheckedCreateInput>
-  }
-
-
-  /**
-   * atividades createMany
-   */
-  export type atividadesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many atividades.
-     */
-    data: atividadesCreateManyInput | atividadesCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-
-  /**
-   * atividades update
-   */
-  export type atividadesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * The data needed to update a atividades.
-     */
-    data: XOR<atividadesUpdateInput, atividadesUncheckedUpdateInput>
-    /**
-     * Choose, which atividades to update.
-     */
-    where: atividadesWhereUniqueInput
-  }
-
-
-  /**
-   * atividades updateMany
-   */
-  export type atividadesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update atividades.
-     */
-    data: XOR<atividadesUpdateManyMutationInput, atividadesUncheckedUpdateManyInput>
-    /**
-     * Filter which atividades to update
-     */
-    where?: atividadesWhereInput
-  }
-
-
-  /**
-   * atividades upsert
-   */
-  export type atividadesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * The filter to search for the atividades to update in case it exists.
-     */
-    where: atividadesWhereUniqueInput
-    /**
-     * In case the atividades found by the `where` argument doesn't exist, create a new atividades with this data.
-     */
-    create: XOR<atividadesCreateInput, atividadesUncheckedCreateInput>
-    /**
-     * In case the atividades was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<atividadesUpdateInput, atividadesUncheckedUpdateInput>
-  }
-
-
-  /**
-   * atividades delete
-   */
-  export type atividadesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-    /**
-     * Filter which atividades to delete.
-     */
-    where: atividadesWhereUniqueInput
-  }
-
-
-  /**
-   * atividades deleteMany
-   */
-  export type atividadesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which atividades to delete
-     */
-    where?: atividadesWhereInput
-  }
-
-
-  /**
-   * atividades without action
-   */
-  export type atividadesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the atividades
-     */
-    select?: atividadesSelect<ExtArgs> | null
-  }
-
-
 
   /**
    * Model empresas
@@ -3145,12 +1439,12 @@ export namespace Prisma {
   }
 
   export type EmpresasSumAggregateOutputType = {
-    id: number | null
+    id: bigint | null
     idAtualizacaoBanco: number | null
   }
 
   export type EmpresasMinAggregateOutputType = {
-    id: number | null
+    id: bigint | null
     cnpj: string | null
     xRazaoSocial: string | null
     xFant: string | null
@@ -3173,7 +1467,7 @@ export namespace Prisma {
   }
 
   export type EmpresasMaxAggregateOutputType = {
-    id: number | null
+    id: bigint | null
     cnpj: string | null
     xRazaoSocial: string | null
     xFant: string | null
@@ -3387,7 +1681,7 @@ export namespace Prisma {
   }
 
   export type EmpresasGroupByOutputType = {
-    id: number
+    id: bigint
     cnpj: string
     xRazaoSocial: string
     xFant: string
@@ -3449,6 +1743,7 @@ export namespace Prisma {
     status?: boolean
     email?: boolean
     idAtualizacaoBanco?: boolean
+    grupos_usuarios?: boolean | empresas$grupos_usuariosArgs<ExtArgs>
     usuarios_x_empresas?: boolean | empresas$usuarios_x_empresasArgs<ExtArgs>
     _count?: boolean | EmpresasCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["empresas"]>
@@ -3477,6 +1772,7 @@ export namespace Prisma {
   }
 
   export type empresasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    grupos_usuarios?: boolean | empresas$grupos_usuariosArgs<ExtArgs>
     usuarios_x_empresas?: boolean | empresas$usuarios_x_empresasArgs<ExtArgs>
     _count?: boolean | EmpresasCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -3485,10 +1781,11 @@ export namespace Prisma {
   export type $empresasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "empresas"
     objects: {
+      grupos_usuarios: Prisma.$grupos_usuariosPayload<ExtArgs>[]
       usuarios_x_empresas: Prisma.$usuarios_x_empresasPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: bigint
       cnpj: string
       xRazaoSocial: string
       xFant: string
@@ -3873,6 +2170,8 @@ export namespace Prisma {
   export interface Prisma__empresasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
+    grupos_usuarios<T extends empresas$grupos_usuariosArgs<ExtArgs> = {}>(args?: Subset<T, empresas$grupos_usuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'findMany'> | Null>;
+
     usuarios_x_empresas<T extends empresas$usuarios_x_empresasArgs<ExtArgs> = {}>(args?: Subset<T, empresas$usuarios_x_empresasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usuarios_x_empresasPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
@@ -3903,7 +2202,7 @@ export namespace Prisma {
    * Fields of the empresas model
    */ 
   interface empresasFieldRefs {
-    readonly id: FieldRef<"empresas", 'Int'>
+    readonly id: FieldRef<"empresas", 'BigInt'>
     readonly cnpj: FieldRef<"empresas", 'String'>
     readonly xRazaoSocial: FieldRef<"empresas", 'String'>
     readonly xFant: FieldRef<"empresas", 'String'>
@@ -4235,6 +2534,27 @@ export namespace Prisma {
 
 
   /**
+   * empresas.grupos_usuarios
+   */
+  export type empresas$grupos_usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    where?: grupos_usuariosWhereInput
+    orderBy?: grupos_usuariosOrderByWithRelationInput | grupos_usuariosOrderByWithRelationInput[]
+    cursor?: grupos_usuariosWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Grupos_usuariosScalarFieldEnum | Grupos_usuariosScalarFieldEnum[]
+  }
+
+
+  /**
    * empresas.usuarios_x_empresas
    */
   export type empresas$usuarios_x_empresasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4272,877 +2592,6 @@ export namespace Prisma {
 
 
   /**
-   * Model modulos
-   */
-
-  export type AggregateModulos = {
-    _count: ModulosCountAggregateOutputType | null
-    _avg: ModulosAvgAggregateOutputType | null
-    _sum: ModulosSumAggregateOutputType | null
-    _min: ModulosMinAggregateOutputType | null
-    _max: ModulosMaxAggregateOutputType | null
-  }
-
-  export type ModulosAvgAggregateOutputType = {
-    id_modulo: number | null
-  }
-
-  export type ModulosSumAggregateOutputType = {
-    id_modulo: number | null
-  }
-
-  export type ModulosMinAggregateOutputType = {
-    id_modulo: number | null
-    modulo: string | null
-  }
-
-  export type ModulosMaxAggregateOutputType = {
-    id_modulo: number | null
-    modulo: string | null
-  }
-
-  export type ModulosCountAggregateOutputType = {
-    id_modulo: number
-    modulo: number
-    _all: number
-  }
-
-
-  export type ModulosAvgAggregateInputType = {
-    id_modulo?: true
-  }
-
-  export type ModulosSumAggregateInputType = {
-    id_modulo?: true
-  }
-
-  export type ModulosMinAggregateInputType = {
-    id_modulo?: true
-    modulo?: true
-  }
-
-  export type ModulosMaxAggregateInputType = {
-    id_modulo?: true
-    modulo?: true
-  }
-
-  export type ModulosCountAggregateInputType = {
-    id_modulo?: true
-    modulo?: true
-    _all?: true
-  }
-
-  export type ModulosAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which modulos to aggregate.
-     */
-    where?: modulosWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of modulos to fetch.
-     */
-    orderBy?: modulosOrderByWithRelationInput | modulosOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: modulosWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` modulos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` modulos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned modulos
-    **/
-    _count?: true | ModulosCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: ModulosAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ModulosSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: ModulosMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: ModulosMaxAggregateInputType
-  }
-
-  export type GetModulosAggregateType<T extends ModulosAggregateArgs> = {
-        [P in keyof T & keyof AggregateModulos]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateModulos[P]>
-      : GetScalarType<T[P], AggregateModulos[P]>
-  }
-
-
-
-
-  export type modulosGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: modulosWhereInput
-    orderBy?: modulosOrderByWithAggregationInput | modulosOrderByWithAggregationInput[]
-    by: ModulosScalarFieldEnum[] | ModulosScalarFieldEnum
-    having?: modulosScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: ModulosCountAggregateInputType | true
-    _avg?: ModulosAvgAggregateInputType
-    _sum?: ModulosSumAggregateInputType
-    _min?: ModulosMinAggregateInputType
-    _max?: ModulosMaxAggregateInputType
-  }
-
-  export type ModulosGroupByOutputType = {
-    id_modulo: number
-    modulo: string | null
-    _count: ModulosCountAggregateOutputType | null
-    _avg: ModulosAvgAggregateOutputType | null
-    _sum: ModulosSumAggregateOutputType | null
-    _min: ModulosMinAggregateOutputType | null
-    _max: ModulosMaxAggregateOutputType | null
-  }
-
-  type GetModulosGroupByPayload<T extends modulosGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<ModulosGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof ModulosGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], ModulosGroupByOutputType[P]>
-            : GetScalarType<T[P], ModulosGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type modulosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id_modulo?: boolean
-    modulo?: boolean
-  }, ExtArgs["result"]["modulos"]>
-
-  export type modulosSelectScalar = {
-    id_modulo?: boolean
-    modulo?: boolean
-  }
-
-
-  export type $modulosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "modulos"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id_modulo: number
-      modulo: string | null
-    }, ExtArgs["result"]["modulos"]>
-    composites: {}
-  }
-
-
-  type modulosGetPayload<S extends boolean | null | undefined | modulosDefaultArgs> = $Result.GetResult<Prisma.$modulosPayload, S>
-
-  type modulosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<modulosFindManyArgs, 'select' | 'include' | 'distinct' > & {
-      select?: ModulosCountAggregateInputType | true
-    }
-
-  export interface modulosDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['modulos'], meta: { name: 'modulos' } }
-    /**
-     * Find zero or one Modulos that matches the filter.
-     * @param {modulosFindUniqueArgs} args - Arguments to find a Modulos
-     * @example
-     * // Get one Modulos
-     * const modulos = await prisma.modulos.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends modulosFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, modulosFindUniqueArgs<ExtArgs>>
-    ): Prisma__modulosClient<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one Modulos that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {modulosFindUniqueOrThrowArgs} args - Arguments to find a Modulos
-     * @example
-     * // Get one Modulos
-     * const modulos = await prisma.modulos.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends modulosFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, modulosFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__modulosClient<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first Modulos that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {modulosFindFirstArgs} args - Arguments to find a Modulos
-     * @example
-     * // Get one Modulos
-     * const modulos = await prisma.modulos.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends modulosFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, modulosFindFirstArgs<ExtArgs>>
-    ): Prisma__modulosClient<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first Modulos that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {modulosFindFirstOrThrowArgs} args - Arguments to find a Modulos
-     * @example
-     * // Get one Modulos
-     * const modulos = await prisma.modulos.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends modulosFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, modulosFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__modulosClient<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Modulos that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {modulosFindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Modulos
-     * const modulos = await prisma.modulos.findMany()
-     * 
-     * // Get first 10 Modulos
-     * const modulos = await prisma.modulos.findMany({ take: 10 })
-     * 
-     * // Only select the `id_modulo`
-     * const modulosWithId_moduloOnly = await prisma.modulos.findMany({ select: { id_modulo: true } })
-     * 
-    **/
-    findMany<T extends modulosFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, modulosFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a Modulos.
-     * @param {modulosCreateArgs} args - Arguments to create a Modulos.
-     * @example
-     * // Create one Modulos
-     * const Modulos = await prisma.modulos.create({
-     *   data: {
-     *     // ... data to create a Modulos
-     *   }
-     * })
-     * 
-    **/
-    create<T extends modulosCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, modulosCreateArgs<ExtArgs>>
-    ): Prisma__modulosClient<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many Modulos.
-     *     @param {modulosCreateManyArgs} args - Arguments to create many Modulos.
-     *     @example
-     *     // Create many Modulos
-     *     const modulos = await prisma.modulos.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends modulosCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, modulosCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Modulos.
-     * @param {modulosDeleteArgs} args - Arguments to delete one Modulos.
-     * @example
-     * // Delete one Modulos
-     * const Modulos = await prisma.modulos.delete({
-     *   where: {
-     *     // ... filter to delete one Modulos
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends modulosDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, modulosDeleteArgs<ExtArgs>>
-    ): Prisma__modulosClient<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one Modulos.
-     * @param {modulosUpdateArgs} args - Arguments to update one Modulos.
-     * @example
-     * // Update one Modulos
-     * const modulos = await prisma.modulos.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends modulosUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, modulosUpdateArgs<ExtArgs>>
-    ): Prisma__modulosClient<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more Modulos.
-     * @param {modulosDeleteManyArgs} args - Arguments to filter Modulos to delete.
-     * @example
-     * // Delete a few Modulos
-     * const { count } = await prisma.modulos.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends modulosDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, modulosDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Modulos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {modulosUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Modulos
-     * const modulos = await prisma.modulos.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends modulosUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, modulosUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Modulos.
-     * @param {modulosUpsertArgs} args - Arguments to update or create a Modulos.
-     * @example
-     * // Update or create a Modulos
-     * const modulos = await prisma.modulos.upsert({
-     *   create: {
-     *     // ... data to create a Modulos
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Modulos we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends modulosUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, modulosUpsertArgs<ExtArgs>>
-    ): Prisma__modulosClient<$Result.GetResult<Prisma.$modulosPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of Modulos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {modulosCountArgs} args - Arguments to filter Modulos to count.
-     * @example
-     * // Count the number of Modulos
-     * const count = await prisma.modulos.count({
-     *   where: {
-     *     // ... the filter for the Modulos we want to count
-     *   }
-     * })
-    **/
-    count<T extends modulosCountArgs>(
-      args?: Subset<T, modulosCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], ModulosCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Modulos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ModulosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends ModulosAggregateArgs>(args: Subset<T, ModulosAggregateArgs>): Prisma.PrismaPromise<GetModulosAggregateType<T>>
-
-    /**
-     * Group by Modulos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {modulosGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends modulosGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: modulosGroupByArgs['orderBy'] }
-        : { orderBy?: modulosGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, modulosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetModulosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the modulos model
-   */
-  readonly fields: modulosFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for modulos.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__modulosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the modulos model
-   */ 
-  interface modulosFieldRefs {
-    readonly id_modulo: FieldRef<"modulos", 'Int'>
-    readonly modulo: FieldRef<"modulos", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * modulos findUnique
-   */
-  export type modulosFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * Filter, which modulos to fetch.
-     */
-    where: modulosWhereUniqueInput
-  }
-
-
-  /**
-   * modulos findUniqueOrThrow
-   */
-  export type modulosFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * Filter, which modulos to fetch.
-     */
-    where: modulosWhereUniqueInput
-  }
-
-
-  /**
-   * modulos findFirst
-   */
-  export type modulosFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * Filter, which modulos to fetch.
-     */
-    where?: modulosWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of modulos to fetch.
-     */
-    orderBy?: modulosOrderByWithRelationInput | modulosOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for modulos.
-     */
-    cursor?: modulosWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` modulos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` modulos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of modulos.
-     */
-    distinct?: ModulosScalarFieldEnum | ModulosScalarFieldEnum[]
-  }
-
-
-  /**
-   * modulos findFirstOrThrow
-   */
-  export type modulosFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * Filter, which modulos to fetch.
-     */
-    where?: modulosWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of modulos to fetch.
-     */
-    orderBy?: modulosOrderByWithRelationInput | modulosOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for modulos.
-     */
-    cursor?: modulosWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` modulos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` modulos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of modulos.
-     */
-    distinct?: ModulosScalarFieldEnum | ModulosScalarFieldEnum[]
-  }
-
-
-  /**
-   * modulos findMany
-   */
-  export type modulosFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * Filter, which modulos to fetch.
-     */
-    where?: modulosWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of modulos to fetch.
-     */
-    orderBy?: modulosOrderByWithRelationInput | modulosOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing modulos.
-     */
-    cursor?: modulosWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` modulos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` modulos.
-     */
-    skip?: number
-    distinct?: ModulosScalarFieldEnum | ModulosScalarFieldEnum[]
-  }
-
-
-  /**
-   * modulos create
-   */
-  export type modulosCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * The data needed to create a modulos.
-     */
-    data?: XOR<modulosCreateInput, modulosUncheckedCreateInput>
-  }
-
-
-  /**
-   * modulos createMany
-   */
-  export type modulosCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many modulos.
-     */
-    data: modulosCreateManyInput | modulosCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-
-  /**
-   * modulos update
-   */
-  export type modulosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * The data needed to update a modulos.
-     */
-    data: XOR<modulosUpdateInput, modulosUncheckedUpdateInput>
-    /**
-     * Choose, which modulos to update.
-     */
-    where: modulosWhereUniqueInput
-  }
-
-
-  /**
-   * modulos updateMany
-   */
-  export type modulosUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update modulos.
-     */
-    data: XOR<modulosUpdateManyMutationInput, modulosUncheckedUpdateManyInput>
-    /**
-     * Filter which modulos to update
-     */
-    where?: modulosWhereInput
-  }
-
-
-  /**
-   * modulos upsert
-   */
-  export type modulosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * The filter to search for the modulos to update in case it exists.
-     */
-    where: modulosWhereUniqueInput
-    /**
-     * In case the modulos found by the `where` argument doesn't exist, create a new modulos with this data.
-     */
-    create: XOR<modulosCreateInput, modulosUncheckedCreateInput>
-    /**
-     * In case the modulos was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<modulosUpdateInput, modulosUncheckedUpdateInput>
-  }
-
-
-  /**
-   * modulos delete
-   */
-  export type modulosDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-    /**
-     * Filter which modulos to delete.
-     */
-    where: modulosWhereUniqueInput
-  }
-
-
-  /**
-   * modulos deleteMany
-   */
-  export type modulosDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which modulos to delete
-     */
-    where?: modulosWhereInput
-  }
-
-
-  /**
-   * modulos without action
-   */
-  export type modulosDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the modulos
-     */
-    select?: modulosSelect<ExtArgs> | null
-  }
-
-
-
-  /**
    * Model usuarios
    */
 
@@ -5159,11 +2608,11 @@ export namespace Prisma {
   }
 
   export type UsuariosSumAggregateOutputType = {
-    id: number | null
+    id: bigint | null
   }
 
   export type UsuariosMinAggregateOutputType = {
-    id: number | null
+    id: bigint | null
     nome: string | null
     ultimo_nome: string | null
     email: string | null
@@ -5175,7 +2624,7 @@ export namespace Prisma {
   }
 
   export type UsuariosMaxAggregateOutputType = {
-    id: number | null
+    id: bigint | null
     nome: string | null
     ultimo_nome: string | null
     email: string | null
@@ -5332,7 +2781,7 @@ export namespace Prisma {
   }
 
   export type UsuariosGroupByOutputType = {
-    id: number
+    id: bigint
     nome: string | null
     ultimo_nome: string | null
     email: string | null
@@ -5400,7 +2849,7 @@ export namespace Prisma {
       usuarios_x_empresas: Prisma.$usuarios_x_empresasPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: bigint
       nome: string | null
       ultimo_nome: string | null
       email: string | null
@@ -5804,7 +3253,7 @@ export namespace Prisma {
    * Fields of the usuarios model
    */ 
   interface usuariosFieldRefs {
-    readonly id: FieldRef<"usuarios", 'Int'>
+    readonly id: FieldRef<"usuarios", 'BigInt'>
     readonly nome: FieldRef<"usuarios", 'String'>
     readonly ultimo_nome: FieldRef<"usuarios", 'String'>
     readonly email: FieldRef<"usuarios", 'String'>
@@ -6177,30 +3626,35 @@ export namespace Prisma {
     id: number | null
     id_empresa: number | null
     id_usuario: number | null
+    id_grupo_usuario: number | null
   }
 
   export type Usuarios_x_empresasSumAggregateOutputType = {
-    id: number | null
-    id_empresa: number | null
-    id_usuario: number | null
+    id: bigint | null
+    id_empresa: bigint | null
+    id_usuario: bigint | null
+    id_grupo_usuario: bigint | null
   }
 
   export type Usuarios_x_empresasMinAggregateOutputType = {
-    id: number | null
-    id_empresa: number | null
-    id_usuario: number | null
+    id: bigint | null
+    id_empresa: bigint | null
+    id_usuario: bigint | null
+    id_grupo_usuario: bigint | null
   }
 
   export type Usuarios_x_empresasMaxAggregateOutputType = {
-    id: number | null
-    id_empresa: number | null
-    id_usuario: number | null
+    id: bigint | null
+    id_empresa: bigint | null
+    id_usuario: bigint | null
+    id_grupo_usuario: bigint | null
   }
 
   export type Usuarios_x_empresasCountAggregateOutputType = {
     id: number
     id_empresa: number
     id_usuario: number
+    id_grupo_usuario: number
     _all: number
   }
 
@@ -6209,30 +3663,35 @@ export namespace Prisma {
     id?: true
     id_empresa?: true
     id_usuario?: true
+    id_grupo_usuario?: true
   }
 
   export type Usuarios_x_empresasSumAggregateInputType = {
     id?: true
     id_empresa?: true
     id_usuario?: true
+    id_grupo_usuario?: true
   }
 
   export type Usuarios_x_empresasMinAggregateInputType = {
     id?: true
     id_empresa?: true
     id_usuario?: true
+    id_grupo_usuario?: true
   }
 
   export type Usuarios_x_empresasMaxAggregateInputType = {
     id?: true
     id_empresa?: true
     id_usuario?: true
+    id_grupo_usuario?: true
   }
 
   export type Usuarios_x_empresasCountAggregateInputType = {
     id?: true
     id_empresa?: true
     id_usuario?: true
+    id_grupo_usuario?: true
     _all?: true
   }
 
@@ -6323,9 +3782,10 @@ export namespace Prisma {
   }
 
   export type Usuarios_x_empresasGroupByOutputType = {
-    id: number
-    id_empresa: number
-    id_usuario: number
+    id: bigint
+    id_empresa: bigint
+    id_usuario: bigint
+    id_grupo_usuario: bigint
     _count: Usuarios_x_empresasCountAggregateOutputType | null
     _avg: Usuarios_x_empresasAvgAggregateOutputType | null
     _sum: Usuarios_x_empresasSumAggregateOutputType | null
@@ -6351,19 +3811,23 @@ export namespace Prisma {
     id?: boolean
     id_empresa?: boolean
     id_usuario?: boolean
+    id_grupo_usuario?: boolean
     empresas?: boolean | empresasDefaultArgs<ExtArgs>
     usuarios?: boolean | usuariosDefaultArgs<ExtArgs>
+    grupos_usuarios?: boolean | grupos_usuariosDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuarios_x_empresas"]>
 
   export type usuarios_x_empresasSelectScalar = {
     id?: boolean
     id_empresa?: boolean
     id_usuario?: boolean
+    id_grupo_usuario?: boolean
   }
 
   export type usuarios_x_empresasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     empresas?: boolean | empresasDefaultArgs<ExtArgs>
     usuarios?: boolean | usuariosDefaultArgs<ExtArgs>
+    grupos_usuarios?: boolean | grupos_usuariosDefaultArgs<ExtArgs>
   }
 
 
@@ -6372,11 +3836,13 @@ export namespace Prisma {
     objects: {
       empresas: Prisma.$empresasPayload<ExtArgs>
       usuarios: Prisma.$usuariosPayload<ExtArgs>
+      grupos_usuarios: Prisma.$grupos_usuariosPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      id_empresa: number
-      id_usuario: number
+      id: bigint
+      id_empresa: bigint
+      id_usuario: bigint
+      id_grupo_usuario: bigint
     }, ExtArgs["result"]["usuarios_x_empresas"]>
     composites: {}
   }
@@ -6746,6 +4212,8 @@ export namespace Prisma {
 
     usuarios<T extends usuariosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usuariosDefaultArgs<ExtArgs>>): Prisma__usuariosClient<$Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
+    grupos_usuarios<T extends grupos_usuariosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, grupos_usuariosDefaultArgs<ExtArgs>>): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6774,9 +4242,10 @@ export namespace Prisma {
    * Fields of the usuarios_x_empresas model
    */ 
   interface usuarios_x_empresasFieldRefs {
-    readonly id: FieldRef<"usuarios_x_empresas", 'Int'>
-    readonly id_empresa: FieldRef<"usuarios_x_empresas", 'Int'>
-    readonly id_usuario: FieldRef<"usuarios_x_empresas", 'Int'>
+    readonly id: FieldRef<"usuarios_x_empresas", 'BigInt'>
+    readonly id_empresa: FieldRef<"usuarios_x_empresas", 'BigInt'>
+    readonly id_usuario: FieldRef<"usuarios_x_empresas", 'BigInt'>
+    readonly id_grupo_usuario: FieldRef<"usuarios_x_empresas", 'BigInt'>
   }
     
 
@@ -7105,6 +4574,2953 @@ export namespace Prisma {
 
 
   /**
+   * Model acoes
+   */
+
+  export type AggregateAcoes = {
+    _count: AcoesCountAggregateOutputType | null
+    _avg: AcoesAvgAggregateOutputType | null
+    _sum: AcoesSumAggregateOutputType | null
+    _min: AcoesMinAggregateOutputType | null
+    _max: AcoesMaxAggregateOutputType | null
+  }
+
+  export type AcoesAvgAggregateOutputType = {
+    id: number | null
+    valor_padrao: number | null
+  }
+
+  export type AcoesSumAggregateOutputType = {
+    id: bigint | null
+    valor_padrao: number | null
+  }
+
+  export type AcoesMinAggregateOutputType = {
+    id: bigint | null
+    descricao: string | null
+    descricao_titulo: string | null
+    tabela: string | null
+    tabela_titulo: string | null
+    valor_padrao: number | null
+  }
+
+  export type AcoesMaxAggregateOutputType = {
+    id: bigint | null
+    descricao: string | null
+    descricao_titulo: string | null
+    tabela: string | null
+    tabela_titulo: string | null
+    valor_padrao: number | null
+  }
+
+  export type AcoesCountAggregateOutputType = {
+    id: number
+    descricao: number
+    descricao_titulo: number
+    tabela: number
+    tabela_titulo: number
+    valor_padrao: number
+    _all: number
+  }
+
+
+  export type AcoesAvgAggregateInputType = {
+    id?: true
+    valor_padrao?: true
+  }
+
+  export type AcoesSumAggregateInputType = {
+    id?: true
+    valor_padrao?: true
+  }
+
+  export type AcoesMinAggregateInputType = {
+    id?: true
+    descricao?: true
+    descricao_titulo?: true
+    tabela?: true
+    tabela_titulo?: true
+    valor_padrao?: true
+  }
+
+  export type AcoesMaxAggregateInputType = {
+    id?: true
+    descricao?: true
+    descricao_titulo?: true
+    tabela?: true
+    tabela_titulo?: true
+    valor_padrao?: true
+  }
+
+  export type AcoesCountAggregateInputType = {
+    id?: true
+    descricao?: true
+    descricao_titulo?: true
+    tabela?: true
+    tabela_titulo?: true
+    valor_padrao?: true
+    _all?: true
+  }
+
+  export type AcoesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which acoes to aggregate.
+     */
+    where?: acoesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of acoes to fetch.
+     */
+    orderBy?: acoesOrderByWithRelationInput | acoesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: acoesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` acoes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` acoes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned acoes
+    **/
+    _count?: true | AcoesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AcoesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AcoesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AcoesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AcoesMaxAggregateInputType
+  }
+
+  export type GetAcoesAggregateType<T extends AcoesAggregateArgs> = {
+        [P in keyof T & keyof AggregateAcoes]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAcoes[P]>
+      : GetScalarType<T[P], AggregateAcoes[P]>
+  }
+
+
+
+
+  export type acoesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: acoesWhereInput
+    orderBy?: acoesOrderByWithAggregationInput | acoesOrderByWithAggregationInput[]
+    by: AcoesScalarFieldEnum[] | AcoesScalarFieldEnum
+    having?: acoesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AcoesCountAggregateInputType | true
+    _avg?: AcoesAvgAggregateInputType
+    _sum?: AcoesSumAggregateInputType
+    _min?: AcoesMinAggregateInputType
+    _max?: AcoesMaxAggregateInputType
+  }
+
+  export type AcoesGroupByOutputType = {
+    id: bigint
+    descricao: string
+    descricao_titulo: string
+    tabela: string
+    tabela_titulo: string
+    valor_padrao: number | null
+    _count: AcoesCountAggregateOutputType | null
+    _avg: AcoesAvgAggregateOutputType | null
+    _sum: AcoesSumAggregateOutputType | null
+    _min: AcoesMinAggregateOutputType | null
+    _max: AcoesMaxAggregateOutputType | null
+  }
+
+  type GetAcoesGroupByPayload<T extends acoesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AcoesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AcoesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AcoesGroupByOutputType[P]>
+            : GetScalarType<T[P], AcoesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type acoesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    descricao?: boolean
+    descricao_titulo?: boolean
+    tabela?: boolean
+    tabela_titulo?: boolean
+    valor_padrao?: boolean
+    acoes_x_grupos?: boolean | acoes$acoes_x_gruposArgs<ExtArgs>
+    _count?: boolean | AcoesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["acoes"]>
+
+  export type acoesSelectScalar = {
+    id?: boolean
+    descricao?: boolean
+    descricao_titulo?: boolean
+    tabela?: boolean
+    tabela_titulo?: boolean
+    valor_padrao?: boolean
+  }
+
+  export type acoesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    acoes_x_grupos?: boolean | acoes$acoes_x_gruposArgs<ExtArgs>
+    _count?: boolean | AcoesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $acoesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "acoes"
+    objects: {
+      acoes_x_grupos: Prisma.$acoes_x_gruposPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: bigint
+      descricao: string
+      descricao_titulo: string
+      tabela: string
+      tabela_titulo: string
+      valor_padrao: number | null
+    }, ExtArgs["result"]["acoes"]>
+    composites: {}
+  }
+
+
+  type acoesGetPayload<S extends boolean | null | undefined | acoesDefaultArgs> = $Result.GetResult<Prisma.$acoesPayload, S>
+
+  type acoesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<acoesFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: AcoesCountAggregateInputType | true
+    }
+
+  export interface acoesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['acoes'], meta: { name: 'acoes' } }
+    /**
+     * Find zero or one Acoes that matches the filter.
+     * @param {acoesFindUniqueArgs} args - Arguments to find a Acoes
+     * @example
+     * // Get one Acoes
+     * const acoes = await prisma.acoes.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends acoesFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, acoesFindUniqueArgs<ExtArgs>>
+    ): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Acoes that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {acoesFindUniqueOrThrowArgs} args - Arguments to find a Acoes
+     * @example
+     * // Get one Acoes
+     * const acoes = await prisma.acoes.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends acoesFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoesFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Acoes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoesFindFirstArgs} args - Arguments to find a Acoes
+     * @example
+     * // Get one Acoes
+     * const acoes = await prisma.acoes.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends acoesFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoesFindFirstArgs<ExtArgs>>
+    ): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Acoes that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoesFindFirstOrThrowArgs} args - Arguments to find a Acoes
+     * @example
+     * // Get one Acoes
+     * const acoes = await prisma.acoes.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends acoesFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoesFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Acoes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoesFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Acoes
+     * const acoes = await prisma.acoes.findMany()
+     * 
+     * // Get first 10 Acoes
+     * const acoes = await prisma.acoes.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const acoesWithIdOnly = await prisma.acoes.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends acoesFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoesFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Acoes.
+     * @param {acoesCreateArgs} args - Arguments to create a Acoes.
+     * @example
+     * // Create one Acoes
+     * const Acoes = await prisma.acoes.create({
+     *   data: {
+     *     // ... data to create a Acoes
+     *   }
+     * })
+     * 
+    **/
+    create<T extends acoesCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, acoesCreateArgs<ExtArgs>>
+    ): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Acoes.
+     *     @param {acoesCreateManyArgs} args - Arguments to create many Acoes.
+     *     @example
+     *     // Create many Acoes
+     *     const acoes = await prisma.acoes.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends acoesCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoesCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Acoes.
+     * @param {acoesDeleteArgs} args - Arguments to delete one Acoes.
+     * @example
+     * // Delete one Acoes
+     * const Acoes = await prisma.acoes.delete({
+     *   where: {
+     *     // ... filter to delete one Acoes
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends acoesDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, acoesDeleteArgs<ExtArgs>>
+    ): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Acoes.
+     * @param {acoesUpdateArgs} args - Arguments to update one Acoes.
+     * @example
+     * // Update one Acoes
+     * const acoes = await prisma.acoes.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends acoesUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, acoesUpdateArgs<ExtArgs>>
+    ): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Acoes.
+     * @param {acoesDeleteManyArgs} args - Arguments to filter Acoes to delete.
+     * @example
+     * // Delete a few Acoes
+     * const { count } = await prisma.acoes.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends acoesDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoesDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Acoes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Acoes
+     * const acoes = await prisma.acoes.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends acoesUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, acoesUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Acoes.
+     * @param {acoesUpsertArgs} args - Arguments to update or create a Acoes.
+     * @example
+     * // Update or create a Acoes
+     * const acoes = await prisma.acoes.upsert({
+     *   create: {
+     *     // ... data to create a Acoes
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Acoes we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends acoesUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, acoesUpsertArgs<ExtArgs>>
+    ): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Acoes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoesCountArgs} args - Arguments to filter Acoes to count.
+     * @example
+     * // Count the number of Acoes
+     * const count = await prisma.acoes.count({
+     *   where: {
+     *     // ... the filter for the Acoes we want to count
+     *   }
+     * })
+    **/
+    count<T extends acoesCountArgs>(
+      args?: Subset<T, acoesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AcoesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Acoes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcoesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AcoesAggregateArgs>(args: Subset<T, AcoesAggregateArgs>): Prisma.PrismaPromise<GetAcoesAggregateType<T>>
+
+    /**
+     * Group by Acoes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends acoesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: acoesGroupByArgs['orderBy'] }
+        : { orderBy?: acoesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, acoesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAcoesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the acoes model
+   */
+  readonly fields: acoesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for acoes.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__acoesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    acoes_x_grupos<T extends acoes$acoes_x_gruposArgs<ExtArgs> = {}>(args?: Subset<T, acoes$acoes_x_gruposArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the acoes model
+   */ 
+  interface acoesFieldRefs {
+    readonly id: FieldRef<"acoes", 'BigInt'>
+    readonly descricao: FieldRef<"acoes", 'String'>
+    readonly descricao_titulo: FieldRef<"acoes", 'String'>
+    readonly tabela: FieldRef<"acoes", 'String'>
+    readonly tabela_titulo: FieldRef<"acoes", 'String'>
+    readonly valor_padrao: FieldRef<"acoes", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * acoes findUnique
+   */
+  export type acoesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes to fetch.
+     */
+    where: acoesWhereUniqueInput
+  }
+
+
+  /**
+   * acoes findUniqueOrThrow
+   */
+  export type acoesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes to fetch.
+     */
+    where: acoesWhereUniqueInput
+  }
+
+
+  /**
+   * acoes findFirst
+   */
+  export type acoesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes to fetch.
+     */
+    where?: acoesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of acoes to fetch.
+     */
+    orderBy?: acoesOrderByWithRelationInput | acoesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for acoes.
+     */
+    cursor?: acoesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` acoes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` acoes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of acoes.
+     */
+    distinct?: AcoesScalarFieldEnum | AcoesScalarFieldEnum[]
+  }
+
+
+  /**
+   * acoes findFirstOrThrow
+   */
+  export type acoesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes to fetch.
+     */
+    where?: acoesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of acoes to fetch.
+     */
+    orderBy?: acoesOrderByWithRelationInput | acoesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for acoes.
+     */
+    cursor?: acoesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` acoes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` acoes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of acoes.
+     */
+    distinct?: AcoesScalarFieldEnum | AcoesScalarFieldEnum[]
+  }
+
+
+  /**
+   * acoes findMany
+   */
+  export type acoesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes to fetch.
+     */
+    where?: acoesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of acoes to fetch.
+     */
+    orderBy?: acoesOrderByWithRelationInput | acoesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing acoes.
+     */
+    cursor?: acoesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` acoes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` acoes.
+     */
+    skip?: number
+    distinct?: AcoesScalarFieldEnum | AcoesScalarFieldEnum[]
+  }
+
+
+  /**
+   * acoes create
+   */
+  export type acoesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a acoes.
+     */
+    data: XOR<acoesCreateInput, acoesUncheckedCreateInput>
+  }
+
+
+  /**
+   * acoes createMany
+   */
+  export type acoesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many acoes.
+     */
+    data: acoesCreateManyInput | acoesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * acoes update
+   */
+  export type acoesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a acoes.
+     */
+    data: XOR<acoesUpdateInput, acoesUncheckedUpdateInput>
+    /**
+     * Choose, which acoes to update.
+     */
+    where: acoesWhereUniqueInput
+  }
+
+
+  /**
+   * acoes updateMany
+   */
+  export type acoesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update acoes.
+     */
+    data: XOR<acoesUpdateManyMutationInput, acoesUncheckedUpdateManyInput>
+    /**
+     * Filter which acoes to update
+     */
+    where?: acoesWhereInput
+  }
+
+
+  /**
+   * acoes upsert
+   */
+  export type acoesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the acoes to update in case it exists.
+     */
+    where: acoesWhereUniqueInput
+    /**
+     * In case the acoes found by the `where` argument doesn't exist, create a new acoes with this data.
+     */
+    create: XOR<acoesCreateInput, acoesUncheckedCreateInput>
+    /**
+     * In case the acoes was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<acoesUpdateInput, acoesUncheckedUpdateInput>
+  }
+
+
+  /**
+   * acoes delete
+   */
+  export type acoesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+    /**
+     * Filter which acoes to delete.
+     */
+    where: acoesWhereUniqueInput
+  }
+
+
+  /**
+   * acoes deleteMany
+   */
+  export type acoesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which acoes to delete
+     */
+    where?: acoesWhereInput
+  }
+
+
+  /**
+   * acoes.acoes_x_grupos
+   */
+  export type acoes$acoes_x_gruposArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    where?: acoes_x_gruposWhereInput
+    orderBy?: acoes_x_gruposOrderByWithRelationInput | acoes_x_gruposOrderByWithRelationInput[]
+    cursor?: acoes_x_gruposWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Acoes_x_gruposScalarFieldEnum | Acoes_x_gruposScalarFieldEnum[]
+  }
+
+
+  /**
+   * acoes without action
+   */
+  export type acoesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes
+     */
+    select?: acoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoesInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model acoes_x_grupos
+   */
+
+  export type AggregateAcoes_x_grupos = {
+    _count: Acoes_x_gruposCountAggregateOutputType | null
+    _avg: Acoes_x_gruposAvgAggregateOutputType | null
+    _sum: Acoes_x_gruposSumAggregateOutputType | null
+    _min: Acoes_x_gruposMinAggregateOutputType | null
+    _max: Acoes_x_gruposMaxAggregateOutputType | null
+  }
+
+  export type Acoes_x_gruposAvgAggregateOutputType = {
+    id: number | null
+    id_acao: number | null
+    id_grupo_usuario: number | null
+    permite: number | null
+  }
+
+  export type Acoes_x_gruposSumAggregateOutputType = {
+    id: bigint | null
+    id_acao: bigint | null
+    id_grupo_usuario: bigint | null
+    permite: number | null
+  }
+
+  export type Acoes_x_gruposMinAggregateOutputType = {
+    id: bigint | null
+    id_acao: bigint | null
+    id_grupo_usuario: bigint | null
+    permite: number | null
+  }
+
+  export type Acoes_x_gruposMaxAggregateOutputType = {
+    id: bigint | null
+    id_acao: bigint | null
+    id_grupo_usuario: bigint | null
+    permite: number | null
+  }
+
+  export type Acoes_x_gruposCountAggregateOutputType = {
+    id: number
+    id_acao: number
+    id_grupo_usuario: number
+    permite: number
+    _all: number
+  }
+
+
+  export type Acoes_x_gruposAvgAggregateInputType = {
+    id?: true
+    id_acao?: true
+    id_grupo_usuario?: true
+    permite?: true
+  }
+
+  export type Acoes_x_gruposSumAggregateInputType = {
+    id?: true
+    id_acao?: true
+    id_grupo_usuario?: true
+    permite?: true
+  }
+
+  export type Acoes_x_gruposMinAggregateInputType = {
+    id?: true
+    id_acao?: true
+    id_grupo_usuario?: true
+    permite?: true
+  }
+
+  export type Acoes_x_gruposMaxAggregateInputType = {
+    id?: true
+    id_acao?: true
+    id_grupo_usuario?: true
+    permite?: true
+  }
+
+  export type Acoes_x_gruposCountAggregateInputType = {
+    id?: true
+    id_acao?: true
+    id_grupo_usuario?: true
+    permite?: true
+    _all?: true
+  }
+
+  export type Acoes_x_gruposAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which acoes_x_grupos to aggregate.
+     */
+    where?: acoes_x_gruposWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of acoes_x_grupos to fetch.
+     */
+    orderBy?: acoes_x_gruposOrderByWithRelationInput | acoes_x_gruposOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: acoes_x_gruposWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` acoes_x_grupos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` acoes_x_grupos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned acoes_x_grupos
+    **/
+    _count?: true | Acoes_x_gruposCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Acoes_x_gruposAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Acoes_x_gruposSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Acoes_x_gruposMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Acoes_x_gruposMaxAggregateInputType
+  }
+
+  export type GetAcoes_x_gruposAggregateType<T extends Acoes_x_gruposAggregateArgs> = {
+        [P in keyof T & keyof AggregateAcoes_x_grupos]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAcoes_x_grupos[P]>
+      : GetScalarType<T[P], AggregateAcoes_x_grupos[P]>
+  }
+
+
+
+
+  export type acoes_x_gruposGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: acoes_x_gruposWhereInput
+    orderBy?: acoes_x_gruposOrderByWithAggregationInput | acoes_x_gruposOrderByWithAggregationInput[]
+    by: Acoes_x_gruposScalarFieldEnum[] | Acoes_x_gruposScalarFieldEnum
+    having?: acoes_x_gruposScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Acoes_x_gruposCountAggregateInputType | true
+    _avg?: Acoes_x_gruposAvgAggregateInputType
+    _sum?: Acoes_x_gruposSumAggregateInputType
+    _min?: Acoes_x_gruposMinAggregateInputType
+    _max?: Acoes_x_gruposMaxAggregateInputType
+  }
+
+  export type Acoes_x_gruposGroupByOutputType = {
+    id: bigint
+    id_acao: bigint
+    id_grupo_usuario: bigint
+    permite: number
+    _count: Acoes_x_gruposCountAggregateOutputType | null
+    _avg: Acoes_x_gruposAvgAggregateOutputType | null
+    _sum: Acoes_x_gruposSumAggregateOutputType | null
+    _min: Acoes_x_gruposMinAggregateOutputType | null
+    _max: Acoes_x_gruposMaxAggregateOutputType | null
+  }
+
+  type GetAcoes_x_gruposGroupByPayload<T extends acoes_x_gruposGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Acoes_x_gruposGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Acoes_x_gruposGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Acoes_x_gruposGroupByOutputType[P]>
+            : GetScalarType<T[P], Acoes_x_gruposGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type acoes_x_gruposSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    id_acao?: boolean
+    id_grupo_usuario?: boolean
+    permite?: boolean
+    acoes?: boolean | acoesDefaultArgs<ExtArgs>
+    grupos_usuarios?: boolean | grupos_usuariosDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["acoes_x_grupos"]>
+
+  export type acoes_x_gruposSelectScalar = {
+    id?: boolean
+    id_acao?: boolean
+    id_grupo_usuario?: boolean
+    permite?: boolean
+  }
+
+  export type acoes_x_gruposInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    acoes?: boolean | acoesDefaultArgs<ExtArgs>
+    grupos_usuarios?: boolean | grupos_usuariosDefaultArgs<ExtArgs>
+  }
+
+
+  export type $acoes_x_gruposPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "acoes_x_grupos"
+    objects: {
+      acoes: Prisma.$acoesPayload<ExtArgs>
+      grupos_usuarios: Prisma.$grupos_usuariosPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: bigint
+      id_acao: bigint
+      id_grupo_usuario: bigint
+      permite: number
+    }, ExtArgs["result"]["acoes_x_grupos"]>
+    composites: {}
+  }
+
+
+  type acoes_x_gruposGetPayload<S extends boolean | null | undefined | acoes_x_gruposDefaultArgs> = $Result.GetResult<Prisma.$acoes_x_gruposPayload, S>
+
+  type acoes_x_gruposCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<acoes_x_gruposFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: Acoes_x_gruposCountAggregateInputType | true
+    }
+
+  export interface acoes_x_gruposDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['acoes_x_grupos'], meta: { name: 'acoes_x_grupos' } }
+    /**
+     * Find zero or one Acoes_x_grupos that matches the filter.
+     * @param {acoes_x_gruposFindUniqueArgs} args - Arguments to find a Acoes_x_grupos
+     * @example
+     * // Get one Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends acoes_x_gruposFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, acoes_x_gruposFindUniqueArgs<ExtArgs>>
+    ): Prisma__acoes_x_gruposClient<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Acoes_x_grupos that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {acoes_x_gruposFindUniqueOrThrowArgs} args - Arguments to find a Acoes_x_grupos
+     * @example
+     * // Get one Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends acoes_x_gruposFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoes_x_gruposFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__acoes_x_gruposClient<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Acoes_x_grupos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoes_x_gruposFindFirstArgs} args - Arguments to find a Acoes_x_grupos
+     * @example
+     * // Get one Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends acoes_x_gruposFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoes_x_gruposFindFirstArgs<ExtArgs>>
+    ): Prisma__acoes_x_gruposClient<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Acoes_x_grupos that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoes_x_gruposFindFirstOrThrowArgs} args - Arguments to find a Acoes_x_grupos
+     * @example
+     * // Get one Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends acoes_x_gruposFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoes_x_gruposFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__acoes_x_gruposClient<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Acoes_x_grupos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoes_x_gruposFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.findMany()
+     * 
+     * // Get first 10 Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const acoes_x_gruposWithIdOnly = await prisma.acoes_x_grupos.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends acoes_x_gruposFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoes_x_gruposFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Acoes_x_grupos.
+     * @param {acoes_x_gruposCreateArgs} args - Arguments to create a Acoes_x_grupos.
+     * @example
+     * // Create one Acoes_x_grupos
+     * const Acoes_x_grupos = await prisma.acoes_x_grupos.create({
+     *   data: {
+     *     // ... data to create a Acoes_x_grupos
+     *   }
+     * })
+     * 
+    **/
+    create<T extends acoes_x_gruposCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, acoes_x_gruposCreateArgs<ExtArgs>>
+    ): Prisma__acoes_x_gruposClient<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Acoes_x_grupos.
+     *     @param {acoes_x_gruposCreateManyArgs} args - Arguments to create many Acoes_x_grupos.
+     *     @example
+     *     // Create many Acoes_x_grupos
+     *     const acoes_x_grupos = await prisma.acoes_x_grupos.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends acoes_x_gruposCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoes_x_gruposCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Acoes_x_grupos.
+     * @param {acoes_x_gruposDeleteArgs} args - Arguments to delete one Acoes_x_grupos.
+     * @example
+     * // Delete one Acoes_x_grupos
+     * const Acoes_x_grupos = await prisma.acoes_x_grupos.delete({
+     *   where: {
+     *     // ... filter to delete one Acoes_x_grupos
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends acoes_x_gruposDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, acoes_x_gruposDeleteArgs<ExtArgs>>
+    ): Prisma__acoes_x_gruposClient<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Acoes_x_grupos.
+     * @param {acoes_x_gruposUpdateArgs} args - Arguments to update one Acoes_x_grupos.
+     * @example
+     * // Update one Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends acoes_x_gruposUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, acoes_x_gruposUpdateArgs<ExtArgs>>
+    ): Prisma__acoes_x_gruposClient<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Acoes_x_grupos.
+     * @param {acoes_x_gruposDeleteManyArgs} args - Arguments to filter Acoes_x_grupos to delete.
+     * @example
+     * // Delete a few Acoes_x_grupos
+     * const { count } = await prisma.acoes_x_grupos.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends acoes_x_gruposDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, acoes_x_gruposDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Acoes_x_grupos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoes_x_gruposUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends acoes_x_gruposUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, acoes_x_gruposUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Acoes_x_grupos.
+     * @param {acoes_x_gruposUpsertArgs} args - Arguments to update or create a Acoes_x_grupos.
+     * @example
+     * // Update or create a Acoes_x_grupos
+     * const acoes_x_grupos = await prisma.acoes_x_grupos.upsert({
+     *   create: {
+     *     // ... data to create a Acoes_x_grupos
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Acoes_x_grupos we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends acoes_x_gruposUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, acoes_x_gruposUpsertArgs<ExtArgs>>
+    ): Prisma__acoes_x_gruposClient<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Acoes_x_grupos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoes_x_gruposCountArgs} args - Arguments to filter Acoes_x_grupos to count.
+     * @example
+     * // Count the number of Acoes_x_grupos
+     * const count = await prisma.acoes_x_grupos.count({
+     *   where: {
+     *     // ... the filter for the Acoes_x_grupos we want to count
+     *   }
+     * })
+    **/
+    count<T extends acoes_x_gruposCountArgs>(
+      args?: Subset<T, acoes_x_gruposCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Acoes_x_gruposCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Acoes_x_grupos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Acoes_x_gruposAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Acoes_x_gruposAggregateArgs>(args: Subset<T, Acoes_x_gruposAggregateArgs>): Prisma.PrismaPromise<GetAcoes_x_gruposAggregateType<T>>
+
+    /**
+     * Group by Acoes_x_grupos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {acoes_x_gruposGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends acoes_x_gruposGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: acoes_x_gruposGroupByArgs['orderBy'] }
+        : { orderBy?: acoes_x_gruposGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, acoes_x_gruposGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAcoes_x_gruposGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the acoes_x_grupos model
+   */
+  readonly fields: acoes_x_gruposFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for acoes_x_grupos.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__acoes_x_gruposClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    acoes<T extends acoesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, acoesDefaultArgs<ExtArgs>>): Prisma__acoesClient<$Result.GetResult<Prisma.$acoesPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    grupos_usuarios<T extends grupos_usuariosDefaultArgs<ExtArgs> = {}>(args?: Subset<T, grupos_usuariosDefaultArgs<ExtArgs>>): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the acoes_x_grupos model
+   */ 
+  interface acoes_x_gruposFieldRefs {
+    readonly id: FieldRef<"acoes_x_grupos", 'BigInt'>
+    readonly id_acao: FieldRef<"acoes_x_grupos", 'BigInt'>
+    readonly id_grupo_usuario: FieldRef<"acoes_x_grupos", 'BigInt'>
+    readonly permite: FieldRef<"acoes_x_grupos", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * acoes_x_grupos findUnique
+   */
+  export type acoes_x_gruposFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes_x_grupos to fetch.
+     */
+    where: acoes_x_gruposWhereUniqueInput
+  }
+
+
+  /**
+   * acoes_x_grupos findUniqueOrThrow
+   */
+  export type acoes_x_gruposFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes_x_grupos to fetch.
+     */
+    where: acoes_x_gruposWhereUniqueInput
+  }
+
+
+  /**
+   * acoes_x_grupos findFirst
+   */
+  export type acoes_x_gruposFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes_x_grupos to fetch.
+     */
+    where?: acoes_x_gruposWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of acoes_x_grupos to fetch.
+     */
+    orderBy?: acoes_x_gruposOrderByWithRelationInput | acoes_x_gruposOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for acoes_x_grupos.
+     */
+    cursor?: acoes_x_gruposWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` acoes_x_grupos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` acoes_x_grupos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of acoes_x_grupos.
+     */
+    distinct?: Acoes_x_gruposScalarFieldEnum | Acoes_x_gruposScalarFieldEnum[]
+  }
+
+
+  /**
+   * acoes_x_grupos findFirstOrThrow
+   */
+  export type acoes_x_gruposFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes_x_grupos to fetch.
+     */
+    where?: acoes_x_gruposWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of acoes_x_grupos to fetch.
+     */
+    orderBy?: acoes_x_gruposOrderByWithRelationInput | acoes_x_gruposOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for acoes_x_grupos.
+     */
+    cursor?: acoes_x_gruposWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` acoes_x_grupos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` acoes_x_grupos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of acoes_x_grupos.
+     */
+    distinct?: Acoes_x_gruposScalarFieldEnum | Acoes_x_gruposScalarFieldEnum[]
+  }
+
+
+  /**
+   * acoes_x_grupos findMany
+   */
+  export type acoes_x_gruposFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * Filter, which acoes_x_grupos to fetch.
+     */
+    where?: acoes_x_gruposWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of acoes_x_grupos to fetch.
+     */
+    orderBy?: acoes_x_gruposOrderByWithRelationInput | acoes_x_gruposOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing acoes_x_grupos.
+     */
+    cursor?: acoes_x_gruposWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` acoes_x_grupos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` acoes_x_grupos.
+     */
+    skip?: number
+    distinct?: Acoes_x_gruposScalarFieldEnum | Acoes_x_gruposScalarFieldEnum[]
+  }
+
+
+  /**
+   * acoes_x_grupos create
+   */
+  export type acoes_x_gruposCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * The data needed to create a acoes_x_grupos.
+     */
+    data: XOR<acoes_x_gruposCreateInput, acoes_x_gruposUncheckedCreateInput>
+  }
+
+
+  /**
+   * acoes_x_grupos createMany
+   */
+  export type acoes_x_gruposCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many acoes_x_grupos.
+     */
+    data: acoes_x_gruposCreateManyInput | acoes_x_gruposCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * acoes_x_grupos update
+   */
+  export type acoes_x_gruposUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * The data needed to update a acoes_x_grupos.
+     */
+    data: XOR<acoes_x_gruposUpdateInput, acoes_x_gruposUncheckedUpdateInput>
+    /**
+     * Choose, which acoes_x_grupos to update.
+     */
+    where: acoes_x_gruposWhereUniqueInput
+  }
+
+
+  /**
+   * acoes_x_grupos updateMany
+   */
+  export type acoes_x_gruposUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update acoes_x_grupos.
+     */
+    data: XOR<acoes_x_gruposUpdateManyMutationInput, acoes_x_gruposUncheckedUpdateManyInput>
+    /**
+     * Filter which acoes_x_grupos to update
+     */
+    where?: acoes_x_gruposWhereInput
+  }
+
+
+  /**
+   * acoes_x_grupos upsert
+   */
+  export type acoes_x_gruposUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * The filter to search for the acoes_x_grupos to update in case it exists.
+     */
+    where: acoes_x_gruposWhereUniqueInput
+    /**
+     * In case the acoes_x_grupos found by the `where` argument doesn't exist, create a new acoes_x_grupos with this data.
+     */
+    create: XOR<acoes_x_gruposCreateInput, acoes_x_gruposUncheckedCreateInput>
+    /**
+     * In case the acoes_x_grupos was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<acoes_x_gruposUpdateInput, acoes_x_gruposUncheckedUpdateInput>
+  }
+
+
+  /**
+   * acoes_x_grupos delete
+   */
+  export type acoes_x_gruposDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    /**
+     * Filter which acoes_x_grupos to delete.
+     */
+    where: acoes_x_gruposWhereUniqueInput
+  }
+
+
+  /**
+   * acoes_x_grupos deleteMany
+   */
+  export type acoes_x_gruposDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which acoes_x_grupos to delete
+     */
+    where?: acoes_x_gruposWhereInput
+  }
+
+
+  /**
+   * acoes_x_grupos without action
+   */
+  export type acoes_x_gruposDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model grupos_usuarios
+   */
+
+  export type AggregateGrupos_usuarios = {
+    _count: Grupos_usuariosCountAggregateOutputType | null
+    _avg: Grupos_usuariosAvgAggregateOutputType | null
+    _sum: Grupos_usuariosSumAggregateOutputType | null
+    _min: Grupos_usuariosMinAggregateOutputType | null
+    _max: Grupos_usuariosMaxAggregateOutputType | null
+  }
+
+  export type Grupos_usuariosAvgAggregateOutputType = {
+    id: number | null
+    id_empresa: number | null
+  }
+
+  export type Grupos_usuariosSumAggregateOutputType = {
+    id: bigint | null
+    id_empresa: bigint | null
+  }
+
+  export type Grupos_usuariosMinAggregateOutputType = {
+    id: bigint | null
+    nome: string | null
+    id_empresa: bigint | null
+    pagina_inicial: string | null
+  }
+
+  export type Grupos_usuariosMaxAggregateOutputType = {
+    id: bigint | null
+    nome: string | null
+    id_empresa: bigint | null
+    pagina_inicial: string | null
+  }
+
+  export type Grupos_usuariosCountAggregateOutputType = {
+    id: number
+    nome: number
+    id_empresa: number
+    pagina_inicial: number
+    _all: number
+  }
+
+
+  export type Grupos_usuariosAvgAggregateInputType = {
+    id?: true
+    id_empresa?: true
+  }
+
+  export type Grupos_usuariosSumAggregateInputType = {
+    id?: true
+    id_empresa?: true
+  }
+
+  export type Grupos_usuariosMinAggregateInputType = {
+    id?: true
+    nome?: true
+    id_empresa?: true
+    pagina_inicial?: true
+  }
+
+  export type Grupos_usuariosMaxAggregateInputType = {
+    id?: true
+    nome?: true
+    id_empresa?: true
+    pagina_inicial?: true
+  }
+
+  export type Grupos_usuariosCountAggregateInputType = {
+    id?: true
+    nome?: true
+    id_empresa?: true
+    pagina_inicial?: true
+    _all?: true
+  }
+
+  export type Grupos_usuariosAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which grupos_usuarios to aggregate.
+     */
+    where?: grupos_usuariosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of grupos_usuarios to fetch.
+     */
+    orderBy?: grupos_usuariosOrderByWithRelationInput | grupos_usuariosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: grupos_usuariosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` grupos_usuarios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` grupos_usuarios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned grupos_usuarios
+    **/
+    _count?: true | Grupos_usuariosCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Grupos_usuariosAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Grupos_usuariosSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Grupos_usuariosMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Grupos_usuariosMaxAggregateInputType
+  }
+
+  export type GetGrupos_usuariosAggregateType<T extends Grupos_usuariosAggregateArgs> = {
+        [P in keyof T & keyof AggregateGrupos_usuarios]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGrupos_usuarios[P]>
+      : GetScalarType<T[P], AggregateGrupos_usuarios[P]>
+  }
+
+
+
+
+  export type grupos_usuariosGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: grupos_usuariosWhereInput
+    orderBy?: grupos_usuariosOrderByWithAggregationInput | grupos_usuariosOrderByWithAggregationInput[]
+    by: Grupos_usuariosScalarFieldEnum[] | Grupos_usuariosScalarFieldEnum
+    having?: grupos_usuariosScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Grupos_usuariosCountAggregateInputType | true
+    _avg?: Grupos_usuariosAvgAggregateInputType
+    _sum?: Grupos_usuariosSumAggregateInputType
+    _min?: Grupos_usuariosMinAggregateInputType
+    _max?: Grupos_usuariosMaxAggregateInputType
+  }
+
+  export type Grupos_usuariosGroupByOutputType = {
+    id: bigint
+    nome: string
+    id_empresa: bigint
+    pagina_inicial: string
+    _count: Grupos_usuariosCountAggregateOutputType | null
+    _avg: Grupos_usuariosAvgAggregateOutputType | null
+    _sum: Grupos_usuariosSumAggregateOutputType | null
+    _min: Grupos_usuariosMinAggregateOutputType | null
+    _max: Grupos_usuariosMaxAggregateOutputType | null
+  }
+
+  type GetGrupos_usuariosGroupByPayload<T extends grupos_usuariosGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Grupos_usuariosGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Grupos_usuariosGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Grupos_usuariosGroupByOutputType[P]>
+            : GetScalarType<T[P], Grupos_usuariosGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type grupos_usuariosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    id_empresa?: boolean
+    pagina_inicial?: boolean
+    acoes_x_grupos?: boolean | grupos_usuarios$acoes_x_gruposArgs<ExtArgs>
+    empresas?: boolean | empresasDefaultArgs<ExtArgs>
+    usuarios_x_empresas?: boolean | grupos_usuarios$usuarios_x_empresasArgs<ExtArgs>
+    _count?: boolean | Grupos_usuariosCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["grupos_usuarios"]>
+
+  export type grupos_usuariosSelectScalar = {
+    id?: boolean
+    nome?: boolean
+    id_empresa?: boolean
+    pagina_inicial?: boolean
+  }
+
+  export type grupos_usuariosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    acoes_x_grupos?: boolean | grupos_usuarios$acoes_x_gruposArgs<ExtArgs>
+    empresas?: boolean | empresasDefaultArgs<ExtArgs>
+    usuarios_x_empresas?: boolean | grupos_usuarios$usuarios_x_empresasArgs<ExtArgs>
+    _count?: boolean | Grupos_usuariosCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $grupos_usuariosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "grupos_usuarios"
+    objects: {
+      acoes_x_grupos: Prisma.$acoes_x_gruposPayload<ExtArgs>[]
+      empresas: Prisma.$empresasPayload<ExtArgs>
+      usuarios_x_empresas: Prisma.$usuarios_x_empresasPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: bigint
+      nome: string
+      id_empresa: bigint
+      pagina_inicial: string
+    }, ExtArgs["result"]["grupos_usuarios"]>
+    composites: {}
+  }
+
+
+  type grupos_usuariosGetPayload<S extends boolean | null | undefined | grupos_usuariosDefaultArgs> = $Result.GetResult<Prisma.$grupos_usuariosPayload, S>
+
+  type grupos_usuariosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<grupos_usuariosFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: Grupos_usuariosCountAggregateInputType | true
+    }
+
+  export interface grupos_usuariosDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['grupos_usuarios'], meta: { name: 'grupos_usuarios' } }
+    /**
+     * Find zero or one Grupos_usuarios that matches the filter.
+     * @param {grupos_usuariosFindUniqueArgs} args - Arguments to find a Grupos_usuarios
+     * @example
+     * // Get one Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends grupos_usuariosFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, grupos_usuariosFindUniqueArgs<ExtArgs>>
+    ): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Grupos_usuarios that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {grupos_usuariosFindUniqueOrThrowArgs} args - Arguments to find a Grupos_usuarios
+     * @example
+     * // Get one Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends grupos_usuariosFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, grupos_usuariosFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Grupos_usuarios that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {grupos_usuariosFindFirstArgs} args - Arguments to find a Grupos_usuarios
+     * @example
+     * // Get one Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends grupos_usuariosFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, grupos_usuariosFindFirstArgs<ExtArgs>>
+    ): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Grupos_usuarios that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {grupos_usuariosFindFirstOrThrowArgs} args - Arguments to find a Grupos_usuarios
+     * @example
+     * // Get one Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends grupos_usuariosFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, grupos_usuariosFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Grupos_usuarios that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {grupos_usuariosFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.findMany()
+     * 
+     * // Get first 10 Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const grupos_usuariosWithIdOnly = await prisma.grupos_usuarios.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends grupos_usuariosFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, grupos_usuariosFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Grupos_usuarios.
+     * @param {grupos_usuariosCreateArgs} args - Arguments to create a Grupos_usuarios.
+     * @example
+     * // Create one Grupos_usuarios
+     * const Grupos_usuarios = await prisma.grupos_usuarios.create({
+     *   data: {
+     *     // ... data to create a Grupos_usuarios
+     *   }
+     * })
+     * 
+    **/
+    create<T extends grupos_usuariosCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, grupos_usuariosCreateArgs<ExtArgs>>
+    ): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Grupos_usuarios.
+     *     @param {grupos_usuariosCreateManyArgs} args - Arguments to create many Grupos_usuarios.
+     *     @example
+     *     // Create many Grupos_usuarios
+     *     const grupos_usuarios = await prisma.grupos_usuarios.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends grupos_usuariosCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, grupos_usuariosCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Grupos_usuarios.
+     * @param {grupos_usuariosDeleteArgs} args - Arguments to delete one Grupos_usuarios.
+     * @example
+     * // Delete one Grupos_usuarios
+     * const Grupos_usuarios = await prisma.grupos_usuarios.delete({
+     *   where: {
+     *     // ... filter to delete one Grupos_usuarios
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends grupos_usuariosDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, grupos_usuariosDeleteArgs<ExtArgs>>
+    ): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Grupos_usuarios.
+     * @param {grupos_usuariosUpdateArgs} args - Arguments to update one Grupos_usuarios.
+     * @example
+     * // Update one Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends grupos_usuariosUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, grupos_usuariosUpdateArgs<ExtArgs>>
+    ): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Grupos_usuarios.
+     * @param {grupos_usuariosDeleteManyArgs} args - Arguments to filter Grupos_usuarios to delete.
+     * @example
+     * // Delete a few Grupos_usuarios
+     * const { count } = await prisma.grupos_usuarios.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends grupos_usuariosDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, grupos_usuariosDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Grupos_usuarios.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {grupos_usuariosUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends grupos_usuariosUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, grupos_usuariosUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Grupos_usuarios.
+     * @param {grupos_usuariosUpsertArgs} args - Arguments to update or create a Grupos_usuarios.
+     * @example
+     * // Update or create a Grupos_usuarios
+     * const grupos_usuarios = await prisma.grupos_usuarios.upsert({
+     *   create: {
+     *     // ... data to create a Grupos_usuarios
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Grupos_usuarios we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends grupos_usuariosUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, grupos_usuariosUpsertArgs<ExtArgs>>
+    ): Prisma__grupos_usuariosClient<$Result.GetResult<Prisma.$grupos_usuariosPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Grupos_usuarios.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {grupos_usuariosCountArgs} args - Arguments to filter Grupos_usuarios to count.
+     * @example
+     * // Count the number of Grupos_usuarios
+     * const count = await prisma.grupos_usuarios.count({
+     *   where: {
+     *     // ... the filter for the Grupos_usuarios we want to count
+     *   }
+     * })
+    **/
+    count<T extends grupos_usuariosCountArgs>(
+      args?: Subset<T, grupos_usuariosCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Grupos_usuariosCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Grupos_usuarios.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Grupos_usuariosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Grupos_usuariosAggregateArgs>(args: Subset<T, Grupos_usuariosAggregateArgs>): Prisma.PrismaPromise<GetGrupos_usuariosAggregateType<T>>
+
+    /**
+     * Group by Grupos_usuarios.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {grupos_usuariosGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends grupos_usuariosGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: grupos_usuariosGroupByArgs['orderBy'] }
+        : { orderBy?: grupos_usuariosGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, grupos_usuariosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGrupos_usuariosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the grupos_usuarios model
+   */
+  readonly fields: grupos_usuariosFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for grupos_usuarios.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__grupos_usuariosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    acoes_x_grupos<T extends grupos_usuarios$acoes_x_gruposArgs<ExtArgs> = {}>(args?: Subset<T, grupos_usuarios$acoes_x_gruposArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$acoes_x_gruposPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    empresas<T extends empresasDefaultArgs<ExtArgs> = {}>(args?: Subset<T, empresasDefaultArgs<ExtArgs>>): Prisma__empresasClient<$Result.GetResult<Prisma.$empresasPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    usuarios_x_empresas<T extends grupos_usuarios$usuarios_x_empresasArgs<ExtArgs> = {}>(args?: Subset<T, grupos_usuarios$usuarios_x_empresasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usuarios_x_empresasPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the grupos_usuarios model
+   */ 
+  interface grupos_usuariosFieldRefs {
+    readonly id: FieldRef<"grupos_usuarios", 'BigInt'>
+    readonly nome: FieldRef<"grupos_usuarios", 'String'>
+    readonly id_empresa: FieldRef<"grupos_usuarios", 'BigInt'>
+    readonly pagina_inicial: FieldRef<"grupos_usuarios", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * grupos_usuarios findUnique
+   */
+  export type grupos_usuariosFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * Filter, which grupos_usuarios to fetch.
+     */
+    where: grupos_usuariosWhereUniqueInput
+  }
+
+
+  /**
+   * grupos_usuarios findUniqueOrThrow
+   */
+  export type grupos_usuariosFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * Filter, which grupos_usuarios to fetch.
+     */
+    where: grupos_usuariosWhereUniqueInput
+  }
+
+
+  /**
+   * grupos_usuarios findFirst
+   */
+  export type grupos_usuariosFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * Filter, which grupos_usuarios to fetch.
+     */
+    where?: grupos_usuariosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of grupos_usuarios to fetch.
+     */
+    orderBy?: grupos_usuariosOrderByWithRelationInput | grupos_usuariosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for grupos_usuarios.
+     */
+    cursor?: grupos_usuariosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` grupos_usuarios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` grupos_usuarios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of grupos_usuarios.
+     */
+    distinct?: Grupos_usuariosScalarFieldEnum | Grupos_usuariosScalarFieldEnum[]
+  }
+
+
+  /**
+   * grupos_usuarios findFirstOrThrow
+   */
+  export type grupos_usuariosFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * Filter, which grupos_usuarios to fetch.
+     */
+    where?: grupos_usuariosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of grupos_usuarios to fetch.
+     */
+    orderBy?: grupos_usuariosOrderByWithRelationInput | grupos_usuariosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for grupos_usuarios.
+     */
+    cursor?: grupos_usuariosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` grupos_usuarios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` grupos_usuarios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of grupos_usuarios.
+     */
+    distinct?: Grupos_usuariosScalarFieldEnum | Grupos_usuariosScalarFieldEnum[]
+  }
+
+
+  /**
+   * grupos_usuarios findMany
+   */
+  export type grupos_usuariosFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * Filter, which grupos_usuarios to fetch.
+     */
+    where?: grupos_usuariosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of grupos_usuarios to fetch.
+     */
+    orderBy?: grupos_usuariosOrderByWithRelationInput | grupos_usuariosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing grupos_usuarios.
+     */
+    cursor?: grupos_usuariosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` grupos_usuarios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` grupos_usuarios.
+     */
+    skip?: number
+    distinct?: Grupos_usuariosScalarFieldEnum | Grupos_usuariosScalarFieldEnum[]
+  }
+
+
+  /**
+   * grupos_usuarios create
+   */
+  export type grupos_usuariosCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * The data needed to create a grupos_usuarios.
+     */
+    data: XOR<grupos_usuariosCreateInput, grupos_usuariosUncheckedCreateInput>
+  }
+
+
+  /**
+   * grupos_usuarios createMany
+   */
+  export type grupos_usuariosCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many grupos_usuarios.
+     */
+    data: grupos_usuariosCreateManyInput | grupos_usuariosCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * grupos_usuarios update
+   */
+  export type grupos_usuariosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * The data needed to update a grupos_usuarios.
+     */
+    data: XOR<grupos_usuariosUpdateInput, grupos_usuariosUncheckedUpdateInput>
+    /**
+     * Choose, which grupos_usuarios to update.
+     */
+    where: grupos_usuariosWhereUniqueInput
+  }
+
+
+  /**
+   * grupos_usuarios updateMany
+   */
+  export type grupos_usuariosUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update grupos_usuarios.
+     */
+    data: XOR<grupos_usuariosUpdateManyMutationInput, grupos_usuariosUncheckedUpdateManyInput>
+    /**
+     * Filter which grupos_usuarios to update
+     */
+    where?: grupos_usuariosWhereInput
+  }
+
+
+  /**
+   * grupos_usuarios upsert
+   */
+  export type grupos_usuariosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * The filter to search for the grupos_usuarios to update in case it exists.
+     */
+    where: grupos_usuariosWhereUniqueInput
+    /**
+     * In case the grupos_usuarios found by the `where` argument doesn't exist, create a new grupos_usuarios with this data.
+     */
+    create: XOR<grupos_usuariosCreateInput, grupos_usuariosUncheckedCreateInput>
+    /**
+     * In case the grupos_usuarios was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<grupos_usuariosUpdateInput, grupos_usuariosUncheckedUpdateInput>
+  }
+
+
+  /**
+   * grupos_usuarios delete
+   */
+  export type grupos_usuariosDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+    /**
+     * Filter which grupos_usuarios to delete.
+     */
+    where: grupos_usuariosWhereUniqueInput
+  }
+
+
+  /**
+   * grupos_usuarios deleteMany
+   */
+  export type grupos_usuariosDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which grupos_usuarios to delete
+     */
+    where?: grupos_usuariosWhereInput
+  }
+
+
+  /**
+   * grupos_usuarios.acoes_x_grupos
+   */
+  export type grupos_usuarios$acoes_x_gruposArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the acoes_x_grupos
+     */
+    select?: acoes_x_gruposSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: acoes_x_gruposInclude<ExtArgs> | null
+    where?: acoes_x_gruposWhereInput
+    orderBy?: acoes_x_gruposOrderByWithRelationInput | acoes_x_gruposOrderByWithRelationInput[]
+    cursor?: acoes_x_gruposWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Acoes_x_gruposScalarFieldEnum | Acoes_x_gruposScalarFieldEnum[]
+  }
+
+
+  /**
+   * grupos_usuarios.usuarios_x_empresas
+   */
+  export type grupos_usuarios$usuarios_x_empresasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the usuarios_x_empresas
+     */
+    select?: usuarios_x_empresasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: usuarios_x_empresasInclude<ExtArgs> | null
+    where?: usuarios_x_empresasWhereInput
+    orderBy?: usuarios_x_empresasOrderByWithRelationInput | usuarios_x_empresasOrderByWithRelationInput[]
+    cursor?: usuarios_x_empresasWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Usuarios_x_empresasScalarFieldEnum | Usuarios_x_empresasScalarFieldEnum[]
+  }
+
+
+  /**
+   * grupos_usuarios without action
+   */
+  export type grupos_usuariosDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the grupos_usuarios
+     */
+    select?: grupos_usuariosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: grupos_usuariosInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -7116,26 +7532,6 @@ export namespace Prisma {
   };
 
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
-
-
-  export const ParametrosScalarFieldEnum: {
-    id: 'id',
-    parametro: 'parametro',
-    valorParametro: 'valorParametro',
-    descricao: 'descricao'
-  };
-
-  export type ParametrosScalarFieldEnum = (typeof ParametrosScalarFieldEnum)[keyof typeof ParametrosScalarFieldEnum]
-
-
-  export const AtividadesScalarFieldEnum: {
-    id_atividade: 'id_atividade',
-    atividade: 'atividade',
-    valor: 'valor',
-    descricao: 'descricao'
-  };
-
-  export type AtividadesScalarFieldEnum = (typeof AtividadesScalarFieldEnum)[keyof typeof AtividadesScalarFieldEnum]
 
 
   export const EmpresasScalarFieldEnum: {
@@ -7164,14 +7560,6 @@ export namespace Prisma {
   export type EmpresasScalarFieldEnum = (typeof EmpresasScalarFieldEnum)[keyof typeof EmpresasScalarFieldEnum]
 
 
-  export const ModulosScalarFieldEnum: {
-    id_modulo: 'id_modulo',
-    modulo: 'modulo'
-  };
-
-  export type ModulosScalarFieldEnum = (typeof ModulosScalarFieldEnum)[keyof typeof ModulosScalarFieldEnum]
-
-
   export const UsuariosScalarFieldEnum: {
     id: 'id',
     nome: 'nome',
@@ -7190,10 +7578,43 @@ export namespace Prisma {
   export const Usuarios_x_empresasScalarFieldEnum: {
     id: 'id',
     id_empresa: 'id_empresa',
-    id_usuario: 'id_usuario'
+    id_usuario: 'id_usuario',
+    id_grupo_usuario: 'id_grupo_usuario'
   };
 
   export type Usuarios_x_empresasScalarFieldEnum = (typeof Usuarios_x_empresasScalarFieldEnum)[keyof typeof Usuarios_x_empresasScalarFieldEnum]
+
+
+  export const AcoesScalarFieldEnum: {
+    id: 'id',
+    descricao: 'descricao',
+    descricao_titulo: 'descricao_titulo',
+    tabela: 'tabela',
+    tabela_titulo: 'tabela_titulo',
+    valor_padrao: 'valor_padrao'
+  };
+
+  export type AcoesScalarFieldEnum = (typeof AcoesScalarFieldEnum)[keyof typeof AcoesScalarFieldEnum]
+
+
+  export const Acoes_x_gruposScalarFieldEnum: {
+    id: 'id',
+    id_acao: 'id_acao',
+    id_grupo_usuario: 'id_grupo_usuario',
+    permite: 'permite'
+  };
+
+  export type Acoes_x_gruposScalarFieldEnum = (typeof Acoes_x_gruposScalarFieldEnum)[keyof typeof Acoes_x_gruposScalarFieldEnum]
+
+
+  export const Grupos_usuariosScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome',
+    id_empresa: 'id_empresa',
+    pagina_inicial: 'pagina_inicial'
+  };
+
+  export type Grupos_usuariosScalarFieldEnum = (typeof Grupos_usuariosScalarFieldEnum)[keyof typeof Grupos_usuariosScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7218,9 +7639,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
+   * Reference to a field of type 'BigInt'
    */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
     
 
 
@@ -7228,6 +7649,13 @@ export namespace Prisma {
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
@@ -7241,109 +7669,11 @@ export namespace Prisma {
    */
 
 
-  export type parametrosWhereInput = {
-    AND?: parametrosWhereInput | parametrosWhereInput[]
-    OR?: parametrosWhereInput[]
-    NOT?: parametrosWhereInput | parametrosWhereInput[]
-    id?: IntFilter<"parametros"> | number
-    parametro?: StringFilter<"parametros"> | string
-    valorParametro?: IntFilter<"parametros"> | number
-    descricao?: StringFilter<"parametros"> | string
-  }
-
-  export type parametrosOrderByWithRelationInput = {
-    id?: SortOrder
-    parametro?: SortOrder
-    valorParametro?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type parametrosWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    parametro?: string
-    AND?: parametrosWhereInput | parametrosWhereInput[]
-    OR?: parametrosWhereInput[]
-    NOT?: parametrosWhereInput | parametrosWhereInput[]
-    valorParametro?: IntFilter<"parametros"> | number
-    descricao?: StringFilter<"parametros"> | string
-  }, "id" | "id" | "parametro">
-
-  export type parametrosOrderByWithAggregationInput = {
-    id?: SortOrder
-    parametro?: SortOrder
-    valorParametro?: SortOrder
-    descricao?: SortOrder
-    _count?: parametrosCountOrderByAggregateInput
-    _avg?: parametrosAvgOrderByAggregateInput
-    _max?: parametrosMaxOrderByAggregateInput
-    _min?: parametrosMinOrderByAggregateInput
-    _sum?: parametrosSumOrderByAggregateInput
-  }
-
-  export type parametrosScalarWhereWithAggregatesInput = {
-    AND?: parametrosScalarWhereWithAggregatesInput | parametrosScalarWhereWithAggregatesInput[]
-    OR?: parametrosScalarWhereWithAggregatesInput[]
-    NOT?: parametrosScalarWhereWithAggregatesInput | parametrosScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"parametros"> | number
-    parametro?: StringWithAggregatesFilter<"parametros"> | string
-    valorParametro?: IntWithAggregatesFilter<"parametros"> | number
-    descricao?: StringWithAggregatesFilter<"parametros"> | string
-  }
-
-  export type atividadesWhereInput = {
-    AND?: atividadesWhereInput | atividadesWhereInput[]
-    OR?: atividadesWhereInput[]
-    NOT?: atividadesWhereInput | atividadesWhereInput[]
-    id_atividade?: IntFilter<"atividades"> | number
-    atividade?: StringNullableFilter<"atividades"> | string | null
-    valor?: IntNullableFilter<"atividades"> | number | null
-    descricao?: StringNullableFilter<"atividades"> | string | null
-  }
-
-  export type atividadesOrderByWithRelationInput = {
-    id_atividade?: SortOrder
-    atividade?: SortOrderInput | SortOrder
-    valor?: SortOrderInput | SortOrder
-    descricao?: SortOrderInput | SortOrder
-  }
-
-  export type atividadesWhereUniqueInput = Prisma.AtLeast<{
-    id_atividade?: number
-    atividade?: string
-    AND?: atividadesWhereInput | atividadesWhereInput[]
-    OR?: atividadesWhereInput[]
-    NOT?: atividadesWhereInput | atividadesWhereInput[]
-    valor?: IntNullableFilter<"atividades"> | number | null
-    descricao?: StringNullableFilter<"atividades"> | string | null
-  }, "id_atividade" | "atividade">
-
-  export type atividadesOrderByWithAggregationInput = {
-    id_atividade?: SortOrder
-    atividade?: SortOrderInput | SortOrder
-    valor?: SortOrderInput | SortOrder
-    descricao?: SortOrderInput | SortOrder
-    _count?: atividadesCountOrderByAggregateInput
-    _avg?: atividadesAvgOrderByAggregateInput
-    _max?: atividadesMaxOrderByAggregateInput
-    _min?: atividadesMinOrderByAggregateInput
-    _sum?: atividadesSumOrderByAggregateInput
-  }
-
-  export type atividadesScalarWhereWithAggregatesInput = {
-    AND?: atividadesScalarWhereWithAggregatesInput | atividadesScalarWhereWithAggregatesInput[]
-    OR?: atividadesScalarWhereWithAggregatesInput[]
-    NOT?: atividadesScalarWhereWithAggregatesInput | atividadesScalarWhereWithAggregatesInput[]
-    id_atividade?: IntWithAggregatesFilter<"atividades"> | number
-    atividade?: StringNullableWithAggregatesFilter<"atividades"> | string | null
-    valor?: IntNullableWithAggregatesFilter<"atividades"> | number | null
-    descricao?: StringNullableWithAggregatesFilter<"atividades"> | string | null
-  }
-
   export type empresasWhereInput = {
     AND?: empresasWhereInput | empresasWhereInput[]
     OR?: empresasWhereInput[]
     NOT?: empresasWhereInput | empresasWhereInput[]
-    id?: IntFilter<"empresas"> | number
+    id?: BigIntFilter<"empresas"> | bigint | number
     cnpj?: StringFilter<"empresas"> | string
     xRazaoSocial?: StringFilter<"empresas"> | string
     xFant?: StringFilter<"empresas"> | string
@@ -7363,6 +7693,7 @@ export namespace Prisma {
     status?: StringFilter<"empresas"> | string
     email?: StringNullableFilter<"empresas"> | string | null
     idAtualizacaoBanco?: IntNullableFilter<"empresas"> | number | null
+    grupos_usuarios?: Grupos_usuariosListRelationFilter
     usuarios_x_empresas?: Usuarios_x_empresasListRelationFilter
   }
 
@@ -7387,11 +7718,12 @@ export namespace Prisma {
     status?: SortOrder
     email?: SortOrderInput | SortOrder
     idAtualizacaoBanco?: SortOrderInput | SortOrder
+    grupos_usuarios?: grupos_usuariosOrderByRelationAggregateInput
     usuarios_x_empresas?: usuarios_x_empresasOrderByRelationAggregateInput
   }
 
   export type empresasWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: bigint | number
     token?: string
     AND?: empresasWhereInput | empresasWhereInput[]
     OR?: empresasWhereInput[]
@@ -7414,6 +7746,7 @@ export namespace Prisma {
     status?: StringFilter<"empresas"> | string
     email?: StringNullableFilter<"empresas"> | string | null
     idAtualizacaoBanco?: IntNullableFilter<"empresas"> | number | null
+    grupos_usuarios?: Grupos_usuariosListRelationFilter
     usuarios_x_empresas?: Usuarios_x_empresasListRelationFilter
   }, "id" | "id" | "token">
 
@@ -7449,7 +7782,7 @@ export namespace Prisma {
     AND?: empresasScalarWhereWithAggregatesInput | empresasScalarWhereWithAggregatesInput[]
     OR?: empresasScalarWhereWithAggregatesInput[]
     NOT?: empresasScalarWhereWithAggregatesInput | empresasScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"empresas"> | number
+    id?: BigIntWithAggregatesFilter<"empresas"> | bigint | number
     cnpj?: StringWithAggregatesFilter<"empresas"> | string
     xRazaoSocial?: StringWithAggregatesFilter<"empresas"> | string
     xFant?: StringWithAggregatesFilter<"empresas"> | string
@@ -7471,50 +7804,11 @@ export namespace Prisma {
     idAtualizacaoBanco?: IntNullableWithAggregatesFilter<"empresas"> | number | null
   }
 
-  export type modulosWhereInput = {
-    AND?: modulosWhereInput | modulosWhereInput[]
-    OR?: modulosWhereInput[]
-    NOT?: modulosWhereInput | modulosWhereInput[]
-    id_modulo?: IntFilter<"modulos"> | number
-    modulo?: StringNullableFilter<"modulos"> | string | null
-  }
-
-  export type modulosOrderByWithRelationInput = {
-    id_modulo?: SortOrder
-    modulo?: SortOrderInput | SortOrder
-  }
-
-  export type modulosWhereUniqueInput = Prisma.AtLeast<{
-    id_modulo?: number
-    modulo?: string
-    AND?: modulosWhereInput | modulosWhereInput[]
-    OR?: modulosWhereInput[]
-    NOT?: modulosWhereInput | modulosWhereInput[]
-  }, "id_modulo" | "modulo">
-
-  export type modulosOrderByWithAggregationInput = {
-    id_modulo?: SortOrder
-    modulo?: SortOrderInput | SortOrder
-    _count?: modulosCountOrderByAggregateInput
-    _avg?: modulosAvgOrderByAggregateInput
-    _max?: modulosMaxOrderByAggregateInput
-    _min?: modulosMinOrderByAggregateInput
-    _sum?: modulosSumOrderByAggregateInput
-  }
-
-  export type modulosScalarWhereWithAggregatesInput = {
-    AND?: modulosScalarWhereWithAggregatesInput | modulosScalarWhereWithAggregatesInput[]
-    OR?: modulosScalarWhereWithAggregatesInput[]
-    NOT?: modulosScalarWhereWithAggregatesInput | modulosScalarWhereWithAggregatesInput[]
-    id_modulo?: IntWithAggregatesFilter<"modulos"> | number
-    modulo?: StringNullableWithAggregatesFilter<"modulos"> | string | null
-  }
-
   export type usuariosWhereInput = {
     AND?: usuariosWhereInput | usuariosWhereInput[]
     OR?: usuariosWhereInput[]
     NOT?: usuariosWhereInput | usuariosWhereInput[]
-    id?: IntFilter<"usuarios"> | number
+    id?: BigIntFilter<"usuarios"> | bigint | number
     nome?: StringNullableFilter<"usuarios"> | string | null
     ultimo_nome?: StringNullableFilter<"usuarios"> | string | null
     email?: StringNullableFilter<"usuarios"> | string | null
@@ -7540,7 +7834,7 @@ export namespace Prisma {
   }
 
   export type usuariosWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: bigint | number
     user_token?: string
     AND?: usuariosWhereInput | usuariosWhereInput[]
     OR?: usuariosWhereInput[]
@@ -7576,7 +7870,7 @@ export namespace Prisma {
     AND?: usuariosScalarWhereWithAggregatesInput | usuariosScalarWhereWithAggregatesInput[]
     OR?: usuariosScalarWhereWithAggregatesInput[]
     NOT?: usuariosScalarWhereWithAggregatesInput | usuariosScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"usuarios"> | number
+    id?: BigIntWithAggregatesFilter<"usuarios"> | bigint | number
     nome?: StringNullableWithAggregatesFilter<"usuarios"> | string | null
     ultimo_nome?: StringNullableWithAggregatesFilter<"usuarios"> | string | null
     email?: StringNullableWithAggregatesFilter<"usuarios"> | string | null
@@ -7591,36 +7885,43 @@ export namespace Prisma {
     AND?: usuarios_x_empresasWhereInput | usuarios_x_empresasWhereInput[]
     OR?: usuarios_x_empresasWhereInput[]
     NOT?: usuarios_x_empresasWhereInput | usuarios_x_empresasWhereInput[]
-    id?: IntFilter<"usuarios_x_empresas"> | number
-    id_empresa?: IntFilter<"usuarios_x_empresas"> | number
-    id_usuario?: IntFilter<"usuarios_x_empresas"> | number
+    id?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
+    id_empresa?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
+    id_usuario?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
+    id_grupo_usuario?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
     empresas?: XOR<EmpresasRelationFilter, empresasWhereInput>
     usuarios?: XOR<UsuariosRelationFilter, usuariosWhereInput>
+    grupos_usuarios?: XOR<Grupos_usuariosRelationFilter, grupos_usuariosWhereInput>
   }
 
   export type usuarios_x_empresasOrderByWithRelationInput = {
     id?: SortOrder
     id_empresa?: SortOrder
     id_usuario?: SortOrder
+    id_grupo_usuario?: SortOrder
     empresas?: empresasOrderByWithRelationInput
     usuarios?: usuariosOrderByWithRelationInput
+    grupos_usuarios?: grupos_usuariosOrderByWithRelationInput
   }
 
   export type usuarios_x_empresasWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: bigint | number
     AND?: usuarios_x_empresasWhereInput | usuarios_x_empresasWhereInput[]
     OR?: usuarios_x_empresasWhereInput[]
     NOT?: usuarios_x_empresasWhereInput | usuarios_x_empresasWhereInput[]
-    id_empresa?: IntFilter<"usuarios_x_empresas"> | number
-    id_usuario?: IntFilter<"usuarios_x_empresas"> | number
+    id_empresa?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
+    id_usuario?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
+    id_grupo_usuario?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
     empresas?: XOR<EmpresasRelationFilter, empresasWhereInput>
     usuarios?: XOR<UsuariosRelationFilter, usuariosWhereInput>
+    grupos_usuarios?: XOR<Grupos_usuariosRelationFilter, grupos_usuariosWhereInput>
   }, "id" | "id">
 
   export type usuarios_x_empresasOrderByWithAggregationInput = {
     id?: SortOrder
     id_empresa?: SortOrder
     id_usuario?: SortOrder
+    id_grupo_usuario?: SortOrder
     _count?: usuarios_x_empresasCountOrderByAggregateInput
     _avg?: usuarios_x_empresasAvgOrderByAggregateInput
     _max?: usuarios_x_empresasMaxOrderByAggregateInput
@@ -7632,104 +7933,189 @@ export namespace Prisma {
     AND?: usuarios_x_empresasScalarWhereWithAggregatesInput | usuarios_x_empresasScalarWhereWithAggregatesInput[]
     OR?: usuarios_x_empresasScalarWhereWithAggregatesInput[]
     NOT?: usuarios_x_empresasScalarWhereWithAggregatesInput | usuarios_x_empresasScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"usuarios_x_empresas"> | number
-    id_empresa?: IntWithAggregatesFilter<"usuarios_x_empresas"> | number
-    id_usuario?: IntWithAggregatesFilter<"usuarios_x_empresas"> | number
+    id?: BigIntWithAggregatesFilter<"usuarios_x_empresas"> | bigint | number
+    id_empresa?: BigIntWithAggregatesFilter<"usuarios_x_empresas"> | bigint | number
+    id_usuario?: BigIntWithAggregatesFilter<"usuarios_x_empresas"> | bigint | number
+    id_grupo_usuario?: BigIntWithAggregatesFilter<"usuarios_x_empresas"> | bigint | number
   }
 
-  export type parametrosCreateInput = {
-    parametro: string
-    valorParametro: number
-    descricao: string
+  export type acoesWhereInput = {
+    AND?: acoesWhereInput | acoesWhereInput[]
+    OR?: acoesWhereInput[]
+    NOT?: acoesWhereInput | acoesWhereInput[]
+    id?: BigIntFilter<"acoes"> | bigint | number
+    descricao?: StringFilter<"acoes"> | string
+    descricao_titulo?: StringFilter<"acoes"> | string
+    tabela?: StringFilter<"acoes"> | string
+    tabela_titulo?: StringFilter<"acoes"> | string
+    valor_padrao?: IntNullableFilter<"acoes"> | number | null
+    acoes_x_grupos?: Acoes_x_gruposListRelationFilter
   }
 
-  export type parametrosUncheckedCreateInput = {
-    id?: number
-    parametro: string
-    valorParametro: number
-    descricao: string
+  export type acoesOrderByWithRelationInput = {
+    id?: SortOrder
+    descricao?: SortOrder
+    descricao_titulo?: SortOrder
+    tabela?: SortOrder
+    tabela_titulo?: SortOrder
+    valor_padrao?: SortOrderInput | SortOrder
+    acoes_x_grupos?: acoes_x_gruposOrderByRelationAggregateInput
   }
 
-  export type parametrosUpdateInput = {
-    parametro?: StringFieldUpdateOperationsInput | string
-    valorParametro?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
+  export type acoesWhereUniqueInput = Prisma.AtLeast<{
+    id?: bigint | number
+    AND?: acoesWhereInput | acoesWhereInput[]
+    OR?: acoesWhereInput[]
+    NOT?: acoesWhereInput | acoesWhereInput[]
+    descricao?: StringFilter<"acoes"> | string
+    descricao_titulo?: StringFilter<"acoes"> | string
+    tabela?: StringFilter<"acoes"> | string
+    tabela_titulo?: StringFilter<"acoes"> | string
+    valor_padrao?: IntNullableFilter<"acoes"> | number | null
+    acoes_x_grupos?: Acoes_x_gruposListRelationFilter
+  }, "id" | "id">
+
+  export type acoesOrderByWithAggregationInput = {
+    id?: SortOrder
+    descricao?: SortOrder
+    descricao_titulo?: SortOrder
+    tabela?: SortOrder
+    tabela_titulo?: SortOrder
+    valor_padrao?: SortOrderInput | SortOrder
+    _count?: acoesCountOrderByAggregateInput
+    _avg?: acoesAvgOrderByAggregateInput
+    _max?: acoesMaxOrderByAggregateInput
+    _min?: acoesMinOrderByAggregateInput
+    _sum?: acoesSumOrderByAggregateInput
   }
 
-  export type parametrosUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    parametro?: StringFieldUpdateOperationsInput | string
-    valorParametro?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
+  export type acoesScalarWhereWithAggregatesInput = {
+    AND?: acoesScalarWhereWithAggregatesInput | acoesScalarWhereWithAggregatesInput[]
+    OR?: acoesScalarWhereWithAggregatesInput[]
+    NOT?: acoesScalarWhereWithAggregatesInput | acoesScalarWhereWithAggregatesInput[]
+    id?: BigIntWithAggregatesFilter<"acoes"> | bigint | number
+    descricao?: StringWithAggregatesFilter<"acoes"> | string
+    descricao_titulo?: StringWithAggregatesFilter<"acoes"> | string
+    tabela?: StringWithAggregatesFilter<"acoes"> | string
+    tabela_titulo?: StringWithAggregatesFilter<"acoes"> | string
+    valor_padrao?: IntNullableWithAggregatesFilter<"acoes"> | number | null
   }
 
-  export type parametrosCreateManyInput = {
-    id?: number
-    parametro: string
-    valorParametro: number
-    descricao: string
+  export type acoes_x_gruposWhereInput = {
+    AND?: acoes_x_gruposWhereInput | acoes_x_gruposWhereInput[]
+    OR?: acoes_x_gruposWhereInput[]
+    NOT?: acoes_x_gruposWhereInput | acoes_x_gruposWhereInput[]
+    id?: BigIntFilter<"acoes_x_grupos"> | bigint | number
+    id_acao?: BigIntFilter<"acoes_x_grupos"> | bigint | number
+    id_grupo_usuario?: BigIntFilter<"acoes_x_grupos"> | bigint | number
+    permite?: IntFilter<"acoes_x_grupos"> | number
+    acoes?: XOR<AcoesRelationFilter, acoesWhereInput>
+    grupos_usuarios?: XOR<Grupos_usuariosRelationFilter, grupos_usuariosWhereInput>
   }
 
-  export type parametrosUpdateManyMutationInput = {
-    parametro?: StringFieldUpdateOperationsInput | string
-    valorParametro?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
+  export type acoes_x_gruposOrderByWithRelationInput = {
+    id?: SortOrder
+    id_acao?: SortOrder
+    id_grupo_usuario?: SortOrder
+    permite?: SortOrder
+    acoes?: acoesOrderByWithRelationInput
+    grupos_usuarios?: grupos_usuariosOrderByWithRelationInput
   }
 
-  export type parametrosUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    parametro?: StringFieldUpdateOperationsInput | string
-    valorParametro?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
+  export type acoes_x_gruposWhereUniqueInput = Prisma.AtLeast<{
+    id?: bigint | number
+    AND?: acoes_x_gruposWhereInput | acoes_x_gruposWhereInput[]
+    OR?: acoes_x_gruposWhereInput[]
+    NOT?: acoes_x_gruposWhereInput | acoes_x_gruposWhereInput[]
+    id_acao?: BigIntFilter<"acoes_x_grupos"> | bigint | number
+    id_grupo_usuario?: BigIntFilter<"acoes_x_grupos"> | bigint | number
+    permite?: IntFilter<"acoes_x_grupos"> | number
+    acoes?: XOR<AcoesRelationFilter, acoesWhereInput>
+    grupos_usuarios?: XOR<Grupos_usuariosRelationFilter, grupos_usuariosWhereInput>
+  }, "id" | "id">
+
+  export type acoes_x_gruposOrderByWithAggregationInput = {
+    id?: SortOrder
+    id_acao?: SortOrder
+    id_grupo_usuario?: SortOrder
+    permite?: SortOrder
+    _count?: acoes_x_gruposCountOrderByAggregateInput
+    _avg?: acoes_x_gruposAvgOrderByAggregateInput
+    _max?: acoes_x_gruposMaxOrderByAggregateInput
+    _min?: acoes_x_gruposMinOrderByAggregateInput
+    _sum?: acoes_x_gruposSumOrderByAggregateInput
   }
 
-  export type atividadesCreateInput = {
-    atividade?: string | null
-    valor?: number | null
-    descricao?: string | null
+  export type acoes_x_gruposScalarWhereWithAggregatesInput = {
+    AND?: acoes_x_gruposScalarWhereWithAggregatesInput | acoes_x_gruposScalarWhereWithAggregatesInput[]
+    OR?: acoes_x_gruposScalarWhereWithAggregatesInput[]
+    NOT?: acoes_x_gruposScalarWhereWithAggregatesInput | acoes_x_gruposScalarWhereWithAggregatesInput[]
+    id?: BigIntWithAggregatesFilter<"acoes_x_grupos"> | bigint | number
+    id_acao?: BigIntWithAggregatesFilter<"acoes_x_grupos"> | bigint | number
+    id_grupo_usuario?: BigIntWithAggregatesFilter<"acoes_x_grupos"> | bigint | number
+    permite?: IntWithAggregatesFilter<"acoes_x_grupos"> | number
   }
 
-  export type atividadesUncheckedCreateInput = {
-    id_atividade?: number
-    atividade?: string | null
-    valor?: number | null
-    descricao?: string | null
+  export type grupos_usuariosWhereInput = {
+    AND?: grupos_usuariosWhereInput | grupos_usuariosWhereInput[]
+    OR?: grupos_usuariosWhereInput[]
+    NOT?: grupos_usuariosWhereInput | grupos_usuariosWhereInput[]
+    id?: BigIntFilter<"grupos_usuarios"> | bigint | number
+    nome?: StringFilter<"grupos_usuarios"> | string
+    id_empresa?: BigIntFilter<"grupos_usuarios"> | bigint | number
+    pagina_inicial?: StringFilter<"grupos_usuarios"> | string
+    acoes_x_grupos?: Acoes_x_gruposListRelationFilter
+    empresas?: XOR<EmpresasRelationFilter, empresasWhereInput>
+    usuarios_x_empresas?: Usuarios_x_empresasListRelationFilter
   }
 
-  export type atividadesUpdateInput = {
-    atividade?: NullableStringFieldUpdateOperationsInput | string | null
-    valor?: NullableIntFieldUpdateOperationsInput | number | null
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+  export type grupos_usuariosOrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    id_empresa?: SortOrder
+    pagina_inicial?: SortOrder
+    acoes_x_grupos?: acoes_x_gruposOrderByRelationAggregateInput
+    empresas?: empresasOrderByWithRelationInput
+    usuarios_x_empresas?: usuarios_x_empresasOrderByRelationAggregateInput
   }
 
-  export type atividadesUncheckedUpdateInput = {
-    id_atividade?: IntFieldUpdateOperationsInput | number
-    atividade?: NullableStringFieldUpdateOperationsInput | string | null
-    valor?: NullableIntFieldUpdateOperationsInput | number | null
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+  export type grupos_usuariosWhereUniqueInput = Prisma.AtLeast<{
+    id?: bigint | number
+    AND?: grupos_usuariosWhereInput | grupos_usuariosWhereInput[]
+    OR?: grupos_usuariosWhereInput[]
+    NOT?: grupos_usuariosWhereInput | grupos_usuariosWhereInput[]
+    nome?: StringFilter<"grupos_usuarios"> | string
+    id_empresa?: BigIntFilter<"grupos_usuarios"> | bigint | number
+    pagina_inicial?: StringFilter<"grupos_usuarios"> | string
+    acoes_x_grupos?: Acoes_x_gruposListRelationFilter
+    empresas?: XOR<EmpresasRelationFilter, empresasWhereInput>
+    usuarios_x_empresas?: Usuarios_x_empresasListRelationFilter
+  }, "id" | "id">
+
+  export type grupos_usuariosOrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    id_empresa?: SortOrder
+    pagina_inicial?: SortOrder
+    _count?: grupos_usuariosCountOrderByAggregateInput
+    _avg?: grupos_usuariosAvgOrderByAggregateInput
+    _max?: grupos_usuariosMaxOrderByAggregateInput
+    _min?: grupos_usuariosMinOrderByAggregateInput
+    _sum?: grupos_usuariosSumOrderByAggregateInput
   }
 
-  export type atividadesCreateManyInput = {
-    id_atividade?: number
-    atividade?: string | null
-    valor?: number | null
-    descricao?: string | null
-  }
-
-  export type atividadesUpdateManyMutationInput = {
-    atividade?: NullableStringFieldUpdateOperationsInput | string | null
-    valor?: NullableIntFieldUpdateOperationsInput | number | null
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type atividadesUncheckedUpdateManyInput = {
-    id_atividade?: IntFieldUpdateOperationsInput | number
-    atividade?: NullableStringFieldUpdateOperationsInput | string | null
-    valor?: NullableIntFieldUpdateOperationsInput | number | null
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+  export type grupos_usuariosScalarWhereWithAggregatesInput = {
+    AND?: grupos_usuariosScalarWhereWithAggregatesInput | grupos_usuariosScalarWhereWithAggregatesInput[]
+    OR?: grupos_usuariosScalarWhereWithAggregatesInput[]
+    NOT?: grupos_usuariosScalarWhereWithAggregatesInput | grupos_usuariosScalarWhereWithAggregatesInput[]
+    id?: BigIntWithAggregatesFilter<"grupos_usuarios"> | bigint | number
+    nome?: StringWithAggregatesFilter<"grupos_usuarios"> | string
+    id_empresa?: BigIntWithAggregatesFilter<"grupos_usuarios"> | bigint | number
+    pagina_inicial?: StringWithAggregatesFilter<"grupos_usuarios"> | string
   }
 
   export type empresasCreateInput = {
+    id?: bigint | number
     cnpj: string
     xRazaoSocial: string
     xFant: string
@@ -7749,11 +8135,12 @@ export namespace Prisma {
     status: string
     email?: string | null
     idAtualizacaoBanco?: number | null
+    grupos_usuarios?: grupos_usuariosCreateNestedManyWithoutEmpresasInput
     usuarios_x_empresas?: usuarios_x_empresasCreateNestedManyWithoutEmpresasInput
   }
 
   export type empresasUncheckedCreateInput = {
-    id?: number
+    id?: bigint | number
     cnpj: string
     xRazaoSocial: string
     xFant: string
@@ -7773,10 +8160,12 @@ export namespace Prisma {
     status: string
     email?: string | null
     idAtualizacaoBanco?: number | null
+    grupos_usuarios?: grupos_usuariosUncheckedCreateNestedManyWithoutEmpresasInput
     usuarios_x_empresas?: usuarios_x_empresasUncheckedCreateNestedManyWithoutEmpresasInput
   }
 
   export type empresasUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     cnpj?: StringFieldUpdateOperationsInput | string
     xRazaoSocial?: StringFieldUpdateOperationsInput | string
     xFant?: StringFieldUpdateOperationsInput | string
@@ -7796,11 +8185,12 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     idAtualizacaoBanco?: NullableIntFieldUpdateOperationsInput | number | null
+    grupos_usuarios?: grupos_usuariosUpdateManyWithoutEmpresasNestedInput
     usuarios_x_empresas?: usuarios_x_empresasUpdateManyWithoutEmpresasNestedInput
   }
 
   export type empresasUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     cnpj?: StringFieldUpdateOperationsInput | string
     xRazaoSocial?: StringFieldUpdateOperationsInput | string
     xFant?: StringFieldUpdateOperationsInput | string
@@ -7820,11 +8210,12 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     idAtualizacaoBanco?: NullableIntFieldUpdateOperationsInput | number | null
+    grupos_usuarios?: grupos_usuariosUncheckedUpdateManyWithoutEmpresasNestedInput
     usuarios_x_empresas?: usuarios_x_empresasUncheckedUpdateManyWithoutEmpresasNestedInput
   }
 
   export type empresasCreateManyInput = {
-    id?: number
+    id?: bigint | number
     cnpj: string
     xRazaoSocial: string
     xFant: string
@@ -7847,6 +8238,7 @@ export namespace Prisma {
   }
 
   export type empresasUpdateManyMutationInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     cnpj?: StringFieldUpdateOperationsInput | string
     xRazaoSocial?: StringFieldUpdateOperationsInput | string
     xFant?: StringFieldUpdateOperationsInput | string
@@ -7869,7 +8261,7 @@ export namespace Prisma {
   }
 
   export type empresasUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     cnpj?: StringFieldUpdateOperationsInput | string
     xRazaoSocial?: StringFieldUpdateOperationsInput | string
     xFant?: StringFieldUpdateOperationsInput | string
@@ -7891,39 +8283,8 @@ export namespace Prisma {
     idAtualizacaoBanco?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type modulosCreateInput = {
-    modulo?: string | null
-  }
-
-  export type modulosUncheckedCreateInput = {
-    id_modulo?: number
-    modulo?: string | null
-  }
-
-  export type modulosUpdateInput = {
-    modulo?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type modulosUncheckedUpdateInput = {
-    id_modulo?: IntFieldUpdateOperationsInput | number
-    modulo?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type modulosCreateManyInput = {
-    id_modulo?: number
-    modulo?: string | null
-  }
-
-  export type modulosUpdateManyMutationInput = {
-    modulo?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type modulosUncheckedUpdateManyInput = {
-    id_modulo?: IntFieldUpdateOperationsInput | number
-    modulo?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type usuariosCreateInput = {
+    id?: bigint | number
     nome?: string | null
     ultimo_nome?: string | null
     email?: string | null
@@ -7936,7 +8297,7 @@ export namespace Prisma {
   }
 
   export type usuariosUncheckedCreateInput = {
-    id?: number
+    id?: bigint | number
     nome?: string | null
     ultimo_nome?: string | null
     email?: string | null
@@ -7949,6 +8310,7 @@ export namespace Prisma {
   }
 
   export type usuariosUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nome?: NullableStringFieldUpdateOperationsInput | string | null
     ultimo_nome?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7961,7 +8323,7 @@ export namespace Prisma {
   }
 
   export type usuariosUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nome?: NullableStringFieldUpdateOperationsInput | string | null
     ultimo_nome?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7974,7 +8336,7 @@ export namespace Prisma {
   }
 
   export type usuariosCreateManyInput = {
-    id?: number
+    id?: bigint | number
     nome?: string | null
     ultimo_nome?: string | null
     email?: string | null
@@ -7986,6 +8348,7 @@ export namespace Prisma {
   }
 
   export type usuariosUpdateManyMutationInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nome?: NullableStringFieldUpdateOperationsInput | string | null
     ultimo_nome?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7997,7 +8360,7 @@ export namespace Prisma {
   }
 
   export type usuariosUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nome?: NullableStringFieldUpdateOperationsInput | string | null
     ultimo_nome?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8009,52 +8372,230 @@ export namespace Prisma {
   }
 
   export type usuarios_x_empresasCreateInput = {
+    id?: bigint | number
     empresas: empresasCreateNestedOneWithoutUsuarios_x_empresasInput
     usuarios: usuariosCreateNestedOneWithoutUsuarios_x_empresasInput
+    grupos_usuarios: grupos_usuariosCreateNestedOneWithoutUsuarios_x_empresasInput
   }
 
   export type usuarios_x_empresasUncheckedCreateInput = {
-    id?: number
-    id_empresa: number
-    id_usuario: number
+    id?: bigint | number
+    id_empresa: bigint | number
+    id_usuario: bigint | number
+    id_grupo_usuario: bigint | number
   }
 
   export type usuarios_x_empresasUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     empresas?: empresasUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
     usuarios?: usuariosUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
+    grupos_usuarios?: grupos_usuariosUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
   }
 
   export type usuarios_x_empresasUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    id_empresa?: IntFieldUpdateOperationsInput | number
-    id_usuario?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
   export type usuarios_x_empresasCreateManyInput = {
-    id?: number
-    id_empresa: number
-    id_usuario: number
+    id?: bigint | number
+    id_empresa: bigint | number
+    id_usuario: bigint | number
+    id_grupo_usuario: bigint | number
   }
 
   export type usuarios_x_empresasUpdateManyMutationInput = {
-
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
   export type usuarios_x_empresasUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    id_empresa?: IntFieldUpdateOperationsInput | number
-    id_usuario?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+  export type acoesCreateInput = {
+    id?: bigint | number
+    descricao: string
+    descricao_titulo: string
+    tabela: string
+    tabela_titulo: string
+    valor_padrao?: number | null
+    acoes_x_grupos?: acoes_x_gruposCreateNestedManyWithoutAcoesInput
+  }
+
+  export type acoesUncheckedCreateInput = {
+    id?: bigint | number
+    descricao: string
+    descricao_titulo: string
+    tabela: string
+    tabela_titulo: string
+    valor_padrao?: number | null
+    acoes_x_grupos?: acoes_x_gruposUncheckedCreateNestedManyWithoutAcoesInput
+  }
+
+  export type acoesUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    descricao?: StringFieldUpdateOperationsInput | string
+    descricao_titulo?: StringFieldUpdateOperationsInput | string
+    tabela?: StringFieldUpdateOperationsInput | string
+    tabela_titulo?: StringFieldUpdateOperationsInput | string
+    valor_padrao?: NullableIntFieldUpdateOperationsInput | number | null
+    acoes_x_grupos?: acoes_x_gruposUpdateManyWithoutAcoesNestedInput
+  }
+
+  export type acoesUncheckedUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    descricao?: StringFieldUpdateOperationsInput | string
+    descricao_titulo?: StringFieldUpdateOperationsInput | string
+    tabela?: StringFieldUpdateOperationsInput | string
+    tabela_titulo?: StringFieldUpdateOperationsInput | string
+    valor_padrao?: NullableIntFieldUpdateOperationsInput | number | null
+    acoes_x_grupos?: acoes_x_gruposUncheckedUpdateManyWithoutAcoesNestedInput
+  }
+
+  export type acoesCreateManyInput = {
+    id?: bigint | number
+    descricao: string
+    descricao_titulo: string
+    tabela: string
+    tabela_titulo: string
+    valor_padrao?: number | null
+  }
+
+  export type acoesUpdateManyMutationInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    descricao?: StringFieldUpdateOperationsInput | string
+    descricao_titulo?: StringFieldUpdateOperationsInput | string
+    tabela?: StringFieldUpdateOperationsInput | string
+    tabela_titulo?: StringFieldUpdateOperationsInput | string
+    valor_padrao?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type acoesUncheckedUpdateManyInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    descricao?: StringFieldUpdateOperationsInput | string
+    descricao_titulo?: StringFieldUpdateOperationsInput | string
+    tabela?: StringFieldUpdateOperationsInput | string
+    tabela_titulo?: StringFieldUpdateOperationsInput | string
+    valor_padrao?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type acoes_x_gruposCreateInput = {
+    id?: bigint | number
+    permite: number
+    acoes: acoesCreateNestedOneWithoutAcoes_x_gruposInput
+    grupos_usuarios: grupos_usuariosCreateNestedOneWithoutAcoes_x_gruposInput
+  }
+
+  export type acoes_x_gruposUncheckedCreateInput = {
+    id?: bigint | number
+    id_acao: bigint | number
+    id_grupo_usuario: bigint | number
+    permite: number
+  }
+
+  export type acoes_x_gruposUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+    acoes?: acoesUpdateOneRequiredWithoutAcoes_x_gruposNestedInput
+    grupos_usuarios?: grupos_usuariosUpdateOneRequiredWithoutAcoes_x_gruposNestedInput
+  }
+
+  export type acoes_x_gruposUncheckedUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_acao?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type acoes_x_gruposCreateManyInput = {
+    id?: bigint | number
+    id_acao: bigint | number
+    id_grupo_usuario: bigint | number
+    permite: number
+  }
+
+  export type acoes_x_gruposUpdateManyMutationInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type acoes_x_gruposUncheckedUpdateManyInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_acao?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type grupos_usuariosCreateInput = {
+    id?: bigint | number
+    nome: string
+    pagina_inicial?: string
+    acoes_x_grupos?: acoes_x_gruposCreateNestedManyWithoutGrupos_usuariosInput
+    empresas: empresasCreateNestedOneWithoutGrupos_usuariosInput
+    usuarios_x_empresas?: usuarios_x_empresasCreateNestedManyWithoutGrupos_usuariosInput
+  }
+
+  export type grupos_usuariosUncheckedCreateInput = {
+    id?: bigint | number
+    nome: string
+    id_empresa: bigint | number
+    pagina_inicial?: string
+    acoes_x_grupos?: acoes_x_gruposUncheckedCreateNestedManyWithoutGrupos_usuariosInput
+    usuarios_x_empresas?: usuarios_x_empresasUncheckedCreateNestedManyWithoutGrupos_usuariosInput
+  }
+
+  export type grupos_usuariosUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+    acoes_x_grupos?: acoes_x_gruposUpdateManyWithoutGrupos_usuariosNestedInput
+    empresas?: empresasUpdateOneRequiredWithoutGrupos_usuariosNestedInput
+    usuarios_x_empresas?: usuarios_x_empresasUpdateManyWithoutGrupos_usuariosNestedInput
+  }
+
+  export type grupos_usuariosUncheckedUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+    acoes_x_grupos?: acoes_x_gruposUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
+    usuarios_x_empresas?: usuarios_x_empresasUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
+  }
+
+  export type grupos_usuariosCreateManyInput = {
+    id?: bigint | number
+    nome: string
+    id_empresa: bigint | number
+    pagina_inicial?: string
+  }
+
+  export type grupos_usuariosUpdateManyMutationInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type grupos_usuariosUncheckedUpdateManyInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[]
+    notIn?: bigint[] | number[]
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -8069,70 +8610,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type parametrosCountOrderByAggregateInput = {
-    id?: SortOrder
-    parametro?: SortOrder
-    valorParametro?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type parametrosAvgOrderByAggregateInput = {
-    id?: SortOrder
-    valorParametro?: SortOrder
-  }
-
-  export type parametrosMaxOrderByAggregateInput = {
-    id?: SortOrder
-    parametro?: SortOrder
-    valorParametro?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type parametrosMinOrderByAggregateInput = {
-    id?: SortOrder
-    parametro?: SortOrder
-    valorParametro?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type parametrosSumOrderByAggregateInput = {
-    id?: SortOrder
-    valorParametro?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -8160,79 +8637,25 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
-  export type atividadesCountOrderByAggregateInput = {
-    id_atividade?: SortOrder
-    atividade?: SortOrder
-    valor?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type atividadesAvgOrderByAggregateInput = {
-    id_atividade?: SortOrder
-    valor?: SortOrder
-  }
-
-  export type atividadesMaxOrderByAggregateInput = {
-    id_atividade?: SortOrder
-    atividade?: SortOrder
-    valor?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type atividadesMinOrderByAggregateInput = {
-    id_atividade?: SortOrder
-    atividade?: SortOrder
-    valor?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type atividadesSumOrderByAggregateInput = {
-    id_atividade?: SortOrder
-    valor?: SortOrder
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+  export type Grupos_usuariosListRelationFilter = {
+    every?: grupos_usuariosWhereInput
+    some?: grupos_usuariosWhereInput
+    none?: grupos_usuariosWhereInput
   }
 
   export type Usuarios_x_empresasListRelationFilter = {
     every?: usuarios_x_empresasWhereInput
     some?: usuarios_x_empresasWhereInput
     none?: usuarios_x_empresasWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type grupos_usuariosOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type usuarios_x_empresasOrderByRelationAggregateInput = {
@@ -8318,27 +8741,70 @@ export namespace Prisma {
     idAtualizacaoBanco?: SortOrder
   }
 
-  export type modulosCountOrderByAggregateInput = {
-    id_modulo?: SortOrder
-    modulo?: SortOrder
+  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[]
+    notIn?: bigint[] | number[]
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
-  export type modulosAvgOrderByAggregateInput = {
-    id_modulo?: SortOrder
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type modulosMaxOrderByAggregateInput = {
-    id_modulo?: SortOrder
-    modulo?: SortOrder
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type modulosMinOrderByAggregateInput = {
-    id_modulo?: SortOrder
-    modulo?: SortOrder
-  }
-
-  export type modulosSumOrderByAggregateInput = {
-    id_modulo?: SortOrder
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type usuariosCountOrderByAggregateInput = {
@@ -8395,46 +8861,229 @@ export namespace Prisma {
     isNot?: usuariosWhereInput
   }
 
+  export type Grupos_usuariosRelationFilter = {
+    is?: grupos_usuariosWhereInput
+    isNot?: grupos_usuariosWhereInput
+  }
+
   export type usuarios_x_empresasCountOrderByAggregateInput = {
     id?: SortOrder
     id_empresa?: SortOrder
     id_usuario?: SortOrder
+    id_grupo_usuario?: SortOrder
   }
 
   export type usuarios_x_empresasAvgOrderByAggregateInput = {
     id?: SortOrder
     id_empresa?: SortOrder
     id_usuario?: SortOrder
+    id_grupo_usuario?: SortOrder
   }
 
   export type usuarios_x_empresasMaxOrderByAggregateInput = {
     id?: SortOrder
     id_empresa?: SortOrder
     id_usuario?: SortOrder
+    id_grupo_usuario?: SortOrder
   }
 
   export type usuarios_x_empresasMinOrderByAggregateInput = {
     id?: SortOrder
     id_empresa?: SortOrder
     id_usuario?: SortOrder
+    id_grupo_usuario?: SortOrder
   }
 
   export type usuarios_x_empresasSumOrderByAggregateInput = {
     id?: SortOrder
     id_empresa?: SortOrder
     id_usuario?: SortOrder
+    id_grupo_usuario?: SortOrder
+  }
+
+  export type Acoes_x_gruposListRelationFilter = {
+    every?: acoes_x_gruposWhereInput
+    some?: acoes_x_gruposWhereInput
+    none?: acoes_x_gruposWhereInput
+  }
+
+  export type acoes_x_gruposOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type acoesCountOrderByAggregateInput = {
+    id?: SortOrder
+    descricao?: SortOrder
+    descricao_titulo?: SortOrder
+    tabela?: SortOrder
+    tabela_titulo?: SortOrder
+    valor_padrao?: SortOrder
+  }
+
+  export type acoesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    valor_padrao?: SortOrder
+  }
+
+  export type acoesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    descricao?: SortOrder
+    descricao_titulo?: SortOrder
+    tabela?: SortOrder
+    tabela_titulo?: SortOrder
+    valor_padrao?: SortOrder
+  }
+
+  export type acoesMinOrderByAggregateInput = {
+    id?: SortOrder
+    descricao?: SortOrder
+    descricao_titulo?: SortOrder
+    tabela?: SortOrder
+    tabela_titulo?: SortOrder
+    valor_padrao?: SortOrder
+  }
+
+  export type acoesSumOrderByAggregateInput = {
+    id?: SortOrder
+    valor_padrao?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type AcoesRelationFilter = {
+    is?: acoesWhereInput
+    isNot?: acoesWhereInput
+  }
+
+  export type acoes_x_gruposCountOrderByAggregateInput = {
+    id?: SortOrder
+    id_acao?: SortOrder
+    id_grupo_usuario?: SortOrder
+    permite?: SortOrder
+  }
+
+  export type acoes_x_gruposAvgOrderByAggregateInput = {
+    id?: SortOrder
+    id_acao?: SortOrder
+    id_grupo_usuario?: SortOrder
+    permite?: SortOrder
+  }
+
+  export type acoes_x_gruposMaxOrderByAggregateInput = {
+    id?: SortOrder
+    id_acao?: SortOrder
+    id_grupo_usuario?: SortOrder
+    permite?: SortOrder
+  }
+
+  export type acoes_x_gruposMinOrderByAggregateInput = {
+    id?: SortOrder
+    id_acao?: SortOrder
+    id_grupo_usuario?: SortOrder
+    permite?: SortOrder
+  }
+
+  export type acoes_x_gruposSumOrderByAggregateInput = {
+    id?: SortOrder
+    id_acao?: SortOrder
+    id_grupo_usuario?: SortOrder
+    permite?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type grupos_usuariosCountOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    id_empresa?: SortOrder
+    pagina_inicial?: SortOrder
+  }
+
+  export type grupos_usuariosAvgOrderByAggregateInput = {
+    id?: SortOrder
+    id_empresa?: SortOrder
+  }
+
+  export type grupos_usuariosMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    id_empresa?: SortOrder
+    pagina_inicial?: SortOrder
+  }
+
+  export type grupos_usuariosMinOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    id_empresa?: SortOrder
+    pagina_inicial?: SortOrder
+  }
+
+  export type grupos_usuariosSumOrderByAggregateInput = {
+    id?: SortOrder
+    id_empresa?: SortOrder
+  }
+
+  export type grupos_usuariosCreateNestedManyWithoutEmpresasInput = {
+    create?: XOR<grupos_usuariosCreateWithoutEmpresasInput, grupos_usuariosUncheckedCreateWithoutEmpresasInput> | grupos_usuariosCreateWithoutEmpresasInput[] | grupos_usuariosUncheckedCreateWithoutEmpresasInput[]
+    connectOrCreate?: grupos_usuariosCreateOrConnectWithoutEmpresasInput | grupos_usuariosCreateOrConnectWithoutEmpresasInput[]
+    createMany?: grupos_usuariosCreateManyEmpresasInputEnvelope
+    connect?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+  }
+
+  export type usuarios_x_empresasCreateNestedManyWithoutEmpresasInput = {
+    create?: XOR<usuarios_x_empresasCreateWithoutEmpresasInput, usuarios_x_empresasUncheckedCreateWithoutEmpresasInput> | usuarios_x_empresasCreateWithoutEmpresasInput[] | usuarios_x_empresasUncheckedCreateWithoutEmpresasInput[]
+    connectOrCreate?: usuarios_x_empresasCreateOrConnectWithoutEmpresasInput | usuarios_x_empresasCreateOrConnectWithoutEmpresasInput[]
+    createMany?: usuarios_x_empresasCreateManyEmpresasInputEnvelope
+    connect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+  }
+
+  export type grupos_usuariosUncheckedCreateNestedManyWithoutEmpresasInput = {
+    create?: XOR<grupos_usuariosCreateWithoutEmpresasInput, grupos_usuariosUncheckedCreateWithoutEmpresasInput> | grupos_usuariosCreateWithoutEmpresasInput[] | grupos_usuariosUncheckedCreateWithoutEmpresasInput[]
+    connectOrCreate?: grupos_usuariosCreateOrConnectWithoutEmpresasInput | grupos_usuariosCreateOrConnectWithoutEmpresasInput[]
+    createMany?: grupos_usuariosCreateManyEmpresasInputEnvelope
+    connect?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+  }
+
+  export type usuarios_x_empresasUncheckedCreateNestedManyWithoutEmpresasInput = {
+    create?: XOR<usuarios_x_empresasCreateWithoutEmpresasInput, usuarios_x_empresasUncheckedCreateWithoutEmpresasInput> | usuarios_x_empresasCreateWithoutEmpresasInput[] | usuarios_x_empresasUncheckedCreateWithoutEmpresasInput[]
+    connectOrCreate?: usuarios_x_empresasCreateOrConnectWithoutEmpresasInput | usuarios_x_empresasCreateOrConnectWithoutEmpresasInput[]
+    createMany?: usuarios_x_empresasCreateManyEmpresasInputEnvelope
+    connect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+  }
+
+  export type BigIntFieldUpdateOperationsInput = {
+    set?: bigint | number
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -8449,18 +9098,18 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type usuarios_x_empresasCreateNestedManyWithoutEmpresasInput = {
-    create?: XOR<usuarios_x_empresasCreateWithoutEmpresasInput, usuarios_x_empresasUncheckedCreateWithoutEmpresasInput> | usuarios_x_empresasCreateWithoutEmpresasInput[] | usuarios_x_empresasUncheckedCreateWithoutEmpresasInput[]
-    connectOrCreate?: usuarios_x_empresasCreateOrConnectWithoutEmpresasInput | usuarios_x_empresasCreateOrConnectWithoutEmpresasInput[]
-    createMany?: usuarios_x_empresasCreateManyEmpresasInputEnvelope
-    connect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
-  }
-
-  export type usuarios_x_empresasUncheckedCreateNestedManyWithoutEmpresasInput = {
-    create?: XOR<usuarios_x_empresasCreateWithoutEmpresasInput, usuarios_x_empresasUncheckedCreateWithoutEmpresasInput> | usuarios_x_empresasCreateWithoutEmpresasInput[] | usuarios_x_empresasUncheckedCreateWithoutEmpresasInput[]
-    connectOrCreate?: usuarios_x_empresasCreateOrConnectWithoutEmpresasInput | usuarios_x_empresasCreateOrConnectWithoutEmpresasInput[]
-    createMany?: usuarios_x_empresasCreateManyEmpresasInputEnvelope
-    connect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+  export type grupos_usuariosUpdateManyWithoutEmpresasNestedInput = {
+    create?: XOR<grupos_usuariosCreateWithoutEmpresasInput, grupos_usuariosUncheckedCreateWithoutEmpresasInput> | grupos_usuariosCreateWithoutEmpresasInput[] | grupos_usuariosUncheckedCreateWithoutEmpresasInput[]
+    connectOrCreate?: grupos_usuariosCreateOrConnectWithoutEmpresasInput | grupos_usuariosCreateOrConnectWithoutEmpresasInput[]
+    upsert?: grupos_usuariosUpsertWithWhereUniqueWithoutEmpresasInput | grupos_usuariosUpsertWithWhereUniqueWithoutEmpresasInput[]
+    createMany?: grupos_usuariosCreateManyEmpresasInputEnvelope
+    set?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+    disconnect?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+    delete?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+    connect?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+    update?: grupos_usuariosUpdateWithWhereUniqueWithoutEmpresasInput | grupos_usuariosUpdateWithWhereUniqueWithoutEmpresasInput[]
+    updateMany?: grupos_usuariosUpdateManyWithWhereWithoutEmpresasInput | grupos_usuariosUpdateManyWithWhereWithoutEmpresasInput[]
+    deleteMany?: grupos_usuariosScalarWhereInput | grupos_usuariosScalarWhereInput[]
   }
 
   export type usuarios_x_empresasUpdateManyWithoutEmpresasNestedInput = {
@@ -8475,6 +9124,20 @@ export namespace Prisma {
     update?: usuarios_x_empresasUpdateWithWhereUniqueWithoutEmpresasInput | usuarios_x_empresasUpdateWithWhereUniqueWithoutEmpresasInput[]
     updateMany?: usuarios_x_empresasUpdateManyWithWhereWithoutEmpresasInput | usuarios_x_empresasUpdateManyWithWhereWithoutEmpresasInput[]
     deleteMany?: usuarios_x_empresasScalarWhereInput | usuarios_x_empresasScalarWhereInput[]
+  }
+
+  export type grupos_usuariosUncheckedUpdateManyWithoutEmpresasNestedInput = {
+    create?: XOR<grupos_usuariosCreateWithoutEmpresasInput, grupos_usuariosUncheckedCreateWithoutEmpresasInput> | grupos_usuariosCreateWithoutEmpresasInput[] | grupos_usuariosUncheckedCreateWithoutEmpresasInput[]
+    connectOrCreate?: grupos_usuariosCreateOrConnectWithoutEmpresasInput | grupos_usuariosCreateOrConnectWithoutEmpresasInput[]
+    upsert?: grupos_usuariosUpsertWithWhereUniqueWithoutEmpresasInput | grupos_usuariosUpsertWithWhereUniqueWithoutEmpresasInput[]
+    createMany?: grupos_usuariosCreateManyEmpresasInputEnvelope
+    set?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+    disconnect?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+    delete?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+    connect?: grupos_usuariosWhereUniqueInput | grupos_usuariosWhereUniqueInput[]
+    update?: grupos_usuariosUpdateWithWhereUniqueWithoutEmpresasInput | grupos_usuariosUpdateWithWhereUniqueWithoutEmpresasInput[]
+    updateMany?: grupos_usuariosUpdateManyWithWhereWithoutEmpresasInput | grupos_usuariosUpdateManyWithWhereWithoutEmpresasInput[]
+    deleteMany?: grupos_usuariosScalarWhereInput | grupos_usuariosScalarWhereInput[]
   }
 
   export type usuarios_x_empresasUncheckedUpdateManyWithoutEmpresasNestedInput = {
@@ -8545,6 +9208,12 @@ export namespace Prisma {
     connect?: usuariosWhereUniqueInput
   }
 
+  export type grupos_usuariosCreateNestedOneWithoutUsuarios_x_empresasInput = {
+    create?: XOR<grupos_usuariosCreateWithoutUsuarios_x_empresasInput, grupos_usuariosUncheckedCreateWithoutUsuarios_x_empresasInput>
+    connectOrCreate?: grupos_usuariosCreateOrConnectWithoutUsuarios_x_empresasInput
+    connect?: grupos_usuariosWhereUniqueInput
+  }
+
   export type empresasUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput = {
     create?: XOR<empresasCreateWithoutUsuarios_x_empresasInput, empresasUncheckedCreateWithoutUsuarios_x_empresasInput>
     connectOrCreate?: empresasCreateOrConnectWithoutUsuarios_x_empresasInput
@@ -8561,15 +9230,199 @@ export namespace Prisma {
     update?: XOR<XOR<usuariosUpdateToOneWithWhereWithoutUsuarios_x_empresasInput, usuariosUpdateWithoutUsuarios_x_empresasInput>, usuariosUncheckedUpdateWithoutUsuarios_x_empresasInput>
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+  export type grupos_usuariosUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput = {
+    create?: XOR<grupos_usuariosCreateWithoutUsuarios_x_empresasInput, grupos_usuariosUncheckedCreateWithoutUsuarios_x_empresasInput>
+    connectOrCreate?: grupos_usuariosCreateOrConnectWithoutUsuarios_x_empresasInput
+    upsert?: grupos_usuariosUpsertWithoutUsuarios_x_empresasInput
+    connect?: grupos_usuariosWhereUniqueInput
+    update?: XOR<XOR<grupos_usuariosUpdateToOneWithWhereWithoutUsuarios_x_empresasInput, grupos_usuariosUpdateWithoutUsuarios_x_empresasInput>, grupos_usuariosUncheckedUpdateWithoutUsuarios_x_empresasInput>
+  }
+
+  export type acoes_x_gruposCreateNestedManyWithoutAcoesInput = {
+    create?: XOR<acoes_x_gruposCreateWithoutAcoesInput, acoes_x_gruposUncheckedCreateWithoutAcoesInput> | acoes_x_gruposCreateWithoutAcoesInput[] | acoes_x_gruposUncheckedCreateWithoutAcoesInput[]
+    connectOrCreate?: acoes_x_gruposCreateOrConnectWithoutAcoesInput | acoes_x_gruposCreateOrConnectWithoutAcoesInput[]
+    createMany?: acoes_x_gruposCreateManyAcoesInputEnvelope
+    connect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+  }
+
+  export type acoes_x_gruposUncheckedCreateNestedManyWithoutAcoesInput = {
+    create?: XOR<acoes_x_gruposCreateWithoutAcoesInput, acoes_x_gruposUncheckedCreateWithoutAcoesInput> | acoes_x_gruposCreateWithoutAcoesInput[] | acoes_x_gruposUncheckedCreateWithoutAcoesInput[]
+    connectOrCreate?: acoes_x_gruposCreateOrConnectWithoutAcoesInput | acoes_x_gruposCreateOrConnectWithoutAcoesInput[]
+    createMany?: acoes_x_gruposCreateManyAcoesInputEnvelope
+    connect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+  }
+
+  export type acoes_x_gruposUpdateManyWithoutAcoesNestedInput = {
+    create?: XOR<acoes_x_gruposCreateWithoutAcoesInput, acoes_x_gruposUncheckedCreateWithoutAcoesInput> | acoes_x_gruposCreateWithoutAcoesInput[] | acoes_x_gruposUncheckedCreateWithoutAcoesInput[]
+    connectOrCreate?: acoes_x_gruposCreateOrConnectWithoutAcoesInput | acoes_x_gruposCreateOrConnectWithoutAcoesInput[]
+    upsert?: acoes_x_gruposUpsertWithWhereUniqueWithoutAcoesInput | acoes_x_gruposUpsertWithWhereUniqueWithoutAcoesInput[]
+    createMany?: acoes_x_gruposCreateManyAcoesInputEnvelope
+    set?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    disconnect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    delete?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    connect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    update?: acoes_x_gruposUpdateWithWhereUniqueWithoutAcoesInput | acoes_x_gruposUpdateWithWhereUniqueWithoutAcoesInput[]
+    updateMany?: acoes_x_gruposUpdateManyWithWhereWithoutAcoesInput | acoes_x_gruposUpdateManyWithWhereWithoutAcoesInput[]
+    deleteMany?: acoes_x_gruposScalarWhereInput | acoes_x_gruposScalarWhereInput[]
+  }
+
+  export type acoes_x_gruposUncheckedUpdateManyWithoutAcoesNestedInput = {
+    create?: XOR<acoes_x_gruposCreateWithoutAcoesInput, acoes_x_gruposUncheckedCreateWithoutAcoesInput> | acoes_x_gruposCreateWithoutAcoesInput[] | acoes_x_gruposUncheckedCreateWithoutAcoesInput[]
+    connectOrCreate?: acoes_x_gruposCreateOrConnectWithoutAcoesInput | acoes_x_gruposCreateOrConnectWithoutAcoesInput[]
+    upsert?: acoes_x_gruposUpsertWithWhereUniqueWithoutAcoesInput | acoes_x_gruposUpsertWithWhereUniqueWithoutAcoesInput[]
+    createMany?: acoes_x_gruposCreateManyAcoesInputEnvelope
+    set?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    disconnect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    delete?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    connect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    update?: acoes_x_gruposUpdateWithWhereUniqueWithoutAcoesInput | acoes_x_gruposUpdateWithWhereUniqueWithoutAcoesInput[]
+    updateMany?: acoes_x_gruposUpdateManyWithWhereWithoutAcoesInput | acoes_x_gruposUpdateManyWithWhereWithoutAcoesInput[]
+    deleteMany?: acoes_x_gruposScalarWhereInput | acoes_x_gruposScalarWhereInput[]
+  }
+
+  export type acoesCreateNestedOneWithoutAcoes_x_gruposInput = {
+    create?: XOR<acoesCreateWithoutAcoes_x_gruposInput, acoesUncheckedCreateWithoutAcoes_x_gruposInput>
+    connectOrCreate?: acoesCreateOrConnectWithoutAcoes_x_gruposInput
+    connect?: acoesWhereUniqueInput
+  }
+
+  export type grupos_usuariosCreateNestedOneWithoutAcoes_x_gruposInput = {
+    create?: XOR<grupos_usuariosCreateWithoutAcoes_x_gruposInput, grupos_usuariosUncheckedCreateWithoutAcoes_x_gruposInput>
+    connectOrCreate?: grupos_usuariosCreateOrConnectWithoutAcoes_x_gruposInput
+    connect?: grupos_usuariosWhereUniqueInput
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type acoesUpdateOneRequiredWithoutAcoes_x_gruposNestedInput = {
+    create?: XOR<acoesCreateWithoutAcoes_x_gruposInput, acoesUncheckedCreateWithoutAcoes_x_gruposInput>
+    connectOrCreate?: acoesCreateOrConnectWithoutAcoes_x_gruposInput
+    upsert?: acoesUpsertWithoutAcoes_x_gruposInput
+    connect?: acoesWhereUniqueInput
+    update?: XOR<XOR<acoesUpdateToOneWithWhereWithoutAcoes_x_gruposInput, acoesUpdateWithoutAcoes_x_gruposInput>, acoesUncheckedUpdateWithoutAcoes_x_gruposInput>
+  }
+
+  export type grupos_usuariosUpdateOneRequiredWithoutAcoes_x_gruposNestedInput = {
+    create?: XOR<grupos_usuariosCreateWithoutAcoes_x_gruposInput, grupos_usuariosUncheckedCreateWithoutAcoes_x_gruposInput>
+    connectOrCreate?: grupos_usuariosCreateOrConnectWithoutAcoes_x_gruposInput
+    upsert?: grupos_usuariosUpsertWithoutAcoes_x_gruposInput
+    connect?: grupos_usuariosWhereUniqueInput
+    update?: XOR<XOR<grupos_usuariosUpdateToOneWithWhereWithoutAcoes_x_gruposInput, grupos_usuariosUpdateWithoutAcoes_x_gruposInput>, grupos_usuariosUncheckedUpdateWithoutAcoes_x_gruposInput>
+  }
+
+  export type acoes_x_gruposCreateNestedManyWithoutGrupos_usuariosInput = {
+    create?: XOR<acoes_x_gruposCreateWithoutGrupos_usuariosInput, acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput> | acoes_x_gruposCreateWithoutGrupos_usuariosInput[] | acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput[]
+    connectOrCreate?: acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput | acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput[]
+    createMany?: acoes_x_gruposCreateManyGrupos_usuariosInputEnvelope
+    connect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+  }
+
+  export type empresasCreateNestedOneWithoutGrupos_usuariosInput = {
+    create?: XOR<empresasCreateWithoutGrupos_usuariosInput, empresasUncheckedCreateWithoutGrupos_usuariosInput>
+    connectOrCreate?: empresasCreateOrConnectWithoutGrupos_usuariosInput
+    connect?: empresasWhereUniqueInput
+  }
+
+  export type usuarios_x_empresasCreateNestedManyWithoutGrupos_usuariosInput = {
+    create?: XOR<usuarios_x_empresasCreateWithoutGrupos_usuariosInput, usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput> | usuarios_x_empresasCreateWithoutGrupos_usuariosInput[] | usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput[]
+    connectOrCreate?: usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput | usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput[]
+    createMany?: usuarios_x_empresasCreateManyGrupos_usuariosInputEnvelope
+    connect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+  }
+
+  export type acoes_x_gruposUncheckedCreateNestedManyWithoutGrupos_usuariosInput = {
+    create?: XOR<acoes_x_gruposCreateWithoutGrupos_usuariosInput, acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput> | acoes_x_gruposCreateWithoutGrupos_usuariosInput[] | acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput[]
+    connectOrCreate?: acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput | acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput[]
+    createMany?: acoes_x_gruposCreateManyGrupos_usuariosInputEnvelope
+    connect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+  }
+
+  export type usuarios_x_empresasUncheckedCreateNestedManyWithoutGrupos_usuariosInput = {
+    create?: XOR<usuarios_x_empresasCreateWithoutGrupos_usuariosInput, usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput> | usuarios_x_empresasCreateWithoutGrupos_usuariosInput[] | usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput[]
+    connectOrCreate?: usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput | usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput[]
+    createMany?: usuarios_x_empresasCreateManyGrupos_usuariosInputEnvelope
+    connect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+  }
+
+  export type acoes_x_gruposUpdateManyWithoutGrupos_usuariosNestedInput = {
+    create?: XOR<acoes_x_gruposCreateWithoutGrupos_usuariosInput, acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput> | acoes_x_gruposCreateWithoutGrupos_usuariosInput[] | acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput[]
+    connectOrCreate?: acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput | acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput[]
+    upsert?: acoes_x_gruposUpsertWithWhereUniqueWithoutGrupos_usuariosInput | acoes_x_gruposUpsertWithWhereUniqueWithoutGrupos_usuariosInput[]
+    createMany?: acoes_x_gruposCreateManyGrupos_usuariosInputEnvelope
+    set?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    disconnect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    delete?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    connect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    update?: acoes_x_gruposUpdateWithWhereUniqueWithoutGrupos_usuariosInput | acoes_x_gruposUpdateWithWhereUniqueWithoutGrupos_usuariosInput[]
+    updateMany?: acoes_x_gruposUpdateManyWithWhereWithoutGrupos_usuariosInput | acoes_x_gruposUpdateManyWithWhereWithoutGrupos_usuariosInput[]
+    deleteMany?: acoes_x_gruposScalarWhereInput | acoes_x_gruposScalarWhereInput[]
+  }
+
+  export type empresasUpdateOneRequiredWithoutGrupos_usuariosNestedInput = {
+    create?: XOR<empresasCreateWithoutGrupos_usuariosInput, empresasUncheckedCreateWithoutGrupos_usuariosInput>
+    connectOrCreate?: empresasCreateOrConnectWithoutGrupos_usuariosInput
+    upsert?: empresasUpsertWithoutGrupos_usuariosInput
+    connect?: empresasWhereUniqueInput
+    update?: XOR<XOR<empresasUpdateToOneWithWhereWithoutGrupos_usuariosInput, empresasUpdateWithoutGrupos_usuariosInput>, empresasUncheckedUpdateWithoutGrupos_usuariosInput>
+  }
+
+  export type usuarios_x_empresasUpdateManyWithoutGrupos_usuariosNestedInput = {
+    create?: XOR<usuarios_x_empresasCreateWithoutGrupos_usuariosInput, usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput> | usuarios_x_empresasCreateWithoutGrupos_usuariosInput[] | usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput[]
+    connectOrCreate?: usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput | usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput[]
+    upsert?: usuarios_x_empresasUpsertWithWhereUniqueWithoutGrupos_usuariosInput | usuarios_x_empresasUpsertWithWhereUniqueWithoutGrupos_usuariosInput[]
+    createMany?: usuarios_x_empresasCreateManyGrupos_usuariosInputEnvelope
+    set?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+    disconnect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+    delete?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+    connect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+    update?: usuarios_x_empresasUpdateWithWhereUniqueWithoutGrupos_usuariosInput | usuarios_x_empresasUpdateWithWhereUniqueWithoutGrupos_usuariosInput[]
+    updateMany?: usuarios_x_empresasUpdateManyWithWhereWithoutGrupos_usuariosInput | usuarios_x_empresasUpdateManyWithWhereWithoutGrupos_usuariosInput[]
+    deleteMany?: usuarios_x_empresasScalarWhereInput | usuarios_x_empresasScalarWhereInput[]
+  }
+
+  export type acoes_x_gruposUncheckedUpdateManyWithoutGrupos_usuariosNestedInput = {
+    create?: XOR<acoes_x_gruposCreateWithoutGrupos_usuariosInput, acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput> | acoes_x_gruposCreateWithoutGrupos_usuariosInput[] | acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput[]
+    connectOrCreate?: acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput | acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput[]
+    upsert?: acoes_x_gruposUpsertWithWhereUniqueWithoutGrupos_usuariosInput | acoes_x_gruposUpsertWithWhereUniqueWithoutGrupos_usuariosInput[]
+    createMany?: acoes_x_gruposCreateManyGrupos_usuariosInputEnvelope
+    set?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    disconnect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    delete?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    connect?: acoes_x_gruposWhereUniqueInput | acoes_x_gruposWhereUniqueInput[]
+    update?: acoes_x_gruposUpdateWithWhereUniqueWithoutGrupos_usuariosInput | acoes_x_gruposUpdateWithWhereUniqueWithoutGrupos_usuariosInput[]
+    updateMany?: acoes_x_gruposUpdateManyWithWhereWithoutGrupos_usuariosInput | acoes_x_gruposUpdateManyWithWhereWithoutGrupos_usuariosInput[]
+    deleteMany?: acoes_x_gruposScalarWhereInput | acoes_x_gruposScalarWhereInput[]
+  }
+
+  export type usuarios_x_empresasUncheckedUpdateManyWithoutGrupos_usuariosNestedInput = {
+    create?: XOR<usuarios_x_empresasCreateWithoutGrupos_usuariosInput, usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput> | usuarios_x_empresasCreateWithoutGrupos_usuariosInput[] | usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput[]
+    connectOrCreate?: usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput | usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput[]
+    upsert?: usuarios_x_empresasUpsertWithWhereUniqueWithoutGrupos_usuariosInput | usuarios_x_empresasUpsertWithWhereUniqueWithoutGrupos_usuariosInput[]
+    createMany?: usuarios_x_empresasCreateManyGrupos_usuariosInputEnvelope
+    set?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+    disconnect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+    delete?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+    connect?: usuarios_x_empresasWhereUniqueInput | usuarios_x_empresasWhereUniqueInput[]
+    update?: usuarios_x_empresasUpdateWithWhereUniqueWithoutGrupos_usuariosInput | usuarios_x_empresasUpdateWithWhereUniqueWithoutGrupos_usuariosInput[]
+    updateMany?: usuarios_x_empresasUpdateManyWithWhereWithoutGrupos_usuariosInput | usuarios_x_empresasUpdateManyWithWhereWithoutGrupos_usuariosInput[]
+    deleteMany?: usuarios_x_empresasScalarWhereInput | usuarios_x_empresasScalarWhereInput[]
+  }
+
+  export type NestedBigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[]
+    notIn?: bigint[] | number[]
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -8586,7 +9439,48 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[]
+    notIn?: bigint[] | number[]
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
     notIn?: number[]
@@ -8594,12 +9488,7 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -8628,31 +9517,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8699,13 +9563,58 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type grupos_usuariosCreateWithoutEmpresasInput = {
+    id?: bigint | number
+    nome: string
+    pagina_inicial?: string
+    acoes_x_grupos?: acoes_x_gruposCreateNestedManyWithoutGrupos_usuariosInput
+    usuarios_x_empresas?: usuarios_x_empresasCreateNestedManyWithoutGrupos_usuariosInput
+  }
+
+  export type grupos_usuariosUncheckedCreateWithoutEmpresasInput = {
+    id?: bigint | number
+    nome: string
+    pagina_inicial?: string
+    acoes_x_grupos?: acoes_x_gruposUncheckedCreateNestedManyWithoutGrupos_usuariosInput
+    usuarios_x_empresas?: usuarios_x_empresasUncheckedCreateNestedManyWithoutGrupos_usuariosInput
+  }
+
+  export type grupos_usuariosCreateOrConnectWithoutEmpresasInput = {
+    where: grupos_usuariosWhereUniqueInput
+    create: XOR<grupos_usuariosCreateWithoutEmpresasInput, grupos_usuariosUncheckedCreateWithoutEmpresasInput>
+  }
+
+  export type grupos_usuariosCreateManyEmpresasInputEnvelope = {
+    data: grupos_usuariosCreateManyEmpresasInput | grupos_usuariosCreateManyEmpresasInput[]
+    skipDuplicates?: boolean
+  }
+
   export type usuarios_x_empresasCreateWithoutEmpresasInput = {
+    id?: bigint | number
     usuarios: usuariosCreateNestedOneWithoutUsuarios_x_empresasInput
+    grupos_usuarios: grupos_usuariosCreateNestedOneWithoutUsuarios_x_empresasInput
   }
 
   export type usuarios_x_empresasUncheckedCreateWithoutEmpresasInput = {
-    id?: number
-    id_usuario: number
+    id?: bigint | number
+    id_usuario: bigint | number
+    id_grupo_usuario: bigint | number
   }
 
   export type usuarios_x_empresasCreateOrConnectWithoutEmpresasInput = {
@@ -8716,6 +9625,32 @@ export namespace Prisma {
   export type usuarios_x_empresasCreateManyEmpresasInputEnvelope = {
     data: usuarios_x_empresasCreateManyEmpresasInput | usuarios_x_empresasCreateManyEmpresasInput[]
     skipDuplicates?: boolean
+  }
+
+  export type grupos_usuariosUpsertWithWhereUniqueWithoutEmpresasInput = {
+    where: grupos_usuariosWhereUniqueInput
+    update: XOR<grupos_usuariosUpdateWithoutEmpresasInput, grupos_usuariosUncheckedUpdateWithoutEmpresasInput>
+    create: XOR<grupos_usuariosCreateWithoutEmpresasInput, grupos_usuariosUncheckedCreateWithoutEmpresasInput>
+  }
+
+  export type grupos_usuariosUpdateWithWhereUniqueWithoutEmpresasInput = {
+    where: grupos_usuariosWhereUniqueInput
+    data: XOR<grupos_usuariosUpdateWithoutEmpresasInput, grupos_usuariosUncheckedUpdateWithoutEmpresasInput>
+  }
+
+  export type grupos_usuariosUpdateManyWithWhereWithoutEmpresasInput = {
+    where: grupos_usuariosScalarWhereInput
+    data: XOR<grupos_usuariosUpdateManyMutationInput, grupos_usuariosUncheckedUpdateManyWithoutEmpresasInput>
+  }
+
+  export type grupos_usuariosScalarWhereInput = {
+    AND?: grupos_usuariosScalarWhereInput | grupos_usuariosScalarWhereInput[]
+    OR?: grupos_usuariosScalarWhereInput[]
+    NOT?: grupos_usuariosScalarWhereInput | grupos_usuariosScalarWhereInput[]
+    id?: BigIntFilter<"grupos_usuarios"> | bigint | number
+    nome?: StringFilter<"grupos_usuarios"> | string
+    id_empresa?: BigIntFilter<"grupos_usuarios"> | bigint | number
+    pagina_inicial?: StringFilter<"grupos_usuarios"> | string
   }
 
   export type usuarios_x_empresasUpsertWithWhereUniqueWithoutEmpresasInput = {
@@ -8738,18 +9673,22 @@ export namespace Prisma {
     AND?: usuarios_x_empresasScalarWhereInput | usuarios_x_empresasScalarWhereInput[]
     OR?: usuarios_x_empresasScalarWhereInput[]
     NOT?: usuarios_x_empresasScalarWhereInput | usuarios_x_empresasScalarWhereInput[]
-    id?: IntFilter<"usuarios_x_empresas"> | number
-    id_empresa?: IntFilter<"usuarios_x_empresas"> | number
-    id_usuario?: IntFilter<"usuarios_x_empresas"> | number
+    id?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
+    id_empresa?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
+    id_usuario?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
+    id_grupo_usuario?: BigIntFilter<"usuarios_x_empresas"> | bigint | number
   }
 
   export type usuarios_x_empresasCreateWithoutUsuariosInput = {
+    id?: bigint | number
     empresas: empresasCreateNestedOneWithoutUsuarios_x_empresasInput
+    grupos_usuarios: grupos_usuariosCreateNestedOneWithoutUsuarios_x_empresasInput
   }
 
   export type usuarios_x_empresasUncheckedCreateWithoutUsuariosInput = {
-    id?: number
-    id_empresa: number
+    id?: bigint | number
+    id_empresa: bigint | number
+    id_grupo_usuario: bigint | number
   }
 
   export type usuarios_x_empresasCreateOrConnectWithoutUsuariosInput = {
@@ -8779,6 +9718,7 @@ export namespace Prisma {
   }
 
   export type empresasCreateWithoutUsuarios_x_empresasInput = {
+    id?: bigint | number
     cnpj: string
     xRazaoSocial: string
     xFant: string
@@ -8798,10 +9738,11 @@ export namespace Prisma {
     status: string
     email?: string | null
     idAtualizacaoBanco?: number | null
+    grupos_usuarios?: grupos_usuariosCreateNestedManyWithoutEmpresasInput
   }
 
   export type empresasUncheckedCreateWithoutUsuarios_x_empresasInput = {
-    id?: number
+    id?: bigint | number
     cnpj: string
     xRazaoSocial: string
     xFant: string
@@ -8821,6 +9762,7 @@ export namespace Prisma {
     status: string
     email?: string | null
     idAtualizacaoBanco?: number | null
+    grupos_usuarios?: grupos_usuariosUncheckedCreateNestedManyWithoutEmpresasInput
   }
 
   export type empresasCreateOrConnectWithoutUsuarios_x_empresasInput = {
@@ -8829,6 +9771,7 @@ export namespace Prisma {
   }
 
   export type usuariosCreateWithoutUsuarios_x_empresasInput = {
+    id?: bigint | number
     nome?: string | null
     ultimo_nome?: string | null
     email?: string | null
@@ -8840,7 +9783,7 @@ export namespace Prisma {
   }
 
   export type usuariosUncheckedCreateWithoutUsuarios_x_empresasInput = {
-    id?: number
+    id?: bigint | number
     nome?: string | null
     ultimo_nome?: string | null
     email?: string | null
@@ -8856,6 +9799,27 @@ export namespace Prisma {
     create: XOR<usuariosCreateWithoutUsuarios_x_empresasInput, usuariosUncheckedCreateWithoutUsuarios_x_empresasInput>
   }
 
+  export type grupos_usuariosCreateWithoutUsuarios_x_empresasInput = {
+    id?: bigint | number
+    nome: string
+    pagina_inicial?: string
+    acoes_x_grupos?: acoes_x_gruposCreateNestedManyWithoutGrupos_usuariosInput
+    empresas: empresasCreateNestedOneWithoutGrupos_usuariosInput
+  }
+
+  export type grupos_usuariosUncheckedCreateWithoutUsuarios_x_empresasInput = {
+    id?: bigint | number
+    nome: string
+    id_empresa: bigint | number
+    pagina_inicial?: string
+    acoes_x_grupos?: acoes_x_gruposUncheckedCreateNestedManyWithoutGrupos_usuariosInput
+  }
+
+  export type grupos_usuariosCreateOrConnectWithoutUsuarios_x_empresasInput = {
+    where: grupos_usuariosWhereUniqueInput
+    create: XOR<grupos_usuariosCreateWithoutUsuarios_x_empresasInput, grupos_usuariosUncheckedCreateWithoutUsuarios_x_empresasInput>
+  }
+
   export type empresasUpsertWithoutUsuarios_x_empresasInput = {
     update: XOR<empresasUpdateWithoutUsuarios_x_empresasInput, empresasUncheckedUpdateWithoutUsuarios_x_empresasInput>
     create: XOR<empresasCreateWithoutUsuarios_x_empresasInput, empresasUncheckedCreateWithoutUsuarios_x_empresasInput>
@@ -8868,6 +9832,7 @@ export namespace Prisma {
   }
 
   export type empresasUpdateWithoutUsuarios_x_empresasInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     cnpj?: StringFieldUpdateOperationsInput | string
     xRazaoSocial?: StringFieldUpdateOperationsInput | string
     xFant?: StringFieldUpdateOperationsInput | string
@@ -8887,10 +9852,11 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     idAtualizacaoBanco?: NullableIntFieldUpdateOperationsInput | number | null
+    grupos_usuarios?: grupos_usuariosUpdateManyWithoutEmpresasNestedInput
   }
 
   export type empresasUncheckedUpdateWithoutUsuarios_x_empresasInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     cnpj?: StringFieldUpdateOperationsInput | string
     xRazaoSocial?: StringFieldUpdateOperationsInput | string
     xFant?: StringFieldUpdateOperationsInput | string
@@ -8910,6 +9876,7 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     idAtualizacaoBanco?: NullableIntFieldUpdateOperationsInput | number | null
+    grupos_usuarios?: grupos_usuariosUncheckedUpdateManyWithoutEmpresasNestedInput
   }
 
   export type usuariosUpsertWithoutUsuarios_x_empresasInput = {
@@ -8924,6 +9891,7 @@ export namespace Prisma {
   }
 
   export type usuariosUpdateWithoutUsuarios_x_empresasInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nome?: NullableStringFieldUpdateOperationsInput | string | null
     ultimo_nome?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8935,7 +9903,7 @@ export namespace Prisma {
   }
 
   export type usuariosUncheckedUpdateWithoutUsuarios_x_empresasInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nome?: NullableStringFieldUpdateOperationsInput | string | null
     ultimo_nome?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8946,42 +9914,515 @@ export namespace Prisma {
     exclusivo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type grupos_usuariosUpsertWithoutUsuarios_x_empresasInput = {
+    update: XOR<grupos_usuariosUpdateWithoutUsuarios_x_empresasInput, grupos_usuariosUncheckedUpdateWithoutUsuarios_x_empresasInput>
+    create: XOR<grupos_usuariosCreateWithoutUsuarios_x_empresasInput, grupos_usuariosUncheckedCreateWithoutUsuarios_x_empresasInput>
+    where?: grupos_usuariosWhereInput
+  }
+
+  export type grupos_usuariosUpdateToOneWithWhereWithoutUsuarios_x_empresasInput = {
+    where?: grupos_usuariosWhereInput
+    data: XOR<grupos_usuariosUpdateWithoutUsuarios_x_empresasInput, grupos_usuariosUncheckedUpdateWithoutUsuarios_x_empresasInput>
+  }
+
+  export type grupos_usuariosUpdateWithoutUsuarios_x_empresasInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+    acoes_x_grupos?: acoes_x_gruposUpdateManyWithoutGrupos_usuariosNestedInput
+    empresas?: empresasUpdateOneRequiredWithoutGrupos_usuariosNestedInput
+  }
+
+  export type grupos_usuariosUncheckedUpdateWithoutUsuarios_x_empresasInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+    acoes_x_grupos?: acoes_x_gruposUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
+  }
+
+  export type acoes_x_gruposCreateWithoutAcoesInput = {
+    id?: bigint | number
+    permite: number
+    grupos_usuarios: grupos_usuariosCreateNestedOneWithoutAcoes_x_gruposInput
+  }
+
+  export type acoes_x_gruposUncheckedCreateWithoutAcoesInput = {
+    id?: bigint | number
+    id_grupo_usuario: bigint | number
+    permite: number
+  }
+
+  export type acoes_x_gruposCreateOrConnectWithoutAcoesInput = {
+    where: acoes_x_gruposWhereUniqueInput
+    create: XOR<acoes_x_gruposCreateWithoutAcoesInput, acoes_x_gruposUncheckedCreateWithoutAcoesInput>
+  }
+
+  export type acoes_x_gruposCreateManyAcoesInputEnvelope = {
+    data: acoes_x_gruposCreateManyAcoesInput | acoes_x_gruposCreateManyAcoesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type acoes_x_gruposUpsertWithWhereUniqueWithoutAcoesInput = {
+    where: acoes_x_gruposWhereUniqueInput
+    update: XOR<acoes_x_gruposUpdateWithoutAcoesInput, acoes_x_gruposUncheckedUpdateWithoutAcoesInput>
+    create: XOR<acoes_x_gruposCreateWithoutAcoesInput, acoes_x_gruposUncheckedCreateWithoutAcoesInput>
+  }
+
+  export type acoes_x_gruposUpdateWithWhereUniqueWithoutAcoesInput = {
+    where: acoes_x_gruposWhereUniqueInput
+    data: XOR<acoes_x_gruposUpdateWithoutAcoesInput, acoes_x_gruposUncheckedUpdateWithoutAcoesInput>
+  }
+
+  export type acoes_x_gruposUpdateManyWithWhereWithoutAcoesInput = {
+    where: acoes_x_gruposScalarWhereInput
+    data: XOR<acoes_x_gruposUpdateManyMutationInput, acoes_x_gruposUncheckedUpdateManyWithoutAcoesInput>
+  }
+
+  export type acoes_x_gruposScalarWhereInput = {
+    AND?: acoes_x_gruposScalarWhereInput | acoes_x_gruposScalarWhereInput[]
+    OR?: acoes_x_gruposScalarWhereInput[]
+    NOT?: acoes_x_gruposScalarWhereInput | acoes_x_gruposScalarWhereInput[]
+    id?: BigIntFilter<"acoes_x_grupos"> | bigint | number
+    id_acao?: BigIntFilter<"acoes_x_grupos"> | bigint | number
+    id_grupo_usuario?: BigIntFilter<"acoes_x_grupos"> | bigint | number
+    permite?: IntFilter<"acoes_x_grupos"> | number
+  }
+
+  export type acoesCreateWithoutAcoes_x_gruposInput = {
+    id?: bigint | number
+    descricao: string
+    descricao_titulo: string
+    tabela: string
+    tabela_titulo: string
+    valor_padrao?: number | null
+  }
+
+  export type acoesUncheckedCreateWithoutAcoes_x_gruposInput = {
+    id?: bigint | number
+    descricao: string
+    descricao_titulo: string
+    tabela: string
+    tabela_titulo: string
+    valor_padrao?: number | null
+  }
+
+  export type acoesCreateOrConnectWithoutAcoes_x_gruposInput = {
+    where: acoesWhereUniqueInput
+    create: XOR<acoesCreateWithoutAcoes_x_gruposInput, acoesUncheckedCreateWithoutAcoes_x_gruposInput>
+  }
+
+  export type grupos_usuariosCreateWithoutAcoes_x_gruposInput = {
+    id?: bigint | number
+    nome: string
+    pagina_inicial?: string
+    empresas: empresasCreateNestedOneWithoutGrupos_usuariosInput
+    usuarios_x_empresas?: usuarios_x_empresasCreateNestedManyWithoutGrupos_usuariosInput
+  }
+
+  export type grupos_usuariosUncheckedCreateWithoutAcoes_x_gruposInput = {
+    id?: bigint | number
+    nome: string
+    id_empresa: bigint | number
+    pagina_inicial?: string
+    usuarios_x_empresas?: usuarios_x_empresasUncheckedCreateNestedManyWithoutGrupos_usuariosInput
+  }
+
+  export type grupos_usuariosCreateOrConnectWithoutAcoes_x_gruposInput = {
+    where: grupos_usuariosWhereUniqueInput
+    create: XOR<grupos_usuariosCreateWithoutAcoes_x_gruposInput, grupos_usuariosUncheckedCreateWithoutAcoes_x_gruposInput>
+  }
+
+  export type acoesUpsertWithoutAcoes_x_gruposInput = {
+    update: XOR<acoesUpdateWithoutAcoes_x_gruposInput, acoesUncheckedUpdateWithoutAcoes_x_gruposInput>
+    create: XOR<acoesCreateWithoutAcoes_x_gruposInput, acoesUncheckedCreateWithoutAcoes_x_gruposInput>
+    where?: acoesWhereInput
+  }
+
+  export type acoesUpdateToOneWithWhereWithoutAcoes_x_gruposInput = {
+    where?: acoesWhereInput
+    data: XOR<acoesUpdateWithoutAcoes_x_gruposInput, acoesUncheckedUpdateWithoutAcoes_x_gruposInput>
+  }
+
+  export type acoesUpdateWithoutAcoes_x_gruposInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    descricao?: StringFieldUpdateOperationsInput | string
+    descricao_titulo?: StringFieldUpdateOperationsInput | string
+    tabela?: StringFieldUpdateOperationsInput | string
+    tabela_titulo?: StringFieldUpdateOperationsInput | string
+    valor_padrao?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type acoesUncheckedUpdateWithoutAcoes_x_gruposInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    descricao?: StringFieldUpdateOperationsInput | string
+    descricao_titulo?: StringFieldUpdateOperationsInput | string
+    tabela?: StringFieldUpdateOperationsInput | string
+    tabela_titulo?: StringFieldUpdateOperationsInput | string
+    valor_padrao?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type grupos_usuariosUpsertWithoutAcoes_x_gruposInput = {
+    update: XOR<grupos_usuariosUpdateWithoutAcoes_x_gruposInput, grupos_usuariosUncheckedUpdateWithoutAcoes_x_gruposInput>
+    create: XOR<grupos_usuariosCreateWithoutAcoes_x_gruposInput, grupos_usuariosUncheckedCreateWithoutAcoes_x_gruposInput>
+    where?: grupos_usuariosWhereInput
+  }
+
+  export type grupos_usuariosUpdateToOneWithWhereWithoutAcoes_x_gruposInput = {
+    where?: grupos_usuariosWhereInput
+    data: XOR<grupos_usuariosUpdateWithoutAcoes_x_gruposInput, grupos_usuariosUncheckedUpdateWithoutAcoes_x_gruposInput>
+  }
+
+  export type grupos_usuariosUpdateWithoutAcoes_x_gruposInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+    empresas?: empresasUpdateOneRequiredWithoutGrupos_usuariosNestedInput
+    usuarios_x_empresas?: usuarios_x_empresasUpdateManyWithoutGrupos_usuariosNestedInput
+  }
+
+  export type grupos_usuariosUncheckedUpdateWithoutAcoes_x_gruposInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+    usuarios_x_empresas?: usuarios_x_empresasUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
+  }
+
+  export type acoes_x_gruposCreateWithoutGrupos_usuariosInput = {
+    id?: bigint | number
+    permite: number
+    acoes: acoesCreateNestedOneWithoutAcoes_x_gruposInput
+  }
+
+  export type acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput = {
+    id?: bigint | number
+    id_acao: bigint | number
+    permite: number
+  }
+
+  export type acoes_x_gruposCreateOrConnectWithoutGrupos_usuariosInput = {
+    where: acoes_x_gruposWhereUniqueInput
+    create: XOR<acoes_x_gruposCreateWithoutGrupos_usuariosInput, acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput>
+  }
+
+  export type acoes_x_gruposCreateManyGrupos_usuariosInputEnvelope = {
+    data: acoes_x_gruposCreateManyGrupos_usuariosInput | acoes_x_gruposCreateManyGrupos_usuariosInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type empresasCreateWithoutGrupos_usuariosInput = {
+    id?: bigint | number
+    cnpj: string
+    xRazaoSocial: string
+    xFant: string
+    xLgr: string
+    nro: string
+    xCpl: string
+    xBairro: string
+    cMun: string
+    xMun: string
+    uf: string
+    cep: string
+    fone: string
+    ie: string
+    crt: string
+    token: string
+    banco: string
+    status: string
+    email?: string | null
+    idAtualizacaoBanco?: number | null
+    usuarios_x_empresas?: usuarios_x_empresasCreateNestedManyWithoutEmpresasInput
+  }
+
+  export type empresasUncheckedCreateWithoutGrupos_usuariosInput = {
+    id?: bigint | number
+    cnpj: string
+    xRazaoSocial: string
+    xFant: string
+    xLgr: string
+    nro: string
+    xCpl: string
+    xBairro: string
+    cMun: string
+    xMun: string
+    uf: string
+    cep: string
+    fone: string
+    ie: string
+    crt: string
+    token: string
+    banco: string
+    status: string
+    email?: string | null
+    idAtualizacaoBanco?: number | null
+    usuarios_x_empresas?: usuarios_x_empresasUncheckedCreateNestedManyWithoutEmpresasInput
+  }
+
+  export type empresasCreateOrConnectWithoutGrupos_usuariosInput = {
+    where: empresasWhereUniqueInput
+    create: XOR<empresasCreateWithoutGrupos_usuariosInput, empresasUncheckedCreateWithoutGrupos_usuariosInput>
+  }
+
+  export type usuarios_x_empresasCreateWithoutGrupos_usuariosInput = {
+    id?: bigint | number
+    empresas: empresasCreateNestedOneWithoutUsuarios_x_empresasInput
+    usuarios: usuariosCreateNestedOneWithoutUsuarios_x_empresasInput
+  }
+
+  export type usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput = {
+    id?: bigint | number
+    id_empresa: bigint | number
+    id_usuario: bigint | number
+  }
+
+  export type usuarios_x_empresasCreateOrConnectWithoutGrupos_usuariosInput = {
+    where: usuarios_x_empresasWhereUniqueInput
+    create: XOR<usuarios_x_empresasCreateWithoutGrupos_usuariosInput, usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput>
+  }
+
+  export type usuarios_x_empresasCreateManyGrupos_usuariosInputEnvelope = {
+    data: usuarios_x_empresasCreateManyGrupos_usuariosInput | usuarios_x_empresasCreateManyGrupos_usuariosInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type acoes_x_gruposUpsertWithWhereUniqueWithoutGrupos_usuariosInput = {
+    where: acoes_x_gruposWhereUniqueInput
+    update: XOR<acoes_x_gruposUpdateWithoutGrupos_usuariosInput, acoes_x_gruposUncheckedUpdateWithoutGrupos_usuariosInput>
+    create: XOR<acoes_x_gruposCreateWithoutGrupos_usuariosInput, acoes_x_gruposUncheckedCreateWithoutGrupos_usuariosInput>
+  }
+
+  export type acoes_x_gruposUpdateWithWhereUniqueWithoutGrupos_usuariosInput = {
+    where: acoes_x_gruposWhereUniqueInput
+    data: XOR<acoes_x_gruposUpdateWithoutGrupos_usuariosInput, acoes_x_gruposUncheckedUpdateWithoutGrupos_usuariosInput>
+  }
+
+  export type acoes_x_gruposUpdateManyWithWhereWithoutGrupos_usuariosInput = {
+    where: acoes_x_gruposScalarWhereInput
+    data: XOR<acoes_x_gruposUpdateManyMutationInput, acoes_x_gruposUncheckedUpdateManyWithoutGrupos_usuariosInput>
+  }
+
+  export type empresasUpsertWithoutGrupos_usuariosInput = {
+    update: XOR<empresasUpdateWithoutGrupos_usuariosInput, empresasUncheckedUpdateWithoutGrupos_usuariosInput>
+    create: XOR<empresasCreateWithoutGrupos_usuariosInput, empresasUncheckedCreateWithoutGrupos_usuariosInput>
+    where?: empresasWhereInput
+  }
+
+  export type empresasUpdateToOneWithWhereWithoutGrupos_usuariosInput = {
+    where?: empresasWhereInput
+    data: XOR<empresasUpdateWithoutGrupos_usuariosInput, empresasUncheckedUpdateWithoutGrupos_usuariosInput>
+  }
+
+  export type empresasUpdateWithoutGrupos_usuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    cnpj?: StringFieldUpdateOperationsInput | string
+    xRazaoSocial?: StringFieldUpdateOperationsInput | string
+    xFant?: StringFieldUpdateOperationsInput | string
+    xLgr?: StringFieldUpdateOperationsInput | string
+    nro?: StringFieldUpdateOperationsInput | string
+    xCpl?: StringFieldUpdateOperationsInput | string
+    xBairro?: StringFieldUpdateOperationsInput | string
+    cMun?: StringFieldUpdateOperationsInput | string
+    xMun?: StringFieldUpdateOperationsInput | string
+    uf?: StringFieldUpdateOperationsInput | string
+    cep?: StringFieldUpdateOperationsInput | string
+    fone?: StringFieldUpdateOperationsInput | string
+    ie?: StringFieldUpdateOperationsInput | string
+    crt?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    idAtualizacaoBanco?: NullableIntFieldUpdateOperationsInput | number | null
+    usuarios_x_empresas?: usuarios_x_empresasUpdateManyWithoutEmpresasNestedInput
+  }
+
+  export type empresasUncheckedUpdateWithoutGrupos_usuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    cnpj?: StringFieldUpdateOperationsInput | string
+    xRazaoSocial?: StringFieldUpdateOperationsInput | string
+    xFant?: StringFieldUpdateOperationsInput | string
+    xLgr?: StringFieldUpdateOperationsInput | string
+    nro?: StringFieldUpdateOperationsInput | string
+    xCpl?: StringFieldUpdateOperationsInput | string
+    xBairro?: StringFieldUpdateOperationsInput | string
+    cMun?: StringFieldUpdateOperationsInput | string
+    xMun?: StringFieldUpdateOperationsInput | string
+    uf?: StringFieldUpdateOperationsInput | string
+    cep?: StringFieldUpdateOperationsInput | string
+    fone?: StringFieldUpdateOperationsInput | string
+    ie?: StringFieldUpdateOperationsInput | string
+    crt?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    idAtualizacaoBanco?: NullableIntFieldUpdateOperationsInput | number | null
+    usuarios_x_empresas?: usuarios_x_empresasUncheckedUpdateManyWithoutEmpresasNestedInput
+  }
+
+  export type usuarios_x_empresasUpsertWithWhereUniqueWithoutGrupos_usuariosInput = {
+    where: usuarios_x_empresasWhereUniqueInput
+    update: XOR<usuarios_x_empresasUpdateWithoutGrupos_usuariosInput, usuarios_x_empresasUncheckedUpdateWithoutGrupos_usuariosInput>
+    create: XOR<usuarios_x_empresasCreateWithoutGrupos_usuariosInput, usuarios_x_empresasUncheckedCreateWithoutGrupos_usuariosInput>
+  }
+
+  export type usuarios_x_empresasUpdateWithWhereUniqueWithoutGrupos_usuariosInput = {
+    where: usuarios_x_empresasWhereUniqueInput
+    data: XOR<usuarios_x_empresasUpdateWithoutGrupos_usuariosInput, usuarios_x_empresasUncheckedUpdateWithoutGrupos_usuariosInput>
+  }
+
+  export type usuarios_x_empresasUpdateManyWithWhereWithoutGrupos_usuariosInput = {
+    where: usuarios_x_empresasScalarWhereInput
+    data: XOR<usuarios_x_empresasUpdateManyMutationInput, usuarios_x_empresasUncheckedUpdateManyWithoutGrupos_usuariosInput>
+  }
+
+  export type grupos_usuariosCreateManyEmpresasInput = {
+    id?: bigint | number
+    nome: string
+    pagina_inicial?: string
+  }
+
   export type usuarios_x_empresasCreateManyEmpresasInput = {
-    id?: number
-    id_usuario: number
+    id?: bigint | number
+    id_usuario: bigint | number
+    id_grupo_usuario: bigint | number
+  }
+
+  export type grupos_usuariosUpdateWithoutEmpresasInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+    acoes_x_grupos?: acoes_x_gruposUpdateManyWithoutGrupos_usuariosNestedInput
+    usuarios_x_empresas?: usuarios_x_empresasUpdateManyWithoutGrupos_usuariosNestedInput
+  }
+
+  export type grupos_usuariosUncheckedUpdateWithoutEmpresasInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
+    acoes_x_grupos?: acoes_x_gruposUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
+    usuarios_x_empresas?: usuarios_x_empresasUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
+  }
+
+  export type grupos_usuariosUncheckedUpdateManyWithoutEmpresasInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    nome?: StringFieldUpdateOperationsInput | string
+    pagina_inicial?: StringFieldUpdateOperationsInput | string
   }
 
   export type usuarios_x_empresasUpdateWithoutEmpresasInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     usuarios?: usuariosUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
+    grupos_usuarios?: grupos_usuariosUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
   }
 
   export type usuarios_x_empresasUncheckedUpdateWithoutEmpresasInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    id_usuario?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
   export type usuarios_x_empresasUncheckedUpdateManyWithoutEmpresasInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    id_usuario?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
   export type usuarios_x_empresasCreateManyUsuariosInput = {
-    id?: number
-    id_empresa: number
+    id?: bigint | number
+    id_empresa: bigint | number
+    id_grupo_usuario: bigint | number
   }
 
   export type usuarios_x_empresasUpdateWithoutUsuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     empresas?: empresasUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
+    grupos_usuarios?: grupos_usuariosUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
   }
 
   export type usuarios_x_empresasUncheckedUpdateWithoutUsuariosInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    id_empresa?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
   export type usuarios_x_empresasUncheckedUpdateManyWithoutUsuariosInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    id_empresa?: IntFieldUpdateOperationsInput | number
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type acoes_x_gruposCreateManyAcoesInput = {
+    id?: bigint | number
+    id_grupo_usuario: bigint | number
+    permite: number
+  }
+
+  export type acoes_x_gruposUpdateWithoutAcoesInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+    grupos_usuarios?: grupos_usuariosUpdateOneRequiredWithoutAcoes_x_gruposNestedInput
+  }
+
+  export type acoes_x_gruposUncheckedUpdateWithoutAcoesInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type acoes_x_gruposUncheckedUpdateManyWithoutAcoesInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_grupo_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type acoes_x_gruposCreateManyGrupos_usuariosInput = {
+    id?: bigint | number
+    id_acao: bigint | number
+    permite: number
+  }
+
+  export type usuarios_x_empresasCreateManyGrupos_usuariosInput = {
+    id?: bigint | number
+    id_empresa: bigint | number
+    id_usuario: bigint | number
+  }
+
+  export type acoes_x_gruposUpdateWithoutGrupos_usuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+    acoes?: acoesUpdateOneRequiredWithoutAcoes_x_gruposNestedInput
+  }
+
+  export type acoes_x_gruposUncheckedUpdateWithoutGrupos_usuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_acao?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type acoes_x_gruposUncheckedUpdateManyWithoutGrupos_usuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_acao?: BigIntFieldUpdateOperationsInput | bigint | number
+    permite?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type usuarios_x_empresasUpdateWithoutGrupos_usuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    empresas?: empresasUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
+    usuarios?: usuariosUpdateOneRequiredWithoutUsuarios_x_empresasNestedInput
+  }
+
+  export type usuarios_x_empresasUncheckedUpdateWithoutGrupos_usuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type usuarios_x_empresasUncheckedUpdateManyWithoutGrupos_usuariosInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_empresa?: BigIntFieldUpdateOperationsInput | bigint | number
+    id_usuario?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
 
@@ -8998,21 +10439,17 @@ export namespace Prisma {
      */
     export type UsuariosCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UsuariosCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use parametrosDefaultArgs instead
+     * @deprecated Use AcoesCountOutputTypeDefaultArgs instead
      */
-    export type parametrosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = parametrosDefaultArgs<ExtArgs>
+    export type AcoesCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AcoesCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use atividadesDefaultArgs instead
+     * @deprecated Use Grupos_usuariosCountOutputTypeDefaultArgs instead
      */
-    export type atividadesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = atividadesDefaultArgs<ExtArgs>
+    export type Grupos_usuariosCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Grupos_usuariosCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use empresasDefaultArgs instead
      */
     export type empresasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = empresasDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use modulosDefaultArgs instead
-     */
-    export type modulosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = modulosDefaultArgs<ExtArgs>
     /**
      * @deprecated Use usuariosDefaultArgs instead
      */
@@ -9021,6 +10458,18 @@ export namespace Prisma {
      * @deprecated Use usuarios_x_empresasDefaultArgs instead
      */
     export type usuarios_x_empresasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = usuarios_x_empresasDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use acoesDefaultArgs instead
+     */
+    export type acoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = acoesDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use acoes_x_gruposDefaultArgs instead
+     */
+    export type acoes_x_gruposArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = acoes_x_gruposDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use grupos_usuariosDefaultArgs instead
+     */
+    export type grupos_usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = grupos_usuariosDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

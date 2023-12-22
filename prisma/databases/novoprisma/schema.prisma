@@ -12,12 +12,12 @@ datasource db2 {
 
 model atividades_grupos {
   id_ag                 Int             @id @default(autoincrement())
-  nm_atividade_ag       String?         @db2.VarChar(151)
   id_grupos_usuarios_ag Int
   id_atividade_ag       Int
+  nm_atividade_ag       String?         @unique(map: "nm_atividade_ag_UNIQUE") @db2.VarChar(150)
   valor_ag              Int?            @default(0)
   descricao_ag          String?         @db2.VarChar(60)
-  grupos_usuarios       grupos_usuarios @relation(fields: [id_grupos_usuarios_ag], references: [id_gu], onDelete: NoAction, onUpdate: NoAction, map: "fk_ag_grupos_usuarios_idx")
+  grupos_usuarios       grupos_usuarios @relation(fields: [id_grupos_usuarios_ag], references: [id_gu], onUpdate: Restrict, map: "fk_ag_grupos_usuarios_idx")
 
   @@index([id_grupos_usuarios_ag], map: "fk_ag_grupos_usuarios_idx")
 }
@@ -27,8 +27,8 @@ model carousel_images {
   id_restaurante_ci Int
   id_imagem_ci      Int?
   ordem_number_ci   Int
-  imagens           imagens?     @relation(fields: [id_imagem_ci], references: [id_imagem], onDelete: NoAction, onUpdate: NoAction, map: "fk_ci_imagens_idx")
-  restaurantes      restaurantes @relation(fields: [id_restaurante_ci], references: [id_restaurante], onDelete: NoAction, onUpdate: NoAction, map: "fk_ci_restaurantes_idx")
+  imagens           imagens?     @relation(fields: [id_imagem_ci], references: [id_imagem], onDelete: Restrict, onUpdate: Restrict, map: "fk_ci_imagens_idx")
+  restaurantes      restaurantes @relation(fields: [id_restaurante_ci], references: [id_restaurante], onUpdate: Restrict, map: "fk_ci_restaurantes_idx")
 
   @@index([id_imagem_ci], map: "fk_ci_imagens_idx")
   @@index([id_restaurante_ci], map: "fk_ci_restaurantes_idx")
@@ -65,15 +65,13 @@ model clientes {
   contato_cliente                      String?              @db2.VarChar(60)
   nm_contato_cliente                   String?              @db2.VarChar(60)
   id_condicao_pagamento_sirius_cliente Int?
-  condicoes_pagamento                  condicoes_pagamento? @relation(fields: [id_condicao_pagamento_cliente], references: [id_cp], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_condicao_pagamento_idx")
-  listas_precos                        listas_precos?       @relation(fields: [id_lista_preco_cliente], references: [id_lp], onDelete: NoAction, onUpdate: NoAction, map: "fk_cliente_listas_precos_idx")
+  condicoes_pagamento                  condicoes_pagamento? @relation(fields: [id_condicao_pagamento_cliente], references: [id_cp], onDelete: Restrict, onUpdate: Restrict, map: "fk_cliente_condicao_pagamento_idx")
   clientes_produtos                    clientes_produtos[]
   contatos                             contatos[]
   enderecos                            enderecos[]
   pedidos_venda                        pedidos_venda[]
 
   @@index([id_condicao_pagamento_cliente], map: "fk_cliente_condicao_pagamento_idx")
-  @@index([id_lista_preco_cliente], map: "fk_cliente_listas_precos_idx")
 }
 
 model clientes_produtos {
@@ -82,8 +80,8 @@ model clientes_produtos {
   id_cliente_clipro Int
   id_produto_clipro Int
   id_sirius_clipro  Int?
-  clientes          clientes @relation(fields: [id_cliente_clipro], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_clipro_clientes_idx")
-  produtos          produtos @relation(fields: [id_produto_clipro], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_clipro_produtos_idx")
+  clientes          clientes @relation(fields: [id_cliente_clipro], references: [id_cliente], onUpdate: Restrict, map: "fk_clipro_clientes_idx")
+  produtos          produtos @relation(fields: [id_produto_clipro], references: [id_prod], onUpdate: Restrict, map: "fk_clipro_produtos_idx")
 
   @@index([id_cliente_clipro], map: "fk_clipro_clientes_idx")
   @@index([id_produto_clipro], map: "fk_clipro_produtos_idx")
@@ -102,7 +100,7 @@ model contatos {
   nm_contato         String   @db2.VarChar(60)
   tipo_contato       String   @db2.VarChar(1)
   id_cliente_contato Int
-  clientes           clientes @relation(fields: [id_cliente_contato], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_contato_clientes_idx")
+  clientes           clientes @relation(fields: [id_cliente_contato], references: [id_cliente], onUpdate: Restrict, map: "fk_contato_clientes_idx")
 
   @@index([id_cliente_contato], map: "fk_contato_clientes_idx")
 }
@@ -122,7 +120,7 @@ model enderecos {
   tipo_endereco_endereco   String   @db2.VarChar(1)
   status_endereco          String?  @default("A") @db2.Char(1)
   tipo_logradouro_endereco String   @db2.VarChar(45)
-  clientes                 clientes @relation(fields: [id_cliente_endereco], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_enderecos_clientes_idx")
+  clientes                 clientes @relation(fields: [id_cliente_endereco], references: [id_cliente], onUpdate: Restrict, map: "fk_enderecos_clientes_idx")
 
   @@index([id_cliente_endereco], map: "fk_enderecos_clientes_idx")
 }
@@ -139,8 +137,8 @@ model first_page_images {
   id_fpi             Int          @id @default(autoincrement())
   id_restaurante_fpi Int
   id_imagem_fpi      Int?
-  imagens            imagens?     @relation(fields: [id_imagem_fpi], references: [id_imagem], onDelete: NoAction, onUpdate: NoAction, map: "fk_fpi_imagens_idx")
-  restaurantes       restaurantes @relation(fields: [id_restaurante_fpi], references: [id_restaurante], onDelete: NoAction, onUpdate: NoAction, map: "fk_fpi_restaurantes_idx")
+  imagens            imagens?     @relation(fields: [id_imagem_fpi], references: [id_imagem], onDelete: Restrict, onUpdate: Restrict, map: "fk_fpi_imagens_idx")
+  restaurantes       restaurantes @relation(fields: [id_restaurante_fpi], references: [id_restaurante], onUpdate: Restrict, map: "fk_fpi_restaurantes_idx")
 
   @@index([id_imagem_fpi], map: "fk_fpi_imagens_idx")
   @@index([id_restaurante_fpi], map: "fk_fpi_restaurantes_idx")
@@ -172,7 +170,7 @@ model fornecedores {
 model grupos_usuarios {
   id_gu                    Int                        @id @default(autoincrement())
   nm_gu                    String                     @unique(map: "nm_gu_UNIQUE") @db2.VarChar(100)
-  pg_inicial_gu            String?                    @db2.VarChar(30)
+  pg_inicial_gu            String                     @default("pedido-venda") @db2.VarChar(45)
   atividades_grupos        atividades_grupos[]
   permissoes               permissoes[]
   usuarios_grupos_usuarios usuarios_grupos_usuarios[]
@@ -185,6 +183,7 @@ model imagens {
   carousel_images   carousel_images[]
   first_page_images first_page_images[]
   menus             menus[]
+  produtos          produtos[]
   restaurantes      restaurantes[]
 }
 
@@ -192,19 +191,19 @@ model listas_precos {
   id_lp                                                                     Int                      @id @default(autoincrement())
   descricao_lp                                                              String                   @db2.VarChar(100)
   id_sirius_lp                                                              Int?                     @unique(map: "id_sirius_lp_UNIQUE")
-  clientes                                                                  clientes[]
   listas_precos_produtos                                                    listas_precos_produtos[]
   pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda pedidos_venda_itens[]    @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda")
 }
 
 model listas_precos_produtos {
-  id_lpp         Int            @id @default(autoincrement())
-  id_lista_lpp   Int?           @default(0)
-  id_produto_lpp Int?           @default(0)
-  valor_lpp      Decimal?       @default(0.00) @db2.Decimal(15, 2)
-  id_sirius_lpp  Int?
-  listas_precos  listas_precos? @relation(fields: [id_lista_lpp], references: [id_lp], onDelete: NoAction, onUpdate: NoAction, map: "fk_lpp_listas_precos_idx")
-  produtos       produtos?      @relation(fields: [id_produto_lpp], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_lpp_produtos_idx")
+  id_lpp                Int            @id @default(autoincrement())
+  id_sirius_lpp         Int?           @unique(map: "id_sirius_lpp_UNIQUE")
+  id_lista_lpp          Int?           @default(0)
+  id_produto_lpp        Int?           @default(0)
+  valor_lpp             Decimal?       @default(0.00) @db2.Decimal(15, 2)
+  id_produto_sirius_lpp Int?
+  listas_precos         listas_precos? @relation(fields: [id_lista_lpp], references: [id_lp], onDelete: Restrict, onUpdate: Restrict, map: "fk_lpp_listas_precos_idx")
+  produtos              produtos?      @relation(fields: [id_produto_lpp], references: [id_prod], onDelete: Restrict, onUpdate: Restrict, map: "fk_lpp_produtos_idx")
 
   @@index([id_lista_lpp], map: "fk_lpp_listas_precos_idx")
   @@index([id_produto_lpp], map: "fk_lpp_produtos_idx")
@@ -216,8 +215,8 @@ model menus {
   id_imagem_menu      Int?
   titulo_menu         String       @db2.VarChar(200)
   texto_menu          String?      @db2.VarChar(200)
-  imagens             imagens?     @relation(fields: [id_imagem_menu], references: [id_imagem], onDelete: NoAction, onUpdate: NoAction, map: "fk_menu_imagens_idx")
-  restaurantes        restaurantes @relation(fields: [id_restaurante_menu], references: [id_restaurante], onDelete: NoAction, onUpdate: NoAction, map: "fk_menu_restaurantes_idx")
+  imagens             imagens?     @relation(fields: [id_imagem_menu], references: [id_imagem], onDelete: Restrict, onUpdate: Restrict, map: "fk_menu_imagens_idx")
+  restaurantes        restaurantes @relation(fields: [id_restaurante_menu], references: [id_restaurante], onUpdate: Restrict, map: "fk_menu_restaurantes_idx")
   submenus            submenus[]
 
   @@index([id_imagem_menu], map: "fk_menu_imagens_idx")
@@ -266,11 +265,11 @@ model pedidos_venda {
   id_cliente_escolheu_pv                                               String?                    @db2.VarChar(40)
   pagamento_pv                                                         Decimal?                   @db2.Decimal(20, 10)
   troco_pv                                                             Decimal?                   @db2.Decimal(20, 10)
-  clientes                                                             clientes?                  @relation(fields: [id_cliente_pv], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_clientes_idx")
-  condicoes_pagamento                                                  condicoes_pagamento?       @relation(fields: [id_condicao_pagamento_pv], references: [id_cp], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_condicoes_pagamento_idx")
-  modalidade_frete                                                     modalidade_frete?          @relation(fields: [id_modalidade_frete_pv], references: [id_mf], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_modalidade_frete_idx")
-  transportadores                                                      transportadores?           @relation(fields: [id_transportadores_pv], references: [id_transportador], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_transportadores_idx")
-  vendedores                                                           vendedores?                @relation(fields: [id_vendedor_pv], references: [id_vendedor], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_vendedores_idx")
+  clientes                                                             clientes?                  @relation(fields: [id_cliente_pv], references: [id_cliente], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_clientes_idx")
+  condicoes_pagamento                                                  condicoes_pagamento?       @relation(fields: [id_condicao_pagamento_pv], references: [id_cp], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_condicoes_pagamento_idx")
+  modalidade_frete                                                     modalidade_frete?          @relation(fields: [id_modalidade_frete_pv], references: [id_mf], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_modalidade_frete_idx")
+  transportadores                                                      transportadores?           @relation(fields: [id_transportadores_pv], references: [id_transportador], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_transportadores_idx")
+  vendedores                                                           vendedores?                @relation(fields: [id_vendedor_pv], references: [id_vendedor], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_vendedores_idx")
   pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda pedidos_venda_itens[]      @relation("pedidos_venda_itens_id_pedido_pviTopedidos_venda")
   pedidos_venda_pagamentos                                             pedidos_venda_pagamentos[]
   produtos_movimentacoes                                               produtos_movimentacoes[]
@@ -295,9 +294,9 @@ model pedidos_venda_itens {
   prod_codigo_pvi                                                     String?        @db2.VarChar(60)
   valor_total_pvi                                                     Decimal?       @db2.Decimal(20, 10)
   id_lista_preco_pvi                                                  Int?
-  pedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda listas_precos? @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda", fields: [id_lista_preco_pvi], references: [id_lp], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_lista_preco_idx")
-  pedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_venda      pedidos_venda? @relation("pedidos_venda_itens_id_pedido_pviTopedidos_venda", fields: [id_pedido_pvi], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_pedido_idx")
-  produtos                                                            produtos?      @relation(fields: [id_produto_pvi], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvi_produto_idx")
+  pedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda listas_precos? @relation("pedidos_venda_itens_id_lista_preco_pviTopedidos_venda", fields: [id_lista_preco_pvi], references: [id_lp], onDelete: Restrict, onUpdate: Restrict, map: "fk_pvi_lista_preco_idx")
+  pedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_venda      pedidos_venda? @relation("pedidos_venda_itens_id_pedido_pviTopedidos_venda", fields: [id_pedido_pvi], references: [id_pv], onDelete: Restrict, onUpdate: Restrict, map: "fk_pvi_pedido_idx")
+  produtos                                                            produtos?      @relation(fields: [id_produto_pvi], references: [id_prod], onDelete: Restrict, onUpdate: Restrict, map: "fk_pvi_produto_idx")
 
   @@index([id_lista_preco_pvi], map: "fk_pvi_lista_preco_idx")
   @@index([id_pedido_pvi], map: "fk_pvi_pedido_idx")
@@ -311,7 +310,7 @@ model pedidos_venda_pagamentos {
   valor_pvp           Decimal        @db2.Decimal(20, 10)
   data_criacao_pvp    DateTime       @db2.DateTime(0)
   data_vencimento_pvp DateTime       @db2.DateTime(0)
-  pedidos_venda       pedidos_venda? @relation(fields: [id_pedido_pvp], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pvp_pedido_idx")
+  pedidos_venda       pedidos_venda? @relation(fields: [id_pedido_pvp], references: [id_pv], onDelete: Restrict, onUpdate: Restrict, map: "fk_pvp_pedido_idx")
 
   @@index([id_pedido_pvp], map: "fk_pvp_pedido_idx")
 }
@@ -325,7 +324,7 @@ model permissoes {
   ler_permissao               Int             @default(0)
   atualizar_permissao         Int             @default(0)
   deletar_permissao           Int             @default(0)
-  grupos_usuarios             grupos_usuarios @relation(fields: [id_grupo_usuarios_permissao], references: [id_gu], onDelete: NoAction, onUpdate: NoAction, map: "fk_permissoes_grupos_usuarios_idx")
+  grupos_usuarios             grupos_usuarios @relation(fields: [id_grupo_usuarios_permissao], references: [id_gu], onUpdate: Restrict, map: "fk_permissoes_grupos_usuarios_idx")
 
   @@index([id_grupo_usuarios_permissao], map: "fk_permissoes_grupos_usuarios_idx")
 }
@@ -336,8 +335,8 @@ model produtos {
   cod_prod               String?                  @db2.VarChar(60)
   descricao_prod         String                   @db2.VarChar(120)
   cod_ean_prod           String?                  @db2.VarChar(14)
-  ncm_prod               String                   @db2.VarChar(8)
-  cfop_prod              String                   @db2.VarChar(4)
+  ncm_prod               String?                  @db2.VarChar(8)
+  cfop_prod              String?                  @db2.VarChar(4)
   un_com_prod            String?                  @db2.VarChar(6)
   qtd_com_prod           Decimal?                 @db2.Decimal(15, 3)
   vlr_un_com_prod        Decimal?                 @db2.Decimal(20, 10)
@@ -355,18 +354,25 @@ model produtos {
   gluten_prod            Boolean?                 @default(false)
   vegetariano_prod       Boolean?                 @default(false)
   vegano_prod            Boolean?                 @default(false)
+  id_imagem              Int?
+  id_submenu             Int?
   clientes_produtos      clientes_produtos[]
   listas_precos_produtos listas_precos_produtos[]
   pedidos_venda_itens    pedidos_venda_itens[]
+  imagens                imagens?                 @relation(fields: [id_imagem], references: [id_imagem])
+  submenus               submenus?                @relation(fields: [id_submenu], references: [id_submenu])
   produtos_extras        produtos_extras[]
   produtos_movimentacoes produtos_movimentacoes[]
+
+  @@index([id_imagem], map: "produtos_id_imagem_fkey")
+  @@index([id_submenu], map: "produtos_id_submenu_fkey")
 }
 
 model produtos_extras {
   id_produto_pe Int
   id_extra_pe   Int
-  extras        extras   @relation(fields: [id_extra_pe], references: [id_extra], onDelete: NoAction, onUpdate: NoAction, map: "fk_pe_extras_idx")
-  produtos      produtos @relation(fields: [id_produto_pe], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_pe_produtos_idx")
+  extras        extras   @relation(fields: [id_extra_pe], references: [id_extra], onUpdate: Restrict, map: "fk_pe_extras_idx")
+  produtos      produtos @relation(fields: [id_produto_pe], references: [id_prod], onUpdate: Restrict, map: "fk_pe_produtos_idx")
 
   @@id([id_produto_pe, id_extra_pe])
   @@index([id_extra_pe], map: "fk_pe_extras_idx")
@@ -385,8 +391,8 @@ model produtos_movimentacoes {
   data_hora_pm          DateTime       @default(now())
   numero_nota_fiscal_pm Int?
   observacao_pm         String?
-  pedidos_venda         pedidos_venda? @relation(fields: [id_pedido_venda_pm], references: [id_pv], onDelete: NoAction, onUpdate: NoAction, map: "fk_pm_pedido_venda_idx")
-  produtos              produtos       @relation(fields: [id_produto_pm], references: [id_prod], onDelete: NoAction, onUpdate: NoAction, map: "fk_pm_produtos_idx")
+  pedidos_venda         pedidos_venda? @relation(fields: [id_pedido_venda_pm], references: [id_pv], onDelete: Restrict, onUpdate: Restrict, map: "fk_pm_pedido_venda_idx")
+  produtos              produtos       @relation(fields: [id_produto_pm], references: [id_prod], onUpdate: Restrict, map: "fk_pm_produtos_idx")
 
   @@index([id_pedido_venda_pm], map: "fk_pm_pedido_venda_idx")
   @@index([id_produto_pm], map: "fk_pm_produtos_idx")
@@ -400,17 +406,18 @@ model restaurantes {
   carousel_images        carousel_images[]
   first_page_images      first_page_images[]
   menus                  menus[]
-  imagens                imagens?            @relation(fields: [id_imagem_restaurante], references: [id_imagem], onDelete: NoAction, onUpdate: NoAction, map: "fk_restaurante_imagens_idx")
+  imagens                imagens?            @relation(fields: [id_imagem_restaurante], references: [id_imagem], onDelete: Restrict, onUpdate: Restrict, map: "fk_restaurante_imagens_idx")
 
   @@index([id_imagem_restaurante], map: "fk_restaurante_imagens_idx")
 }
 
 model submenus {
-  id_submenu      Int     @id @default(autoincrement())
+  id_submenu      Int        @id @default(autoincrement())
   id_menu_submenu Int
-  titulo_submenu  String  @db2.VarChar(200)
-  texto_submenu   String? @db2.VarChar(200)
-  menus           menus   @relation(fields: [id_menu_submenu], references: [id_menu], onDelete: NoAction, onUpdate: NoAction, map: "fk_submenu_menus_idx")
+  titulo_submenu  String     @db2.VarChar(200)
+  texto_submenu   String?    @db2.VarChar(200)
+  produtos        produtos[]
+  menus           menus      @relation(fields: [id_menu_submenu], references: [id_menu], onUpdate: Restrict, map: "fk_submenu_menus_idx")
 
   @@index([id_menu_submenu], map: "fk_submenus_menus_idx")
 }
@@ -427,7 +434,7 @@ model usuarios_grupos_usuarios {
   id_ugu                 Int             @id @default(autoincrement())
   id_usuario_ugu         Int             @unique(map: "id_usuario_ugu_UNIQUE")
   id_grupos_usuarios_ugu Int
-  grupos_usuarios        grupos_usuarios @relation(fields: [id_grupos_usuarios_ugu], references: [id_gu], onDelete: NoAction, onUpdate: NoAction, map: "fk_ugu_grupos_usuarios_idx")
+  grupos_usuarios        grupos_usuarios @relation(fields: [id_grupos_usuarios_ugu], references: [id_gu], onUpdate: Restrict, map: "fk_ugu_grupos_usuarios_idx")
 
   @@index([id_grupos_usuarios_ugu], map: "fk_ugu_grupos_usuarios_idx")
 }
@@ -474,7 +481,7 @@ model vendedores_usuarios {
   id_usuario_vu         Int?        @unique(map: "id_usuario_vu_UNIQUE")
   id_vendedor_vu        Int?
   id_sirius_vendedor_vu Int?        @unique(map: "id_sirius_vendedor_vu_UNIQUE")
-  vendedores            vendedores? @relation(fields: [id_vendedor_vu], references: [id_vendedor], onDelete: NoAction, onUpdate: NoAction, map: "fk_vu_vendedores_idx")
+  vendedores            vendedores? @relation(fields: [id_vendedor_vu], references: [id_vendedor], onDelete: Restrict, onUpdate: Restrict, map: "fk_vu_vendedores_idx")
 
   @@index([id_vendedor_vu], map: "fk_vu_vendedores_idx")
 }

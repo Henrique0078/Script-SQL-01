@@ -116,7 +116,7 @@ export default async function createDatabase(nomeBanco: string) {
 
 		////////////CLIENTES//////////////////////////////
 
-		
+
 		const clientes = `
 		CREATE TABLE clientes (
 			id_cliente int NOT NULL AUTO_INCREMENT,
@@ -144,11 +144,11 @@ export default async function createDatabase(nomeBanco: string) {
 			PRIMARY KEY (id_cliente),
 			UNIQUE KEY id_sirius_cliente_UNIQUE (id_sirius_cliente ASC),
 			INDEX fk_cliente_condicao_pagamento_idx (id_condicao_pagamento_cliente ASC),
-			  CONSTRAINT fk_cliente_condicao_pagamento_idx 
+			  CONSTRAINT fk_cliente_condicao_pagamento_idx
 				  FOREIGN KEY (id_condicao_pagamento_cliente)
 				  REFERENCES condicoes_pagamento (id_cp),
 			INDEX fk_cliente_listas_precos_idx (id_lista_preco_cliente ASC), -- Adicionado 15/12/2023
-			  CONSTRAINT fk_cliente_listas_precos_idx 
+			  CONSTRAINT fk_cliente_listas_precos_idx
 				  FOREIGN KEY (id_lista_preco_cliente)
 				  REFERENCES listas_precos (id_lp)
 		  ); `;
@@ -441,34 +441,40 @@ export default async function createDatabase(nomeBanco: string) {
 		////////////PRODUTOS/////////////////////////////////
 
 		const produtos = `
-			CREATE TABLE produtos(
-			id_prod int NOT NULL AUTO_INCREMENT,
-			id_sirius_prod int DEFAULT NULL,
-			cod_prod varchar(60) NULL,
+		CREATE TABLE produtos (
+			id_prod int(11) NOT NULL AUTO_INCREMENT,
+			id_sirius_prod int(11) DEFAULT NULL,
+			id_submenu int(11) DEFAULT NULL,
+			cod_prod varchar(60) DEFAULT NULL,
 			descricao_prod varchar(120) NOT NULL,
-			cod_ean_prod varchar(14) NULL,
-			ncm_prod varchar(8) NOT NULL,
-			cfop_prod varchar(4) NOT NULL,
+			cod_ean_prod varchar(14) DEFAULT NULL,
+			ncm_prod varchar(8) DEFAULT NULL,
+			cfop_prod varchar(4) DEFAULT NULL,
 			un_com_prod varchar(6) DEFAULT NULL,
-			qtd_com_prod DECIMAL(15, 3) DEFAULT NULL,
-			vlr_un_com_prod DECIMAL(20, 10) DEFAULT NULL,
-			vlr_prod DECIMAL(20, 10) DEFAULT NULL,
+			qtd_com_prod decimal(15,3) DEFAULT NULL,
+			vlr_un_com_prod decimal(20,10) DEFAULT NULL,
+			vlr_prod decimal(20,10) DEFAULT NULL,
 			cod_ean_trib_prod varchar(14) DEFAULT NULL,
 			un_trib_prod varchar(6) DEFAULT NULL,
-			qtd_trib_prod DECIMAL(15, 3) DEFAULT NULL,
-			vlr_un_trib_prod DECIMAL(20, 10) DEFAULT NULL,
-			saldo_prod DECIMAL(15, 3) DEFAULT NULL,
+			qtd_trib_prod decimal(15,3) DEFAULT NULL,
+			vlr_un_trib_prod decimal(20,10) DEFAULT NULL,
+			saldo_prod decimal(15,3) DEFAULT NULL,
 			status_prod varchar(1) NOT NULL,
-			texto_prod varchar(200) NULL,
-			novo_prod BOOLEAN DEFAULT FALSE,
-			acucar_prod BOOLEAN DEFAULT FALSE,
-			lactose_prod BOOLEAN DEFAULT FALSE,
-			gluten_prod BOOLEAN DEFAULT FALSE,
-			vegetariano_prod BOOLEAN DEFAULT FALSE,
-			vegano_prod BOOLEAN DEFAULT FALSE,
-			PRIMARY KEY(id_prod),
-			UNIQUE KEY id_sirius_prod_UNIQUE(id_sirius_prod ASC)
-			);
+			texto_prod varchar(200) DEFAULT NULL,
+			novo_prod tinyint(1) DEFAULT '0',
+			acucar_prod tinyint(1) DEFAULT '0',
+			lactose_prod tinyint(1) DEFAULT '0',
+			gluten_prod tinyint(1) DEFAULT '0',
+			vegetariano_prod tinyint(1) DEFAULT '0',
+			vegano_prod tinyint(1) DEFAULT '0',
+			id_imagem int(11) DEFAULT NULL,
+			PRIMARY KEY (id_prod),
+			UNIQUE KEY id_sirius_prod_UNIQUE (id_sirius_prod),
+			KEY produtos_id_submenu_fkey (id_submenu),
+			KEY produtos_id_imagem_fkey (id_imagem),
+			CONSTRAINT produtos_id_imagem_fkey FOREIGN KEY (id_imagem) REFERENCES imagens (id_imagem) ON DELETE SET NULL ON UPDATE CASCADE,
+			CONSTRAINT produtos_id_submenu_fkey FOREIGN KEY (id_submenu) REFERENCES submenus (id_submenu) ON DELETE SET NULL ON UPDATE CASCADE
+		  )
 			`;
 		await queryAsync(produtos, connectionBanquinho);
 

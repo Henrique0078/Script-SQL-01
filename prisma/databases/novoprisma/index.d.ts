@@ -3515,6 +3515,7 @@ export namespace Prisma {
     carousel_images: number
     first_page_images: number
     menus: number
+    produtos: number
     restaurantes: number
   }
 
@@ -3522,6 +3523,7 @@ export namespace Prisma {
     carousel_images?: boolean | ImagensCountOutputTypeCountCarousel_imagesArgs
     first_page_images?: boolean | ImagensCountOutputTypeCountFirst_page_imagesArgs
     menus?: boolean | ImagensCountOutputTypeCountMenusArgs
+    produtos?: boolean | ImagensCountOutputTypeCountProdutosArgs
     restaurantes?: boolean | ImagensCountOutputTypeCountRestaurantesArgs
   }
 
@@ -3565,6 +3567,14 @@ export namespace Prisma {
   /**
    * ImagensCountOutputType without action
    */
+  export type ImagensCountOutputTypeCountProdutosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: produtosWhereInput
+  }
+
+
+  /**
+   * ImagensCountOutputType without action
+   */
   export type ImagensCountOutputTypeCountRestaurantesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: restaurantesWhereInput
   }
@@ -3576,13 +3586,11 @@ export namespace Prisma {
    */
 
   export type Listas_precosCountOutputType = {
-    clientes: number
     listas_precos_produtos: number
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda: number
   }
 
   export type Listas_precosCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    clientes?: boolean | Listas_precosCountOutputTypeCountClientesArgs
     listas_precos_produtos?: boolean | Listas_precosCountOutputTypeCountListas_precos_produtosArgs
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: boolean | Listas_precosCountOutputTypeCountPedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaArgs
   }
@@ -3597,14 +3605,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Listas_precosCountOutputType
      */
     select?: Listas_precosCountOutputTypeSelect<ExtArgs> | null
-  }
-
-
-  /**
-   * Listas_precosCountOutputType without action
-   */
-  export type Listas_precosCountOutputTypeCountClientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: clientesWhereInput
   }
 
 
@@ -3876,6 +3876,40 @@ export namespace Prisma {
 
 
   /**
+   * Count Type SubmenusCountOutputType
+   */
+
+  export type SubmenusCountOutputType = {
+    produtos: number
+  }
+
+  export type SubmenusCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    produtos?: boolean | SubmenusCountOutputTypeCountProdutosArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * SubmenusCountOutputType without action
+   */
+  export type SubmenusCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubmenusCountOutputType
+     */
+    select?: SubmenusCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * SubmenusCountOutputType without action
+   */
+  export type SubmenusCountOutputTypeCountProdutosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: produtosWhereInput
+  }
+
+
+
+  /**
    * Count Type TransportadoresCountOutputType
    */
 
@@ -3985,27 +4019,27 @@ export namespace Prisma {
 
   export type Atividades_gruposMinAggregateOutputType = {
     id_ag: number | null
-    nm_atividade_ag: string | null
     id_grupos_usuarios_ag: number | null
     id_atividade_ag: number | null
+    nm_atividade_ag: string | null
     valor_ag: number | null
     descricao_ag: string | null
   }
 
   export type Atividades_gruposMaxAggregateOutputType = {
     id_ag: number | null
-    nm_atividade_ag: string | null
     id_grupos_usuarios_ag: number | null
     id_atividade_ag: number | null
+    nm_atividade_ag: string | null
     valor_ag: number | null
     descricao_ag: string | null
   }
 
   export type Atividades_gruposCountAggregateOutputType = {
     id_ag: number
-    nm_atividade_ag: number
     id_grupos_usuarios_ag: number
     id_atividade_ag: number
+    nm_atividade_ag: number
     valor_ag: number
     descricao_ag: number
     _all: number
@@ -4028,27 +4062,27 @@ export namespace Prisma {
 
   export type Atividades_gruposMinAggregateInputType = {
     id_ag?: true
-    nm_atividade_ag?: true
     id_grupos_usuarios_ag?: true
     id_atividade_ag?: true
+    nm_atividade_ag?: true
     valor_ag?: true
     descricao_ag?: true
   }
 
   export type Atividades_gruposMaxAggregateInputType = {
     id_ag?: true
-    nm_atividade_ag?: true
     id_grupos_usuarios_ag?: true
     id_atividade_ag?: true
+    nm_atividade_ag?: true
     valor_ag?: true
     descricao_ag?: true
   }
 
   export type Atividades_gruposCountAggregateInputType = {
     id_ag?: true
-    nm_atividade_ag?: true
     id_grupos_usuarios_ag?: true
     id_atividade_ag?: true
+    nm_atividade_ag?: true
     valor_ag?: true
     descricao_ag?: true
     _all?: true
@@ -4142,9 +4176,9 @@ export namespace Prisma {
 
   export type Atividades_gruposGroupByOutputType = {
     id_ag: number
-    nm_atividade_ag: string | null
     id_grupos_usuarios_ag: number
     id_atividade_ag: number
+    nm_atividade_ag: string | null
     valor_ag: number | null
     descricao_ag: string | null
     _count: Atividades_gruposCountAggregateOutputType | null
@@ -4170,9 +4204,9 @@ export namespace Prisma {
 
   export type atividades_gruposSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_ag?: boolean
-    nm_atividade_ag?: boolean
     id_grupos_usuarios_ag?: boolean
     id_atividade_ag?: boolean
+    nm_atividade_ag?: boolean
     valor_ag?: boolean
     descricao_ag?: boolean
     grupos_usuarios?: boolean | grupos_usuariosDefaultArgs<ExtArgs>
@@ -4180,9 +4214,9 @@ export namespace Prisma {
 
   export type atividades_gruposSelectScalar = {
     id_ag?: boolean
-    nm_atividade_ag?: boolean
     id_grupos_usuarios_ag?: boolean
     id_atividade_ag?: boolean
+    nm_atividade_ag?: boolean
     valor_ag?: boolean
     descricao_ag?: boolean
   }
@@ -4199,9 +4233,9 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id_ag: number
-      nm_atividade_ag: string | null
       id_grupos_usuarios_ag: number
       id_atividade_ag: number
+      nm_atividade_ag: string | null
       valor_ag: number | null
       descricao_ag: string | null
     }, ExtArgs["result"]["atividades_grupos"]>
@@ -4600,9 +4634,9 @@ export namespace Prisma {
    */ 
   interface atividades_gruposFieldRefs {
     readonly id_ag: FieldRef<"atividades_grupos", 'Int'>
-    readonly nm_atividade_ag: FieldRef<"atividades_grupos", 'String'>
     readonly id_grupos_usuarios_ag: FieldRef<"atividades_grupos", 'Int'>
     readonly id_atividade_ag: FieldRef<"atividades_grupos", 'Int'>
+    readonly nm_atividade_ag: FieldRef<"atividades_grupos", 'String'>
     readonly valor_ag: FieldRef<"atividades_grupos", 'Int'>
     readonly descricao_ag: FieldRef<"atividades_grupos", 'String'>
   }
@@ -7173,7 +7207,6 @@ export namespace Prisma {
     nm_contato_cliente?: boolean
     id_condicao_pagamento_sirius_cliente?: boolean
     condicoes_pagamento?: boolean | clientes$condicoes_pagamentoArgs<ExtArgs>
-    listas_precos?: boolean | clientes$listas_precosArgs<ExtArgs>
     clientes_produtos?: boolean | clientes$clientes_produtosArgs<ExtArgs>
     contatos?: boolean | clientes$contatosArgs<ExtArgs>
     enderecos?: boolean | clientes$enderecosArgs<ExtArgs>
@@ -7208,7 +7241,6 @@ export namespace Prisma {
 
   export type clientesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     condicoes_pagamento?: boolean | clientes$condicoes_pagamentoArgs<ExtArgs>
-    listas_precos?: boolean | clientes$listas_precosArgs<ExtArgs>
     clientes_produtos?: boolean | clientes$clientes_produtosArgs<ExtArgs>
     contatos?: boolean | clientes$contatosArgs<ExtArgs>
     enderecos?: boolean | clientes$enderecosArgs<ExtArgs>
@@ -7221,7 +7253,6 @@ export namespace Prisma {
     name: "clientes"
     objects: {
       condicoes_pagamento: Prisma.$condicoes_pagamentoPayload<ExtArgs> | null
-      listas_precos: Prisma.$listas_precosPayload<ExtArgs> | null
       clientes_produtos: Prisma.$clientes_produtosPayload<ExtArgs>[]
       contatos: Prisma.$contatosPayload<ExtArgs>[]
       enderecos: Prisma.$enderecosPayload<ExtArgs>[]
@@ -7617,8 +7648,6 @@ export namespace Prisma {
 
     condicoes_pagamento<T extends clientes$condicoes_pagamentoArgs<ExtArgs> = {}>(args?: Subset<T, clientes$condicoes_pagamentoArgs<ExtArgs>>): Prisma__condicoes_pagamentoClient<$Result.GetResult<Prisma.$condicoes_pagamentoPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
-    listas_precos<T extends clientes$listas_precosArgs<ExtArgs> = {}>(args?: Subset<T, clientes$listas_precosArgs<ExtArgs>>): Prisma__listas_precosClient<$Result.GetResult<Prisma.$listas_precosPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
-
     clientes_produtos<T extends clientes$clientes_produtosArgs<ExtArgs> = {}>(args?: Subset<T, clientes$clientes_produtosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$clientes_produtosPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     contatos<T extends clientes$contatosArgs<ExtArgs> = {}>(args?: Subset<T, clientes$contatosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$contatosPayload<ExtArgs>, T, 'findMany'> | Null>;
@@ -8001,22 +8030,6 @@ export namespace Prisma {
      */
     include?: condicoes_pagamentoInclude<ExtArgs> | null
     where?: condicoes_pagamentoWhereInput
-  }
-
-
-  /**
-   * clientes.listas_precos
-   */
-  export type clientes$listas_precosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the listas_precos
-     */
-    select?: listas_precosSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: listas_precosInclude<ExtArgs> | null
-    where?: listas_precosWhereInput
   }
 
 
@@ -15232,7 +15245,7 @@ export namespace Prisma {
   export type Grupos_usuariosGroupByOutputType = {
     id_gu: number
     nm_gu: string
-    pg_inicial_gu: string | null
+    pg_inicial_gu: string
     _count: Grupos_usuariosCountAggregateOutputType | null
     _avg: Grupos_usuariosAvgAggregateOutputType | null
     _sum: Grupos_usuariosSumAggregateOutputType | null
@@ -15288,7 +15301,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id_gu: number
       nm_gu: string
-      pg_inicial_gu: string | null
+      pg_inicial_gu: string
     }, ExtArgs["result"]["grupos_usuarios"]>
     composites: {}
   }
@@ -16266,6 +16279,7 @@ export namespace Prisma {
     carousel_images?: boolean | imagens$carousel_imagesArgs<ExtArgs>
     first_page_images?: boolean | imagens$first_page_imagesArgs<ExtArgs>
     menus?: boolean | imagens$menusArgs<ExtArgs>
+    produtos?: boolean | imagens$produtosArgs<ExtArgs>
     restaurantes?: boolean | imagens$restaurantesArgs<ExtArgs>
     _count?: boolean | ImagensCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["imagens"]>
@@ -16280,6 +16294,7 @@ export namespace Prisma {
     carousel_images?: boolean | imagens$carousel_imagesArgs<ExtArgs>
     first_page_images?: boolean | imagens$first_page_imagesArgs<ExtArgs>
     menus?: boolean | imagens$menusArgs<ExtArgs>
+    produtos?: boolean | imagens$produtosArgs<ExtArgs>
     restaurantes?: boolean | imagens$restaurantesArgs<ExtArgs>
     _count?: boolean | ImagensCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -16291,6 +16306,7 @@ export namespace Prisma {
       carousel_images: Prisma.$carousel_imagesPayload<ExtArgs>[]
       first_page_images: Prisma.$first_page_imagesPayload<ExtArgs>[]
       menus: Prisma.$menusPayload<ExtArgs>[]
+      produtos: Prisma.$produtosPayload<ExtArgs>[]
       restaurantes: Prisma.$restaurantesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -16667,6 +16683,8 @@ export namespace Prisma {
     first_page_images<T extends imagens$first_page_imagesArgs<ExtArgs> = {}>(args?: Subset<T, imagens$first_page_imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$first_page_imagesPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     menus<T extends imagens$menusArgs<ExtArgs> = {}>(args?: Subset<T, imagens$menusArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$menusPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    produtos<T extends imagens$produtosArgs<ExtArgs> = {}>(args?: Subset<T, imagens$produtosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$produtosPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     restaurantes<T extends imagens$restaurantesArgs<ExtArgs> = {}>(args?: Subset<T, imagens$restaurantesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$restaurantesPayload<ExtArgs>, T, 'findMany'> | Null>;
 
@@ -17076,6 +17094,27 @@ export namespace Prisma {
 
 
   /**
+   * imagens.produtos
+   */
+  export type imagens$produtosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the produtos
+     */
+    select?: produtosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: produtosInclude<ExtArgs> | null
+    where?: produtosWhereInput
+    orderBy?: produtosOrderByWithRelationInput | produtosOrderByWithRelationInput[]
+    cursor?: produtosWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProdutosScalarFieldEnum | ProdutosScalarFieldEnum[]
+  }
+
+
+  /**
    * imagens.restaurantes
    */
   export type imagens$restaurantesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17298,7 +17337,6 @@ export namespace Prisma {
     id_lp?: boolean
     descricao_lp?: boolean
     id_sirius_lp?: boolean
-    clientes?: boolean | listas_precos$clientesArgs<ExtArgs>
     listas_precos_produtos?: boolean | listas_precos$listas_precos_produtosArgs<ExtArgs>
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: boolean | listas_precos$pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaArgs<ExtArgs>
     _count?: boolean | Listas_precosCountOutputTypeDefaultArgs<ExtArgs>
@@ -17311,7 +17349,6 @@ export namespace Prisma {
   }
 
   export type listas_precosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    clientes?: boolean | listas_precos$clientesArgs<ExtArgs>
     listas_precos_produtos?: boolean | listas_precos$listas_precos_produtosArgs<ExtArgs>
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: boolean | listas_precos$pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaArgs<ExtArgs>
     _count?: boolean | Listas_precosCountOutputTypeDefaultArgs<ExtArgs>
@@ -17321,7 +17358,6 @@ export namespace Prisma {
   export type $listas_precosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "listas_precos"
     objects: {
-      clientes: Prisma.$clientesPayload<ExtArgs>[]
       listas_precos_produtos: Prisma.$listas_precos_produtosPayload<ExtArgs>[]
       pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda: Prisma.$pedidos_venda_itensPayload<ExtArgs>[]
     }
@@ -17694,8 +17730,6 @@ export namespace Prisma {
   export interface Prisma__listas_precosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    clientes<T extends listas_precos$clientesArgs<ExtArgs> = {}>(args?: Subset<T, listas_precos$clientesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$clientesPayload<ExtArgs>, T, 'findMany'> | Null>;
-
     listas_precos_produtos<T extends listas_precos$listas_precos_produtosArgs<ExtArgs> = {}>(args?: Subset<T, listas_precos$listas_precos_produtosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$listas_precos_produtosPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda<T extends listas_precos$pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaArgs<ExtArgs> = {}>(args?: Subset<T, listas_precos$pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pedidos_venda_itensPayload<ExtArgs>, T, 'findMany'> | Null>;
@@ -18043,27 +18077,6 @@ export namespace Prisma {
 
 
   /**
-   * listas_precos.clientes
-   */
-  export type listas_precos$clientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the clientes
-     */
-    select?: clientesSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: clientesInclude<ExtArgs> | null
-    where?: clientesWhereInput
-    orderBy?: clientesOrderByWithRelationInput | clientesOrderByWithRelationInput[]
-    cursor?: clientesWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ClientesScalarFieldEnum | ClientesScalarFieldEnum[]
-  }
-
-
-  /**
    * listas_precos.listas_precos_produtos
    */
   export type listas_precos$listas_precos_produtosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18135,84 +18148,94 @@ export namespace Prisma {
 
   export type Listas_precos_produtosAvgAggregateOutputType = {
     id_lpp: number | null
+    id_sirius_lpp: number | null
     id_lista_lpp: number | null
     id_produto_lpp: number | null
     valor_lpp: Decimal | null
-    id_sirius_lpp: number | null
+    id_produto_sirius_lpp: number | null
   }
 
   export type Listas_precos_produtosSumAggregateOutputType = {
     id_lpp: number | null
+    id_sirius_lpp: number | null
     id_lista_lpp: number | null
     id_produto_lpp: number | null
     valor_lpp: Decimal | null
-    id_sirius_lpp: number | null
+    id_produto_sirius_lpp: number | null
   }
 
   export type Listas_precos_produtosMinAggregateOutputType = {
     id_lpp: number | null
+    id_sirius_lpp: number | null
     id_lista_lpp: number | null
     id_produto_lpp: number | null
     valor_lpp: Decimal | null
-    id_sirius_lpp: number | null
+    id_produto_sirius_lpp: number | null
   }
 
   export type Listas_precos_produtosMaxAggregateOutputType = {
     id_lpp: number | null
+    id_sirius_lpp: number | null
     id_lista_lpp: number | null
     id_produto_lpp: number | null
     valor_lpp: Decimal | null
-    id_sirius_lpp: number | null
+    id_produto_sirius_lpp: number | null
   }
 
   export type Listas_precos_produtosCountAggregateOutputType = {
     id_lpp: number
+    id_sirius_lpp: number
     id_lista_lpp: number
     id_produto_lpp: number
     valor_lpp: number
-    id_sirius_lpp: number
+    id_produto_sirius_lpp: number
     _all: number
   }
 
 
   export type Listas_precos_produtosAvgAggregateInputType = {
     id_lpp?: true
+    id_sirius_lpp?: true
     id_lista_lpp?: true
     id_produto_lpp?: true
     valor_lpp?: true
-    id_sirius_lpp?: true
+    id_produto_sirius_lpp?: true
   }
 
   export type Listas_precos_produtosSumAggregateInputType = {
     id_lpp?: true
+    id_sirius_lpp?: true
     id_lista_lpp?: true
     id_produto_lpp?: true
     valor_lpp?: true
-    id_sirius_lpp?: true
+    id_produto_sirius_lpp?: true
   }
 
   export type Listas_precos_produtosMinAggregateInputType = {
     id_lpp?: true
+    id_sirius_lpp?: true
     id_lista_lpp?: true
     id_produto_lpp?: true
     valor_lpp?: true
-    id_sirius_lpp?: true
+    id_produto_sirius_lpp?: true
   }
 
   export type Listas_precos_produtosMaxAggregateInputType = {
     id_lpp?: true
+    id_sirius_lpp?: true
     id_lista_lpp?: true
     id_produto_lpp?: true
     valor_lpp?: true
-    id_sirius_lpp?: true
+    id_produto_sirius_lpp?: true
   }
 
   export type Listas_precos_produtosCountAggregateInputType = {
     id_lpp?: true
+    id_sirius_lpp?: true
     id_lista_lpp?: true
     id_produto_lpp?: true
     valor_lpp?: true
-    id_sirius_lpp?: true
+    id_produto_sirius_lpp?: true
     _all?: true
   }
 
@@ -18304,10 +18327,11 @@ export namespace Prisma {
 
   export type Listas_precos_produtosGroupByOutputType = {
     id_lpp: number
+    id_sirius_lpp: number | null
     id_lista_lpp: number | null
     id_produto_lpp: number | null
     valor_lpp: Decimal | null
-    id_sirius_lpp: number | null
+    id_produto_sirius_lpp: number | null
     _count: Listas_precos_produtosCountAggregateOutputType | null
     _avg: Listas_precos_produtosAvgAggregateOutputType | null
     _sum: Listas_precos_produtosSumAggregateOutputType | null
@@ -18331,20 +18355,22 @@ export namespace Prisma {
 
   export type listas_precos_produtosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_lpp?: boolean
+    id_sirius_lpp?: boolean
     id_lista_lpp?: boolean
     id_produto_lpp?: boolean
     valor_lpp?: boolean
-    id_sirius_lpp?: boolean
+    id_produto_sirius_lpp?: boolean
     listas_precos?: boolean | listas_precos_produtos$listas_precosArgs<ExtArgs>
     produtos?: boolean | listas_precos_produtos$produtosArgs<ExtArgs>
   }, ExtArgs["result"]["listas_precos_produtos"]>
 
   export type listas_precos_produtosSelectScalar = {
     id_lpp?: boolean
+    id_sirius_lpp?: boolean
     id_lista_lpp?: boolean
     id_produto_lpp?: boolean
     valor_lpp?: boolean
-    id_sirius_lpp?: boolean
+    id_produto_sirius_lpp?: boolean
   }
 
   export type listas_precos_produtosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18361,10 +18387,11 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id_lpp: number
+      id_sirius_lpp: number | null
       id_lista_lpp: number | null
       id_produto_lpp: number | null
       valor_lpp: Prisma.Decimal | null
-      id_sirius_lpp: number | null
+      id_produto_sirius_lpp: number | null
     }, ExtArgs["result"]["listas_precos_produtos"]>
     composites: {}
   }
@@ -18763,10 +18790,11 @@ export namespace Prisma {
    */ 
   interface listas_precos_produtosFieldRefs {
     readonly id_lpp: FieldRef<"listas_precos_produtos", 'Int'>
+    readonly id_sirius_lpp: FieldRef<"listas_precos_produtos", 'Int'>
     readonly id_lista_lpp: FieldRef<"listas_precos_produtos", 'Int'>
     readonly id_produto_lpp: FieldRef<"listas_precos_produtos", 'Int'>
     readonly valor_lpp: FieldRef<"listas_precos_produtos", 'Decimal'>
-    readonly id_sirius_lpp: FieldRef<"listas_precos_produtos", 'Int'>
+    readonly id_produto_sirius_lpp: FieldRef<"listas_precos_produtos", 'Int'>
   }
     
 
@@ -26539,6 +26567,8 @@ export namespace Prisma {
     qtd_trib_prod: Decimal | null
     vlr_un_trib_prod: Decimal | null
     saldo_prod: Decimal | null
+    id_imagem: number | null
+    id_submenu: number | null
   }
 
   export type ProdutosSumAggregateOutputType = {
@@ -26550,6 +26580,8 @@ export namespace Prisma {
     qtd_trib_prod: Decimal | null
     vlr_un_trib_prod: Decimal | null
     saldo_prod: Decimal | null
+    id_imagem: number | null
+    id_submenu: number | null
   }
 
   export type ProdutosMinAggregateOutputType = {
@@ -26577,6 +26609,8 @@ export namespace Prisma {
     gluten_prod: boolean | null
     vegetariano_prod: boolean | null
     vegano_prod: boolean | null
+    id_imagem: number | null
+    id_submenu: number | null
   }
 
   export type ProdutosMaxAggregateOutputType = {
@@ -26604,6 +26638,8 @@ export namespace Prisma {
     gluten_prod: boolean | null
     vegetariano_prod: boolean | null
     vegano_prod: boolean | null
+    id_imagem: number | null
+    id_submenu: number | null
   }
 
   export type ProdutosCountAggregateOutputType = {
@@ -26631,6 +26667,8 @@ export namespace Prisma {
     gluten_prod: number
     vegetariano_prod: number
     vegano_prod: number
+    id_imagem: number
+    id_submenu: number
     _all: number
   }
 
@@ -26644,6 +26682,8 @@ export namespace Prisma {
     qtd_trib_prod?: true
     vlr_un_trib_prod?: true
     saldo_prod?: true
+    id_imagem?: true
+    id_submenu?: true
   }
 
   export type ProdutosSumAggregateInputType = {
@@ -26655,6 +26695,8 @@ export namespace Prisma {
     qtd_trib_prod?: true
     vlr_un_trib_prod?: true
     saldo_prod?: true
+    id_imagem?: true
+    id_submenu?: true
   }
 
   export type ProdutosMinAggregateInputType = {
@@ -26682,6 +26724,8 @@ export namespace Prisma {
     gluten_prod?: true
     vegetariano_prod?: true
     vegano_prod?: true
+    id_imagem?: true
+    id_submenu?: true
   }
 
   export type ProdutosMaxAggregateInputType = {
@@ -26709,6 +26753,8 @@ export namespace Prisma {
     gluten_prod?: true
     vegetariano_prod?: true
     vegano_prod?: true
+    id_imagem?: true
+    id_submenu?: true
   }
 
   export type ProdutosCountAggregateInputType = {
@@ -26736,6 +26782,8 @@ export namespace Prisma {
     gluten_prod?: true
     vegetariano_prod?: true
     vegano_prod?: true
+    id_imagem?: true
+    id_submenu?: true
     _all?: true
   }
 
@@ -26831,8 +26879,8 @@ export namespace Prisma {
     cod_prod: string | null
     descricao_prod: string
     cod_ean_prod: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod: string | null
+    cfop_prod: string | null
     un_com_prod: string | null
     qtd_com_prod: Decimal | null
     vlr_un_com_prod: Decimal | null
@@ -26850,6 +26898,8 @@ export namespace Prisma {
     gluten_prod: boolean | null
     vegetariano_prod: boolean | null
     vegano_prod: boolean | null
+    id_imagem: number | null
+    id_submenu: number | null
     _count: ProdutosCountAggregateOutputType | null
     _avg: ProdutosAvgAggregateOutputType | null
     _sum: ProdutosSumAggregateOutputType | null
@@ -26896,9 +26946,13 @@ export namespace Prisma {
     gluten_prod?: boolean
     vegetariano_prod?: boolean
     vegano_prod?: boolean
+    id_imagem?: boolean
+    id_submenu?: boolean
     clientes_produtos?: boolean | produtos$clientes_produtosArgs<ExtArgs>
     listas_precos_produtos?: boolean | produtos$listas_precos_produtosArgs<ExtArgs>
     pedidos_venda_itens?: boolean | produtos$pedidos_venda_itensArgs<ExtArgs>
+    imagens?: boolean | produtos$imagensArgs<ExtArgs>
+    submenus?: boolean | produtos$submenusArgs<ExtArgs>
     produtos_extras?: boolean | produtos$produtos_extrasArgs<ExtArgs>
     produtos_movimentacoes?: boolean | produtos$produtos_movimentacoesArgs<ExtArgs>
     _count?: boolean | ProdutosCountOutputTypeDefaultArgs<ExtArgs>
@@ -26929,12 +26983,16 @@ export namespace Prisma {
     gluten_prod?: boolean
     vegetariano_prod?: boolean
     vegano_prod?: boolean
+    id_imagem?: boolean
+    id_submenu?: boolean
   }
 
   export type produtosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clientes_produtos?: boolean | produtos$clientes_produtosArgs<ExtArgs>
     listas_precos_produtos?: boolean | produtos$listas_precos_produtosArgs<ExtArgs>
     pedidos_venda_itens?: boolean | produtos$pedidos_venda_itensArgs<ExtArgs>
+    imagens?: boolean | produtos$imagensArgs<ExtArgs>
+    submenus?: boolean | produtos$submenusArgs<ExtArgs>
     produtos_extras?: boolean | produtos$produtos_extrasArgs<ExtArgs>
     produtos_movimentacoes?: boolean | produtos$produtos_movimentacoesArgs<ExtArgs>
     _count?: boolean | ProdutosCountOutputTypeDefaultArgs<ExtArgs>
@@ -26947,6 +27005,8 @@ export namespace Prisma {
       clientes_produtos: Prisma.$clientes_produtosPayload<ExtArgs>[]
       listas_precos_produtos: Prisma.$listas_precos_produtosPayload<ExtArgs>[]
       pedidos_venda_itens: Prisma.$pedidos_venda_itensPayload<ExtArgs>[]
+      imagens: Prisma.$imagensPayload<ExtArgs> | null
+      submenus: Prisma.$submenusPayload<ExtArgs> | null
       produtos_extras: Prisma.$produtos_extrasPayload<ExtArgs>[]
       produtos_movimentacoes: Prisma.$produtos_movimentacoesPayload<ExtArgs>[]
     }
@@ -26956,8 +27016,8 @@ export namespace Prisma {
       cod_prod: string | null
       descricao_prod: string
       cod_ean_prod: string | null
-      ncm_prod: string
-      cfop_prod: string
+      ncm_prod: string | null
+      cfop_prod: string | null
       un_com_prod: string | null
       qtd_com_prod: Prisma.Decimal | null
       vlr_un_com_prod: Prisma.Decimal | null
@@ -26975,6 +27035,8 @@ export namespace Prisma {
       gluten_prod: boolean | null
       vegetariano_prod: boolean | null
       vegano_prod: boolean | null
+      id_imagem: number | null
+      id_submenu: number | null
     }, ExtArgs["result"]["produtos"]>
     composites: {}
   }
@@ -27346,6 +27408,10 @@ export namespace Prisma {
 
     pedidos_venda_itens<T extends produtos$pedidos_venda_itensArgs<ExtArgs> = {}>(args?: Subset<T, produtos$pedidos_venda_itensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pedidos_venda_itensPayload<ExtArgs>, T, 'findMany'> | Null>;
 
+    imagens<T extends produtos$imagensArgs<ExtArgs> = {}>(args?: Subset<T, produtos$imagensArgs<ExtArgs>>): Prisma__imagensClient<$Result.GetResult<Prisma.$imagensPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
+    submenus<T extends produtos$submenusArgs<ExtArgs> = {}>(args?: Subset<T, produtos$submenusArgs<ExtArgs>>): Prisma__submenusClient<$Result.GetResult<Prisma.$submenusPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
     produtos_extras<T extends produtos$produtos_extrasArgs<ExtArgs> = {}>(args?: Subset<T, produtos$produtos_extrasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$produtos_extrasPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     produtos_movimentacoes<T extends produtos$produtos_movimentacoesArgs<ExtArgs> = {}>(args?: Subset<T, produtos$produtos_movimentacoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$produtos_movimentacoesPayload<ExtArgs>, T, 'findMany'> | Null>;
@@ -27402,6 +27468,8 @@ export namespace Prisma {
     readonly gluten_prod: FieldRef<"produtos", 'Boolean'>
     readonly vegetariano_prod: FieldRef<"produtos", 'Boolean'>
     readonly vegano_prod: FieldRef<"produtos", 'Boolean'>
+    readonly id_imagem: FieldRef<"produtos", 'Int'>
+    readonly id_submenu: FieldRef<"produtos", 'Int'>
   }
     
 
@@ -27773,6 +27841,38 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Pedidos_venda_itensScalarFieldEnum | Pedidos_venda_itensScalarFieldEnum[]
+  }
+
+
+  /**
+   * produtos.imagens
+   */
+  export type produtos$imagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the imagens
+     */
+    select?: imagensSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: imagensInclude<ExtArgs> | null
+    where?: imagensWhereInput
+  }
+
+
+  /**
+   * produtos.submenus
+   */
+  export type produtos$submenusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the submenus
+     */
+    select?: submenusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: submenusInclude<ExtArgs> | null
+    where?: submenusWhereInput
   }
 
 
@@ -31068,7 +31168,9 @@ export namespace Prisma {
     id_menu_submenu?: boolean
     titulo_submenu?: boolean
     texto_submenu?: boolean
+    produtos?: boolean | submenus$produtosArgs<ExtArgs>
     menus?: boolean | menusDefaultArgs<ExtArgs>
+    _count?: boolean | SubmenusCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["submenus"]>
 
   export type submenusSelectScalar = {
@@ -31079,13 +31181,16 @@ export namespace Prisma {
   }
 
   export type submenusInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    produtos?: boolean | submenus$produtosArgs<ExtArgs>
     menus?: boolean | menusDefaultArgs<ExtArgs>
+    _count?: boolean | SubmenusCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
   export type $submenusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "submenus"
     objects: {
+      produtos: Prisma.$produtosPayload<ExtArgs>[]
       menus: Prisma.$menusPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -31458,6 +31563,8 @@ export namespace Prisma {
   export interface Prisma__submenusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
+    produtos<T extends submenus$produtosArgs<ExtArgs> = {}>(args?: Subset<T, submenus$produtosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$produtosPayload<ExtArgs>, T, 'findMany'> | Null>;
+
     menus<T extends menusDefaultArgs<ExtArgs> = {}>(args?: Subset<T, menusDefaultArgs<ExtArgs>>): Prisma__menusClient<$Result.GetResult<Prisma.$menusPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
@@ -31800,6 +31907,27 @@ export namespace Prisma {
      * Filter which submenus to delete
      */
     where?: submenusWhereInput
+  }
+
+
+  /**
+   * submenus.produtos
+   */
+  export type submenus$produtosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the produtos
+     */
+    select?: produtosSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: produtosInclude<ExtArgs> | null
+    where?: produtosWhereInput
+    orderBy?: produtosOrderByWithRelationInput | produtosOrderByWithRelationInput[]
+    cursor?: produtosWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProdutosScalarFieldEnum | ProdutosScalarFieldEnum[]
   }
 
 
@@ -36024,9 +36152,9 @@ export namespace Prisma {
 
   export const Atividades_gruposScalarFieldEnum: {
     id_ag: 'id_ag',
-    nm_atividade_ag: 'nm_atividade_ag',
     id_grupos_usuarios_ag: 'id_grupos_usuarios_ag',
     id_atividade_ag: 'id_atividade_ag',
+    nm_atividade_ag: 'nm_atividade_ag',
     valor_ag: 'valor_ag',
     descricao_ag: 'descricao_ag'
   };
@@ -36207,10 +36335,11 @@ export namespace Prisma {
 
   export const Listas_precos_produtosScalarFieldEnum: {
     id_lpp: 'id_lpp',
+    id_sirius_lpp: 'id_sirius_lpp',
     id_lista_lpp: 'id_lista_lpp',
     id_produto_lpp: 'id_produto_lpp',
     valor_lpp: 'valor_lpp',
-    id_sirius_lpp: 'id_sirius_lpp'
+    id_produto_sirius_lpp: 'id_produto_sirius_lpp'
   };
 
   export type Listas_precos_produtosScalarFieldEnum = (typeof Listas_precos_produtosScalarFieldEnum)[keyof typeof Listas_precos_produtosScalarFieldEnum]
@@ -36347,7 +36476,9 @@ export namespace Prisma {
     lactose_prod: 'lactose_prod',
     gluten_prod: 'gluten_prod',
     vegetariano_prod: 'vegetariano_prod',
-    vegano_prod: 'vegano_prod'
+    vegano_prod: 'vegano_prod',
+    id_imagem: 'id_imagem',
+    id_submenu: 'id_submenu'
   };
 
   export type ProdutosScalarFieldEnum = (typeof ProdutosScalarFieldEnum)[keyof typeof ProdutosScalarFieldEnum]
@@ -36543,9 +36674,9 @@ export namespace Prisma {
     OR?: atividades_gruposWhereInput[]
     NOT?: atividades_gruposWhereInput | atividades_gruposWhereInput[]
     id_ag?: IntFilter<"atividades_grupos"> | number
-    nm_atividade_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     id_grupos_usuarios_ag?: IntFilter<"atividades_grupos"> | number
     id_atividade_ag?: IntFilter<"atividades_grupos"> | number
+    nm_atividade_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     valor_ag?: IntNullableFilter<"atividades_grupos"> | number | null
     descricao_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     grupos_usuarios?: XOR<Grupos_usuariosRelationFilter, grupos_usuariosWhereInput>
@@ -36553,9 +36684,9 @@ export namespace Prisma {
 
   export type atividades_gruposOrderByWithRelationInput = {
     id_ag?: SortOrder
-    nm_atividade_ag?: SortOrderInput | SortOrder
     id_grupos_usuarios_ag?: SortOrder
     id_atividade_ag?: SortOrder
+    nm_atividade_ag?: SortOrderInput | SortOrder
     valor_ag?: SortOrderInput | SortOrder
     descricao_ag?: SortOrderInput | SortOrder
     grupos_usuarios?: grupos_usuariosOrderByWithRelationInput
@@ -36563,22 +36694,22 @@ export namespace Prisma {
 
   export type atividades_gruposWhereUniqueInput = Prisma.AtLeast<{
     id_ag?: number
+    nm_atividade_ag?: string
     AND?: atividades_gruposWhereInput | atividades_gruposWhereInput[]
     OR?: atividades_gruposWhereInput[]
     NOT?: atividades_gruposWhereInput | atividades_gruposWhereInput[]
-    nm_atividade_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     id_grupos_usuarios_ag?: IntFilter<"atividades_grupos"> | number
     id_atividade_ag?: IntFilter<"atividades_grupos"> | number
     valor_ag?: IntNullableFilter<"atividades_grupos"> | number | null
     descricao_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     grupos_usuarios?: XOR<Grupos_usuariosRelationFilter, grupos_usuariosWhereInput>
-  }, "id_ag">
+  }, "id_ag" | "nm_atividade_ag">
 
   export type atividades_gruposOrderByWithAggregationInput = {
     id_ag?: SortOrder
-    nm_atividade_ag?: SortOrderInput | SortOrder
     id_grupos_usuarios_ag?: SortOrder
     id_atividade_ag?: SortOrder
+    nm_atividade_ag?: SortOrderInput | SortOrder
     valor_ag?: SortOrderInput | SortOrder
     descricao_ag?: SortOrderInput | SortOrder
     _count?: atividades_gruposCountOrderByAggregateInput
@@ -36593,9 +36724,9 @@ export namespace Prisma {
     OR?: atividades_gruposScalarWhereWithAggregatesInput[]
     NOT?: atividades_gruposScalarWhereWithAggregatesInput | atividades_gruposScalarWhereWithAggregatesInput[]
     id_ag?: IntWithAggregatesFilter<"atividades_grupos"> | number
-    nm_atividade_ag?: StringNullableWithAggregatesFilter<"atividades_grupos"> | string | null
     id_grupos_usuarios_ag?: IntWithAggregatesFilter<"atividades_grupos"> | number
     id_atividade_ag?: IntWithAggregatesFilter<"atividades_grupos"> | number
+    nm_atividade_ag?: StringNullableWithAggregatesFilter<"atividades_grupos"> | string | null
     valor_ag?: IntNullableWithAggregatesFilter<"atividades_grupos"> | number | null
     descricao_ag?: StringNullableWithAggregatesFilter<"atividades_grupos"> | string | null
   }
@@ -36736,7 +36867,6 @@ export namespace Prisma {
     nm_contato_cliente?: StringNullableFilter<"clientes"> | string | null
     id_condicao_pagamento_sirius_cliente?: IntNullableFilter<"clientes"> | number | null
     condicoes_pagamento?: XOR<Condicoes_pagamentoNullableRelationFilter, condicoes_pagamentoWhereInput> | null
-    listas_precos?: XOR<Listas_precosNullableRelationFilter, listas_precosWhereInput> | null
     clientes_produtos?: Clientes_produtosListRelationFilter
     contatos?: ContatosListRelationFilter
     enderecos?: EnderecosListRelationFilter
@@ -36767,7 +36897,6 @@ export namespace Prisma {
     nm_contato_cliente?: SortOrderInput | SortOrder
     id_condicao_pagamento_sirius_cliente?: SortOrderInput | SortOrder
     condicoes_pagamento?: condicoes_pagamentoOrderByWithRelationInput
-    listas_precos?: listas_precosOrderByWithRelationInput
     clientes_produtos?: clientes_produtosOrderByRelationAggregateInput
     contatos?: contatosOrderByRelationAggregateInput
     enderecos?: enderecosOrderByRelationAggregateInput
@@ -36801,7 +36930,6 @@ export namespace Prisma {
     nm_contato_cliente?: StringNullableFilter<"clientes"> | string | null
     id_condicao_pagamento_sirius_cliente?: IntNullableFilter<"clientes"> | number | null
     condicoes_pagamento?: XOR<Condicoes_pagamentoNullableRelationFilter, condicoes_pagamentoWhereInput> | null
-    listas_precos?: XOR<Listas_precosNullableRelationFilter, listas_precosWhereInput> | null
     clientes_produtos?: Clientes_produtosListRelationFilter
     contatos?: ContatosListRelationFilter
     enderecos?: EnderecosListRelationFilter
@@ -37367,7 +37495,7 @@ export namespace Prisma {
     NOT?: grupos_usuariosWhereInput | grupos_usuariosWhereInput[]
     id_gu?: IntFilter<"grupos_usuarios"> | number
     nm_gu?: StringFilter<"grupos_usuarios"> | string
-    pg_inicial_gu?: StringNullableFilter<"grupos_usuarios"> | string | null
+    pg_inicial_gu?: StringFilter<"grupos_usuarios"> | string
     atividades_grupos?: Atividades_gruposListRelationFilter
     permissoes?: PermissoesListRelationFilter
     usuarios_grupos_usuarios?: Usuarios_grupos_usuariosListRelationFilter
@@ -37376,7 +37504,7 @@ export namespace Prisma {
   export type grupos_usuariosOrderByWithRelationInput = {
     id_gu?: SortOrder
     nm_gu?: SortOrder
-    pg_inicial_gu?: SortOrderInput | SortOrder
+    pg_inicial_gu?: SortOrder
     atividades_grupos?: atividades_gruposOrderByRelationAggregateInput
     permissoes?: permissoesOrderByRelationAggregateInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosOrderByRelationAggregateInput
@@ -37388,7 +37516,7 @@ export namespace Prisma {
     AND?: grupos_usuariosWhereInput | grupos_usuariosWhereInput[]
     OR?: grupos_usuariosWhereInput[]
     NOT?: grupos_usuariosWhereInput | grupos_usuariosWhereInput[]
-    pg_inicial_gu?: StringNullableFilter<"grupos_usuarios"> | string | null
+    pg_inicial_gu?: StringFilter<"grupos_usuarios"> | string
     atividades_grupos?: Atividades_gruposListRelationFilter
     permissoes?: PermissoesListRelationFilter
     usuarios_grupos_usuarios?: Usuarios_grupos_usuariosListRelationFilter
@@ -37397,7 +37525,7 @@ export namespace Prisma {
   export type grupos_usuariosOrderByWithAggregationInput = {
     id_gu?: SortOrder
     nm_gu?: SortOrder
-    pg_inicial_gu?: SortOrderInput | SortOrder
+    pg_inicial_gu?: SortOrder
     _count?: grupos_usuariosCountOrderByAggregateInput
     _avg?: grupos_usuariosAvgOrderByAggregateInput
     _max?: grupos_usuariosMaxOrderByAggregateInput
@@ -37411,7 +37539,7 @@ export namespace Prisma {
     NOT?: grupos_usuariosScalarWhereWithAggregatesInput | grupos_usuariosScalarWhereWithAggregatesInput[]
     id_gu?: IntWithAggregatesFilter<"grupos_usuarios"> | number
     nm_gu?: StringWithAggregatesFilter<"grupos_usuarios"> | string
-    pg_inicial_gu?: StringNullableWithAggregatesFilter<"grupos_usuarios"> | string | null
+    pg_inicial_gu?: StringWithAggregatesFilter<"grupos_usuarios"> | string
   }
 
   export type imagensWhereInput = {
@@ -37424,6 +37552,7 @@ export namespace Prisma {
     carousel_images?: Carousel_imagesListRelationFilter
     first_page_images?: First_page_imagesListRelationFilter
     menus?: MenusListRelationFilter
+    produtos?: ProdutosListRelationFilter
     restaurantes?: RestaurantesListRelationFilter
   }
 
@@ -37434,6 +37563,7 @@ export namespace Prisma {
     carousel_images?: carousel_imagesOrderByRelationAggregateInput
     first_page_images?: first_page_imagesOrderByRelationAggregateInput
     menus?: menusOrderByRelationAggregateInput
+    produtos?: produtosOrderByRelationAggregateInput
     restaurantes?: restaurantesOrderByRelationAggregateInput
   }
 
@@ -37447,6 +37577,7 @@ export namespace Prisma {
     carousel_images?: Carousel_imagesListRelationFilter
     first_page_images?: First_page_imagesListRelationFilter
     menus?: MenusListRelationFilter
+    produtos?: ProdutosListRelationFilter
     restaurantes?: RestaurantesListRelationFilter
   }, "id_imagem">
 
@@ -37477,7 +37608,6 @@ export namespace Prisma {
     id_lp?: IntFilter<"listas_precos"> | number
     descricao_lp?: StringFilter<"listas_precos"> | string
     id_sirius_lp?: IntNullableFilter<"listas_precos"> | number | null
-    clientes?: ClientesListRelationFilter
     listas_precos_produtos?: Listas_precos_produtosListRelationFilter
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: Pedidos_venda_itensListRelationFilter
   }
@@ -37486,7 +37616,6 @@ export namespace Prisma {
     id_lp?: SortOrder
     descricao_lp?: SortOrder
     id_sirius_lp?: SortOrderInput | SortOrder
-    clientes?: clientesOrderByRelationAggregateInput
     listas_precos_produtos?: listas_precos_produtosOrderByRelationAggregateInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensOrderByRelationAggregateInput
   }
@@ -37498,7 +37627,6 @@ export namespace Prisma {
     OR?: listas_precosWhereInput[]
     NOT?: listas_precosWhereInput | listas_precosWhereInput[]
     descricao_lp?: StringFilter<"listas_precos"> | string
-    clientes?: ClientesListRelationFilter
     listas_precos_produtos?: Listas_precos_produtosListRelationFilter
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: Pedidos_venda_itensListRelationFilter
   }, "id_lp" | "id_sirius_lp">
@@ -37528,43 +37656,47 @@ export namespace Prisma {
     OR?: listas_precos_produtosWhereInput[]
     NOT?: listas_precos_produtosWhereInput | listas_precos_produtosWhereInput[]
     id_lpp?: IntFilter<"listas_precos_produtos"> | number
+    id_sirius_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     id_lista_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     id_produto_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     valor_lpp?: DecimalNullableFilter<"listas_precos_produtos"> | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
+    id_produto_sirius_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     listas_precos?: XOR<Listas_precosNullableRelationFilter, listas_precosWhereInput> | null
     produtos?: XOR<ProdutosNullableRelationFilter, produtosWhereInput> | null
   }
 
   export type listas_precos_produtosOrderByWithRelationInput = {
     id_lpp?: SortOrder
+    id_sirius_lpp?: SortOrderInput | SortOrder
     id_lista_lpp?: SortOrderInput | SortOrder
     id_produto_lpp?: SortOrderInput | SortOrder
     valor_lpp?: SortOrderInput | SortOrder
-    id_sirius_lpp?: SortOrderInput | SortOrder
+    id_produto_sirius_lpp?: SortOrderInput | SortOrder
     listas_precos?: listas_precosOrderByWithRelationInput
     produtos?: produtosOrderByWithRelationInput
   }
 
   export type listas_precos_produtosWhereUniqueInput = Prisma.AtLeast<{
     id_lpp?: number
+    id_sirius_lpp?: number
     AND?: listas_precos_produtosWhereInput | listas_precos_produtosWhereInput[]
     OR?: listas_precos_produtosWhereInput[]
     NOT?: listas_precos_produtosWhereInput | listas_precos_produtosWhereInput[]
     id_lista_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     id_produto_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     valor_lpp?: DecimalNullableFilter<"listas_precos_produtos"> | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
+    id_produto_sirius_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     listas_precos?: XOR<Listas_precosNullableRelationFilter, listas_precosWhereInput> | null
     produtos?: XOR<ProdutosNullableRelationFilter, produtosWhereInput> | null
-  }, "id_lpp">
+  }, "id_lpp" | "id_sirius_lpp">
 
   export type listas_precos_produtosOrderByWithAggregationInput = {
     id_lpp?: SortOrder
+    id_sirius_lpp?: SortOrderInput | SortOrder
     id_lista_lpp?: SortOrderInput | SortOrder
     id_produto_lpp?: SortOrderInput | SortOrder
     valor_lpp?: SortOrderInput | SortOrder
-    id_sirius_lpp?: SortOrderInput | SortOrder
+    id_produto_sirius_lpp?: SortOrderInput | SortOrder
     _count?: listas_precos_produtosCountOrderByAggregateInput
     _avg?: listas_precos_produtosAvgOrderByAggregateInput
     _max?: listas_precos_produtosMaxOrderByAggregateInput
@@ -37577,10 +37709,11 @@ export namespace Prisma {
     OR?: listas_precos_produtosScalarWhereWithAggregatesInput[]
     NOT?: listas_precos_produtosScalarWhereWithAggregatesInput | listas_precos_produtosScalarWhereWithAggregatesInput[]
     id_lpp?: IntWithAggregatesFilter<"listas_precos_produtos"> | number
+    id_sirius_lpp?: IntNullableWithAggregatesFilter<"listas_precos_produtos"> | number | null
     id_lista_lpp?: IntNullableWithAggregatesFilter<"listas_precos_produtos"> | number | null
     id_produto_lpp?: IntNullableWithAggregatesFilter<"listas_precos_produtos"> | number | null
     valor_lpp?: DecimalNullableWithAggregatesFilter<"listas_precos_produtos"> | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: IntNullableWithAggregatesFilter<"listas_precos_produtos"> | number | null
+    id_produto_sirius_lpp?: IntNullableWithAggregatesFilter<"listas_precos_produtos"> | number | null
   }
 
   export type menusWhereInput = {
@@ -38171,8 +38304,8 @@ export namespace Prisma {
     cod_prod?: StringNullableFilter<"produtos"> | string | null
     descricao_prod?: StringFilter<"produtos"> | string
     cod_ean_prod?: StringNullableFilter<"produtos"> | string | null
-    ncm_prod?: StringFilter<"produtos"> | string
-    cfop_prod?: StringFilter<"produtos"> | string
+    ncm_prod?: StringNullableFilter<"produtos"> | string | null
+    cfop_prod?: StringNullableFilter<"produtos"> | string | null
     un_com_prod?: StringNullableFilter<"produtos"> | string | null
     qtd_com_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
@@ -38190,9 +38323,13 @@ export namespace Prisma {
     gluten_prod?: BoolNullableFilter<"produtos"> | boolean | null
     vegetariano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     vegano_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    id_imagem?: IntNullableFilter<"produtos"> | number | null
+    id_submenu?: IntNullableFilter<"produtos"> | number | null
     clientes_produtos?: Clientes_produtosListRelationFilter
     listas_precos_produtos?: Listas_precos_produtosListRelationFilter
     pedidos_venda_itens?: Pedidos_venda_itensListRelationFilter
+    imagens?: XOR<ImagensNullableRelationFilter, imagensWhereInput> | null
+    submenus?: XOR<SubmenusNullableRelationFilter, submenusWhereInput> | null
     produtos_extras?: Produtos_extrasListRelationFilter
     produtos_movimentacoes?: Produtos_movimentacoesListRelationFilter
   }
@@ -38203,8 +38340,8 @@ export namespace Prisma {
     cod_prod?: SortOrderInput | SortOrder
     descricao_prod?: SortOrder
     cod_ean_prod?: SortOrderInput | SortOrder
-    ncm_prod?: SortOrder
-    cfop_prod?: SortOrder
+    ncm_prod?: SortOrderInput | SortOrder
+    cfop_prod?: SortOrderInput | SortOrder
     un_com_prod?: SortOrderInput | SortOrder
     qtd_com_prod?: SortOrderInput | SortOrder
     vlr_un_com_prod?: SortOrderInput | SortOrder
@@ -38222,9 +38359,13 @@ export namespace Prisma {
     gluten_prod?: SortOrderInput | SortOrder
     vegetariano_prod?: SortOrderInput | SortOrder
     vegano_prod?: SortOrderInput | SortOrder
+    id_imagem?: SortOrderInput | SortOrder
+    id_submenu?: SortOrderInput | SortOrder
     clientes_produtos?: clientes_produtosOrderByRelationAggregateInput
     listas_precos_produtos?: listas_precos_produtosOrderByRelationAggregateInput
     pedidos_venda_itens?: pedidos_venda_itensOrderByRelationAggregateInput
+    imagens?: imagensOrderByWithRelationInput
+    submenus?: submenusOrderByWithRelationInput
     produtos_extras?: produtos_extrasOrderByRelationAggregateInput
     produtos_movimentacoes?: produtos_movimentacoesOrderByRelationAggregateInput
   }
@@ -38238,8 +38379,8 @@ export namespace Prisma {
     cod_prod?: StringNullableFilter<"produtos"> | string | null
     descricao_prod?: StringFilter<"produtos"> | string
     cod_ean_prod?: StringNullableFilter<"produtos"> | string | null
-    ncm_prod?: StringFilter<"produtos"> | string
-    cfop_prod?: StringFilter<"produtos"> | string
+    ncm_prod?: StringNullableFilter<"produtos"> | string | null
+    cfop_prod?: StringNullableFilter<"produtos"> | string | null
     un_com_prod?: StringNullableFilter<"produtos"> | string | null
     qtd_com_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
@@ -38257,9 +38398,13 @@ export namespace Prisma {
     gluten_prod?: BoolNullableFilter<"produtos"> | boolean | null
     vegetariano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     vegano_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    id_imagem?: IntNullableFilter<"produtos"> | number | null
+    id_submenu?: IntNullableFilter<"produtos"> | number | null
     clientes_produtos?: Clientes_produtosListRelationFilter
     listas_precos_produtos?: Listas_precos_produtosListRelationFilter
     pedidos_venda_itens?: Pedidos_venda_itensListRelationFilter
+    imagens?: XOR<ImagensNullableRelationFilter, imagensWhereInput> | null
+    submenus?: XOR<SubmenusNullableRelationFilter, submenusWhereInput> | null
     produtos_extras?: Produtos_extrasListRelationFilter
     produtos_movimentacoes?: Produtos_movimentacoesListRelationFilter
   }, "id_prod" | "id_sirius_prod">
@@ -38270,8 +38415,8 @@ export namespace Prisma {
     cod_prod?: SortOrderInput | SortOrder
     descricao_prod?: SortOrder
     cod_ean_prod?: SortOrderInput | SortOrder
-    ncm_prod?: SortOrder
-    cfop_prod?: SortOrder
+    ncm_prod?: SortOrderInput | SortOrder
+    cfop_prod?: SortOrderInput | SortOrder
     un_com_prod?: SortOrderInput | SortOrder
     qtd_com_prod?: SortOrderInput | SortOrder
     vlr_un_com_prod?: SortOrderInput | SortOrder
@@ -38289,6 +38434,8 @@ export namespace Prisma {
     gluten_prod?: SortOrderInput | SortOrder
     vegetariano_prod?: SortOrderInput | SortOrder
     vegano_prod?: SortOrderInput | SortOrder
+    id_imagem?: SortOrderInput | SortOrder
+    id_submenu?: SortOrderInput | SortOrder
     _count?: produtosCountOrderByAggregateInput
     _avg?: produtosAvgOrderByAggregateInput
     _max?: produtosMaxOrderByAggregateInput
@@ -38305,8 +38452,8 @@ export namespace Prisma {
     cod_prod?: StringNullableWithAggregatesFilter<"produtos"> | string | null
     descricao_prod?: StringWithAggregatesFilter<"produtos"> | string
     cod_ean_prod?: StringNullableWithAggregatesFilter<"produtos"> | string | null
-    ncm_prod?: StringWithAggregatesFilter<"produtos"> | string
-    cfop_prod?: StringWithAggregatesFilter<"produtos"> | string
+    ncm_prod?: StringNullableWithAggregatesFilter<"produtos"> | string | null
+    cfop_prod?: StringNullableWithAggregatesFilter<"produtos"> | string | null
     un_com_prod?: StringNullableWithAggregatesFilter<"produtos"> | string | null
     qtd_com_prod?: DecimalNullableWithAggregatesFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: DecimalNullableWithAggregatesFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
@@ -38324,6 +38471,8 @@ export namespace Prisma {
     gluten_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
     vegetariano_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
     vegano_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
+    id_imagem?: IntNullableWithAggregatesFilter<"produtos"> | number | null
+    id_submenu?: IntNullableWithAggregatesFilter<"produtos"> | number | null
   }
 
   export type produtos_extrasWhereInput = {
@@ -38531,6 +38680,7 @@ export namespace Prisma {
     id_menu_submenu?: IntFilter<"submenus"> | number
     titulo_submenu?: StringFilter<"submenus"> | string
     texto_submenu?: StringNullableFilter<"submenus"> | string | null
+    produtos?: ProdutosListRelationFilter
     menus?: XOR<MenusRelationFilter, menusWhereInput>
   }
 
@@ -38539,6 +38689,7 @@ export namespace Prisma {
     id_menu_submenu?: SortOrder
     titulo_submenu?: SortOrder
     texto_submenu?: SortOrderInput | SortOrder
+    produtos?: produtosOrderByRelationAggregateInput
     menus?: menusOrderByWithRelationInput
   }
 
@@ -38550,6 +38701,7 @@ export namespace Prisma {
     id_menu_submenu?: IntFilter<"submenus"> | number
     titulo_submenu?: StringFilter<"submenus"> | string
     texto_submenu?: StringNullableFilter<"submenus"> | string | null
+    produtos?: ProdutosListRelationFilter
     menus?: XOR<MenusRelationFilter, menusWhereInput>
   }, "id_submenu">
 
@@ -38922,8 +39074,8 @@ export namespace Prisma {
   }
 
   export type atividades_gruposCreateInput = {
-    nm_atividade_ag?: string | null
     id_atividade_ag: number
+    nm_atividade_ag?: string | null
     valor_ag?: number | null
     descricao_ag?: string | null
     grupos_usuarios: grupos_usuariosCreateNestedOneWithoutAtividades_gruposInput
@@ -38931,16 +39083,16 @@ export namespace Prisma {
 
   export type atividades_gruposUncheckedCreateInput = {
     id_ag?: number
-    nm_atividade_ag?: string | null
     id_grupos_usuarios_ag: number
     id_atividade_ag: number
+    nm_atividade_ag?: string | null
     valor_ag?: number | null
     descricao_ag?: string | null
   }
 
   export type atividades_gruposUpdateInput = {
-    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     id_atividade_ag?: IntFieldUpdateOperationsInput | number
+    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     valor_ag?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_ag?: NullableStringFieldUpdateOperationsInput | string | null
     grupos_usuarios?: grupos_usuariosUpdateOneRequiredWithoutAtividades_gruposNestedInput
@@ -38948,34 +39100,34 @@ export namespace Prisma {
 
   export type atividades_gruposUncheckedUpdateInput = {
     id_ag?: IntFieldUpdateOperationsInput | number
-    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     id_grupos_usuarios_ag?: IntFieldUpdateOperationsInput | number
     id_atividade_ag?: IntFieldUpdateOperationsInput | number
+    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     valor_ag?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_ag?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type atividades_gruposCreateManyInput = {
     id_ag?: number
-    nm_atividade_ag?: string | null
     id_grupos_usuarios_ag: number
     id_atividade_ag: number
+    nm_atividade_ag?: string | null
     valor_ag?: number | null
     descricao_ag?: string | null
   }
 
   export type atividades_gruposUpdateManyMutationInput = {
-    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     id_atividade_ag?: IntFieldUpdateOperationsInput | number
+    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     valor_ag?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_ag?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type atividades_gruposUncheckedUpdateManyInput = {
     id_ag?: IntFieldUpdateOperationsInput | number
-    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     id_grupos_usuarios_ag?: IntFieldUpdateOperationsInput | number
     id_atividade_ag?: IntFieldUpdateOperationsInput | number
+    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     valor_ag?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_ag?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -39094,11 +39246,11 @@ export namespace Prisma {
     exclusivo_cliente?: number | null
     id_vendedor_cliente?: number | null
     id_vendedor_sirius_cliente?: number | null
+    id_lista_preco_cliente?: number | null
     contato_cliente?: string | null
     nm_contato_cliente?: string | null
     id_condicao_pagamento_sirius_cliente?: number | null
     condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutClientesInput
-    listas_precos?: listas_precosCreateNestedOneWithoutClientesInput
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutClientesInput
     contatos?: contatosCreateNestedManyWithoutClientesInput
     enderecos?: enderecosCreateNestedManyWithoutClientesInput
@@ -39151,11 +39303,11 @@ export namespace Prisma {
     exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    id_lista_preco_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutClientesNestedInput
-    listas_precos?: listas_precosUpdateOneWithoutClientesNestedInput
     clientes_produtos?: clientes_produtosUpdateManyWithoutClientesNestedInput
     contatos?: contatosUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUpdateManyWithoutClientesNestedInput
@@ -39233,6 +39385,7 @@ export namespace Prisma {
     exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    id_lista_preco_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39769,7 +39922,7 @@ export namespace Prisma {
 
   export type grupos_usuariosCreateInput = {
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
     atividades_grupos?: atividades_gruposCreateNestedManyWithoutGrupos_usuariosInput
     permissoes?: permissoesCreateNestedManyWithoutGrupos_usuariosInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosCreateNestedManyWithoutGrupos_usuariosInput
@@ -39778,7 +39931,7 @@ export namespace Prisma {
   export type grupos_usuariosUncheckedCreateInput = {
     id_gu?: number
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
     atividades_grupos?: atividades_gruposUncheckedCreateNestedManyWithoutGrupos_usuariosInput
     permissoes?: permissoesUncheckedCreateNestedManyWithoutGrupos_usuariosInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUncheckedCreateNestedManyWithoutGrupos_usuariosInput
@@ -39786,7 +39939,7 @@ export namespace Prisma {
 
   export type grupos_usuariosUpdateInput = {
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
     atividades_grupos?: atividades_gruposUpdateManyWithoutGrupos_usuariosNestedInput
     permissoes?: permissoesUpdateManyWithoutGrupos_usuariosNestedInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUpdateManyWithoutGrupos_usuariosNestedInput
@@ -39795,7 +39948,7 @@ export namespace Prisma {
   export type grupos_usuariosUncheckedUpdateInput = {
     id_gu?: IntFieldUpdateOperationsInput | number
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
     atividades_grupos?: atividades_gruposUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
     permissoes?: permissoesUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
@@ -39804,18 +39957,18 @@ export namespace Prisma {
   export type grupos_usuariosCreateManyInput = {
     id_gu?: number
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
   }
 
   export type grupos_usuariosUpdateManyMutationInput = {
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
   }
 
   export type grupos_usuariosUncheckedUpdateManyInput = {
     id_gu?: IntFieldUpdateOperationsInput | number
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
   }
 
   export type imagensCreateInput = {
@@ -39824,6 +39977,7 @@ export namespace Prisma {
     carousel_images?: carousel_imagesCreateNestedManyWithoutImagensInput
     first_page_images?: first_page_imagesCreateNestedManyWithoutImagensInput
     menus?: menusCreateNestedManyWithoutImagensInput
+    produtos?: produtosCreateNestedManyWithoutImagensInput
     restaurantes?: restaurantesCreateNestedManyWithoutImagensInput
   }
 
@@ -39834,6 +39988,7 @@ export namespace Prisma {
     carousel_images?: carousel_imagesUncheckedCreateNestedManyWithoutImagensInput
     first_page_images?: first_page_imagesUncheckedCreateNestedManyWithoutImagensInput
     menus?: menusUncheckedCreateNestedManyWithoutImagensInput
+    produtos?: produtosUncheckedCreateNestedManyWithoutImagensInput
     restaurantes?: restaurantesUncheckedCreateNestedManyWithoutImagensInput
   }
 
@@ -39843,6 +39998,7 @@ export namespace Prisma {
     carousel_images?: carousel_imagesUpdateManyWithoutImagensNestedInput
     first_page_images?: first_page_imagesUpdateManyWithoutImagensNestedInput
     menus?: menusUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUpdateManyWithoutImagensNestedInput
     restaurantes?: restaurantesUpdateManyWithoutImagensNestedInput
   }
 
@@ -39853,6 +40009,7 @@ export namespace Prisma {
     carousel_images?: carousel_imagesUncheckedUpdateManyWithoutImagensNestedInput
     first_page_images?: first_page_imagesUncheckedUpdateManyWithoutImagensNestedInput
     menus?: menusUncheckedUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUncheckedUpdateManyWithoutImagensNestedInput
     restaurantes?: restaurantesUncheckedUpdateManyWithoutImagensNestedInput
   }
 
@@ -39876,7 +40033,6 @@ export namespace Prisma {
   export type listas_precosCreateInput = {
     descricao_lp: string
     id_sirius_lp?: number | null
-    clientes?: clientesCreateNestedManyWithoutListas_precosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutListas_precosInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput
   }
@@ -39885,7 +40041,6 @@ export namespace Prisma {
     id_lp?: number
     descricao_lp: string
     id_sirius_lp?: number | null
-    clientes?: clientesUncheckedCreateNestedManyWithoutListas_precosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutListas_precosInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput
   }
@@ -39893,7 +40048,6 @@ export namespace Prisma {
   export type listas_precosUpdateInput = {
     descricao_lp?: StringFieldUpdateOperationsInput | string
     id_sirius_lp?: NullableIntFieldUpdateOperationsInput | number | null
-    clientes?: clientesUpdateManyWithoutListas_precosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutListas_precosNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaNestedInput
   }
@@ -39902,7 +40056,6 @@ export namespace Prisma {
     id_lp?: IntFieldUpdateOperationsInput | number
     descricao_lp?: StringFieldUpdateOperationsInput | string
     id_sirius_lp?: NullableIntFieldUpdateOperationsInput | number | null
-    clientes?: clientesUncheckedUpdateManyWithoutListas_precosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutListas_precosNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaNestedInput
   }
@@ -39925,54 +40078,61 @@ export namespace Prisma {
   }
 
   export type listas_precos_produtosCreateInput = {
-    valor_lpp?: Decimal | DecimalJsLike | number | string | null
     id_sirius_lpp?: number | null
+    valor_lpp?: Decimal | DecimalJsLike | number | string | null
+    id_produto_sirius_lpp?: number | null
     listas_precos?: listas_precosCreateNestedOneWithoutListas_precos_produtosInput
     produtos?: produtosCreateNestedOneWithoutListas_precos_produtosInput
   }
 
   export type listas_precos_produtosUncheckedCreateInput = {
     id_lpp?: number
+    id_sirius_lpp?: number | null
     id_lista_lpp?: number | null
     id_produto_lpp?: number | null
     valor_lpp?: Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: number | null
+    id_produto_sirius_lpp?: number | null
   }
 
   export type listas_precos_produtosUpdateInput = {
-    valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     listas_precos?: listas_precosUpdateOneWithoutListas_precos_produtosNestedInput
     produtos?: produtosUpdateOneWithoutListas_precos_produtosNestedInput
   }
 
   export type listas_precos_produtosUncheckedUpdateInput = {
     id_lpp?: IntFieldUpdateOperationsInput | number
+    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     id_lista_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     id_produto_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type listas_precos_produtosCreateManyInput = {
     id_lpp?: number
+    id_sirius_lpp?: number | null
     id_lista_lpp?: number | null
     id_produto_lpp?: number | null
     valor_lpp?: Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: number | null
+    id_produto_sirius_lpp?: number | null
   }
 
   export type listas_precos_produtosUpdateManyMutationInput = {
-    valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type listas_precos_produtosUncheckedUpdateManyInput = {
     id_lpp?: IntFieldUpdateOperationsInput | number
+    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     id_lista_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     id_produto_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type menusCreateInput = {
@@ -40569,8 +40729,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -40591,6 +40751,8 @@ export namespace Prisma {
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
+    imagens?: imagensCreateNestedOneWithoutProdutosInput
+    submenus?: submenusCreateNestedOneWithoutProdutosInput
     produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
     produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutProdutosInput
   }
@@ -40601,8 +40763,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -40620,6 +40782,8 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
+    id_imagem?: number | null
+    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -40632,8 +40796,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -40654,6 +40818,8 @@ export namespace Prisma {
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
+    imagens?: imagensUpdateOneWithoutProdutosNestedInput
+    submenus?: submenusUpdateOneWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutProdutosNestedInput
   }
@@ -40664,8 +40830,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -40683,6 +40849,8 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -40696,8 +40864,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -40715,6 +40883,8 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
+    id_imagem?: number | null
+    id_submenu?: number | null
   }
 
   export type produtosUpdateManyMutationInput = {
@@ -40722,8 +40892,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -40749,8 +40919,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -40768,6 +40938,8 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type produtos_extrasCreateInput = {
@@ -40957,6 +41129,7 @@ export namespace Prisma {
   export type submenusCreateInput = {
     titulo_submenu: string
     texto_submenu?: string | null
+    produtos?: produtosCreateNestedManyWithoutSubmenusInput
     menus: menusCreateNestedOneWithoutSubmenusInput
   }
 
@@ -40965,11 +41138,13 @@ export namespace Prisma {
     id_menu_submenu: number
     titulo_submenu: string
     texto_submenu?: string | null
+    produtos?: produtosUncheckedCreateNestedManyWithoutSubmenusInput
   }
 
   export type submenusUpdateInput = {
     titulo_submenu?: StringFieldUpdateOperationsInput | string
     texto_submenu?: NullableStringFieldUpdateOperationsInput | string | null
+    produtos?: produtosUpdateManyWithoutSubmenusNestedInput
     menus?: menusUpdateOneRequiredWithoutSubmenusNestedInput
   }
 
@@ -40978,6 +41153,7 @@ export namespace Prisma {
     id_menu_submenu?: IntFieldUpdateOperationsInput | number
     titulo_submenu?: StringFieldUpdateOperationsInput | string
     texto_submenu?: NullableStringFieldUpdateOperationsInput | string | null
+    produtos?: produtosUncheckedUpdateManyWithoutSubmenusNestedInput
   }
 
   export type submenusCreateManyInput = {
@@ -41430,9 +41606,9 @@ export namespace Prisma {
 
   export type atividades_gruposCountOrderByAggregateInput = {
     id_ag?: SortOrder
-    nm_atividade_ag?: SortOrder
     id_grupos_usuarios_ag?: SortOrder
     id_atividade_ag?: SortOrder
+    nm_atividade_ag?: SortOrder
     valor_ag?: SortOrder
     descricao_ag?: SortOrder
   }
@@ -41446,18 +41622,18 @@ export namespace Prisma {
 
   export type atividades_gruposMaxOrderByAggregateInput = {
     id_ag?: SortOrder
-    nm_atividade_ag?: SortOrder
     id_grupos_usuarios_ag?: SortOrder
     id_atividade_ag?: SortOrder
+    nm_atividade_ag?: SortOrder
     valor_ag?: SortOrder
     descricao_ag?: SortOrder
   }
 
   export type atividades_gruposMinOrderByAggregateInput = {
     id_ag?: SortOrder
-    nm_atividade_ag?: SortOrder
     id_grupos_usuarios_ag?: SortOrder
     id_atividade_ag?: SortOrder
+    nm_atividade_ag?: SortOrder
     valor_ag?: SortOrder
     descricao_ag?: SortOrder
   }
@@ -41623,11 +41799,6 @@ export namespace Prisma {
   export type Condicoes_pagamentoNullableRelationFilter = {
     is?: condicoes_pagamentoWhereInput | null
     isNot?: condicoes_pagamentoWhereInput | null
-  }
-
-  export type Listas_precosNullableRelationFilter = {
-    is?: listas_precosWhereInput | null
-    isNot?: listas_precosWhereInput | null
   }
 
   export type Clientes_produtosListRelationFilter = {
@@ -42236,6 +42407,12 @@ export namespace Prisma {
     none?: menusWhereInput
   }
 
+  export type ProdutosListRelationFilter = {
+    every?: produtosWhereInput
+    some?: produtosWhereInput
+    none?: produtosWhereInput
+  }
+
   export type RestaurantesListRelationFilter = {
     every?: restaurantesWhereInput
     some?: restaurantesWhereInput
@@ -42251,6 +42428,10 @@ export namespace Prisma {
   }
 
   export type menusOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type produtosOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -42353,6 +42534,11 @@ export namespace Prisma {
     not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
   }
 
+  export type Listas_precosNullableRelationFilter = {
+    is?: listas_precosWhereInput | null
+    isNot?: listas_precosWhereInput | null
+  }
+
   export type ProdutosNullableRelationFilter = {
     is?: produtosWhereInput | null
     isNot?: produtosWhereInput | null
@@ -42360,42 +42546,47 @@ export namespace Prisma {
 
   export type listas_precos_produtosCountOrderByAggregateInput = {
     id_lpp?: SortOrder
+    id_sirius_lpp?: SortOrder
     id_lista_lpp?: SortOrder
     id_produto_lpp?: SortOrder
     valor_lpp?: SortOrder
-    id_sirius_lpp?: SortOrder
+    id_produto_sirius_lpp?: SortOrder
   }
 
   export type listas_precos_produtosAvgOrderByAggregateInput = {
     id_lpp?: SortOrder
+    id_sirius_lpp?: SortOrder
     id_lista_lpp?: SortOrder
     id_produto_lpp?: SortOrder
     valor_lpp?: SortOrder
-    id_sirius_lpp?: SortOrder
+    id_produto_sirius_lpp?: SortOrder
   }
 
   export type listas_precos_produtosMaxOrderByAggregateInput = {
     id_lpp?: SortOrder
+    id_sirius_lpp?: SortOrder
     id_lista_lpp?: SortOrder
     id_produto_lpp?: SortOrder
     valor_lpp?: SortOrder
-    id_sirius_lpp?: SortOrder
+    id_produto_sirius_lpp?: SortOrder
   }
 
   export type listas_precos_produtosMinOrderByAggregateInput = {
     id_lpp?: SortOrder
+    id_sirius_lpp?: SortOrder
     id_lista_lpp?: SortOrder
     id_produto_lpp?: SortOrder
     valor_lpp?: SortOrder
-    id_sirius_lpp?: SortOrder
+    id_produto_sirius_lpp?: SortOrder
   }
 
   export type listas_precos_produtosSumOrderByAggregateInput = {
     id_lpp?: SortOrder
+    id_sirius_lpp?: SortOrder
     id_lista_lpp?: SortOrder
     id_produto_lpp?: SortOrder
     valor_lpp?: SortOrder
-    id_sirius_lpp?: SortOrder
+    id_produto_sirius_lpp?: SortOrder
   }
 
   export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -42873,6 +43064,11 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
+  export type SubmenusNullableRelationFilter = {
+    is?: submenusWhereInput | null
+    isNot?: submenusWhereInput | null
+  }
+
   export type produtosCountOrderByAggregateInput = {
     id_prod?: SortOrder
     id_sirius_prod?: SortOrder
@@ -42898,6 +43094,8 @@ export namespace Prisma {
     gluten_prod?: SortOrder
     vegetariano_prod?: SortOrder
     vegano_prod?: SortOrder
+    id_imagem?: SortOrder
+    id_submenu?: SortOrder
   }
 
   export type produtosAvgOrderByAggregateInput = {
@@ -42909,6 +43107,8 @@ export namespace Prisma {
     qtd_trib_prod?: SortOrder
     vlr_un_trib_prod?: SortOrder
     saldo_prod?: SortOrder
+    id_imagem?: SortOrder
+    id_submenu?: SortOrder
   }
 
   export type produtosMaxOrderByAggregateInput = {
@@ -42936,6 +43136,8 @@ export namespace Prisma {
     gluten_prod?: SortOrder
     vegetariano_prod?: SortOrder
     vegano_prod?: SortOrder
+    id_imagem?: SortOrder
+    id_submenu?: SortOrder
   }
 
   export type produtosMinOrderByAggregateInput = {
@@ -42963,6 +43165,8 @@ export namespace Prisma {
     gluten_prod?: SortOrder
     vegetariano_prod?: SortOrder
     vegano_prod?: SortOrder
+    id_imagem?: SortOrder
+    id_submenu?: SortOrder
   }
 
   export type produtosSumOrderByAggregateInput = {
@@ -42974,6 +43178,8 @@ export namespace Prisma {
     qtd_trib_prod?: SortOrder
     vlr_un_trib_prod?: SortOrder
     saldo_prod?: SortOrder
+    id_imagem?: SortOrder
+    id_submenu?: SortOrder
   }
 
   export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -43385,16 +43591,16 @@ export namespace Prisma {
     connect?: grupos_usuariosWhereUniqueInput
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -43447,12 +43653,6 @@ export namespace Prisma {
     create?: XOR<condicoes_pagamentoCreateWithoutClientesInput, condicoes_pagamentoUncheckedCreateWithoutClientesInput>
     connectOrCreate?: condicoes_pagamentoCreateOrConnectWithoutClientesInput
     connect?: condicoes_pagamentoWhereUniqueInput
-  }
-
-  export type listas_precosCreateNestedOneWithoutClientesInput = {
-    create?: XOR<listas_precosCreateWithoutClientesInput, listas_precosUncheckedCreateWithoutClientesInput>
-    connectOrCreate?: listas_precosCreateOrConnectWithoutClientesInput
-    connect?: listas_precosWhereUniqueInput
   }
 
   export type clientes_produtosCreateNestedManyWithoutClientesInput = {
@@ -43527,16 +43727,6 @@ export namespace Prisma {
     delete?: condicoes_pagamentoWhereInput | boolean
     connect?: condicoes_pagamentoWhereUniqueInput
     update?: XOR<XOR<condicoes_pagamentoUpdateToOneWithWhereWithoutClientesInput, condicoes_pagamentoUpdateWithoutClientesInput>, condicoes_pagamentoUncheckedUpdateWithoutClientesInput>
-  }
-
-  export type listas_precosUpdateOneWithoutClientesNestedInput = {
-    create?: XOR<listas_precosCreateWithoutClientesInput, listas_precosUncheckedCreateWithoutClientesInput>
-    connectOrCreate?: listas_precosCreateOrConnectWithoutClientesInput
-    upsert?: listas_precosUpsertWithoutClientesInput
-    disconnect?: listas_precosWhereInput | boolean
-    delete?: listas_precosWhereInput | boolean
-    connect?: listas_precosWhereUniqueInput
-    update?: XOR<XOR<listas_precosUpdateToOneWithWhereWithoutClientesInput, listas_precosUpdateWithoutClientesInput>, listas_precosUncheckedUpdateWithoutClientesInput>
   }
 
   export type clientes_produtosUpdateManyWithoutClientesNestedInput = {
@@ -44018,6 +44208,13 @@ export namespace Prisma {
     connect?: menusWhereUniqueInput | menusWhereUniqueInput[]
   }
 
+  export type produtosCreateNestedManyWithoutImagensInput = {
+    create?: XOR<produtosCreateWithoutImagensInput, produtosUncheckedCreateWithoutImagensInput> | produtosCreateWithoutImagensInput[] | produtosUncheckedCreateWithoutImagensInput[]
+    connectOrCreate?: produtosCreateOrConnectWithoutImagensInput | produtosCreateOrConnectWithoutImagensInput[]
+    createMany?: produtosCreateManyImagensInputEnvelope
+    connect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+  }
+
   export type restaurantesCreateNestedManyWithoutImagensInput = {
     create?: XOR<restaurantesCreateWithoutImagensInput, restaurantesUncheckedCreateWithoutImagensInput> | restaurantesCreateWithoutImagensInput[] | restaurantesUncheckedCreateWithoutImagensInput[]
     connectOrCreate?: restaurantesCreateOrConnectWithoutImagensInput | restaurantesCreateOrConnectWithoutImagensInput[]
@@ -44044,6 +44241,13 @@ export namespace Prisma {
     connectOrCreate?: menusCreateOrConnectWithoutImagensInput | menusCreateOrConnectWithoutImagensInput[]
     createMany?: menusCreateManyImagensInputEnvelope
     connect?: menusWhereUniqueInput | menusWhereUniqueInput[]
+  }
+
+  export type produtosUncheckedCreateNestedManyWithoutImagensInput = {
+    create?: XOR<produtosCreateWithoutImagensInput, produtosUncheckedCreateWithoutImagensInput> | produtosCreateWithoutImagensInput[] | produtosUncheckedCreateWithoutImagensInput[]
+    connectOrCreate?: produtosCreateOrConnectWithoutImagensInput | produtosCreateOrConnectWithoutImagensInput[]
+    createMany?: produtosCreateManyImagensInputEnvelope
+    connect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
   }
 
   export type restaurantesUncheckedCreateNestedManyWithoutImagensInput = {
@@ -44097,6 +44301,20 @@ export namespace Prisma {
     update?: menusUpdateWithWhereUniqueWithoutImagensInput | menusUpdateWithWhereUniqueWithoutImagensInput[]
     updateMany?: menusUpdateManyWithWhereWithoutImagensInput | menusUpdateManyWithWhereWithoutImagensInput[]
     deleteMany?: menusScalarWhereInput | menusScalarWhereInput[]
+  }
+
+  export type produtosUpdateManyWithoutImagensNestedInput = {
+    create?: XOR<produtosCreateWithoutImagensInput, produtosUncheckedCreateWithoutImagensInput> | produtosCreateWithoutImagensInput[] | produtosUncheckedCreateWithoutImagensInput[]
+    connectOrCreate?: produtosCreateOrConnectWithoutImagensInput | produtosCreateOrConnectWithoutImagensInput[]
+    upsert?: produtosUpsertWithWhereUniqueWithoutImagensInput | produtosUpsertWithWhereUniqueWithoutImagensInput[]
+    createMany?: produtosCreateManyImagensInputEnvelope
+    set?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    disconnect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    delete?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    connect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    update?: produtosUpdateWithWhereUniqueWithoutImagensInput | produtosUpdateWithWhereUniqueWithoutImagensInput[]
+    updateMany?: produtosUpdateManyWithWhereWithoutImagensInput | produtosUpdateManyWithWhereWithoutImagensInput[]
+    deleteMany?: produtosScalarWhereInput | produtosScalarWhereInput[]
   }
 
   export type restaurantesUpdateManyWithoutImagensNestedInput = {
@@ -44155,6 +44373,20 @@ export namespace Prisma {
     deleteMany?: menusScalarWhereInput | menusScalarWhereInput[]
   }
 
+  export type produtosUncheckedUpdateManyWithoutImagensNestedInput = {
+    create?: XOR<produtosCreateWithoutImagensInput, produtosUncheckedCreateWithoutImagensInput> | produtosCreateWithoutImagensInput[] | produtosUncheckedCreateWithoutImagensInput[]
+    connectOrCreate?: produtosCreateOrConnectWithoutImagensInput | produtosCreateOrConnectWithoutImagensInput[]
+    upsert?: produtosUpsertWithWhereUniqueWithoutImagensInput | produtosUpsertWithWhereUniqueWithoutImagensInput[]
+    createMany?: produtosCreateManyImagensInputEnvelope
+    set?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    disconnect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    delete?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    connect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    update?: produtosUpdateWithWhereUniqueWithoutImagensInput | produtosUpdateWithWhereUniqueWithoutImagensInput[]
+    updateMany?: produtosUpdateManyWithWhereWithoutImagensInput | produtosUpdateManyWithWhereWithoutImagensInput[]
+    deleteMany?: produtosScalarWhereInput | produtosScalarWhereInput[]
+  }
+
   export type restaurantesUncheckedUpdateManyWithoutImagensNestedInput = {
     create?: XOR<restaurantesCreateWithoutImagensInput, restaurantesUncheckedCreateWithoutImagensInput> | restaurantesCreateWithoutImagensInput[] | restaurantesUncheckedCreateWithoutImagensInput[]
     connectOrCreate?: restaurantesCreateOrConnectWithoutImagensInput | restaurantesCreateOrConnectWithoutImagensInput[]
@@ -44167,13 +44399,6 @@ export namespace Prisma {
     update?: restaurantesUpdateWithWhereUniqueWithoutImagensInput | restaurantesUpdateWithWhereUniqueWithoutImagensInput[]
     updateMany?: restaurantesUpdateManyWithWhereWithoutImagensInput | restaurantesUpdateManyWithWhereWithoutImagensInput[]
     deleteMany?: restaurantesScalarWhereInput | restaurantesScalarWhereInput[]
-  }
-
-  export type clientesCreateNestedManyWithoutListas_precosInput = {
-    create?: XOR<clientesCreateWithoutListas_precosInput, clientesUncheckedCreateWithoutListas_precosInput> | clientesCreateWithoutListas_precosInput[] | clientesUncheckedCreateWithoutListas_precosInput[]
-    connectOrCreate?: clientesCreateOrConnectWithoutListas_precosInput | clientesCreateOrConnectWithoutListas_precosInput[]
-    createMany?: clientesCreateManyListas_precosInputEnvelope
-    connect?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
   }
 
   export type listas_precos_produtosCreateNestedManyWithoutListas_precosInput = {
@@ -44190,13 +44415,6 @@ export namespace Prisma {
     connect?: pedidos_venda_itensWhereUniqueInput | pedidos_venda_itensWhereUniqueInput[]
   }
 
-  export type clientesUncheckedCreateNestedManyWithoutListas_precosInput = {
-    create?: XOR<clientesCreateWithoutListas_precosInput, clientesUncheckedCreateWithoutListas_precosInput> | clientesCreateWithoutListas_precosInput[] | clientesUncheckedCreateWithoutListas_precosInput[]
-    connectOrCreate?: clientesCreateOrConnectWithoutListas_precosInput | clientesCreateOrConnectWithoutListas_precosInput[]
-    createMany?: clientesCreateManyListas_precosInputEnvelope
-    connect?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-  }
-
   export type listas_precos_produtosUncheckedCreateNestedManyWithoutListas_precosInput = {
     create?: XOR<listas_precos_produtosCreateWithoutListas_precosInput, listas_precos_produtosUncheckedCreateWithoutListas_precosInput> | listas_precos_produtosCreateWithoutListas_precosInput[] | listas_precos_produtosUncheckedCreateWithoutListas_precosInput[]
     connectOrCreate?: listas_precos_produtosCreateOrConnectWithoutListas_precosInput | listas_precos_produtosCreateOrConnectWithoutListas_precosInput[]
@@ -44209,20 +44427,6 @@ export namespace Prisma {
     connectOrCreate?: pedidos_venda_itensCreateOrConnectWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput | pedidos_venda_itensCreateOrConnectWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput[]
     createMany?: pedidos_venda_itensCreateManyPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInputEnvelope
     connect?: pedidos_venda_itensWhereUniqueInput | pedidos_venda_itensWhereUniqueInput[]
-  }
-
-  export type clientesUpdateManyWithoutListas_precosNestedInput = {
-    create?: XOR<clientesCreateWithoutListas_precosInput, clientesUncheckedCreateWithoutListas_precosInput> | clientesCreateWithoutListas_precosInput[] | clientesUncheckedCreateWithoutListas_precosInput[]
-    connectOrCreate?: clientesCreateOrConnectWithoutListas_precosInput | clientesCreateOrConnectWithoutListas_precosInput[]
-    upsert?: clientesUpsertWithWhereUniqueWithoutListas_precosInput | clientesUpsertWithWhereUniqueWithoutListas_precosInput[]
-    createMany?: clientesCreateManyListas_precosInputEnvelope
-    set?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-    disconnect?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-    delete?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-    connect?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-    update?: clientesUpdateWithWhereUniqueWithoutListas_precosInput | clientesUpdateWithWhereUniqueWithoutListas_precosInput[]
-    updateMany?: clientesUpdateManyWithWhereWithoutListas_precosInput | clientesUpdateManyWithWhereWithoutListas_precosInput[]
-    deleteMany?: clientesScalarWhereInput | clientesScalarWhereInput[]
   }
 
   export type listas_precos_produtosUpdateManyWithoutListas_precosNestedInput = {
@@ -44251,20 +44455,6 @@ export namespace Prisma {
     update?: pedidos_venda_itensUpdateWithWhereUniqueWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput | pedidos_venda_itensUpdateWithWhereUniqueWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput[]
     updateMany?: pedidos_venda_itensUpdateManyWithWhereWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput | pedidos_venda_itensUpdateManyWithWhereWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput[]
     deleteMany?: pedidos_venda_itensScalarWhereInput | pedidos_venda_itensScalarWhereInput[]
-  }
-
-  export type clientesUncheckedUpdateManyWithoutListas_precosNestedInput = {
-    create?: XOR<clientesCreateWithoutListas_precosInput, clientesUncheckedCreateWithoutListas_precosInput> | clientesCreateWithoutListas_precosInput[] | clientesUncheckedCreateWithoutListas_precosInput[]
-    connectOrCreate?: clientesCreateOrConnectWithoutListas_precosInput | clientesCreateOrConnectWithoutListas_precosInput[]
-    upsert?: clientesUpsertWithWhereUniqueWithoutListas_precosInput | clientesUpsertWithWhereUniqueWithoutListas_precosInput[]
-    createMany?: clientesCreateManyListas_precosInputEnvelope
-    set?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-    disconnect?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-    delete?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-    connect?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-    update?: clientesUpdateWithWhereUniqueWithoutListas_precosInput | clientesUpdateWithWhereUniqueWithoutListas_precosInput[]
-    updateMany?: clientesUpdateManyWithWhereWithoutListas_precosInput | clientesUpdateManyWithWhereWithoutListas_precosInput[]
-    deleteMany?: clientesScalarWhereInput | clientesScalarWhereInput[]
   }
 
   export type listas_precos_produtosUncheckedUpdateManyWithoutListas_precosNestedInput = {
@@ -44758,6 +44948,18 @@ export namespace Prisma {
     connect?: pedidos_venda_itensWhereUniqueInput | pedidos_venda_itensWhereUniqueInput[]
   }
 
+  export type imagensCreateNestedOneWithoutProdutosInput = {
+    create?: XOR<imagensCreateWithoutProdutosInput, imagensUncheckedCreateWithoutProdutosInput>
+    connectOrCreate?: imagensCreateOrConnectWithoutProdutosInput
+    connect?: imagensWhereUniqueInput
+  }
+
+  export type submenusCreateNestedOneWithoutProdutosInput = {
+    create?: XOR<submenusCreateWithoutProdutosInput, submenusUncheckedCreateWithoutProdutosInput>
+    connectOrCreate?: submenusCreateOrConnectWithoutProdutosInput
+    connect?: submenusWhereUniqueInput
+  }
+
   export type produtos_extrasCreateNestedManyWithoutProdutosInput = {
     create?: XOR<produtos_extrasCreateWithoutProdutosInput, produtos_extrasUncheckedCreateWithoutProdutosInput> | produtos_extrasCreateWithoutProdutosInput[] | produtos_extrasUncheckedCreateWithoutProdutosInput[]
     connectOrCreate?: produtos_extrasCreateOrConnectWithoutProdutosInput | produtos_extrasCreateOrConnectWithoutProdutosInput[]
@@ -44851,6 +45053,26 @@ export namespace Prisma {
     update?: pedidos_venda_itensUpdateWithWhereUniqueWithoutProdutosInput | pedidos_venda_itensUpdateWithWhereUniqueWithoutProdutosInput[]
     updateMany?: pedidos_venda_itensUpdateManyWithWhereWithoutProdutosInput | pedidos_venda_itensUpdateManyWithWhereWithoutProdutosInput[]
     deleteMany?: pedidos_venda_itensScalarWhereInput | pedidos_venda_itensScalarWhereInput[]
+  }
+
+  export type imagensUpdateOneWithoutProdutosNestedInput = {
+    create?: XOR<imagensCreateWithoutProdutosInput, imagensUncheckedCreateWithoutProdutosInput>
+    connectOrCreate?: imagensCreateOrConnectWithoutProdutosInput
+    upsert?: imagensUpsertWithoutProdutosInput
+    disconnect?: imagensWhereInput | boolean
+    delete?: imagensWhereInput | boolean
+    connect?: imagensWhereUniqueInput
+    update?: XOR<XOR<imagensUpdateToOneWithWhereWithoutProdutosInput, imagensUpdateWithoutProdutosInput>, imagensUncheckedUpdateWithoutProdutosInput>
+  }
+
+  export type submenusUpdateOneWithoutProdutosNestedInput = {
+    create?: XOR<submenusCreateWithoutProdutosInput, submenusUncheckedCreateWithoutProdutosInput>
+    connectOrCreate?: submenusCreateOrConnectWithoutProdutosInput
+    upsert?: submenusUpsertWithoutProdutosInput
+    disconnect?: submenusWhereInput | boolean
+    delete?: submenusWhereInput | boolean
+    connect?: submenusWhereUniqueInput
+    update?: XOR<XOR<submenusUpdateToOneWithWhereWithoutProdutosInput, submenusUpdateWithoutProdutosInput>, submenusUncheckedUpdateWithoutProdutosInput>
   }
 
   export type produtos_extrasUpdateManyWithoutProdutosNestedInput = {
@@ -45151,10 +45373,38 @@ export namespace Prisma {
     deleteMany?: menusScalarWhereInput | menusScalarWhereInput[]
   }
 
+  export type produtosCreateNestedManyWithoutSubmenusInput = {
+    create?: XOR<produtosCreateWithoutSubmenusInput, produtosUncheckedCreateWithoutSubmenusInput> | produtosCreateWithoutSubmenusInput[] | produtosUncheckedCreateWithoutSubmenusInput[]
+    connectOrCreate?: produtosCreateOrConnectWithoutSubmenusInput | produtosCreateOrConnectWithoutSubmenusInput[]
+    createMany?: produtosCreateManySubmenusInputEnvelope
+    connect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+  }
+
   export type menusCreateNestedOneWithoutSubmenusInput = {
     create?: XOR<menusCreateWithoutSubmenusInput, menusUncheckedCreateWithoutSubmenusInput>
     connectOrCreate?: menusCreateOrConnectWithoutSubmenusInput
     connect?: menusWhereUniqueInput
+  }
+
+  export type produtosUncheckedCreateNestedManyWithoutSubmenusInput = {
+    create?: XOR<produtosCreateWithoutSubmenusInput, produtosUncheckedCreateWithoutSubmenusInput> | produtosCreateWithoutSubmenusInput[] | produtosUncheckedCreateWithoutSubmenusInput[]
+    connectOrCreate?: produtosCreateOrConnectWithoutSubmenusInput | produtosCreateOrConnectWithoutSubmenusInput[]
+    createMany?: produtosCreateManySubmenusInputEnvelope
+    connect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+  }
+
+  export type produtosUpdateManyWithoutSubmenusNestedInput = {
+    create?: XOR<produtosCreateWithoutSubmenusInput, produtosUncheckedCreateWithoutSubmenusInput> | produtosCreateWithoutSubmenusInput[] | produtosUncheckedCreateWithoutSubmenusInput[]
+    connectOrCreate?: produtosCreateOrConnectWithoutSubmenusInput | produtosCreateOrConnectWithoutSubmenusInput[]
+    upsert?: produtosUpsertWithWhereUniqueWithoutSubmenusInput | produtosUpsertWithWhereUniqueWithoutSubmenusInput[]
+    createMany?: produtosCreateManySubmenusInputEnvelope
+    set?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    disconnect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    delete?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    connect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    update?: produtosUpdateWithWhereUniqueWithoutSubmenusInput | produtosUpdateWithWhereUniqueWithoutSubmenusInput[]
+    updateMany?: produtosUpdateManyWithWhereWithoutSubmenusInput | produtosUpdateManyWithWhereWithoutSubmenusInput[]
+    deleteMany?: produtosScalarWhereInput | produtosScalarWhereInput[]
   }
 
   export type menusUpdateOneRequiredWithoutSubmenusNestedInput = {
@@ -45163,6 +45413,20 @@ export namespace Prisma {
     upsert?: menusUpsertWithoutSubmenusInput
     connect?: menusWhereUniqueInput
     update?: XOR<XOR<menusUpdateToOneWithWhereWithoutSubmenusInput, menusUpdateWithoutSubmenusInput>, menusUncheckedUpdateWithoutSubmenusInput>
+  }
+
+  export type produtosUncheckedUpdateManyWithoutSubmenusNestedInput = {
+    create?: XOR<produtosCreateWithoutSubmenusInput, produtosUncheckedCreateWithoutSubmenusInput> | produtosCreateWithoutSubmenusInput[] | produtosUncheckedCreateWithoutSubmenusInput[]
+    connectOrCreate?: produtosCreateOrConnectWithoutSubmenusInput | produtosCreateOrConnectWithoutSubmenusInput[]
+    upsert?: produtosUpsertWithWhereUniqueWithoutSubmenusInput | produtosUpsertWithWhereUniqueWithoutSubmenusInput[]
+    createMany?: produtosCreateManySubmenusInputEnvelope
+    set?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    disconnect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    delete?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    connect?: produtosWhereUniqueInput | produtosWhereUniqueInput[]
+    update?: produtosUpdateWithWhereUniqueWithoutSubmenusInput | produtosUpdateWithWhereUniqueWithoutSubmenusInput[]
+    updateMany?: produtosUpdateManyWithWhereWithoutSubmenusInput | produtosUpdateManyWithWhereWithoutSubmenusInput[]
+    deleteMany?: produtosScalarWhereInput | produtosScalarWhereInput[]
   }
 
   export type pedidos_vendaCreateNestedManyWithoutTransportadoresInput = {
@@ -45595,7 +45859,7 @@ export namespace Prisma {
 
   export type grupos_usuariosCreateWithoutAtividades_gruposInput = {
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
     permissoes?: permissoesCreateNestedManyWithoutGrupos_usuariosInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosCreateNestedManyWithoutGrupos_usuariosInput
   }
@@ -45603,7 +45867,7 @@ export namespace Prisma {
   export type grupos_usuariosUncheckedCreateWithoutAtividades_gruposInput = {
     id_gu?: number
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
     permissoes?: permissoesUncheckedCreateNestedManyWithoutGrupos_usuariosInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUncheckedCreateNestedManyWithoutGrupos_usuariosInput
   }
@@ -45626,7 +45890,7 @@ export namespace Prisma {
 
   export type grupos_usuariosUpdateWithoutAtividades_gruposInput = {
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
     permissoes?: permissoesUpdateManyWithoutGrupos_usuariosNestedInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUpdateManyWithoutGrupos_usuariosNestedInput
   }
@@ -45634,7 +45898,7 @@ export namespace Prisma {
   export type grupos_usuariosUncheckedUpdateWithoutAtividades_gruposInput = {
     id_gu?: IntFieldUpdateOperationsInput | number
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
     permissoes?: permissoesUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
   }
@@ -45644,6 +45908,7 @@ export namespace Prisma {
     desc_imagem?: string | null
     first_page_images?: first_page_imagesCreateNestedManyWithoutImagensInput
     menus?: menusCreateNestedManyWithoutImagensInput
+    produtos?: produtosCreateNestedManyWithoutImagensInput
     restaurantes?: restaurantesCreateNestedManyWithoutImagensInput
   }
 
@@ -45653,6 +45918,7 @@ export namespace Prisma {
     desc_imagem?: string | null
     first_page_images?: first_page_imagesUncheckedCreateNestedManyWithoutImagensInput
     menus?: menusUncheckedCreateNestedManyWithoutImagensInput
+    produtos?: produtosUncheckedCreateNestedManyWithoutImagensInput
     restaurantes?: restaurantesUncheckedCreateNestedManyWithoutImagensInput
   }
 
@@ -45699,6 +45965,7 @@ export namespace Prisma {
     desc_imagem?: NullableStringFieldUpdateOperationsInput | string | null
     first_page_images?: first_page_imagesUpdateManyWithoutImagensNestedInput
     menus?: menusUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUpdateManyWithoutImagensNestedInput
     restaurantes?: restaurantesUpdateManyWithoutImagensNestedInput
   }
 
@@ -45708,6 +45975,7 @@ export namespace Prisma {
     desc_imagem?: NullableStringFieldUpdateOperationsInput | string | null
     first_page_images?: first_page_imagesUncheckedUpdateManyWithoutImagensNestedInput
     menus?: menusUncheckedUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUncheckedUpdateManyWithoutImagensNestedInput
     restaurantes?: restaurantesUncheckedUpdateManyWithoutImagensNestedInput
   }
 
@@ -45755,26 +46023,6 @@ export namespace Prisma {
   export type condicoes_pagamentoCreateOrConnectWithoutClientesInput = {
     where: condicoes_pagamentoWhereUniqueInput
     create: XOR<condicoes_pagamentoCreateWithoutClientesInput, condicoes_pagamentoUncheckedCreateWithoutClientesInput>
-  }
-
-  export type listas_precosCreateWithoutClientesInput = {
-    descricao_lp: string
-    id_sirius_lp?: number | null
-    listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutListas_precosInput
-    pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput
-  }
-
-  export type listas_precosUncheckedCreateWithoutClientesInput = {
-    id_lp?: number
-    descricao_lp: string
-    id_sirius_lp?: number | null
-    listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutListas_precosInput
-    pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput
-  }
-
-  export type listas_precosCreateOrConnectWithoutClientesInput = {
-    where: listas_precosWhereUniqueInput
-    create: XOR<listas_precosCreateWithoutClientesInput, listas_precosUncheckedCreateWithoutClientesInput>
   }
 
   export type clientes_produtosCreateWithoutClientesInput = {
@@ -45959,32 +46207,6 @@ export namespace Prisma {
     pedidos_venda?: pedidos_vendaUncheckedUpdateManyWithoutCondicoes_pagamentoNestedInput
   }
 
-  export type listas_precosUpsertWithoutClientesInput = {
-    update: XOR<listas_precosUpdateWithoutClientesInput, listas_precosUncheckedUpdateWithoutClientesInput>
-    create: XOR<listas_precosCreateWithoutClientesInput, listas_precosUncheckedCreateWithoutClientesInput>
-    where?: listas_precosWhereInput
-  }
-
-  export type listas_precosUpdateToOneWithWhereWithoutClientesInput = {
-    where?: listas_precosWhereInput
-    data: XOR<listas_precosUpdateWithoutClientesInput, listas_precosUncheckedUpdateWithoutClientesInput>
-  }
-
-  export type listas_precosUpdateWithoutClientesInput = {
-    descricao_lp?: StringFieldUpdateOperationsInput | string
-    id_sirius_lp?: NullableIntFieldUpdateOperationsInput | number | null
-    listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutListas_precosNestedInput
-    pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaNestedInput
-  }
-
-  export type listas_precosUncheckedUpdateWithoutClientesInput = {
-    id_lp?: IntFieldUpdateOperationsInput | number
-    descricao_lp?: StringFieldUpdateOperationsInput | string
-    id_sirius_lp?: NullableIntFieldUpdateOperationsInput | number | null
-    listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutListas_precosNestedInput
-    pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaNestedInput
-  }
-
   export type clientes_produtosUpsertWithWhereUniqueWithoutClientesInput = {
     where: clientes_produtosWhereUniqueInput
     update: XOR<clientes_produtosUpdateWithoutClientesInput, clientes_produtosUncheckedUpdateWithoutClientesInput>
@@ -46140,11 +46362,11 @@ export namespace Prisma {
     exclusivo_cliente?: number | null
     id_vendedor_cliente?: number | null
     id_vendedor_sirius_cliente?: number | null
+    id_lista_preco_cliente?: number | null
     contato_cliente?: string | null
     nm_contato_cliente?: string | null
     id_condicao_pagamento_sirius_cliente?: number | null
     condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutClientesInput
-    listas_precos?: listas_precosCreateNestedOneWithoutClientesInput
     contatos?: contatosCreateNestedManyWithoutClientesInput
     enderecos?: enderecosCreateNestedManyWithoutClientesInput
     pedidos_venda?: pedidos_vendaCreateNestedManyWithoutClientesInput
@@ -46188,8 +46410,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -46209,6 +46431,8 @@ export namespace Prisma {
     vegano_prod?: boolean | null
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
+    imagens?: imagensCreateNestedOneWithoutProdutosInput
+    submenus?: submenusCreateNestedOneWithoutProdutosInput
     produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
     produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutProdutosInput
   }
@@ -46219,8 +46443,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -46238,6 +46462,8 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
+    id_imagem?: number | null
+    id_submenu?: number | null
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -46277,11 +46503,11 @@ export namespace Prisma {
     exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    id_lista_preco_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutClientesNestedInput
-    listas_precos?: listas_precosUpdateOneWithoutClientesNestedInput
     contatos?: contatosUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUpdateManyWithoutClientesNestedInput
     pedidos_venda?: pedidos_vendaUpdateManyWithoutClientesNestedInput
@@ -46331,8 +46557,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -46352,6 +46578,8 @@ export namespace Prisma {
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
+    imagens?: imagensUpdateOneWithoutProdutosNestedInput
+    submenus?: submenusUpdateOneWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutProdutosNestedInput
   }
@@ -46362,8 +46590,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -46381,6 +46609,8 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -46404,10 +46634,10 @@ export namespace Prisma {
     exclusivo_cliente?: number | null
     id_vendedor_cliente?: number | null
     id_vendedor_sirius_cliente?: number | null
+    id_lista_preco_cliente?: number | null
     contato_cliente?: string | null
     nm_contato_cliente?: string | null
     id_condicao_pagamento_sirius_cliente?: number | null
-    listas_precos?: listas_precosCreateNestedOneWithoutClientesInput
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutClientesInput
     contatos?: contatosCreateNestedManyWithoutClientesInput
     enderecos?: enderecosCreateNestedManyWithoutClientesInput
@@ -46602,11 +46832,11 @@ export namespace Prisma {
     exclusivo_cliente?: number | null
     id_vendedor_cliente?: number | null
     id_vendedor_sirius_cliente?: number | null
+    id_lista_preco_cliente?: number | null
     contato_cliente?: string | null
     nm_contato_cliente?: string | null
     id_condicao_pagamento_sirius_cliente?: number | null
     condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutClientesInput
-    listas_precos?: listas_precosCreateNestedOneWithoutClientesInput
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutClientesInput
     enderecos?: enderecosCreateNestedManyWithoutClientesInput
     pedidos_venda?: pedidos_vendaCreateNestedManyWithoutClientesInput
@@ -46673,11 +46903,11 @@ export namespace Prisma {
     exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    id_lista_preco_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutClientesNestedInput
-    listas_precos?: listas_precosUpdateOneWithoutClientesNestedInput
     clientes_produtos?: clientes_produtosUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUpdateManyWithoutClientesNestedInput
     pedidos_venda?: pedidos_vendaUpdateManyWithoutClientesNestedInput
@@ -46728,11 +46958,11 @@ export namespace Prisma {
     exclusivo_cliente?: number | null
     id_vendedor_cliente?: number | null
     id_vendedor_sirius_cliente?: number | null
+    id_lista_preco_cliente?: number | null
     contato_cliente?: string | null
     nm_contato_cliente?: string | null
     id_condicao_pagamento_sirius_cliente?: number | null
     condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutClientesInput
-    listas_precos?: listas_precosCreateNestedOneWithoutClientesInput
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutClientesInput
     contatos?: contatosCreateNestedManyWithoutClientesInput
     pedidos_venda?: pedidos_vendaCreateNestedManyWithoutClientesInput
@@ -46799,11 +47029,11 @@ export namespace Prisma {
     exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    id_lista_preco_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutClientesNestedInput
-    listas_precos?: listas_precosUpdateOneWithoutClientesNestedInput
     clientes_produtos?: clientes_produtosUpdateManyWithoutClientesNestedInput
     contatos?: contatosUpdateManyWithoutClientesNestedInput
     pedidos_venda?: pedidos_vendaUpdateManyWithoutClientesNestedInput
@@ -46884,6 +47114,7 @@ export namespace Prisma {
     desc_imagem?: string | null
     carousel_images?: carousel_imagesCreateNestedManyWithoutImagensInput
     menus?: menusCreateNestedManyWithoutImagensInput
+    produtos?: produtosCreateNestedManyWithoutImagensInput
     restaurantes?: restaurantesCreateNestedManyWithoutImagensInput
   }
 
@@ -46893,6 +47124,7 @@ export namespace Prisma {
     desc_imagem?: string | null
     carousel_images?: carousel_imagesUncheckedCreateNestedManyWithoutImagensInput
     menus?: menusUncheckedCreateNestedManyWithoutImagensInput
+    produtos?: produtosUncheckedCreateNestedManyWithoutImagensInput
     restaurantes?: restaurantesUncheckedCreateNestedManyWithoutImagensInput
   }
 
@@ -46939,6 +47171,7 @@ export namespace Prisma {
     desc_imagem?: NullableStringFieldUpdateOperationsInput | string | null
     carousel_images?: carousel_imagesUpdateManyWithoutImagensNestedInput
     menus?: menusUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUpdateManyWithoutImagensNestedInput
     restaurantes?: restaurantesUpdateManyWithoutImagensNestedInput
   }
 
@@ -46948,6 +47181,7 @@ export namespace Prisma {
     desc_imagem?: NullableStringFieldUpdateOperationsInput | string | null
     carousel_images?: carousel_imagesUncheckedUpdateManyWithoutImagensNestedInput
     menus?: menusUncheckedUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUncheckedUpdateManyWithoutImagensNestedInput
     restaurantes?: restaurantesUncheckedUpdateManyWithoutImagensNestedInput
   }
 
@@ -46980,16 +47214,16 @@ export namespace Prisma {
   }
 
   export type atividades_gruposCreateWithoutGrupos_usuariosInput = {
-    nm_atividade_ag?: string | null
     id_atividade_ag: number
+    nm_atividade_ag?: string | null
     valor_ag?: number | null
     descricao_ag?: string | null
   }
 
   export type atividades_gruposUncheckedCreateWithoutGrupos_usuariosInput = {
     id_ag?: number
-    nm_atividade_ag?: string | null
     id_atividade_ag: number
+    nm_atividade_ag?: string | null
     valor_ag?: number | null
     descricao_ag?: string | null
   }
@@ -47073,9 +47307,9 @@ export namespace Prisma {
     OR?: atividades_gruposScalarWhereInput[]
     NOT?: atividades_gruposScalarWhereInput | atividades_gruposScalarWhereInput[]
     id_ag?: IntFilter<"atividades_grupos"> | number
-    nm_atividade_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     id_grupos_usuarios_ag?: IntFilter<"atividades_grupos"> | number
     id_atividade_ag?: IntFilter<"atividades_grupos"> | number
+    nm_atividade_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     valor_ag?: IntNullableFilter<"atividades_grupos"> | number | null
     descricao_ag?: StringNullableFilter<"atividades_grupos"> | string | null
   }
@@ -47200,6 +47434,81 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type produtosCreateWithoutImagensInput = {
+    id_sirius_prod?: number | null
+    cod_prod?: string | null
+    descricao_prod: string
+    cod_ean_prod?: string | null
+    ncm_prod?: string | null
+    cfop_prod?: string | null
+    un_com_prod?: string | null
+    qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: string | null
+    un_trib_prod?: string | null
+    qtd_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: Decimal | DecimalJsLike | number | string | null
+    status_prod: string
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
+    clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
+    listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
+    pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
+    submenus?: submenusCreateNestedOneWithoutProdutosInput
+    produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
+    produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutProdutosInput
+  }
+
+  export type produtosUncheckedCreateWithoutImagensInput = {
+    id_prod?: number
+    id_sirius_prod?: number | null
+    cod_prod?: string | null
+    descricao_prod: string
+    cod_ean_prod?: string | null
+    ncm_prod?: string | null
+    cfop_prod?: string | null
+    un_com_prod?: string | null
+    qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: string | null
+    un_trib_prod?: string | null
+    qtd_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: Decimal | DecimalJsLike | number | string | null
+    status_prod: string
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
+    id_submenu?: number | null
+    clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
+    listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
+    pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
+    produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
+    produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutProdutosInput
+  }
+
+  export type produtosCreateOrConnectWithoutImagensInput = {
+    where: produtosWhereUniqueInput
+    create: XOR<produtosCreateWithoutImagensInput, produtosUncheckedCreateWithoutImagensInput>
+  }
+
+  export type produtosCreateManyImagensInputEnvelope = {
+    data: produtosCreateManyImagensInput | produtosCreateManyImagensInput[]
+    skipDuplicates?: boolean
+  }
+
   export type restaurantesCreateWithoutImagensInput = {
     id_empresa_restaurante: number
     nm_restaurante?: string | null
@@ -47305,6 +47614,54 @@ export namespace Prisma {
     texto_menu?: StringNullableFilter<"menus"> | string | null
   }
 
+  export type produtosUpsertWithWhereUniqueWithoutImagensInput = {
+    where: produtosWhereUniqueInput
+    update: XOR<produtosUpdateWithoutImagensInput, produtosUncheckedUpdateWithoutImagensInput>
+    create: XOR<produtosCreateWithoutImagensInput, produtosUncheckedCreateWithoutImagensInput>
+  }
+
+  export type produtosUpdateWithWhereUniqueWithoutImagensInput = {
+    where: produtosWhereUniqueInput
+    data: XOR<produtosUpdateWithoutImagensInput, produtosUncheckedUpdateWithoutImagensInput>
+  }
+
+  export type produtosUpdateManyWithWhereWithoutImagensInput = {
+    where: produtosScalarWhereInput
+    data: XOR<produtosUpdateManyMutationInput, produtosUncheckedUpdateManyWithoutImagensInput>
+  }
+
+  export type produtosScalarWhereInput = {
+    AND?: produtosScalarWhereInput | produtosScalarWhereInput[]
+    OR?: produtosScalarWhereInput[]
+    NOT?: produtosScalarWhereInput | produtosScalarWhereInput[]
+    id_prod?: IntFilter<"produtos"> | number
+    id_sirius_prod?: IntNullableFilter<"produtos"> | number | null
+    cod_prod?: StringNullableFilter<"produtos"> | string | null
+    descricao_prod?: StringFilter<"produtos"> | string
+    cod_ean_prod?: StringNullableFilter<"produtos"> | string | null
+    ncm_prod?: StringNullableFilter<"produtos"> | string | null
+    cfop_prod?: StringNullableFilter<"produtos"> | string | null
+    un_com_prod?: StringNullableFilter<"produtos"> | string | null
+    qtd_com_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: StringNullableFilter<"produtos"> | string | null
+    un_trib_prod?: StringNullableFilter<"produtos"> | string | null
+    qtd_trib_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: DecimalNullableFilter<"produtos"> | Decimal | DecimalJsLike | number | string | null
+    status_prod?: StringFilter<"produtos"> | string
+    texto_prod?: StringNullableFilter<"produtos"> | string | null
+    novo_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    acucar_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    lactose_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    gluten_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    vegetariano_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    vegano_prod?: BoolNullableFilter<"produtos"> | boolean | null
+    id_imagem?: IntNullableFilter<"produtos"> | number | null
+    id_submenu?: IntNullableFilter<"produtos"> | number | null
+  }
+
   export type restaurantesUpsertWithWhereUniqueWithoutImagensInput = {
     where: restaurantesWhereUniqueInput
     update: XOR<restaurantesUpdateWithoutImagensInput, restaurantesUncheckedUpdateWithoutImagensInput>
@@ -47331,82 +47688,19 @@ export namespace Prisma {
     nm_restaurante?: StringNullableFilter<"restaurantes"> | string | null
   }
 
-  export type clientesCreateWithoutListas_precosInput = {
-    id_sirius_cliente?: number | null
-    status_cliente: string
-    created_at_cliente: Date | string
-    updated_at_cliente: Date | string
-    razao_social_cliente: string
-    fantasia_cliente?: string | null
-    cpf_cliente: string
-    cnpj_cliente: string
-    id_estrangeiro_cliente?: string | null
-    ind_ie_cliente?: string | null
-    insc_estadual_cliente?: string | null
-    insc_municipal_cliente?: string | null
-    tipo_cliente: string
-    exclusivo_cliente?: number | null
-    id_vendedor_cliente?: number | null
-    id_vendedor_sirius_cliente?: number | null
-    contato_cliente?: string | null
-    nm_contato_cliente?: string | null
-    id_condicao_pagamento_sirius_cliente?: number | null
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutClientesInput
-    clientes_produtos?: clientes_produtosCreateNestedManyWithoutClientesInput
-    contatos?: contatosCreateNestedManyWithoutClientesInput
-    enderecos?: enderecosCreateNestedManyWithoutClientesInput
-    pedidos_venda?: pedidos_vendaCreateNestedManyWithoutClientesInput
-  }
-
-  export type clientesUncheckedCreateWithoutListas_precosInput = {
-    id_cliente?: number
-    id_sirius_cliente?: number | null
-    status_cliente: string
-    created_at_cliente: Date | string
-    updated_at_cliente: Date | string
-    razao_social_cliente: string
-    fantasia_cliente?: string | null
-    cpf_cliente: string
-    cnpj_cliente: string
-    id_estrangeiro_cliente?: string | null
-    ind_ie_cliente?: string | null
-    insc_estadual_cliente?: string | null
-    insc_municipal_cliente?: string | null
-    tipo_cliente: string
-    exclusivo_cliente?: number | null
-    id_vendedor_cliente?: number | null
-    id_vendedor_sirius_cliente?: number | null
-    id_condicao_pagamento_cliente?: number | null
-    contato_cliente?: string | null
-    nm_contato_cliente?: string | null
-    id_condicao_pagamento_sirius_cliente?: number | null
-    clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutClientesInput
-    contatos?: contatosUncheckedCreateNestedManyWithoutClientesInput
-    enderecos?: enderecosUncheckedCreateNestedManyWithoutClientesInput
-    pedidos_venda?: pedidos_vendaUncheckedCreateNestedManyWithoutClientesInput
-  }
-
-  export type clientesCreateOrConnectWithoutListas_precosInput = {
-    where: clientesWhereUniqueInput
-    create: XOR<clientesCreateWithoutListas_precosInput, clientesUncheckedCreateWithoutListas_precosInput>
-  }
-
-  export type clientesCreateManyListas_precosInputEnvelope = {
-    data: clientesCreateManyListas_precosInput | clientesCreateManyListas_precosInput[]
-    skipDuplicates?: boolean
-  }
-
   export type listas_precos_produtosCreateWithoutListas_precosInput = {
-    valor_lpp?: Decimal | DecimalJsLike | number | string | null
     id_sirius_lpp?: number | null
+    valor_lpp?: Decimal | DecimalJsLike | number | string | null
+    id_produto_sirius_lpp?: number | null
     produtos?: produtosCreateNestedOneWithoutListas_precos_produtosInput
   }
 
   export type listas_precos_produtosUncheckedCreateWithoutListas_precosInput = {
     id_lpp?: number
+    id_sirius_lpp?: number | null
     id_produto_lpp?: number | null
     valor_lpp?: Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: number | null
+    id_produto_sirius_lpp?: number | null
   }
 
   export type listas_precos_produtosCreateOrConnectWithoutListas_precosInput = {
@@ -47456,22 +47750,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type clientesUpsertWithWhereUniqueWithoutListas_precosInput = {
-    where: clientesWhereUniqueInput
-    update: XOR<clientesUpdateWithoutListas_precosInput, clientesUncheckedUpdateWithoutListas_precosInput>
-    create: XOR<clientesCreateWithoutListas_precosInput, clientesUncheckedCreateWithoutListas_precosInput>
-  }
-
-  export type clientesUpdateWithWhereUniqueWithoutListas_precosInput = {
-    where: clientesWhereUniqueInput
-    data: XOR<clientesUpdateWithoutListas_precosInput, clientesUncheckedUpdateWithoutListas_precosInput>
-  }
-
-  export type clientesUpdateManyWithWhereWithoutListas_precosInput = {
-    where: clientesScalarWhereInput
-    data: XOR<clientesUpdateManyMutationInput, clientesUncheckedUpdateManyWithoutListas_precosInput>
-  }
-
   export type listas_precos_produtosUpsertWithWhereUniqueWithoutListas_precosInput = {
     where: listas_precos_produtosWhereUniqueInput
     update: XOR<listas_precos_produtosUpdateWithoutListas_precosInput, listas_precos_produtosUncheckedUpdateWithoutListas_precosInput>
@@ -47493,10 +47771,11 @@ export namespace Prisma {
     OR?: listas_precos_produtosScalarWhereInput[]
     NOT?: listas_precos_produtosScalarWhereInput | listas_precos_produtosScalarWhereInput[]
     id_lpp?: IntFilter<"listas_precos_produtos"> | number
+    id_sirius_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     id_lista_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     id_produto_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
     valor_lpp?: DecimalNullableFilter<"listas_precos_produtos"> | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
+    id_produto_sirius_lpp?: IntNullableFilter<"listas_precos_produtos"> | number | null
   }
 
   export type pedidos_venda_itensUpsertWithWhereUniqueWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput = {
@@ -47536,7 +47815,6 @@ export namespace Prisma {
   export type listas_precosCreateWithoutListas_precos_produtosInput = {
     descricao_lp: string
     id_sirius_lp?: number | null
-    clientes?: clientesCreateNestedManyWithoutListas_precosInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput
   }
 
@@ -47544,7 +47822,6 @@ export namespace Prisma {
     id_lp?: number
     descricao_lp: string
     id_sirius_lp?: number | null
-    clientes?: clientesUncheckedCreateNestedManyWithoutListas_precosInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput
   }
 
@@ -47558,8 +47835,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -47579,6 +47856,8 @@ export namespace Prisma {
     vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
+    imagens?: imagensCreateNestedOneWithoutProdutosInput
+    submenus?: submenusCreateNestedOneWithoutProdutosInput
     produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
     produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutProdutosInput
   }
@@ -47589,8 +47868,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -47608,6 +47887,8 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
+    id_imagem?: number | null
+    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -47633,7 +47914,6 @@ export namespace Prisma {
   export type listas_precosUpdateWithoutListas_precos_produtosInput = {
     descricao_lp?: StringFieldUpdateOperationsInput | string
     id_sirius_lp?: NullableIntFieldUpdateOperationsInput | number | null
-    clientes?: clientesUpdateManyWithoutListas_precosNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaNestedInput
   }
 
@@ -47641,7 +47921,6 @@ export namespace Prisma {
     id_lp?: IntFieldUpdateOperationsInput | number
     descricao_lp?: StringFieldUpdateOperationsInput | string
     id_sirius_lp?: NullableIntFieldUpdateOperationsInput | number | null
-    clientes?: clientesUncheckedUpdateManyWithoutListas_precosNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaNestedInput
   }
 
@@ -47661,8 +47940,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -47682,6 +47961,8 @@ export namespace Prisma {
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
+    imagens?: imagensUpdateOneWithoutProdutosNestedInput
+    submenus?: submenusUpdateOneWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutProdutosNestedInput
   }
@@ -47692,8 +47973,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -47711,6 +47992,8 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -47722,6 +48005,7 @@ export namespace Prisma {
     desc_imagem?: string | null
     carousel_images?: carousel_imagesCreateNestedManyWithoutImagensInput
     first_page_images?: first_page_imagesCreateNestedManyWithoutImagensInput
+    produtos?: produtosCreateNestedManyWithoutImagensInput
     restaurantes?: restaurantesCreateNestedManyWithoutImagensInput
   }
 
@@ -47731,6 +48015,7 @@ export namespace Prisma {
     desc_imagem?: string | null
     carousel_images?: carousel_imagesUncheckedCreateNestedManyWithoutImagensInput
     first_page_images?: first_page_imagesUncheckedCreateNestedManyWithoutImagensInput
+    produtos?: produtosUncheckedCreateNestedManyWithoutImagensInput
     restaurantes?: restaurantesUncheckedCreateNestedManyWithoutImagensInput
   }
 
@@ -47764,12 +48049,14 @@ export namespace Prisma {
   export type submenusCreateWithoutMenusInput = {
     titulo_submenu: string
     texto_submenu?: string | null
+    produtos?: produtosCreateNestedManyWithoutSubmenusInput
   }
 
   export type submenusUncheckedCreateWithoutMenusInput = {
     id_submenu?: number
     titulo_submenu: string
     texto_submenu?: string | null
+    produtos?: produtosUncheckedCreateNestedManyWithoutSubmenusInput
   }
 
   export type submenusCreateOrConnectWithoutMenusInput = {
@@ -47798,6 +48085,7 @@ export namespace Prisma {
     desc_imagem?: NullableStringFieldUpdateOperationsInput | string | null
     carousel_images?: carousel_imagesUpdateManyWithoutImagensNestedInput
     first_page_images?: first_page_imagesUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUpdateManyWithoutImagensNestedInput
     restaurantes?: restaurantesUpdateManyWithoutImagensNestedInput
   }
 
@@ -47807,6 +48095,7 @@ export namespace Prisma {
     desc_imagem?: NullableStringFieldUpdateOperationsInput | string | null
     carousel_images?: carousel_imagesUncheckedUpdateManyWithoutImagensNestedInput
     first_page_images?: first_page_imagesUncheckedUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUncheckedUpdateManyWithoutImagensNestedInput
     restaurantes?: restaurantesUncheckedUpdateManyWithoutImagensNestedInput
   }
 
@@ -47970,11 +48259,11 @@ export namespace Prisma {
     exclusivo_cliente?: number | null
     id_vendedor_cliente?: number | null
     id_vendedor_sirius_cliente?: number | null
+    id_lista_preco_cliente?: number | null
     contato_cliente?: string | null
     nm_contato_cliente?: string | null
     id_condicao_pagamento_sirius_cliente?: number | null
     condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutClientesInput
-    listas_precos?: listas_precosCreateNestedOneWithoutClientesInput
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutClientesInput
     contatos?: contatosCreateNestedManyWithoutClientesInput
     enderecos?: enderecosCreateNestedManyWithoutClientesInput
@@ -48266,11 +48555,11 @@ export namespace Prisma {
     exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    id_lista_preco_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutClientesNestedInput
-    listas_precos?: listas_precosUpdateOneWithoutClientesNestedInput
     clientes_produtos?: clientes_produtosUpdateManyWithoutClientesNestedInput
     contatos?: contatosUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUpdateManyWithoutClientesNestedInput
@@ -48536,7 +48825,6 @@ export namespace Prisma {
   export type listas_precosCreateWithoutPedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput = {
     descricao_lp: string
     id_sirius_lp?: number | null
-    clientes?: clientesCreateNestedManyWithoutListas_precosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutListas_precosInput
   }
 
@@ -48544,7 +48832,6 @@ export namespace Prisma {
     id_lp?: number
     descricao_lp: string
     id_sirius_lp?: number | null
-    clientes?: clientesUncheckedCreateNestedManyWithoutListas_precosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutListas_precosInput
   }
 
@@ -48626,8 +48913,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -48647,6 +48934,8 @@ export namespace Prisma {
     vegano_prod?: boolean | null
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
+    imagens?: imagensCreateNestedOneWithoutProdutosInput
+    submenus?: submenusCreateNestedOneWithoutProdutosInput
     produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
     produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutProdutosInput
   }
@@ -48657,8 +48946,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -48676,6 +48965,8 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
+    id_imagem?: number | null
+    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -48701,7 +48992,6 @@ export namespace Prisma {
   export type listas_precosUpdateWithoutPedidos_venda_itens_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput = {
     descricao_lp?: StringFieldUpdateOperationsInput | string
     id_sirius_lp?: NullableIntFieldUpdateOperationsInput | number | null
-    clientes?: clientesUpdateManyWithoutListas_precosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutListas_precosNestedInput
   }
 
@@ -48709,7 +48999,6 @@ export namespace Prisma {
     id_lp?: IntFieldUpdateOperationsInput | number
     descricao_lp?: StringFieldUpdateOperationsInput | string
     id_sirius_lp?: NullableIntFieldUpdateOperationsInput | number | null
-    clientes?: clientesUncheckedUpdateManyWithoutListas_precosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutListas_precosNestedInput
   }
 
@@ -48803,8 +49092,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -48824,6 +49113,8 @@ export namespace Prisma {
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
+    imagens?: imagensUpdateOneWithoutProdutosNestedInput
+    submenus?: submenusUpdateOneWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutProdutosNestedInput
   }
@@ -48834,8 +49125,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -48853,6 +49144,8 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -49003,7 +49296,7 @@ export namespace Prisma {
 
   export type grupos_usuariosCreateWithoutPermissoesInput = {
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
     atividades_grupos?: atividades_gruposCreateNestedManyWithoutGrupos_usuariosInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosCreateNestedManyWithoutGrupos_usuariosInput
   }
@@ -49011,7 +49304,7 @@ export namespace Prisma {
   export type grupos_usuariosUncheckedCreateWithoutPermissoesInput = {
     id_gu?: number
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
     atividades_grupos?: atividades_gruposUncheckedCreateNestedManyWithoutGrupos_usuariosInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUncheckedCreateNestedManyWithoutGrupos_usuariosInput
   }
@@ -49034,7 +49327,7 @@ export namespace Prisma {
 
   export type grupos_usuariosUpdateWithoutPermissoesInput = {
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
     atividades_grupos?: atividades_gruposUpdateManyWithoutGrupos_usuariosNestedInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUpdateManyWithoutGrupos_usuariosNestedInput
   }
@@ -49042,7 +49335,7 @@ export namespace Prisma {
   export type grupos_usuariosUncheckedUpdateWithoutPermissoesInput = {
     id_gu?: IntFieldUpdateOperationsInput | number
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
     atividades_grupos?: atividades_gruposUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
     usuarios_grupos_usuarios?: usuarios_grupos_usuariosUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
   }
@@ -49071,16 +49364,18 @@ export namespace Prisma {
   }
 
   export type listas_precos_produtosCreateWithoutProdutosInput = {
-    valor_lpp?: Decimal | DecimalJsLike | number | string | null
     id_sirius_lpp?: number | null
+    valor_lpp?: Decimal | DecimalJsLike | number | string | null
+    id_produto_sirius_lpp?: number | null
     listas_precos?: listas_precosCreateNestedOneWithoutListas_precos_produtosInput
   }
 
   export type listas_precos_produtosUncheckedCreateWithoutProdutosInput = {
     id_lpp?: number
+    id_sirius_lpp?: number | null
     id_lista_lpp?: number | null
     valor_lpp?: Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: number | null
+    id_produto_sirius_lpp?: number | null
   }
 
   export type listas_precos_produtosCreateOrConnectWithoutProdutosInput = {
@@ -49128,6 +49423,48 @@ export namespace Prisma {
   export type pedidos_venda_itensCreateManyProdutosInputEnvelope = {
     data: pedidos_venda_itensCreateManyProdutosInput | pedidos_venda_itensCreateManyProdutosInput[]
     skipDuplicates?: boolean
+  }
+
+  export type imagensCreateWithoutProdutosInput = {
+    imagem?: Buffer | null
+    desc_imagem?: string | null
+    carousel_images?: carousel_imagesCreateNestedManyWithoutImagensInput
+    first_page_images?: first_page_imagesCreateNestedManyWithoutImagensInput
+    menus?: menusCreateNestedManyWithoutImagensInput
+    restaurantes?: restaurantesCreateNestedManyWithoutImagensInput
+  }
+
+  export type imagensUncheckedCreateWithoutProdutosInput = {
+    id_imagem?: number
+    imagem?: Buffer | null
+    desc_imagem?: string | null
+    carousel_images?: carousel_imagesUncheckedCreateNestedManyWithoutImagensInput
+    first_page_images?: first_page_imagesUncheckedCreateNestedManyWithoutImagensInput
+    menus?: menusUncheckedCreateNestedManyWithoutImagensInput
+    restaurantes?: restaurantesUncheckedCreateNestedManyWithoutImagensInput
+  }
+
+  export type imagensCreateOrConnectWithoutProdutosInput = {
+    where: imagensWhereUniqueInput
+    create: XOR<imagensCreateWithoutProdutosInput, imagensUncheckedCreateWithoutProdutosInput>
+  }
+
+  export type submenusCreateWithoutProdutosInput = {
+    titulo_submenu: string
+    texto_submenu?: string | null
+    menus: menusCreateNestedOneWithoutSubmenusInput
+  }
+
+  export type submenusUncheckedCreateWithoutProdutosInput = {
+    id_submenu?: number
+    id_menu_submenu: number
+    titulo_submenu: string
+    texto_submenu?: string | null
+  }
+
+  export type submenusCreateOrConnectWithoutProdutosInput = {
+    where: submenusWhereUniqueInput
+    create: XOR<submenusCreateWithoutProdutosInput, submenusUncheckedCreateWithoutProdutosInput>
   }
 
   export type produtos_extrasCreateWithoutProdutosInput = {
@@ -49231,6 +49568,60 @@ export namespace Prisma {
     data: XOR<pedidos_venda_itensUpdateManyMutationInput, pedidos_venda_itensUncheckedUpdateManyWithoutProdutosInput>
   }
 
+  export type imagensUpsertWithoutProdutosInput = {
+    update: XOR<imagensUpdateWithoutProdutosInput, imagensUncheckedUpdateWithoutProdutosInput>
+    create: XOR<imagensCreateWithoutProdutosInput, imagensUncheckedCreateWithoutProdutosInput>
+    where?: imagensWhereInput
+  }
+
+  export type imagensUpdateToOneWithWhereWithoutProdutosInput = {
+    where?: imagensWhereInput
+    data: XOR<imagensUpdateWithoutProdutosInput, imagensUncheckedUpdateWithoutProdutosInput>
+  }
+
+  export type imagensUpdateWithoutProdutosInput = {
+    imagem?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    desc_imagem?: NullableStringFieldUpdateOperationsInput | string | null
+    carousel_images?: carousel_imagesUpdateManyWithoutImagensNestedInput
+    first_page_images?: first_page_imagesUpdateManyWithoutImagensNestedInput
+    menus?: menusUpdateManyWithoutImagensNestedInput
+    restaurantes?: restaurantesUpdateManyWithoutImagensNestedInput
+  }
+
+  export type imagensUncheckedUpdateWithoutProdutosInput = {
+    id_imagem?: IntFieldUpdateOperationsInput | number
+    imagem?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    desc_imagem?: NullableStringFieldUpdateOperationsInput | string | null
+    carousel_images?: carousel_imagesUncheckedUpdateManyWithoutImagensNestedInput
+    first_page_images?: first_page_imagesUncheckedUpdateManyWithoutImagensNestedInput
+    menus?: menusUncheckedUpdateManyWithoutImagensNestedInput
+    restaurantes?: restaurantesUncheckedUpdateManyWithoutImagensNestedInput
+  }
+
+  export type submenusUpsertWithoutProdutosInput = {
+    update: XOR<submenusUpdateWithoutProdutosInput, submenusUncheckedUpdateWithoutProdutosInput>
+    create: XOR<submenusCreateWithoutProdutosInput, submenusUncheckedCreateWithoutProdutosInput>
+    where?: submenusWhereInput
+  }
+
+  export type submenusUpdateToOneWithWhereWithoutProdutosInput = {
+    where?: submenusWhereInput
+    data: XOR<submenusUpdateWithoutProdutosInput, submenusUncheckedUpdateWithoutProdutosInput>
+  }
+
+  export type submenusUpdateWithoutProdutosInput = {
+    titulo_submenu?: StringFieldUpdateOperationsInput | string
+    texto_submenu?: NullableStringFieldUpdateOperationsInput | string | null
+    menus?: menusUpdateOneRequiredWithoutSubmenusNestedInput
+  }
+
+  export type submenusUncheckedUpdateWithoutProdutosInput = {
+    id_submenu?: IntFieldUpdateOperationsInput | number
+    id_menu_submenu?: IntFieldUpdateOperationsInput | number
+    titulo_submenu?: StringFieldUpdateOperationsInput | string
+    texto_submenu?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type produtos_extrasUpsertWithWhereUniqueWithoutProdutosInput = {
     where: produtos_extrasWhereUniqueInput
     update: XOR<produtos_extrasUpdateWithoutProdutosInput, produtos_extrasUncheckedUpdateWithoutProdutosInput>
@@ -49286,8 +49677,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -49308,6 +49699,8 @@ export namespace Prisma {
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
+    imagens?: imagensCreateNestedOneWithoutProdutosInput
+    submenus?: submenusCreateNestedOneWithoutProdutosInput
     produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutProdutosInput
   }
 
@@ -49317,8 +49710,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -49336,6 +49729,8 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
+    id_imagem?: number | null
+    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -49387,8 +49782,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -49409,6 +49804,8 @@ export namespace Prisma {
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
+    imagens?: imagensUpdateOneWithoutProdutosNestedInput
+    submenus?: submenusUpdateOneWithoutProdutosNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutProdutosNestedInput
   }
 
@@ -49418,8 +49815,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -49437,6 +49834,8 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -49516,8 +49915,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -49538,6 +49937,8 @@ export namespace Prisma {
     clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
+    imagens?: imagensCreateNestedOneWithoutProdutosInput
+    submenus?: submenusCreateNestedOneWithoutProdutosInput
     produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
   }
 
@@ -49547,8 +49948,8 @@ export namespace Prisma {
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
-    ncm_prod: string
-    cfop_prod: string
+    ncm_prod?: string | null
+    cfop_prod?: string | null
     un_com_prod?: string | null
     qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
@@ -49566,6 +49967,8 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
+    id_imagem?: number | null
+    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -49667,8 +50070,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -49689,6 +50092,8 @@ export namespace Prisma {
     clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
+    imagens?: imagensUpdateOneWithoutProdutosNestedInput
+    submenus?: submenusUpdateOneWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
   }
 
@@ -49698,8 +50103,8 @@ export namespace Prisma {
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
-    ncm_prod?: StringFieldUpdateOperationsInput | string
-    cfop_prod?: StringFieldUpdateOperationsInput | string
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
     un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
     qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -49717,6 +50122,8 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -49794,6 +50201,7 @@ export namespace Prisma {
     carousel_images?: carousel_imagesCreateNestedManyWithoutImagensInput
     first_page_images?: first_page_imagesCreateNestedManyWithoutImagensInput
     menus?: menusCreateNestedManyWithoutImagensInput
+    produtos?: produtosCreateNestedManyWithoutImagensInput
   }
 
   export type imagensUncheckedCreateWithoutRestaurantesInput = {
@@ -49803,6 +50211,7 @@ export namespace Prisma {
     carousel_images?: carousel_imagesUncheckedCreateNestedManyWithoutImagensInput
     first_page_images?: first_page_imagesUncheckedCreateNestedManyWithoutImagensInput
     menus?: menusUncheckedCreateNestedManyWithoutImagensInput
+    produtos?: produtosUncheckedCreateNestedManyWithoutImagensInput
   }
 
   export type imagensCreateOrConnectWithoutRestaurantesInput = {
@@ -49875,6 +50284,7 @@ export namespace Prisma {
     carousel_images?: carousel_imagesUpdateManyWithoutImagensNestedInput
     first_page_images?: first_page_imagesUpdateManyWithoutImagensNestedInput
     menus?: menusUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUpdateManyWithoutImagensNestedInput
   }
 
   export type imagensUncheckedUpdateWithoutRestaurantesInput = {
@@ -49884,6 +50294,82 @@ export namespace Prisma {
     carousel_images?: carousel_imagesUncheckedUpdateManyWithoutImagensNestedInput
     first_page_images?: first_page_imagesUncheckedUpdateManyWithoutImagensNestedInput
     menus?: menusUncheckedUpdateManyWithoutImagensNestedInput
+    produtos?: produtosUncheckedUpdateManyWithoutImagensNestedInput
+  }
+
+  export type produtosCreateWithoutSubmenusInput = {
+    id_sirius_prod?: number | null
+    cod_prod?: string | null
+    descricao_prod: string
+    cod_ean_prod?: string | null
+    ncm_prod?: string | null
+    cfop_prod?: string | null
+    un_com_prod?: string | null
+    qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: string | null
+    un_trib_prod?: string | null
+    qtd_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: Decimal | DecimalJsLike | number | string | null
+    status_prod: string
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
+    clientes_produtos?: clientes_produtosCreateNestedManyWithoutProdutosInput
+    listas_precos_produtos?: listas_precos_produtosCreateNestedManyWithoutProdutosInput
+    pedidos_venda_itens?: pedidos_venda_itensCreateNestedManyWithoutProdutosInput
+    imagens?: imagensCreateNestedOneWithoutProdutosInput
+    produtos_extras?: produtos_extrasCreateNestedManyWithoutProdutosInput
+    produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutProdutosInput
+  }
+
+  export type produtosUncheckedCreateWithoutSubmenusInput = {
+    id_prod?: number
+    id_sirius_prod?: number | null
+    cod_prod?: string | null
+    descricao_prod: string
+    cod_ean_prod?: string | null
+    ncm_prod?: string | null
+    cfop_prod?: string | null
+    un_com_prod?: string | null
+    qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: string | null
+    un_trib_prod?: string | null
+    qtd_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: Decimal | DecimalJsLike | number | string | null
+    status_prod: string
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
+    id_imagem?: number | null
+    clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
+    listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
+    pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
+    produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
+    produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutProdutosInput
+  }
+
+  export type produtosCreateOrConnectWithoutSubmenusInput = {
+    where: produtosWhereUniqueInput
+    create: XOR<produtosCreateWithoutSubmenusInput, produtosUncheckedCreateWithoutSubmenusInput>
+  }
+
+  export type produtosCreateManySubmenusInputEnvelope = {
+    data: produtosCreateManySubmenusInput | produtosCreateManySubmenusInput[]
+    skipDuplicates?: boolean
   }
 
   export type menusCreateWithoutSubmenusInput = {
@@ -49904,6 +50390,22 @@ export namespace Prisma {
   export type menusCreateOrConnectWithoutSubmenusInput = {
     where: menusWhereUniqueInput
     create: XOR<menusCreateWithoutSubmenusInput, menusUncheckedCreateWithoutSubmenusInput>
+  }
+
+  export type produtosUpsertWithWhereUniqueWithoutSubmenusInput = {
+    where: produtosWhereUniqueInput
+    update: XOR<produtosUpdateWithoutSubmenusInput, produtosUncheckedUpdateWithoutSubmenusInput>
+    create: XOR<produtosCreateWithoutSubmenusInput, produtosUncheckedCreateWithoutSubmenusInput>
+  }
+
+  export type produtosUpdateWithWhereUniqueWithoutSubmenusInput = {
+    where: produtosWhereUniqueInput
+    data: XOR<produtosUpdateWithoutSubmenusInput, produtosUncheckedUpdateWithoutSubmenusInput>
+  }
+
+  export type produtosUpdateManyWithWhereWithoutSubmenusInput = {
+    where: produtosScalarWhereInput
+    data: XOR<produtosUpdateManyMutationInput, produtosUncheckedUpdateManyWithoutSubmenusInput>
   }
 
   export type menusUpsertWithoutSubmenusInput = {
@@ -50023,7 +50525,7 @@ export namespace Prisma {
 
   export type grupos_usuariosCreateWithoutUsuarios_grupos_usuariosInput = {
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
     atividades_grupos?: atividades_gruposCreateNestedManyWithoutGrupos_usuariosInput
     permissoes?: permissoesCreateNestedManyWithoutGrupos_usuariosInput
   }
@@ -50031,7 +50533,7 @@ export namespace Prisma {
   export type grupos_usuariosUncheckedCreateWithoutUsuarios_grupos_usuariosInput = {
     id_gu?: number
     nm_gu: string
-    pg_inicial_gu?: string | null
+    pg_inicial_gu?: string
     atividades_grupos?: atividades_gruposUncheckedCreateNestedManyWithoutGrupos_usuariosInput
     permissoes?: permissoesUncheckedCreateNestedManyWithoutGrupos_usuariosInput
   }
@@ -50054,7 +50556,7 @@ export namespace Prisma {
 
   export type grupos_usuariosUpdateWithoutUsuarios_grupos_usuariosInput = {
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
     atividades_grupos?: atividades_gruposUpdateManyWithoutGrupos_usuariosNestedInput
     permissoes?: permissoesUpdateManyWithoutGrupos_usuariosNestedInput
   }
@@ -50062,7 +50564,7 @@ export namespace Prisma {
   export type grupos_usuariosUncheckedUpdateWithoutUsuarios_grupos_usuariosInput = {
     id_gu?: IntFieldUpdateOperationsInput | number
     nm_gu?: StringFieldUpdateOperationsInput | string
-    pg_inicial_gu?: NullableStringFieldUpdateOperationsInput | string | null
+    pg_inicial_gu?: StringFieldUpdateOperationsInput | string
     atividades_grupos?: atividades_gruposUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
     permissoes?: permissoesUncheckedUpdateManyWithoutGrupos_usuariosNestedInput
   }
@@ -50665,10 +51167,10 @@ export namespace Prisma {
     exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    id_lista_preco_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    listas_precos?: listas_precosUpdateOneWithoutClientesNestedInput
     clientes_produtos?: clientes_produtosUpdateManyWithoutClientesNestedInput
     contatos?: contatosUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUpdateManyWithoutClientesNestedInput
@@ -50837,8 +51339,8 @@ export namespace Prisma {
 
   export type atividades_gruposCreateManyGrupos_usuariosInput = {
     id_ag?: number
-    nm_atividade_ag?: string | null
     id_atividade_ag: number
+    nm_atividade_ag?: string | null
     valor_ag?: number | null
     descricao_ag?: string | null
   }
@@ -50859,24 +51361,24 @@ export namespace Prisma {
   }
 
   export type atividades_gruposUpdateWithoutGrupos_usuariosInput = {
-    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     id_atividade_ag?: IntFieldUpdateOperationsInput | number
+    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     valor_ag?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_ag?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type atividades_gruposUncheckedUpdateWithoutGrupos_usuariosInput = {
     id_ag?: IntFieldUpdateOperationsInput | number
-    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     id_atividade_ag?: IntFieldUpdateOperationsInput | number
+    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     valor_ag?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_ag?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type atividades_gruposUncheckedUpdateManyWithoutGrupos_usuariosInput = {
     id_ag?: IntFieldUpdateOperationsInput | number
-    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     id_atividade_ag?: IntFieldUpdateOperationsInput | number
+    nm_atividade_ag?: NullableStringFieldUpdateOperationsInput | string | null
     valor_ag?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_ag?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -50942,6 +51444,34 @@ export namespace Prisma {
     texto_menu?: string | null
   }
 
+  export type produtosCreateManyImagensInput = {
+    id_prod?: number
+    id_sirius_prod?: number | null
+    cod_prod?: string | null
+    descricao_prod: string
+    cod_ean_prod?: string | null
+    ncm_prod?: string | null
+    cfop_prod?: string | null
+    un_com_prod?: string | null
+    qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: string | null
+    un_trib_prod?: string | null
+    qtd_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: Decimal | DecimalJsLike | number | string | null
+    status_prod: string
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
+    id_submenu?: number | null
+  }
+
   export type restaurantesCreateManyImagensInput = {
     id_restaurante?: number
     id_empresa_restaurante: number
@@ -51001,6 +51531,99 @@ export namespace Prisma {
     texto_menu?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type produtosUpdateWithoutImagensInput = {
+    id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao_prod?: StringFieldUpdateOperationsInput | string
+    cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_prod?: StringFieldUpdateOperationsInput | string
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
+    listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
+    pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
+    submenus?: submenusUpdateOneWithoutProdutosNestedInput
+    produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
+    produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutProdutosNestedInput
+  }
+
+  export type produtosUncheckedUpdateWithoutImagensInput = {
+    id_prod?: IntFieldUpdateOperationsInput | number
+    id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao_prod?: StringFieldUpdateOperationsInput | string
+    cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_prod?: StringFieldUpdateOperationsInput | string
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
+    clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
+    listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
+    pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
+    produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
+    produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutProdutosNestedInput
+  }
+
+  export type produtosUncheckedUpdateManyWithoutImagensInput = {
+    id_prod?: IntFieldUpdateOperationsInput | number
+    id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao_prod?: StringFieldUpdateOperationsInput | string
+    cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_prod?: StringFieldUpdateOperationsInput | string
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type restaurantesUpdateWithoutImagensInput = {
     id_empresa_restaurante?: IntFieldUpdateOperationsInput | number
     nm_restaurante?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51024,35 +51647,12 @@ export namespace Prisma {
     nm_restaurante?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type clientesCreateManyListas_precosInput = {
-    id_cliente?: number
-    id_sirius_cliente?: number | null
-    status_cliente: string
-    created_at_cliente: Date | string
-    updated_at_cliente: Date | string
-    razao_social_cliente: string
-    fantasia_cliente?: string | null
-    cpf_cliente: string
-    cnpj_cliente: string
-    id_estrangeiro_cliente?: string | null
-    ind_ie_cliente?: string | null
-    insc_estadual_cliente?: string | null
-    insc_municipal_cliente?: string | null
-    tipo_cliente: string
-    exclusivo_cliente?: number | null
-    id_vendedor_cliente?: number | null
-    id_vendedor_sirius_cliente?: number | null
-    id_condicao_pagamento_cliente?: number | null
-    contato_cliente?: string | null
-    nm_contato_cliente?: string | null
-    id_condicao_pagamento_sirius_cliente?: number | null
-  }
-
   export type listas_precos_produtosCreateManyListas_precosInput = {
     id_lpp?: number
+    id_sirius_lpp?: number | null
     id_produto_lpp?: number | null
     valor_lpp?: Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: number | null
+    id_produto_sirius_lpp?: number | null
   }
 
   export type pedidos_venda_itensCreateManyPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput = {
@@ -51069,103 +51669,27 @@ export namespace Prisma {
     valor_total_pvi?: Decimal | DecimalJsLike | number | string | null
   }
 
-  export type clientesUpdateWithoutListas_precosInput = {
-    id_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    status_cliente?: StringFieldUpdateOperationsInput | string
-    created_at_cliente?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at_cliente?: DateTimeFieldUpdateOperationsInput | Date | string
-    razao_social_cliente?: StringFieldUpdateOperationsInput | string
-    fantasia_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    cpf_cliente?: StringFieldUpdateOperationsInput | string
-    cnpj_cliente?: StringFieldUpdateOperationsInput | string
-    id_estrangeiro_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    ind_ie_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    insc_estadual_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    insc_municipal_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo_cliente?: StringFieldUpdateOperationsInput | string
-    exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutClientesNestedInput
-    clientes_produtos?: clientes_produtosUpdateManyWithoutClientesNestedInput
-    contatos?: contatosUpdateManyWithoutClientesNestedInput
-    enderecos?: enderecosUpdateManyWithoutClientesNestedInput
-    pedidos_venda?: pedidos_vendaUpdateManyWithoutClientesNestedInput
-  }
-
-  export type clientesUncheckedUpdateWithoutListas_precosInput = {
-    id_cliente?: IntFieldUpdateOperationsInput | number
-    id_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    status_cliente?: StringFieldUpdateOperationsInput | string
-    created_at_cliente?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at_cliente?: DateTimeFieldUpdateOperationsInput | Date | string
-    razao_social_cliente?: StringFieldUpdateOperationsInput | string
-    fantasia_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    cpf_cliente?: StringFieldUpdateOperationsInput | string
-    cnpj_cliente?: StringFieldUpdateOperationsInput | string
-    id_estrangeiro_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    ind_ie_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    insc_estadual_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    insc_municipal_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo_cliente?: StringFieldUpdateOperationsInput | string
-    exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    id_condicao_pagamento_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutClientesNestedInput
-    contatos?: contatosUncheckedUpdateManyWithoutClientesNestedInput
-    enderecos?: enderecosUncheckedUpdateManyWithoutClientesNestedInput
-    pedidos_venda?: pedidos_vendaUncheckedUpdateManyWithoutClientesNestedInput
-  }
-
-  export type clientesUncheckedUpdateManyWithoutListas_precosInput = {
-    id_cliente?: IntFieldUpdateOperationsInput | number
-    id_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    status_cliente?: StringFieldUpdateOperationsInput | string
-    created_at_cliente?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at_cliente?: DateTimeFieldUpdateOperationsInput | Date | string
-    razao_social_cliente?: StringFieldUpdateOperationsInput | string
-    fantasia_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    cpf_cliente?: StringFieldUpdateOperationsInput | string
-    cnpj_cliente?: StringFieldUpdateOperationsInput | string
-    id_estrangeiro_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    ind_ie_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    insc_estadual_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    insc_municipal_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo_cliente?: StringFieldUpdateOperationsInput | string
-    exclusivo_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    id_vendedor_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    id_vendedor_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    id_condicao_pagamento_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
-    id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
   export type listas_precos_produtosUpdateWithoutListas_precosInput = {
-    valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     produtos?: produtosUpdateOneWithoutListas_precos_produtosNestedInput
   }
 
   export type listas_precos_produtosUncheckedUpdateWithoutListas_precosInput = {
     id_lpp?: IntFieldUpdateOperationsInput | number
+    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     id_produto_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type listas_precos_produtosUncheckedUpdateManyWithoutListas_precosInput = {
     id_lpp?: IntFieldUpdateOperationsInput | number
+    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     id_produto_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type pedidos_venda_itensUpdateWithoutPedidos_venda_pedidos_venda_itens_id_lista_preco_pviTopedidos_vendaInput = {
@@ -51218,12 +51742,14 @@ export namespace Prisma {
   export type submenusUpdateWithoutMenusInput = {
     titulo_submenu?: StringFieldUpdateOperationsInput | string
     texto_submenu?: NullableStringFieldUpdateOperationsInput | string | null
+    produtos?: produtosUpdateManyWithoutSubmenusNestedInput
   }
 
   export type submenusUncheckedUpdateWithoutMenusInput = {
     id_submenu?: IntFieldUpdateOperationsInput | number
     titulo_submenu?: StringFieldUpdateOperationsInput | string
     texto_submenu?: NullableStringFieldUpdateOperationsInput | string | null
+    produtos?: produtosUncheckedUpdateManyWithoutSubmenusNestedInput
   }
 
   export type submenusUncheckedUpdateManyWithoutMenusInput = {
@@ -51499,9 +52025,10 @@ export namespace Prisma {
 
   export type listas_precos_produtosCreateManyProdutosInput = {
     id_lpp?: number
+    id_sirius_lpp?: number | null
     id_lista_lpp?: number | null
     valor_lpp?: Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: number | null
+    id_produto_sirius_lpp?: number | null
   }
 
   export type pedidos_venda_itensCreateManyProdutosInput = {
@@ -51556,23 +52083,26 @@ export namespace Prisma {
   }
 
   export type listas_precos_produtosUpdateWithoutProdutosInput = {
-    valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     listas_precos?: listas_precosUpdateOneWithoutListas_precos_produtosNestedInput
   }
 
   export type listas_precos_produtosUncheckedUpdateWithoutProdutosInput = {
     id_lpp?: IntFieldUpdateOperationsInput | number
+    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     id_lista_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type listas_precos_produtosUncheckedUpdateManyWithoutProdutosInput = {
     id_lpp?: IntFieldUpdateOperationsInput | number
+    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     id_lista_lpp?: NullableIntFieldUpdateOperationsInput | number | null
     valor_lpp?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    id_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
+    id_produto_sirius_lpp?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type pedidos_venda_itensUpdateWithoutProdutosInput = {
@@ -51735,6 +52265,127 @@ export namespace Prisma {
     id_imagem_menu?: NullableIntFieldUpdateOperationsInput | number | null
     titulo_menu?: StringFieldUpdateOperationsInput | string
     texto_menu?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type produtosCreateManySubmenusInput = {
+    id_prod?: number
+    id_sirius_prod?: number | null
+    cod_prod?: string | null
+    descricao_prod: string
+    cod_ean_prod?: string | null
+    ncm_prod?: string | null
+    cfop_prod?: string | null
+    un_com_prod?: string | null
+    qtd_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: string | null
+    un_trib_prod?: string | null
+    qtd_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: Decimal | DecimalJsLike | number | string | null
+    status_prod: string
+    texto_prod?: string | null
+    novo_prod?: boolean | null
+    acucar_prod?: boolean | null
+    lactose_prod?: boolean | null
+    gluten_prod?: boolean | null
+    vegetariano_prod?: boolean | null
+    vegano_prod?: boolean | null
+    id_imagem?: number | null
+  }
+
+  export type produtosUpdateWithoutSubmenusInput = {
+    id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao_prod?: StringFieldUpdateOperationsInput | string
+    cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_prod?: StringFieldUpdateOperationsInput | string
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    clientes_produtos?: clientes_produtosUpdateManyWithoutProdutosNestedInput
+    listas_precos_produtos?: listas_precos_produtosUpdateManyWithoutProdutosNestedInput
+    pedidos_venda_itens?: pedidos_venda_itensUpdateManyWithoutProdutosNestedInput
+    imagens?: imagensUpdateOneWithoutProdutosNestedInput
+    produtos_extras?: produtos_extrasUpdateManyWithoutProdutosNestedInput
+    produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutProdutosNestedInput
+  }
+
+  export type produtosUncheckedUpdateWithoutSubmenusInput = {
+    id_prod?: IntFieldUpdateOperationsInput | number
+    id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao_prod?: StringFieldUpdateOperationsInput | string
+    cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_prod?: StringFieldUpdateOperationsInput | string
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
+    clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
+    listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
+    pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
+    produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
+    produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutProdutosNestedInput
+  }
+
+  export type produtosUncheckedUpdateManyWithoutSubmenusInput = {
+    id_prod?: IntFieldUpdateOperationsInput | number
+    id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao_prod?: StringFieldUpdateOperationsInput | string
+    cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    ncm_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    cfop_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_com_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_com_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cod_ean_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    un_trib_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    qtd_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    vlr_un_trib_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_prod?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_prod?: StringFieldUpdateOperationsInput | string
+    texto_prod?: NullableStringFieldUpdateOperationsInput | string | null
+    novo_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    acucar_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    lactose_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type pedidos_vendaCreateManyTransportadoresInput = {
@@ -52051,6 +52702,10 @@ export namespace Prisma {
      * @deprecated Use RestaurantesCountOutputTypeDefaultArgs instead
      */
     export type RestaurantesCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = RestaurantesCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use SubmenusCountOutputTypeDefaultArgs instead
+     */
+    export type SubmenusCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SubmenusCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use TransportadoresCountOutputTypeDefaultArgs instead
      */

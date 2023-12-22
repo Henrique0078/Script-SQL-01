@@ -107,20 +107,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.ParametrosScalarFieldEnum = {
-  id: 'id',
-  parametro: 'parametro',
-  valorParametro: 'valorParametro',
-  descricao: 'descricao'
-};
-
-exports.Prisma.AtividadesScalarFieldEnum = {
-  id_atividade: 'id_atividade',
-  atividade: 'atividade',
-  valor: 'valor',
-  descricao: 'descricao'
-};
-
 exports.Prisma.EmpresasScalarFieldEnum = {
   id: 'id',
   cnpj: 'cnpj',
@@ -144,11 +130,6 @@ exports.Prisma.EmpresasScalarFieldEnum = {
   idAtualizacaoBanco: 'idAtualizacaoBanco'
 };
 
-exports.Prisma.ModulosScalarFieldEnum = {
-  id_modulo: 'id_modulo',
-  modulo: 'modulo'
-};
-
 exports.Prisma.UsuariosScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
@@ -164,7 +145,31 @@ exports.Prisma.UsuariosScalarFieldEnum = {
 exports.Prisma.Usuarios_x_empresasScalarFieldEnum = {
   id: 'id',
   id_empresa: 'id_empresa',
-  id_usuario: 'id_usuario'
+  id_usuario: 'id_usuario',
+  id_grupo_usuario: 'id_grupo_usuario'
+};
+
+exports.Prisma.AcoesScalarFieldEnum = {
+  id: 'id',
+  descricao: 'descricao',
+  descricao_titulo: 'descricao_titulo',
+  tabela: 'tabela',
+  tabela_titulo: 'tabela_titulo',
+  valor_padrao: 'valor_padrao'
+};
+
+exports.Prisma.Acoes_x_gruposScalarFieldEnum = {
+  id: 'id',
+  id_acao: 'id_acao',
+  id_grupo_usuario: 'id_grupo_usuario',
+  permite: 'permite'
+};
+
+exports.Prisma.Grupos_usuariosScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  id_empresa: 'id_empresa',
+  pagina_inicial: 'pagina_inicial'
 };
 
 exports.Prisma.SortOrder = {
@@ -179,12 +184,12 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  parametros: 'parametros',
-  atividades: 'atividades',
   empresas: 'empresas',
-  modulos: 'modulos',
   usuarios: 'usuarios',
-  usuarios_x_empresas: 'usuarios_x_empresas'
+  usuarios_x_empresas: 'usuarios_x_empresas',
+  acoes: 'acoes',
+  acoes_x_grupos: 'acoes_x_grupos',
+  grupos_usuarios: 'grupos_usuarios'
 };
 
 /**

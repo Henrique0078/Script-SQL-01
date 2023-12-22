@@ -10,7 +10,8 @@ export default class BancaoGrupoDeUsuariosService{
 		try {
 			const gruposUsuarios : grupos_usuarios[] = [{id_gu:1,nm_gu:"Supervisor", pg_inicial_gu:undefined},{id_gu:2,nm_gu:"Comum", pg_inicial_gu:undefined}];
 			if(gruposUsuarios.length > 0){
-				await prismaNovo.grupos_usuarios.createMany({data: gruposUsuarios});
+
+				const grupos_usuarios = await prismaNovo.grupos_usuarios.createMany({data: gruposUsuarios});
 
 				const PermissoesService = new BancaoPermissoesGrupoUsuarioService();
 				const AtividadeService = new BancaoAtividadeGruposService();
@@ -19,7 +20,7 @@ export default class BancaoGrupoDeUsuariosService{
 				await AtividadeService.troca(prismaNovo);
 
 				const grupos_usuariosCount = await prismaNovo.grupos_usuarios.count();
-				console.log("Registros de Grupos Usuario" + grupos_usuariosCount.toString);
+				console.log("Registros de Grupos Usuario" + grupos_usuariosCount.toString());
 			}
 		} catch (error) {
 			throw new ErrorResponse(500, "Erro interno do servidor ao trocar parametros: " + error);

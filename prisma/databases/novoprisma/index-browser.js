@@ -109,9 +109,9 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.Atividades_gruposScalarFieldEnum = {
   id_ag: 'id_ag',
-  nm_atividade_ag: 'nm_atividade_ag',
   id_grupos_usuarios_ag: 'id_grupos_usuarios_ag',
   id_atividade_ag: 'id_atividade_ag',
+  nm_atividade_ag: 'nm_atividade_ag',
   valor_ag: 'valor_ag',
   descricao_ag: 'descricao_ag'
 };
@@ -250,10 +250,11 @@ exports.Prisma.Listas_precosScalarFieldEnum = {
 
 exports.Prisma.Listas_precos_produtosScalarFieldEnum = {
   id_lpp: 'id_lpp',
+  id_sirius_lpp: 'id_sirius_lpp',
   id_lista_lpp: 'id_lista_lpp',
   id_produto_lpp: 'id_produto_lpp',
   valor_lpp: 'valor_lpp',
-  id_sirius_lpp: 'id_sirius_lpp'
+  id_produto_sirius_lpp: 'id_produto_sirius_lpp'
 };
 
 exports.Prisma.MenusScalarFieldEnum = {
@@ -366,7 +367,9 @@ exports.Prisma.ProdutosScalarFieldEnum = {
   lactose_prod: 'lactose_prod',
   gluten_prod: 'gluten_prod',
   vegetariano_prod: 'vegetariano_prod',
-  vegano_prod: 'vegano_prod'
+  vegano_prod: 'vegano_prod',
+  id_imagem: 'id_imagem',
+  id_submenu: 'id_submenu'
 };
 
 exports.Prisma.Produtos_extrasScalarFieldEnum = {

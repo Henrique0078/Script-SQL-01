@@ -27,6 +27,7 @@ export class migracao {
 			let empresasNew = await prismaBancao.empresas.findMany({});
 
 			const nomesDesejadosAntigos = [
+				"b15432558000113",
 				"b68241843000113",
 				"b68241843000213",
 				"b00739197000185",
@@ -35,6 +36,7 @@ export class migracao {
 			];
 
 			const nomesDesejadosNovos = [
+				"b15432558000113_2",
 				"b68241843000113_2",
 				"b68241843000213_2",
 				"b00739197000185_2",

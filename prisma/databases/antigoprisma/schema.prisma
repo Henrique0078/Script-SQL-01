@@ -1,5 +1,5 @@
 generator client {
-    provider        = "prisma-client-js"
+  provider        = "prisma-client-js"
   output          = "./databases/antigoprisma"
   previewFeatures = ["views"]
   binaryTargets   = ["native", "debian-openssl-1.1.x"]
@@ -70,7 +70,7 @@ model contatos {
   contato     String   @db.VarChar(60)
   tipoContato String   @db.VarChar(1)
   cliente_id  BigInt
-  clientes    clientes @relation(fields: [cliente_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "contatos_ibfk_1")
+  clientes    clientes @relation(fields: [cliente_id], references: [id], onUpdate: Restrict, map: "contatos_ibfk_1")
 
   @@index([cliente_id], map: "cliente_id")
 }
@@ -80,7 +80,7 @@ model docreferenciado {
   notaFiscal_id     BigInt?
   tipoDoc           String?     @db.VarChar(60)
   chave             String?     @db.VarChar(47)
-  notafiscal        notafiscal? @relation(fields: [notaFiscal_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "docreferenciado_ibfk_1")
+  notafiscal        notafiscal? @relation(fields: [notaFiscal_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "docreferenciado_ibfk_1")
 
   @@index([notaFiscal_id], map: "notaFiscal_id")
 }
@@ -100,7 +100,7 @@ model enderecos {
   tipoEndereco   String       @db.VarChar(1)
   status         String?      @default("A") @db.Char(1)
   tipoLogradouro String       @default("") @db.VarChar(45)
-  clientes       clientes     @relation(fields: [cliente_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "enderecos_ibfk_1")
+  clientes       clientes     @relation(fields: [cliente_id], references: [id], onUpdate: Restrict, map: "enderecos_ibfk_1")
   notafiscal     notafiscal[]
 
   @@index([cliente_id], map: "idx_enderecos_cliente_id")
@@ -243,8 +243,8 @@ model notafiscal {
   xMotivo              String?                @db.VarChar(60)
   retWS                Bytes?                 @db.Blob
   docreferenciado      docreferenciado[]
-  clientes             clientes?              @relation(fields: [cliente_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "notafiscal_ibfk_1")
-  enderecos            enderecos?             @relation(fields: [endereco_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "notafiscal_ibfk_2")
+  clientes             clientes?              @relation(fields: [cliente_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "notafiscal_ibfk_1")
+  enderecos            enderecos?             @relation(fields: [endereco_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "notafiscal_ibfk_2")
   notafiscalitem       notafiscalitem[]
   notafiscalpagamentos notafiscalpagamentos[]
 
@@ -324,8 +324,8 @@ model notafiscalitem {
   vIPIDevol       Decimal?   @db.Decimal(15, 2)
   pRedBCST        Decimal?   @db.Decimal(7, 4)
   pMVAST          Decimal?   @db.Decimal(7, 4)
-  notafiscal      notafiscal @relation(fields: [notafiscal_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "notafiscalitem_ibfk_1")
-  produtos        produtos?  @relation(fields: [produto_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "notafiscalitem_ibfk_2")
+  notafiscal      notafiscal @relation(fields: [notafiscal_id], references: [id], onUpdate: Restrict, map: "notafiscalitem_ibfk_1")
+  produtos        produtos?  @relation(fields: [produto_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "notafiscalitem_ibfk_2")
 
   @@index([notafiscal_id], map: "notafiscal_id")
   @@index([produto_id], map: "produto_id")
@@ -339,7 +339,7 @@ model notafiscalpagamentos {
   data_criacao    DateTime?  @db.DateTime(0)
   data_vencimento DateTime?  @db.DateTime(0)
   notaFiscal_id   BigInt
-  notafiscal      notafiscal @relation(fields: [notaFiscal_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "notafiscalpagamentos_ibfk_1")
+  notafiscal      notafiscal @relation(fields: [notaFiscal_id], references: [id], onUpdate: Restrict, map: "notafiscalpagamentos_ibfk_1")
 
   @@index([notaFiscal_id], map: "notaFiscal_id")
 }

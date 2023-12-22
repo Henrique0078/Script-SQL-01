@@ -10,22 +10,8 @@ datasource db2 {
   url      = env("DATABASE4_URL")
 }
 
-model parametros {
-  id             Int    @id @unique(map: "id_UNIQUE") @default(autoincrement())
-  parametro      String @unique(map: "parametro_UNIQUE") @db2.VarChar(80)
-  valorParametro Int
-  descricao      String @db2.VarChar(256)
-}
-
-model atividades {
-  id_atividade Int     @id @default(autoincrement())
-  atividade    String? @unique(map: "atividade") @db2.VarChar(20)
-  valor        Int?    @default(0)
-  descricao    String? @db2.VarChar(60)
-}
-
 model empresas {
-  id                  Int                   @id @unique(map: "id") @default(autoincrement())
+  id                  BigInt                @id @unique(map: "id") @default(autoincrement())
   cnpj                String                @db2.VarChar(18)
   xRazaoSocial        String                @db2.VarChar(60)
   xFant               String                @db2.VarChar(60)
@@ -40,39 +26,72 @@ model empresas {
   fone                String                @db2.VarChar(14)
   ie                  String                @db2.VarChar(14)
   crt                 String                @db2.VarChar(1)
-  token               String                @unique(map: "token") @db2.VarChar(128)
+  token               String                @unique(map: "token") @db2.VarChar(100)
   banco               String                @db2.VarChar(100)
   status              String                @db2.VarChar(1)
   email               String?               @db2.VarChar(129)
   idAtualizacaoBanco  Int?                  @default(0)
+  grupos_usuarios     grupos_usuarios[]
   usuarios_x_empresas usuarios_x_empresas[]
 }
 
-model modulos {
-  id_modulo Int     @id @default(autoincrement())
-  modulo    String? @unique(map: "modulo") @db2.VarChar(50)
-}
-
 model usuarios {
-  id                  Int                   @id @unique(map: "id") @default(autoincrement())
+  id                  BigInt                @id @unique(map: "id") @default(autoincrement())
   nome                String?               @db2.VarChar(60)
   ultimo_nome         String?               @db2.VarChar(60)
   email               String?               @db2.VarChar(150)
   senha               String?
   celular             String?               @db2.VarChar(14)
-  status              String?               @default("A") @db2.Char(1)
-  user_token          String                @unique(map: "user_token") @db2.VarChar(128)
+  status              String?               @db2.Char(1)
+  user_token          String                @unique(map: "user_token") @db2.VarChar(100)
   exclusivo           String?               @default("N") @db2.Char(1)
   usuarios_x_empresas usuarios_x_empresas[]
 }
 
 model usuarios_x_empresas {
-  id         Int      @id @unique(map: "id") @default(autoincrement())
-  id_empresa Int
-  id_usuario Int
-  empresas   empresas @relation(fields: [id_empresa], references: [id], onUpdate: Restrict, map: "usuarios_x_empresas_ibfk_1")
-  usuarios   usuarios @relation(fields: [id_usuario], references: [id], onUpdate: Restrict, map: "usuarios_x_empresas_ibfk_2")
+  id               BigInt          @id @unique(map: "id") @default(autoincrement())
+  id_empresa       BigInt
+  id_usuario       BigInt
+  id_grupo_usuario BigInt
+  empresas         empresas        @relation(fields: [id_empresa], references: [id], onUpdate: Restrict, map: "usuarios_x_empresas_ibfk_1")
+  usuarios         usuarios        @relation(fields: [id_usuario], references: [id], onUpdate: Restrict, map: "usuarios_x_empresas_ibfk_2")
+  grupos_usuarios  grupos_usuarios @relation(fields: [id_grupo_usuario], references: [id], onUpdate: Restrict, map: "usuarios_x_empresas_ibfk_3")
 
   @@index([id_empresa], map: "id_empresa")
   @@index([id_usuario], map: "id_usuario")
+  @@index([id_grupo_usuario], map: "id_grupo_usuario")
+}
+
+model acoes {
+  id               BigInt           @id @unique(map: "id") @default(autoincrement())
+  descricao        String           @db2.VarChar(100)
+  descricao_titulo String           @db2.VarChar(100)
+  tabela           String           @db2.VarChar(40)
+  tabela_titulo    String           @db2.VarChar(40)
+  valor_padrao     Int?             @default(0)
+  acoes_x_grupos   acoes_x_grupos[]
+}
+
+model acoes_x_grupos {
+  id               BigInt          @id @unique(map: "id") @default(autoincrement())
+  id_acao          BigInt
+  id_grupo_usuario BigInt
+  permite          Int
+  acoes            acoes           @relation(fields: [id_acao], references: [id], onUpdate: Restrict, map: "acoes_x_grupos_ibfk_1")
+  grupos_usuarios  grupos_usuarios @relation(fields: [id_grupo_usuario], references: [id], onUpdate: Restrict, map: "acoes_x_grupos_ibfk_2")
+
+  @@index([id_acao], map: "id_acao")
+  @@index([id_grupo_usuario], map: "id_grupo_usuario")
+}
+
+model grupos_usuarios {
+  id                  BigInt                @id @unique(map: "id") @default(autoincrement())
+  nome                String                @db2.VarChar(50)
+  id_empresa          BigInt
+  pagina_inicial      String                @default("notas-fiscais") @db2.VarChar(20)
+  acoes_x_grupos      acoes_x_grupos[]
+  empresas            empresas              @relation(fields: [id_empresa], references: [id], onUpdate: Restrict, map: "grupos_usuarios_ibfk_1")
+  usuarios_x_empresas usuarios_x_empresas[]
+
+  @@index([id_empresa], map: "id_empresa")
 }

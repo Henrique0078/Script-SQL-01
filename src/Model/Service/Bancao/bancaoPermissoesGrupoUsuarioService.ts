@@ -28,7 +28,7 @@ export default class BancaoPermissoesGrupoUsuarioService{
 			if(gruposUsuarios.length > 0){
 				await prismaNovo.permissoes.createMany({data: permissoes});
 				const permissoesCount = await prismaNovo.permissoes.count();
-				console.log("Registros de permissoes" + permissoesCount.toString);
+				console.log("Registros de permissoes" + permissoesCount.toString());
 			}else{
 				console.log("Grupos usuarios vazio");
 			}
