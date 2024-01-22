@@ -23,29 +23,9 @@ export class migracao {
 			}
 
 			//pega nome das empresa antigas e novas
-			let empresasOld = await prismaBancaoAntigo.empresas.findMany({});
-			let empresasNew = await prismaBancao.empresas.findMany({});
+			const empresasOld = await prismaBancaoAntigo.empresas.findMany({});
+			const empresasNew = await prismaBancao.empresas.findMany({});
 
-			const nomesDesejadosAntigos = [
-				"b15432558000113",
-				"b68241843000113",
-				"b68241843000213",
-				"b00739197000185",
-				"b50275217000182",
-				"b50275217000282"
-			];
-
-			const nomesDesejadosNovos = [
-				"b15432558000113_2",
-				"b68241843000113_2",
-				"b68241843000213_2",
-				"b00739197000185_2",
-				"b50275217000182_2",
-				"b50275217000282_2"
-			];
-
-			empresasNew = empresasNew.filter(empresa => nomesDesejadosNovos.includes(empresa.banco_empresa));
-			empresasOld = empresasOld.filter(empresa => nomesDesejadosAntigos.includes(empresa.banco));
 
 			for (let i = 0; i < empresasNew.length; i++) {
 				await createDatabase(empresasNew[i].banco_empresa);
