@@ -1,13 +1,13 @@
-import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientAntigo } from "../../../prisma/databases/antigoprisma";
 import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { convertBigIntToString } from "../Utils";
 
-export default class PedidosVendaService{
-	async troca(prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
+export default class PedidosVendaService {
+	async troca(prismaNovo: PrismaClientNovo, prismaAntigo: PrismaClientAntigo) {
 		try {
 			const PedidosVendaAntigo = await prismaAntigo.pedidos_venda.findMany({});
-			const PedidosVendaNovos = PedidosVendaAntigo.map((PedidosVenda)=>({
+			const PedidosVendaNovos = PedidosVendaAntigo.map((PedidosVenda) => ({
 				id_pv: parseInt(convertBigIntToString(PedidosVenda.id)),
 				numero_pv: PedidosVenda.numero > 0 ? PedidosVenda.numero : null,
 				id_vendedor_pv: parseInt(convertBigIntToString(PedidosVenda.vendedor_id)) > 0 ? parseInt(convertBigIntToString(PedidosVenda.vendedor_id)) : null,
@@ -22,7 +22,7 @@ export default class PedidosVendaService{
 				cliente_contato_pv: PedidosVenda.cliente_contato,
 				data_realizacao_pv: PedidosVenda.data_realizacao,
 				data_sincronizacao_pv: PedidosVenda.data_sincronizacao,
-				id_condicao_pagamento_pv: parseInt(convertBigIntToString(PedidosVenda.condicao_pagamento_id)) > 0 ? parseInt(convertBigIntToString(PedidosVenda.condicao_pagamento_id)) : null,
+				id_forma_pagamento_pv: null,
 				entrega_cep_pv: PedidosVenda.entrega_cep,
 				entrega_logradouro_pv: PedidosVenda.entrega_logradouro,
 				entrega_numero_pv: PedidosVenda.entrega_numero,
@@ -36,14 +36,14 @@ export default class PedidosVendaService{
 				pagamento_pv: null,
 				troco_pv: null
 			}));
-			if(PedidosVendaNovos.length > 0){
-				await prismaNovo.pedidos_venda.createMany({data: PedidosVendaNovos});
+			if (PedidosVendaNovos.length > 0) {
+				await prismaNovo.pedidos_venda.createMany({ data: PedidosVendaNovos });
 				const totalProdutos = await prismaNovo.pedidos_venda.count();
 				const antigoCertiticado = await prismaAntigo.pedidos_venda.count();
 				console.log(antigoCertiticado, " registros localizados em Pedidos venda antigo");
 				console.log(totalProdutos, " registros adicionados em Pedidos venda novo");
 				console.log("-----------------------------------------------------");
-			}else{
+			} else {
 				console.log("Pedidos Venda vazio");
 			}
 		} catch (error) {

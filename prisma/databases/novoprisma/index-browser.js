@@ -293,7 +293,7 @@ exports.Prisma.Pedidos_vendaScalarFieldEnum = {
   cliente_contato_pv: 'cliente_contato_pv',
   data_realizacao_pv: 'data_realizacao_pv',
   data_sincronizacao_pv: 'data_sincronizacao_pv',
-  id_condicao_pagamento_pv: 'id_condicao_pagamento_pv',
+  id_forma_pagamento_pv: 'id_forma_pagamento_pv',
   entrega_cep_pv: 'entrega_cep_pv',
   entrega_logradouro_pv: 'entrega_logradouro_pv',
   entrega_numero_pv: 'entrega_numero_pv',
@@ -346,6 +346,7 @@ exports.Prisma.PermissoesScalarFieldEnum = {
 exports.Prisma.ProdutosScalarFieldEnum = {
   id_prod: 'id_prod',
   id_sirius_prod: 'id_sirius_prod',
+  id_submenu: 'id_submenu',
   cod_prod: 'cod_prod',
   descricao_prod: 'descricao_prod',
   cod_ean_prod: 'cod_ean_prod',
@@ -368,8 +369,7 @@ exports.Prisma.ProdutosScalarFieldEnum = {
   gluten_prod: 'gluten_prod',
   vegetariano_prod: 'vegetariano_prod',
   vegano_prod: 'vegano_prod',
-  id_imagem: 'id_imagem',
-  id_submenu: 'id_submenu'
+  id_imagem: 'id_imagem'
 };
 
 exports.Prisma.Produtos_extrasScalarFieldEnum = {
@@ -460,6 +460,31 @@ exports.Prisma.Vendedores_usuariosScalarFieldEnum = {
   id_sirius_vendedor_vu: 'id_sirius_vendedor_vu'
 };
 
+exports.Prisma.Caixa_movimentacoesScalarFieldEnum = {
+  id_cm: 'id_cm',
+  id_controle_caixa_cm: 'id_controle_caixa_cm',
+  data_atual_cm: 'data_atual_cm',
+  tipo_operacao_cm: 'tipo_operacao_cm',
+  id_pedido_venda_cm: 'id_pedido_venda_cm',
+  id_forma_pagamento_cm: 'id_forma_pagamento_cm',
+  valor_pago_cm: 'valor_pago_cm',
+  valor_troco_cm: 'valor_troco_cm'
+};
+
+exports.Prisma.Controle_caixaScalarFieldEnum = {
+  id_controle_caixa: 'id_controle_caixa',
+  id_usuario_controle_caixa: 'id_usuario_controle_caixa',
+  data_abertura_controle_caixa: 'data_abertura_controle_caixa',
+  data_fechamento_controle_caixa: 'data_fechamento_controle_caixa',
+  saldo_inicial_controle_caixa: 'saldo_inicial_controle_caixa',
+  saldo_final_controle_caixa: 'saldo_final_controle_caixa'
+};
+
+exports.Prisma.Forma_pagamentoScalarFieldEnum = {
+  id_fp: 'id_fp',
+  nm_fp: 'nm_fp'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -502,7 +527,10 @@ exports.Prisma.ModelName = {
   transportadores: 'transportadores',
   usuarios_grupos_usuarios: 'usuarios_grupos_usuarios',
   vendedores: 'vendedores',
-  vendedores_usuarios: 'vendedores_usuarios'
+  vendedores_usuarios: 'vendedores_usuarios',
+  caixa_movimentacoes: 'caixa_movimentacoes',
+  controle_caixa: 'controle_caixa',
+  forma_pagamento: 'forma_pagamento'
 };
 
 /**

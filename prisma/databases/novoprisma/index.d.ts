@@ -168,6 +168,21 @@ export type vendedores = $Result.DefaultSelection<Prisma.$vendedoresPayload>
  * 
  */
 export type vendedores_usuarios = $Result.DefaultSelection<Prisma.$vendedores_usuariosPayload>
+/**
+ * Model caixa_movimentacoes
+ * 
+ */
+export type caixa_movimentacoes = $Result.DefaultSelection<Prisma.$caixa_movimentacoesPayload>
+/**
+ * Model controle_caixa
+ * 
+ */
+export type controle_caixa = $Result.DefaultSelection<Prisma.$controle_caixaPayload>
+/**
+ * Model forma_pagamento
+ * 
+ */
+export type forma_pagamento = $Result.DefaultSelection<Prisma.$forma_pagamentoPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -600,6 +615,36 @@ export class PrismaClient<
     * ```
     */
   get vendedores_usuarios(): Prisma.vendedores_usuariosDelegate<ExtArgs>;
+
+  /**
+   * `prisma.caixa_movimentacoes`: Exposes CRUD operations for the **caixa_movimentacoes** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Caixa_movimentacoes
+    * const caixa_movimentacoes = await prisma.caixa_movimentacoes.findMany()
+    * ```
+    */
+  get caixa_movimentacoes(): Prisma.caixa_movimentacoesDelegate<ExtArgs>;
+
+  /**
+   * `prisma.controle_caixa`: Exposes CRUD operations for the **controle_caixa** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Controle_caixas
+    * const controle_caixas = await prisma.controle_caixa.findMany()
+    * ```
+    */
+  get controle_caixa(): Prisma.controle_caixaDelegate<ExtArgs>;
+
+  /**
+   * `prisma.forma_pagamento`: Exposes CRUD operations for the **forma_pagamento** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Forma_pagamentos
+    * const forma_pagamentos = await prisma.forma_pagamento.findMany()
+    * ```
+    */
+  get forma_pagamento(): Prisma.forma_pagamentoDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -1100,7 +1145,10 @@ export namespace Prisma {
     transportadores: 'transportadores',
     usuarios_grupos_usuarios: 'usuarios_grupos_usuarios',
     vendedores: 'vendedores',
-    vendedores_usuarios: 'vendedores_usuarios'
+    vendedores_usuarios: 'vendedores_usuarios',
+    caixa_movimentacoes: 'caixa_movimentacoes',
+    controle_caixa: 'controle_caixa',
+    forma_pagamento: 'forma_pagamento'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1117,7 +1165,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'atividades_grupos' | 'carousel_images' | 'certificado' | 'clientes' | 'clientes_produtos' | 'condicoes_pagamento' | 'contatos' | 'enderecos' | 'extras' | 'first_page_images' | 'fornecedores' | 'grupos_usuarios' | 'imagens' | 'listas_precos' | 'listas_precos_produtos' | 'menus' | 'modalidade_frete' | 'parametros' | 'pedidos_venda' | 'pedidos_venda_itens' | 'pedidos_venda_pagamentos' | 'permissoes' | 'produtos' | 'produtos_extras' | 'produtos_movimentacoes' | 'restaurantes' | 'submenus' | 'transportadores' | 'usuarios_grupos_usuarios' | 'vendedores' | 'vendedores_usuarios'
+      modelProps: 'atividades_grupos' | 'carousel_images' | 'certificado' | 'clientes' | 'clientes_produtos' | 'condicoes_pagamento' | 'contatos' | 'enderecos' | 'extras' | 'first_page_images' | 'fornecedores' | 'grupos_usuarios' | 'imagens' | 'listas_precos' | 'listas_precos_produtos' | 'menus' | 'modalidade_frete' | 'parametros' | 'pedidos_venda' | 'pedidos_venda_itens' | 'pedidos_venda_pagamentos' | 'permissoes' | 'produtos' | 'produtos_extras' | 'produtos_movimentacoes' | 'restaurantes' | 'submenus' | 'transportadores' | 'usuarios_grupos_usuarios' | 'vendedores' | 'vendedores_usuarios' | 'caixa_movimentacoes' | 'controle_caixa' | 'forma_pagamento'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -3167,6 +3215,204 @@ export namespace Prisma {
           }
         }
       }
+      caixa_movimentacoes: {
+        payload: Prisma.$caixa_movimentacoesPayload<ExtArgs>
+        fields: Prisma.caixa_movimentacoesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.caixa_movimentacoesFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.caixa_movimentacoesFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload>
+          }
+          findFirst: {
+            args: Prisma.caixa_movimentacoesFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.caixa_movimentacoesFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload>
+          }
+          findMany: {
+            args: Prisma.caixa_movimentacoesFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload>[]
+          }
+          create: {
+            args: Prisma.caixa_movimentacoesCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload>
+          }
+          createMany: {
+            args: Prisma.caixa_movimentacoesCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.caixa_movimentacoesDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload>
+          }
+          update: {
+            args: Prisma.caixa_movimentacoesUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload>
+          }
+          deleteMany: {
+            args: Prisma.caixa_movimentacoesDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.caixa_movimentacoesUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.caixa_movimentacoesUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$caixa_movimentacoesPayload>
+          }
+          aggregate: {
+            args: Prisma.Caixa_movimentacoesAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateCaixa_movimentacoes>
+          }
+          groupBy: {
+            args: Prisma.caixa_movimentacoesGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<Caixa_movimentacoesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.caixa_movimentacoesCountArgs<ExtArgs>,
+            result: $Utils.Optional<Caixa_movimentacoesCountAggregateOutputType> | number
+          }
+        }
+      }
+      controle_caixa: {
+        payload: Prisma.$controle_caixaPayload<ExtArgs>
+        fields: Prisma.controle_caixaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.controle_caixaFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.controle_caixaFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload>
+          }
+          findFirst: {
+            args: Prisma.controle_caixaFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.controle_caixaFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload>
+          }
+          findMany: {
+            args: Prisma.controle_caixaFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload>[]
+          }
+          create: {
+            args: Prisma.controle_caixaCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload>
+          }
+          createMany: {
+            args: Prisma.controle_caixaCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.controle_caixaDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload>
+          }
+          update: {
+            args: Prisma.controle_caixaUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload>
+          }
+          deleteMany: {
+            args: Prisma.controle_caixaDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.controle_caixaUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.controle_caixaUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$controle_caixaPayload>
+          }
+          aggregate: {
+            args: Prisma.Controle_caixaAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateControle_caixa>
+          }
+          groupBy: {
+            args: Prisma.controle_caixaGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<Controle_caixaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.controle_caixaCountArgs<ExtArgs>,
+            result: $Utils.Optional<Controle_caixaCountAggregateOutputType> | number
+          }
+        }
+      }
+      forma_pagamento: {
+        payload: Prisma.$forma_pagamentoPayload<ExtArgs>
+        fields: Prisma.forma_pagamentoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.forma_pagamentoFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.forma_pagamentoFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          findFirst: {
+            args: Prisma.forma_pagamentoFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.forma_pagamentoFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          findMany: {
+            args: Prisma.forma_pagamentoFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>[]
+          }
+          create: {
+            args: Prisma.forma_pagamentoCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          createMany: {
+            args: Prisma.forma_pagamentoCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.forma_pagamentoDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          update: {
+            args: Prisma.forma_pagamentoUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          deleteMany: {
+            args: Prisma.forma_pagamentoDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.forma_pagamentoUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.forma_pagamentoUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          aggregate: {
+            args: Prisma.Forma_pagamentoAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateForma_pagamento>
+          }
+          groupBy: {
+            args: Prisma.forma_pagamentoGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<Forma_pagamentoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.forma_pagamentoCountArgs<ExtArgs>,
+            result: $Utils.Optional<Forma_pagamentoCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3381,12 +3627,10 @@ export namespace Prisma {
 
   export type Condicoes_pagamentoCountOutputType = {
     clientes: number
-    pedidos_venda: number
   }
 
   export type Condicoes_pagamentoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clientes?: boolean | Condicoes_pagamentoCountOutputTypeCountClientesArgs
-    pedidos_venda?: boolean | Condicoes_pagamentoCountOutputTypeCountPedidos_vendaArgs
   }
 
   // Custom InputTypes
@@ -3407,14 +3651,6 @@ export namespace Prisma {
    */
   export type Condicoes_pagamentoCountOutputTypeCountClientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: clientesWhereInput
-  }
-
-
-  /**
-   * Condicoes_pagamentoCountOutputType without action
-   */
-  export type Condicoes_pagamentoCountOutputTypeCountPedidos_vendaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: pedidos_vendaWhereInput
   }
 
 
@@ -3698,12 +3934,14 @@ export namespace Prisma {
    */
 
   export type Pedidos_vendaCountOutputType = {
+    caixa_movimentacoes: number
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda: number
     pedidos_venda_pagamentos: number
     produtos_movimentacoes: number
   }
 
   export type Pedidos_vendaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caixa_movimentacoes?: boolean | Pedidos_vendaCountOutputTypeCountCaixa_movimentacoesArgs
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: boolean | Pedidos_vendaCountOutputTypeCountPedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_vendaArgs
     pedidos_venda_pagamentos?: boolean | Pedidos_vendaCountOutputTypeCountPedidos_venda_pagamentosArgs
     produtos_movimentacoes?: boolean | Pedidos_vendaCountOutputTypeCountProdutos_movimentacoesArgs
@@ -3719,6 +3957,14 @@ export namespace Prisma {
      * Select specific fields to fetch from the Pedidos_vendaCountOutputType
      */
     select?: Pedidos_vendaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Pedidos_vendaCountOutputType without action
+   */
+  export type Pedidos_vendaCountOutputTypeCountCaixa_movimentacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: caixa_movimentacoesWhereInput
   }
 
 
@@ -3983,6 +4229,84 @@ export namespace Prisma {
    */
   export type VendedoresCountOutputTypeCountVendedores_usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: vendedores_usuariosWhereInput
+  }
+
+
+
+  /**
+   * Count Type Controle_caixaCountOutputType
+   */
+
+  export type Controle_caixaCountOutputType = {
+    caixa_movimentacoes: number
+  }
+
+  export type Controle_caixaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caixa_movimentacoes?: boolean | Controle_caixaCountOutputTypeCountCaixa_movimentacoesArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * Controle_caixaCountOutputType without action
+   */
+  export type Controle_caixaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Controle_caixaCountOutputType
+     */
+    select?: Controle_caixaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Controle_caixaCountOutputType without action
+   */
+  export type Controle_caixaCountOutputTypeCountCaixa_movimentacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: caixa_movimentacoesWhereInput
+  }
+
+
+
+  /**
+   * Count Type Forma_pagamentoCountOutputType
+   */
+
+  export type Forma_pagamentoCountOutputType = {
+    caixa_movimentacoes: number
+    pedidos_venda: number
+  }
+
+  export type Forma_pagamentoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caixa_movimentacoes?: boolean | Forma_pagamentoCountOutputTypeCountCaixa_movimentacoesArgs
+    pedidos_venda?: boolean | Forma_pagamentoCountOutputTypeCountPedidos_vendaArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * Forma_pagamentoCountOutputType without action
+   */
+  export type Forma_pagamentoCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Forma_pagamentoCountOutputType
+     */
+    select?: Forma_pagamentoCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Forma_pagamentoCountOutputType without action
+   */
+  export type Forma_pagamentoCountOutputTypeCountCaixa_movimentacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: caixa_movimentacoesWhereInput
+  }
+
+
+  /**
+   * Forma_pagamentoCountOutputType without action
+   */
+  export type Forma_pagamentoCountOutputTypeCountPedidos_vendaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: pedidos_vendaWhereInput
   }
 
 
@@ -9293,7 +9617,6 @@ export namespace Prisma {
     id_sirius_cp?: boolean
     descricao_cp?: boolean
     clientes?: boolean | condicoes_pagamento$clientesArgs<ExtArgs>
-    pedidos_venda?: boolean | condicoes_pagamento$pedidos_vendaArgs<ExtArgs>
     _count?: boolean | Condicoes_pagamentoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["condicoes_pagamento"]>
 
@@ -9305,7 +9628,6 @@ export namespace Prisma {
 
   export type condicoes_pagamentoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clientes?: boolean | condicoes_pagamento$clientesArgs<ExtArgs>
-    pedidos_venda?: boolean | condicoes_pagamento$pedidos_vendaArgs<ExtArgs>
     _count?: boolean | Condicoes_pagamentoCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -9314,7 +9636,6 @@ export namespace Prisma {
     name: "condicoes_pagamento"
     objects: {
       clientes: Prisma.$clientesPayload<ExtArgs>[]
-      pedidos_venda: Prisma.$pedidos_vendaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id_cp: number
@@ -9687,8 +10008,6 @@ export namespace Prisma {
 
     clientes<T extends condicoes_pagamento$clientesArgs<ExtArgs> = {}>(args?: Subset<T, condicoes_pagamento$clientesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$clientesPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    pedidos_venda<T extends condicoes_pagamento$pedidos_vendaArgs<ExtArgs> = {}>(args?: Subset<T, condicoes_pagamento$pedidos_vendaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pedidos_vendaPayload<ExtArgs>, T, 'findMany'> | Null>;
-
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10049,27 +10368,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ClientesScalarFieldEnum | ClientesScalarFieldEnum[]
-  }
-
-
-  /**
-   * condicoes_pagamento.pedidos_venda
-   */
-  export type condicoes_pagamento$pedidos_vendaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the pedidos_venda
-     */
-    select?: pedidos_vendaSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: pedidos_vendaInclude<ExtArgs> | null
-    where?: pedidos_vendaWhereInput
-    orderBy?: pedidos_vendaOrderByWithRelationInput | pedidos_vendaOrderByWithRelationInput[]
-    cursor?: pedidos_vendaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Pedidos_vendaScalarFieldEnum | Pedidos_vendaScalarFieldEnum[]
   }
 
 
@@ -22038,7 +22336,7 @@ export namespace Prisma {
     desconto_pv: Decimal | null
     valor_bruto_pv: Decimal | null
     valor_liquido_pv: Decimal | null
-    id_condicao_pagamento_pv: number | null
+    id_forma_pagamento_pv: number | null
     id_transportadores_pv: number | null
     id_modalidade_frete_pv: number | null
     pagamento_pv: Decimal | null
@@ -22054,7 +22352,7 @@ export namespace Prisma {
     desconto_pv: Decimal | null
     valor_bruto_pv: Decimal | null
     valor_liquido_pv: Decimal | null
-    id_condicao_pagamento_pv: number | null
+    id_forma_pagamento_pv: number | null
     id_transportadores_pv: number | null
     id_modalidade_frete_pv: number | null
     pagamento_pv: Decimal | null
@@ -22076,7 +22374,7 @@ export namespace Prisma {
     cliente_contato_pv: string | null
     data_realizacao_pv: Date | null
     data_sincronizacao_pv: Date | null
-    id_condicao_pagamento_pv: number | null
+    id_forma_pagamento_pv: number | null
     entrega_cep_pv: string | null
     entrega_logradouro_pv: string | null
     entrega_numero_pv: string | null
@@ -22106,7 +22404,7 @@ export namespace Prisma {
     cliente_contato_pv: string | null
     data_realizacao_pv: Date | null
     data_sincronizacao_pv: Date | null
-    id_condicao_pagamento_pv: number | null
+    id_forma_pagamento_pv: number | null
     entrega_cep_pv: string | null
     entrega_logradouro_pv: string | null
     entrega_numero_pv: string | null
@@ -22136,7 +22434,7 @@ export namespace Prisma {
     cliente_contato_pv: number
     data_realizacao_pv: number
     data_sincronizacao_pv: number
-    id_condicao_pagamento_pv: number
+    id_forma_pagamento_pv: number
     entrega_cep_pv: number
     entrega_logradouro_pv: number
     entrega_numero_pv: number
@@ -22162,7 +22460,7 @@ export namespace Prisma {
     desconto_pv?: true
     valor_bruto_pv?: true
     valor_liquido_pv?: true
-    id_condicao_pagamento_pv?: true
+    id_forma_pagamento_pv?: true
     id_transportadores_pv?: true
     id_modalidade_frete_pv?: true
     pagamento_pv?: true
@@ -22178,7 +22476,7 @@ export namespace Prisma {
     desconto_pv?: true
     valor_bruto_pv?: true
     valor_liquido_pv?: true
-    id_condicao_pagamento_pv?: true
+    id_forma_pagamento_pv?: true
     id_transportadores_pv?: true
     id_modalidade_frete_pv?: true
     pagamento_pv?: true
@@ -22200,7 +22498,7 @@ export namespace Prisma {
     cliente_contato_pv?: true
     data_realizacao_pv?: true
     data_sincronizacao_pv?: true
-    id_condicao_pagamento_pv?: true
+    id_forma_pagamento_pv?: true
     entrega_cep_pv?: true
     entrega_logradouro_pv?: true
     entrega_numero_pv?: true
@@ -22230,7 +22528,7 @@ export namespace Prisma {
     cliente_contato_pv?: true
     data_realizacao_pv?: true
     data_sincronizacao_pv?: true
-    id_condicao_pagamento_pv?: true
+    id_forma_pagamento_pv?: true
     entrega_cep_pv?: true
     entrega_logradouro_pv?: true
     entrega_numero_pv?: true
@@ -22260,7 +22558,7 @@ export namespace Prisma {
     cliente_contato_pv?: true
     data_realizacao_pv?: true
     data_sincronizacao_pv?: true
-    id_condicao_pagamento_pv?: true
+    id_forma_pagamento_pv?: true
     entrega_cep_pv?: true
     entrega_logradouro_pv?: true
     entrega_numero_pv?: true
@@ -22377,7 +22675,7 @@ export namespace Prisma {
     cliente_contato_pv: string | null
     data_realizacao_pv: Date | null
     data_sincronizacao_pv: Date | null
-    id_condicao_pagamento_pv: number | null
+    id_forma_pagamento_pv: number | null
     entrega_cep_pv: string | null
     entrega_logradouro_pv: string | null
     entrega_numero_pv: string | null
@@ -22426,7 +22724,7 @@ export namespace Prisma {
     cliente_contato_pv?: boolean
     data_realizacao_pv?: boolean
     data_sincronizacao_pv?: boolean
-    id_condicao_pagamento_pv?: boolean
+    id_forma_pagamento_pv?: boolean
     entrega_cep_pv?: boolean
     entrega_logradouro_pv?: boolean
     entrega_numero_pv?: boolean
@@ -22439,8 +22737,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: boolean
     pagamento_pv?: boolean
     troco_pv?: boolean
+    caixa_movimentacoes?: boolean | pedidos_venda$caixa_movimentacoesArgs<ExtArgs>
     clientes?: boolean | pedidos_venda$clientesArgs<ExtArgs>
-    condicoes_pagamento?: boolean | pedidos_venda$condicoes_pagamentoArgs<ExtArgs>
+    forma_pagamento?: boolean | pedidos_venda$forma_pagamentoArgs<ExtArgs>
     modalidade_frete?: boolean | pedidos_venda$modalidade_freteArgs<ExtArgs>
     transportadores?: boolean | pedidos_venda$transportadoresArgs<ExtArgs>
     vendedores?: boolean | pedidos_venda$vendedoresArgs<ExtArgs>
@@ -22465,7 +22764,7 @@ export namespace Prisma {
     cliente_contato_pv?: boolean
     data_realizacao_pv?: boolean
     data_sincronizacao_pv?: boolean
-    id_condicao_pagamento_pv?: boolean
+    id_forma_pagamento_pv?: boolean
     entrega_cep_pv?: boolean
     entrega_logradouro_pv?: boolean
     entrega_numero_pv?: boolean
@@ -22481,8 +22780,9 @@ export namespace Prisma {
   }
 
   export type pedidos_vendaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caixa_movimentacoes?: boolean | pedidos_venda$caixa_movimentacoesArgs<ExtArgs>
     clientes?: boolean | pedidos_venda$clientesArgs<ExtArgs>
-    condicoes_pagamento?: boolean | pedidos_venda$condicoes_pagamentoArgs<ExtArgs>
+    forma_pagamento?: boolean | pedidos_venda$forma_pagamentoArgs<ExtArgs>
     modalidade_frete?: boolean | pedidos_venda$modalidade_freteArgs<ExtArgs>
     transportadores?: boolean | pedidos_venda$transportadoresArgs<ExtArgs>
     vendedores?: boolean | pedidos_venda$vendedoresArgs<ExtArgs>
@@ -22496,8 +22796,9 @@ export namespace Prisma {
   export type $pedidos_vendaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "pedidos_venda"
     objects: {
+      caixa_movimentacoes: Prisma.$caixa_movimentacoesPayload<ExtArgs>[]
       clientes: Prisma.$clientesPayload<ExtArgs> | null
-      condicoes_pagamento: Prisma.$condicoes_pagamentoPayload<ExtArgs> | null
+      forma_pagamento: Prisma.$forma_pagamentoPayload<ExtArgs> | null
       modalidade_frete: Prisma.$modalidade_fretePayload<ExtArgs> | null
       transportadores: Prisma.$transportadoresPayload<ExtArgs> | null
       vendedores: Prisma.$vendedoresPayload<ExtArgs> | null
@@ -22520,7 +22821,7 @@ export namespace Prisma {
       cliente_contato_pv: string | null
       data_realizacao_pv: Date | null
       data_sincronizacao_pv: Date | null
-      id_condicao_pagamento_pv: number | null
+      id_forma_pagamento_pv: number | null
       entrega_cep_pv: string | null
       entrega_logradouro_pv: string | null
       entrega_numero_pv: string | null
@@ -22898,9 +23199,11 @@ export namespace Prisma {
   export interface Prisma__pedidos_vendaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
+    caixa_movimentacoes<T extends pedidos_venda$caixa_movimentacoesArgs<ExtArgs> = {}>(args?: Subset<T, pedidos_venda$caixa_movimentacoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'findMany'> | Null>;
+
     clientes<T extends pedidos_venda$clientesArgs<ExtArgs> = {}>(args?: Subset<T, pedidos_venda$clientesArgs<ExtArgs>>): Prisma__clientesClient<$Result.GetResult<Prisma.$clientesPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
-    condicoes_pagamento<T extends pedidos_venda$condicoes_pagamentoArgs<ExtArgs> = {}>(args?: Subset<T, pedidos_venda$condicoes_pagamentoArgs<ExtArgs>>): Prisma__condicoes_pagamentoClient<$Result.GetResult<Prisma.$condicoes_pagamentoPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+    forma_pagamento<T extends pedidos_venda$forma_pagamentoArgs<ExtArgs> = {}>(args?: Subset<T, pedidos_venda$forma_pagamentoArgs<ExtArgs>>): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     modalidade_frete<T extends pedidos_venda$modalidade_freteArgs<ExtArgs> = {}>(args?: Subset<T, pedidos_venda$modalidade_freteArgs<ExtArgs>>): Prisma__modalidade_freteClient<$Result.GetResult<Prisma.$modalidade_fretePayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
@@ -22956,7 +23259,7 @@ export namespace Prisma {
     readonly cliente_contato_pv: FieldRef<"pedidos_venda", 'String'>
     readonly data_realizacao_pv: FieldRef<"pedidos_venda", 'DateTime'>
     readonly data_sincronizacao_pv: FieldRef<"pedidos_venda", 'DateTime'>
-    readonly id_condicao_pagamento_pv: FieldRef<"pedidos_venda", 'Int'>
+    readonly id_forma_pagamento_pv: FieldRef<"pedidos_venda", 'Int'>
     readonly entrega_cep_pv: FieldRef<"pedidos_venda", 'String'>
     readonly entrega_logradouro_pv: FieldRef<"pedidos_venda", 'String'>
     readonly entrega_numero_pv: FieldRef<"pedidos_venda", 'String'>
@@ -23281,6 +23584,27 @@ export namespace Prisma {
 
 
   /**
+   * pedidos_venda.caixa_movimentacoes
+   */
+  export type pedidos_venda$caixa_movimentacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    where?: caixa_movimentacoesWhereInput
+    orderBy?: caixa_movimentacoesOrderByWithRelationInput | caixa_movimentacoesOrderByWithRelationInput[]
+    cursor?: caixa_movimentacoesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Caixa_movimentacoesScalarFieldEnum | Caixa_movimentacoesScalarFieldEnum[]
+  }
+
+
+  /**
    * pedidos_venda.clientes
    */
   export type pedidos_venda$clientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -23297,18 +23621,18 @@ export namespace Prisma {
 
 
   /**
-   * pedidos_venda.condicoes_pagamento
+   * pedidos_venda.forma_pagamento
    */
-  export type pedidos_venda$condicoes_pagamentoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type pedidos_venda$forma_pagamentoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the condicoes_pagamento
+     * Select specific fields to fetch from the forma_pagamento
      */
-    select?: condicoes_pagamentoSelect<ExtArgs> | null
+    select?: forma_pagamentoSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: condicoes_pagamentoInclude<ExtArgs> | null
-    where?: condicoes_pagamentoWhereInput
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    where?: forma_pagamentoWhereInput
   }
 
 
@@ -26561,6 +26885,7 @@ export namespace Prisma {
   export type ProdutosAvgAggregateOutputType = {
     id_prod: number | null
     id_sirius_prod: number | null
+    id_submenu: number | null
     qtd_com_prod: Decimal | null
     vlr_un_com_prod: Decimal | null
     vlr_prod: Decimal | null
@@ -26568,12 +26893,12 @@ export namespace Prisma {
     vlr_un_trib_prod: Decimal | null
     saldo_prod: Decimal | null
     id_imagem: number | null
-    id_submenu: number | null
   }
 
   export type ProdutosSumAggregateOutputType = {
     id_prod: number | null
     id_sirius_prod: number | null
+    id_submenu: number | null
     qtd_com_prod: Decimal | null
     vlr_un_com_prod: Decimal | null
     vlr_prod: Decimal | null
@@ -26581,12 +26906,12 @@ export namespace Prisma {
     vlr_un_trib_prod: Decimal | null
     saldo_prod: Decimal | null
     id_imagem: number | null
-    id_submenu: number | null
   }
 
   export type ProdutosMinAggregateOutputType = {
     id_prod: number | null
     id_sirius_prod: number | null
+    id_submenu: number | null
     cod_prod: string | null
     descricao_prod: string | null
     cod_ean_prod: string | null
@@ -26610,12 +26935,12 @@ export namespace Prisma {
     vegetariano_prod: boolean | null
     vegano_prod: boolean | null
     id_imagem: number | null
-    id_submenu: number | null
   }
 
   export type ProdutosMaxAggregateOutputType = {
     id_prod: number | null
     id_sirius_prod: number | null
+    id_submenu: number | null
     cod_prod: string | null
     descricao_prod: string | null
     cod_ean_prod: string | null
@@ -26639,12 +26964,12 @@ export namespace Prisma {
     vegetariano_prod: boolean | null
     vegano_prod: boolean | null
     id_imagem: number | null
-    id_submenu: number | null
   }
 
   export type ProdutosCountAggregateOutputType = {
     id_prod: number
     id_sirius_prod: number
+    id_submenu: number
     cod_prod: number
     descricao_prod: number
     cod_ean_prod: number
@@ -26668,7 +26993,6 @@ export namespace Prisma {
     vegetariano_prod: number
     vegano_prod: number
     id_imagem: number
-    id_submenu: number
     _all: number
   }
 
@@ -26676,6 +27000,7 @@ export namespace Prisma {
   export type ProdutosAvgAggregateInputType = {
     id_prod?: true
     id_sirius_prod?: true
+    id_submenu?: true
     qtd_com_prod?: true
     vlr_un_com_prod?: true
     vlr_prod?: true
@@ -26683,12 +27008,12 @@ export namespace Prisma {
     vlr_un_trib_prod?: true
     saldo_prod?: true
     id_imagem?: true
-    id_submenu?: true
   }
 
   export type ProdutosSumAggregateInputType = {
     id_prod?: true
     id_sirius_prod?: true
+    id_submenu?: true
     qtd_com_prod?: true
     vlr_un_com_prod?: true
     vlr_prod?: true
@@ -26696,12 +27021,12 @@ export namespace Prisma {
     vlr_un_trib_prod?: true
     saldo_prod?: true
     id_imagem?: true
-    id_submenu?: true
   }
 
   export type ProdutosMinAggregateInputType = {
     id_prod?: true
     id_sirius_prod?: true
+    id_submenu?: true
     cod_prod?: true
     descricao_prod?: true
     cod_ean_prod?: true
@@ -26725,12 +27050,12 @@ export namespace Prisma {
     vegetariano_prod?: true
     vegano_prod?: true
     id_imagem?: true
-    id_submenu?: true
   }
 
   export type ProdutosMaxAggregateInputType = {
     id_prod?: true
     id_sirius_prod?: true
+    id_submenu?: true
     cod_prod?: true
     descricao_prod?: true
     cod_ean_prod?: true
@@ -26754,12 +27079,12 @@ export namespace Prisma {
     vegetariano_prod?: true
     vegano_prod?: true
     id_imagem?: true
-    id_submenu?: true
   }
 
   export type ProdutosCountAggregateInputType = {
     id_prod?: true
     id_sirius_prod?: true
+    id_submenu?: true
     cod_prod?: true
     descricao_prod?: true
     cod_ean_prod?: true
@@ -26783,7 +27108,6 @@ export namespace Prisma {
     vegetariano_prod?: true
     vegano_prod?: true
     id_imagem?: true
-    id_submenu?: true
     _all?: true
   }
 
@@ -26876,6 +27200,7 @@ export namespace Prisma {
   export type ProdutosGroupByOutputType = {
     id_prod: number
     id_sirius_prod: number | null
+    id_submenu: number | null
     cod_prod: string | null
     descricao_prod: string
     cod_ean_prod: string | null
@@ -26899,7 +27224,6 @@ export namespace Prisma {
     vegetariano_prod: boolean | null
     vegano_prod: boolean | null
     id_imagem: number | null
-    id_submenu: number | null
     _count: ProdutosCountAggregateOutputType | null
     _avg: ProdutosAvgAggregateOutputType | null
     _sum: ProdutosSumAggregateOutputType | null
@@ -26924,6 +27248,7 @@ export namespace Prisma {
   export type produtosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_prod?: boolean
     id_sirius_prod?: boolean
+    id_submenu?: boolean
     cod_prod?: boolean
     descricao_prod?: boolean
     cod_ean_prod?: boolean
@@ -26947,7 +27272,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean
     vegano_prod?: boolean
     id_imagem?: boolean
-    id_submenu?: boolean
     clientes_produtos?: boolean | produtos$clientes_produtosArgs<ExtArgs>
     listas_precos_produtos?: boolean | produtos$listas_precos_produtosArgs<ExtArgs>
     pedidos_venda_itens?: boolean | produtos$pedidos_venda_itensArgs<ExtArgs>
@@ -26961,6 +27285,7 @@ export namespace Prisma {
   export type produtosSelectScalar = {
     id_prod?: boolean
     id_sirius_prod?: boolean
+    id_submenu?: boolean
     cod_prod?: boolean
     descricao_prod?: boolean
     cod_ean_prod?: boolean
@@ -26984,7 +27309,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean
     vegano_prod?: boolean
     id_imagem?: boolean
-    id_submenu?: boolean
   }
 
   export type produtosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -27013,6 +27337,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id_prod: number
       id_sirius_prod: number | null
+      id_submenu: number | null
       cod_prod: string | null
       descricao_prod: string
       cod_ean_prod: string | null
@@ -27036,7 +27361,6 @@ export namespace Prisma {
       vegetariano_prod: boolean | null
       vegano_prod: boolean | null
       id_imagem: number | null
-      id_submenu: number | null
     }, ExtArgs["result"]["produtos"]>
     composites: {}
   }
@@ -27446,6 +27770,7 @@ export namespace Prisma {
   interface produtosFieldRefs {
     readonly id_prod: FieldRef<"produtos", 'Int'>
     readonly id_sirius_prod: FieldRef<"produtos", 'Int'>
+    readonly id_submenu: FieldRef<"produtos", 'Int'>
     readonly cod_prod: FieldRef<"produtos", 'String'>
     readonly descricao_prod: FieldRef<"produtos", 'String'>
     readonly cod_ean_prod: FieldRef<"produtos", 'String'>
@@ -27469,7 +27794,6 @@ export namespace Prisma {
     readonly vegetariano_prod: FieldRef<"produtos", 'Boolean'>
     readonly vegano_prod: FieldRef<"produtos", 'Boolean'>
     readonly id_imagem: FieldRef<"produtos", 'Int'>
-    readonly id_submenu: FieldRef<"produtos", 'Int'>
   }
     
 
@@ -36137,6 +36461,3003 @@ export namespace Prisma {
 
 
   /**
+   * Model caixa_movimentacoes
+   */
+
+  export type AggregateCaixa_movimentacoes = {
+    _count: Caixa_movimentacoesCountAggregateOutputType | null
+    _avg: Caixa_movimentacoesAvgAggregateOutputType | null
+    _sum: Caixa_movimentacoesSumAggregateOutputType | null
+    _min: Caixa_movimentacoesMinAggregateOutputType | null
+    _max: Caixa_movimentacoesMaxAggregateOutputType | null
+  }
+
+  export type Caixa_movimentacoesAvgAggregateOutputType = {
+    id_cm: number | null
+    id_controle_caixa_cm: number | null
+    id_pedido_venda_cm: number | null
+    id_forma_pagamento_cm: number | null
+    valor_pago_cm: Decimal | null
+    valor_troco_cm: Decimal | null
+  }
+
+  export type Caixa_movimentacoesSumAggregateOutputType = {
+    id_cm: number | null
+    id_controle_caixa_cm: number | null
+    id_pedido_venda_cm: number | null
+    id_forma_pagamento_cm: number | null
+    valor_pago_cm: Decimal | null
+    valor_troco_cm: Decimal | null
+  }
+
+  export type Caixa_movimentacoesMinAggregateOutputType = {
+    id_cm: number | null
+    id_controle_caixa_cm: number | null
+    data_atual_cm: Date | null
+    tipo_operacao_cm: string | null
+    id_pedido_venda_cm: number | null
+    id_forma_pagamento_cm: number | null
+    valor_pago_cm: Decimal | null
+    valor_troco_cm: Decimal | null
+  }
+
+  export type Caixa_movimentacoesMaxAggregateOutputType = {
+    id_cm: number | null
+    id_controle_caixa_cm: number | null
+    data_atual_cm: Date | null
+    tipo_operacao_cm: string | null
+    id_pedido_venda_cm: number | null
+    id_forma_pagamento_cm: number | null
+    valor_pago_cm: Decimal | null
+    valor_troco_cm: Decimal | null
+  }
+
+  export type Caixa_movimentacoesCountAggregateOutputType = {
+    id_cm: number
+    id_controle_caixa_cm: number
+    data_atual_cm: number
+    tipo_operacao_cm: number
+    id_pedido_venda_cm: number
+    id_forma_pagamento_cm: number
+    valor_pago_cm: number
+    valor_troco_cm: number
+    _all: number
+  }
+
+
+  export type Caixa_movimentacoesAvgAggregateInputType = {
+    id_cm?: true
+    id_controle_caixa_cm?: true
+    id_pedido_venda_cm?: true
+    id_forma_pagamento_cm?: true
+    valor_pago_cm?: true
+    valor_troco_cm?: true
+  }
+
+  export type Caixa_movimentacoesSumAggregateInputType = {
+    id_cm?: true
+    id_controle_caixa_cm?: true
+    id_pedido_venda_cm?: true
+    id_forma_pagamento_cm?: true
+    valor_pago_cm?: true
+    valor_troco_cm?: true
+  }
+
+  export type Caixa_movimentacoesMinAggregateInputType = {
+    id_cm?: true
+    id_controle_caixa_cm?: true
+    data_atual_cm?: true
+    tipo_operacao_cm?: true
+    id_pedido_venda_cm?: true
+    id_forma_pagamento_cm?: true
+    valor_pago_cm?: true
+    valor_troco_cm?: true
+  }
+
+  export type Caixa_movimentacoesMaxAggregateInputType = {
+    id_cm?: true
+    id_controle_caixa_cm?: true
+    data_atual_cm?: true
+    tipo_operacao_cm?: true
+    id_pedido_venda_cm?: true
+    id_forma_pagamento_cm?: true
+    valor_pago_cm?: true
+    valor_troco_cm?: true
+  }
+
+  export type Caixa_movimentacoesCountAggregateInputType = {
+    id_cm?: true
+    id_controle_caixa_cm?: true
+    data_atual_cm?: true
+    tipo_operacao_cm?: true
+    id_pedido_venda_cm?: true
+    id_forma_pagamento_cm?: true
+    valor_pago_cm?: true
+    valor_troco_cm?: true
+    _all?: true
+  }
+
+  export type Caixa_movimentacoesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which caixa_movimentacoes to aggregate.
+     */
+    where?: caixa_movimentacoesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of caixa_movimentacoes to fetch.
+     */
+    orderBy?: caixa_movimentacoesOrderByWithRelationInput | caixa_movimentacoesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: caixa_movimentacoesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` caixa_movimentacoes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` caixa_movimentacoes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned caixa_movimentacoes
+    **/
+    _count?: true | Caixa_movimentacoesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Caixa_movimentacoesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Caixa_movimentacoesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Caixa_movimentacoesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Caixa_movimentacoesMaxAggregateInputType
+  }
+
+  export type GetCaixa_movimentacoesAggregateType<T extends Caixa_movimentacoesAggregateArgs> = {
+        [P in keyof T & keyof AggregateCaixa_movimentacoes]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCaixa_movimentacoes[P]>
+      : GetScalarType<T[P], AggregateCaixa_movimentacoes[P]>
+  }
+
+
+
+
+  export type caixa_movimentacoesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: caixa_movimentacoesWhereInput
+    orderBy?: caixa_movimentacoesOrderByWithAggregationInput | caixa_movimentacoesOrderByWithAggregationInput[]
+    by: Caixa_movimentacoesScalarFieldEnum[] | Caixa_movimentacoesScalarFieldEnum
+    having?: caixa_movimentacoesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Caixa_movimentacoesCountAggregateInputType | true
+    _avg?: Caixa_movimentacoesAvgAggregateInputType
+    _sum?: Caixa_movimentacoesSumAggregateInputType
+    _min?: Caixa_movimentacoesMinAggregateInputType
+    _max?: Caixa_movimentacoesMaxAggregateInputType
+  }
+
+  export type Caixa_movimentacoesGroupByOutputType = {
+    id_cm: number
+    id_controle_caixa_cm: number
+    data_atual_cm: Date
+    tipo_operacao_cm: string
+    id_pedido_venda_cm: number | null
+    id_forma_pagamento_cm: number
+    valor_pago_cm: Decimal
+    valor_troco_cm: Decimal
+    _count: Caixa_movimentacoesCountAggregateOutputType | null
+    _avg: Caixa_movimentacoesAvgAggregateOutputType | null
+    _sum: Caixa_movimentacoesSumAggregateOutputType | null
+    _min: Caixa_movimentacoesMinAggregateOutputType | null
+    _max: Caixa_movimentacoesMaxAggregateOutputType | null
+  }
+
+  type GetCaixa_movimentacoesGroupByPayload<T extends caixa_movimentacoesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Caixa_movimentacoesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Caixa_movimentacoesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Caixa_movimentacoesGroupByOutputType[P]>
+            : GetScalarType<T[P], Caixa_movimentacoesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type caixa_movimentacoesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id_cm?: boolean
+    id_controle_caixa_cm?: boolean
+    data_atual_cm?: boolean
+    tipo_operacao_cm?: boolean
+    id_pedido_venda_cm?: boolean
+    id_forma_pagamento_cm?: boolean
+    valor_pago_cm?: boolean
+    valor_troco_cm?: boolean
+    controle_caixa?: boolean | controle_caixaDefaultArgs<ExtArgs>
+    forma_pagamento?: boolean | forma_pagamentoDefaultArgs<ExtArgs>
+    pedidos_venda?: boolean | caixa_movimentacoes$pedidos_vendaArgs<ExtArgs>
+  }, ExtArgs["result"]["caixa_movimentacoes"]>
+
+  export type caixa_movimentacoesSelectScalar = {
+    id_cm?: boolean
+    id_controle_caixa_cm?: boolean
+    data_atual_cm?: boolean
+    tipo_operacao_cm?: boolean
+    id_pedido_venda_cm?: boolean
+    id_forma_pagamento_cm?: boolean
+    valor_pago_cm?: boolean
+    valor_troco_cm?: boolean
+  }
+
+  export type caixa_movimentacoesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    controle_caixa?: boolean | controle_caixaDefaultArgs<ExtArgs>
+    forma_pagamento?: boolean | forma_pagamentoDefaultArgs<ExtArgs>
+    pedidos_venda?: boolean | caixa_movimentacoes$pedidos_vendaArgs<ExtArgs>
+  }
+
+
+  export type $caixa_movimentacoesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "caixa_movimentacoes"
+    objects: {
+      controle_caixa: Prisma.$controle_caixaPayload<ExtArgs>
+      forma_pagamento: Prisma.$forma_pagamentoPayload<ExtArgs>
+      pedidos_venda: Prisma.$pedidos_vendaPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id_cm: number
+      id_controle_caixa_cm: number
+      data_atual_cm: Date
+      tipo_operacao_cm: string
+      id_pedido_venda_cm: number | null
+      id_forma_pagamento_cm: number
+      valor_pago_cm: Prisma.Decimal
+      valor_troco_cm: Prisma.Decimal
+    }, ExtArgs["result"]["caixa_movimentacoes"]>
+    composites: {}
+  }
+
+
+  type caixa_movimentacoesGetPayload<S extends boolean | null | undefined | caixa_movimentacoesDefaultArgs> = $Result.GetResult<Prisma.$caixa_movimentacoesPayload, S>
+
+  type caixa_movimentacoesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<caixa_movimentacoesFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: Caixa_movimentacoesCountAggregateInputType | true
+    }
+
+  export interface caixa_movimentacoesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['caixa_movimentacoes'], meta: { name: 'caixa_movimentacoes' } }
+    /**
+     * Find zero or one Caixa_movimentacoes that matches the filter.
+     * @param {caixa_movimentacoesFindUniqueArgs} args - Arguments to find a Caixa_movimentacoes
+     * @example
+     * // Get one Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends caixa_movimentacoesFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, caixa_movimentacoesFindUniqueArgs<ExtArgs>>
+    ): Prisma__caixa_movimentacoesClient<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Caixa_movimentacoes that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {caixa_movimentacoesFindUniqueOrThrowArgs} args - Arguments to find a Caixa_movimentacoes
+     * @example
+     * // Get one Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends caixa_movimentacoesFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, caixa_movimentacoesFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__caixa_movimentacoesClient<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Caixa_movimentacoes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {caixa_movimentacoesFindFirstArgs} args - Arguments to find a Caixa_movimentacoes
+     * @example
+     * // Get one Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends caixa_movimentacoesFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, caixa_movimentacoesFindFirstArgs<ExtArgs>>
+    ): Prisma__caixa_movimentacoesClient<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Caixa_movimentacoes that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {caixa_movimentacoesFindFirstOrThrowArgs} args - Arguments to find a Caixa_movimentacoes
+     * @example
+     * // Get one Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends caixa_movimentacoesFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, caixa_movimentacoesFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__caixa_movimentacoesClient<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Caixa_movimentacoes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {caixa_movimentacoesFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.findMany()
+     * 
+     * // Get first 10 Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.findMany({ take: 10 })
+     * 
+     * // Only select the `id_cm`
+     * const caixa_movimentacoesWithId_cmOnly = await prisma.caixa_movimentacoes.findMany({ select: { id_cm: true } })
+     * 
+    **/
+    findMany<T extends caixa_movimentacoesFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, caixa_movimentacoesFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Caixa_movimentacoes.
+     * @param {caixa_movimentacoesCreateArgs} args - Arguments to create a Caixa_movimentacoes.
+     * @example
+     * // Create one Caixa_movimentacoes
+     * const Caixa_movimentacoes = await prisma.caixa_movimentacoes.create({
+     *   data: {
+     *     // ... data to create a Caixa_movimentacoes
+     *   }
+     * })
+     * 
+    **/
+    create<T extends caixa_movimentacoesCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, caixa_movimentacoesCreateArgs<ExtArgs>>
+    ): Prisma__caixa_movimentacoesClient<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Caixa_movimentacoes.
+     *     @param {caixa_movimentacoesCreateManyArgs} args - Arguments to create many Caixa_movimentacoes.
+     *     @example
+     *     // Create many Caixa_movimentacoes
+     *     const caixa_movimentacoes = await prisma.caixa_movimentacoes.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends caixa_movimentacoesCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, caixa_movimentacoesCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Caixa_movimentacoes.
+     * @param {caixa_movimentacoesDeleteArgs} args - Arguments to delete one Caixa_movimentacoes.
+     * @example
+     * // Delete one Caixa_movimentacoes
+     * const Caixa_movimentacoes = await prisma.caixa_movimentacoes.delete({
+     *   where: {
+     *     // ... filter to delete one Caixa_movimentacoes
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends caixa_movimentacoesDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, caixa_movimentacoesDeleteArgs<ExtArgs>>
+    ): Prisma__caixa_movimentacoesClient<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Caixa_movimentacoes.
+     * @param {caixa_movimentacoesUpdateArgs} args - Arguments to update one Caixa_movimentacoes.
+     * @example
+     * // Update one Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends caixa_movimentacoesUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, caixa_movimentacoesUpdateArgs<ExtArgs>>
+    ): Prisma__caixa_movimentacoesClient<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Caixa_movimentacoes.
+     * @param {caixa_movimentacoesDeleteManyArgs} args - Arguments to filter Caixa_movimentacoes to delete.
+     * @example
+     * // Delete a few Caixa_movimentacoes
+     * const { count } = await prisma.caixa_movimentacoes.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends caixa_movimentacoesDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, caixa_movimentacoesDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Caixa_movimentacoes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {caixa_movimentacoesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends caixa_movimentacoesUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, caixa_movimentacoesUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Caixa_movimentacoes.
+     * @param {caixa_movimentacoesUpsertArgs} args - Arguments to update or create a Caixa_movimentacoes.
+     * @example
+     * // Update or create a Caixa_movimentacoes
+     * const caixa_movimentacoes = await prisma.caixa_movimentacoes.upsert({
+     *   create: {
+     *     // ... data to create a Caixa_movimentacoes
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Caixa_movimentacoes we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends caixa_movimentacoesUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, caixa_movimentacoesUpsertArgs<ExtArgs>>
+    ): Prisma__caixa_movimentacoesClient<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Caixa_movimentacoes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {caixa_movimentacoesCountArgs} args - Arguments to filter Caixa_movimentacoes to count.
+     * @example
+     * // Count the number of Caixa_movimentacoes
+     * const count = await prisma.caixa_movimentacoes.count({
+     *   where: {
+     *     // ... the filter for the Caixa_movimentacoes we want to count
+     *   }
+     * })
+    **/
+    count<T extends caixa_movimentacoesCountArgs>(
+      args?: Subset<T, caixa_movimentacoesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Caixa_movimentacoesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Caixa_movimentacoes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Caixa_movimentacoesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Caixa_movimentacoesAggregateArgs>(args: Subset<T, Caixa_movimentacoesAggregateArgs>): Prisma.PrismaPromise<GetCaixa_movimentacoesAggregateType<T>>
+
+    /**
+     * Group by Caixa_movimentacoes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {caixa_movimentacoesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends caixa_movimentacoesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: caixa_movimentacoesGroupByArgs['orderBy'] }
+        : { orderBy?: caixa_movimentacoesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, caixa_movimentacoesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCaixa_movimentacoesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the caixa_movimentacoes model
+   */
+  readonly fields: caixa_movimentacoesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for caixa_movimentacoes.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__caixa_movimentacoesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    controle_caixa<T extends controle_caixaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, controle_caixaDefaultArgs<ExtArgs>>): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    forma_pagamento<T extends forma_pagamentoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, forma_pagamentoDefaultArgs<ExtArgs>>): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    pedidos_venda<T extends caixa_movimentacoes$pedidos_vendaArgs<ExtArgs> = {}>(args?: Subset<T, caixa_movimentacoes$pedidos_vendaArgs<ExtArgs>>): Prisma__pedidos_vendaClient<$Result.GetResult<Prisma.$pedidos_vendaPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the caixa_movimentacoes model
+   */ 
+  interface caixa_movimentacoesFieldRefs {
+    readonly id_cm: FieldRef<"caixa_movimentacoes", 'Int'>
+    readonly id_controle_caixa_cm: FieldRef<"caixa_movimentacoes", 'Int'>
+    readonly data_atual_cm: FieldRef<"caixa_movimentacoes", 'DateTime'>
+    readonly tipo_operacao_cm: FieldRef<"caixa_movimentacoes", 'String'>
+    readonly id_pedido_venda_cm: FieldRef<"caixa_movimentacoes", 'Int'>
+    readonly id_forma_pagamento_cm: FieldRef<"caixa_movimentacoes", 'Int'>
+    readonly valor_pago_cm: FieldRef<"caixa_movimentacoes", 'Decimal'>
+    readonly valor_troco_cm: FieldRef<"caixa_movimentacoes", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * caixa_movimentacoes findUnique
+   */
+  export type caixa_movimentacoesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * Filter, which caixa_movimentacoes to fetch.
+     */
+    where: caixa_movimentacoesWhereUniqueInput
+  }
+
+
+  /**
+   * caixa_movimentacoes findUniqueOrThrow
+   */
+  export type caixa_movimentacoesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * Filter, which caixa_movimentacoes to fetch.
+     */
+    where: caixa_movimentacoesWhereUniqueInput
+  }
+
+
+  /**
+   * caixa_movimentacoes findFirst
+   */
+  export type caixa_movimentacoesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * Filter, which caixa_movimentacoes to fetch.
+     */
+    where?: caixa_movimentacoesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of caixa_movimentacoes to fetch.
+     */
+    orderBy?: caixa_movimentacoesOrderByWithRelationInput | caixa_movimentacoesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for caixa_movimentacoes.
+     */
+    cursor?: caixa_movimentacoesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` caixa_movimentacoes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` caixa_movimentacoes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of caixa_movimentacoes.
+     */
+    distinct?: Caixa_movimentacoesScalarFieldEnum | Caixa_movimentacoesScalarFieldEnum[]
+  }
+
+
+  /**
+   * caixa_movimentacoes findFirstOrThrow
+   */
+  export type caixa_movimentacoesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * Filter, which caixa_movimentacoes to fetch.
+     */
+    where?: caixa_movimentacoesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of caixa_movimentacoes to fetch.
+     */
+    orderBy?: caixa_movimentacoesOrderByWithRelationInput | caixa_movimentacoesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for caixa_movimentacoes.
+     */
+    cursor?: caixa_movimentacoesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` caixa_movimentacoes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` caixa_movimentacoes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of caixa_movimentacoes.
+     */
+    distinct?: Caixa_movimentacoesScalarFieldEnum | Caixa_movimentacoesScalarFieldEnum[]
+  }
+
+
+  /**
+   * caixa_movimentacoes findMany
+   */
+  export type caixa_movimentacoesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * Filter, which caixa_movimentacoes to fetch.
+     */
+    where?: caixa_movimentacoesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of caixa_movimentacoes to fetch.
+     */
+    orderBy?: caixa_movimentacoesOrderByWithRelationInput | caixa_movimentacoesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing caixa_movimentacoes.
+     */
+    cursor?: caixa_movimentacoesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` caixa_movimentacoes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` caixa_movimentacoes.
+     */
+    skip?: number
+    distinct?: Caixa_movimentacoesScalarFieldEnum | Caixa_movimentacoesScalarFieldEnum[]
+  }
+
+
+  /**
+   * caixa_movimentacoes create
+   */
+  export type caixa_movimentacoesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a caixa_movimentacoes.
+     */
+    data: XOR<caixa_movimentacoesCreateInput, caixa_movimentacoesUncheckedCreateInput>
+  }
+
+
+  /**
+   * caixa_movimentacoes createMany
+   */
+  export type caixa_movimentacoesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many caixa_movimentacoes.
+     */
+    data: caixa_movimentacoesCreateManyInput | caixa_movimentacoesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * caixa_movimentacoes update
+   */
+  export type caixa_movimentacoesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a caixa_movimentacoes.
+     */
+    data: XOR<caixa_movimentacoesUpdateInput, caixa_movimentacoesUncheckedUpdateInput>
+    /**
+     * Choose, which caixa_movimentacoes to update.
+     */
+    where: caixa_movimentacoesWhereUniqueInput
+  }
+
+
+  /**
+   * caixa_movimentacoes updateMany
+   */
+  export type caixa_movimentacoesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update caixa_movimentacoes.
+     */
+    data: XOR<caixa_movimentacoesUpdateManyMutationInput, caixa_movimentacoesUncheckedUpdateManyInput>
+    /**
+     * Filter which caixa_movimentacoes to update
+     */
+    where?: caixa_movimentacoesWhereInput
+  }
+
+
+  /**
+   * caixa_movimentacoes upsert
+   */
+  export type caixa_movimentacoesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the caixa_movimentacoes to update in case it exists.
+     */
+    where: caixa_movimentacoesWhereUniqueInput
+    /**
+     * In case the caixa_movimentacoes found by the `where` argument doesn't exist, create a new caixa_movimentacoes with this data.
+     */
+    create: XOR<caixa_movimentacoesCreateInput, caixa_movimentacoesUncheckedCreateInput>
+    /**
+     * In case the caixa_movimentacoes was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<caixa_movimentacoesUpdateInput, caixa_movimentacoesUncheckedUpdateInput>
+  }
+
+
+  /**
+   * caixa_movimentacoes delete
+   */
+  export type caixa_movimentacoesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    /**
+     * Filter which caixa_movimentacoes to delete.
+     */
+    where: caixa_movimentacoesWhereUniqueInput
+  }
+
+
+  /**
+   * caixa_movimentacoes deleteMany
+   */
+  export type caixa_movimentacoesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which caixa_movimentacoes to delete
+     */
+    where?: caixa_movimentacoesWhereInput
+  }
+
+
+  /**
+   * caixa_movimentacoes.pedidos_venda
+   */
+  export type caixa_movimentacoes$pedidos_vendaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pedidos_venda
+     */
+    select?: pedidos_vendaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: pedidos_vendaInclude<ExtArgs> | null
+    where?: pedidos_vendaWhereInput
+  }
+
+
+  /**
+   * caixa_movimentacoes without action
+   */
+  export type caixa_movimentacoesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model controle_caixa
+   */
+
+  export type AggregateControle_caixa = {
+    _count: Controle_caixaCountAggregateOutputType | null
+    _avg: Controle_caixaAvgAggregateOutputType | null
+    _sum: Controle_caixaSumAggregateOutputType | null
+    _min: Controle_caixaMinAggregateOutputType | null
+    _max: Controle_caixaMaxAggregateOutputType | null
+  }
+
+  export type Controle_caixaAvgAggregateOutputType = {
+    id_controle_caixa: number | null
+    id_usuario_controle_caixa: number | null
+    saldo_inicial_controle_caixa: Decimal | null
+    saldo_final_controle_caixa: Decimal | null
+  }
+
+  export type Controle_caixaSumAggregateOutputType = {
+    id_controle_caixa: number | null
+    id_usuario_controle_caixa: number | null
+    saldo_inicial_controle_caixa: Decimal | null
+    saldo_final_controle_caixa: Decimal | null
+  }
+
+  export type Controle_caixaMinAggregateOutputType = {
+    id_controle_caixa: number | null
+    id_usuario_controle_caixa: number | null
+    data_abertura_controle_caixa: Date | null
+    data_fechamento_controle_caixa: Date | null
+    saldo_inicial_controle_caixa: Decimal | null
+    saldo_final_controle_caixa: Decimal | null
+  }
+
+  export type Controle_caixaMaxAggregateOutputType = {
+    id_controle_caixa: number | null
+    id_usuario_controle_caixa: number | null
+    data_abertura_controle_caixa: Date | null
+    data_fechamento_controle_caixa: Date | null
+    saldo_inicial_controle_caixa: Decimal | null
+    saldo_final_controle_caixa: Decimal | null
+  }
+
+  export type Controle_caixaCountAggregateOutputType = {
+    id_controle_caixa: number
+    id_usuario_controle_caixa: number
+    data_abertura_controle_caixa: number
+    data_fechamento_controle_caixa: number
+    saldo_inicial_controle_caixa: number
+    saldo_final_controle_caixa: number
+    _all: number
+  }
+
+
+  export type Controle_caixaAvgAggregateInputType = {
+    id_controle_caixa?: true
+    id_usuario_controle_caixa?: true
+    saldo_inicial_controle_caixa?: true
+    saldo_final_controle_caixa?: true
+  }
+
+  export type Controle_caixaSumAggregateInputType = {
+    id_controle_caixa?: true
+    id_usuario_controle_caixa?: true
+    saldo_inicial_controle_caixa?: true
+    saldo_final_controle_caixa?: true
+  }
+
+  export type Controle_caixaMinAggregateInputType = {
+    id_controle_caixa?: true
+    id_usuario_controle_caixa?: true
+    data_abertura_controle_caixa?: true
+    data_fechamento_controle_caixa?: true
+    saldo_inicial_controle_caixa?: true
+    saldo_final_controle_caixa?: true
+  }
+
+  export type Controle_caixaMaxAggregateInputType = {
+    id_controle_caixa?: true
+    id_usuario_controle_caixa?: true
+    data_abertura_controle_caixa?: true
+    data_fechamento_controle_caixa?: true
+    saldo_inicial_controle_caixa?: true
+    saldo_final_controle_caixa?: true
+  }
+
+  export type Controle_caixaCountAggregateInputType = {
+    id_controle_caixa?: true
+    id_usuario_controle_caixa?: true
+    data_abertura_controle_caixa?: true
+    data_fechamento_controle_caixa?: true
+    saldo_inicial_controle_caixa?: true
+    saldo_final_controle_caixa?: true
+    _all?: true
+  }
+
+  export type Controle_caixaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which controle_caixa to aggregate.
+     */
+    where?: controle_caixaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of controle_caixas to fetch.
+     */
+    orderBy?: controle_caixaOrderByWithRelationInput | controle_caixaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: controle_caixaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` controle_caixas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` controle_caixas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned controle_caixas
+    **/
+    _count?: true | Controle_caixaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Controle_caixaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Controle_caixaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Controle_caixaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Controle_caixaMaxAggregateInputType
+  }
+
+  export type GetControle_caixaAggregateType<T extends Controle_caixaAggregateArgs> = {
+        [P in keyof T & keyof AggregateControle_caixa]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateControle_caixa[P]>
+      : GetScalarType<T[P], AggregateControle_caixa[P]>
+  }
+
+
+
+
+  export type controle_caixaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: controle_caixaWhereInput
+    orderBy?: controle_caixaOrderByWithAggregationInput | controle_caixaOrderByWithAggregationInput[]
+    by: Controle_caixaScalarFieldEnum[] | Controle_caixaScalarFieldEnum
+    having?: controle_caixaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Controle_caixaCountAggregateInputType | true
+    _avg?: Controle_caixaAvgAggregateInputType
+    _sum?: Controle_caixaSumAggregateInputType
+    _min?: Controle_caixaMinAggregateInputType
+    _max?: Controle_caixaMaxAggregateInputType
+  }
+
+  export type Controle_caixaGroupByOutputType = {
+    id_controle_caixa: number
+    id_usuario_controle_caixa: number
+    data_abertura_controle_caixa: Date
+    data_fechamento_controle_caixa: Date | null
+    saldo_inicial_controle_caixa: Decimal | null
+    saldo_final_controle_caixa: Decimal | null
+    _count: Controle_caixaCountAggregateOutputType | null
+    _avg: Controle_caixaAvgAggregateOutputType | null
+    _sum: Controle_caixaSumAggregateOutputType | null
+    _min: Controle_caixaMinAggregateOutputType | null
+    _max: Controle_caixaMaxAggregateOutputType | null
+  }
+
+  type GetControle_caixaGroupByPayload<T extends controle_caixaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Controle_caixaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Controle_caixaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Controle_caixaGroupByOutputType[P]>
+            : GetScalarType<T[P], Controle_caixaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type controle_caixaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id_controle_caixa?: boolean
+    id_usuario_controle_caixa?: boolean
+    data_abertura_controle_caixa?: boolean
+    data_fechamento_controle_caixa?: boolean
+    saldo_inicial_controle_caixa?: boolean
+    saldo_final_controle_caixa?: boolean
+    caixa_movimentacoes?: boolean | controle_caixa$caixa_movimentacoesArgs<ExtArgs>
+    _count?: boolean | Controle_caixaCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["controle_caixa"]>
+
+  export type controle_caixaSelectScalar = {
+    id_controle_caixa?: boolean
+    id_usuario_controle_caixa?: boolean
+    data_abertura_controle_caixa?: boolean
+    data_fechamento_controle_caixa?: boolean
+    saldo_inicial_controle_caixa?: boolean
+    saldo_final_controle_caixa?: boolean
+  }
+
+  export type controle_caixaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caixa_movimentacoes?: boolean | controle_caixa$caixa_movimentacoesArgs<ExtArgs>
+    _count?: boolean | Controle_caixaCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $controle_caixaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "controle_caixa"
+    objects: {
+      caixa_movimentacoes: Prisma.$caixa_movimentacoesPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id_controle_caixa: number
+      id_usuario_controle_caixa: number
+      data_abertura_controle_caixa: Date
+      data_fechamento_controle_caixa: Date | null
+      saldo_inicial_controle_caixa: Prisma.Decimal | null
+      saldo_final_controle_caixa: Prisma.Decimal | null
+    }, ExtArgs["result"]["controle_caixa"]>
+    composites: {}
+  }
+
+
+  type controle_caixaGetPayload<S extends boolean | null | undefined | controle_caixaDefaultArgs> = $Result.GetResult<Prisma.$controle_caixaPayload, S>
+
+  type controle_caixaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<controle_caixaFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: Controle_caixaCountAggregateInputType | true
+    }
+
+  export interface controle_caixaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['controle_caixa'], meta: { name: 'controle_caixa' } }
+    /**
+     * Find zero or one Controle_caixa that matches the filter.
+     * @param {controle_caixaFindUniqueArgs} args - Arguments to find a Controle_caixa
+     * @example
+     * // Get one Controle_caixa
+     * const controle_caixa = await prisma.controle_caixa.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends controle_caixaFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, controle_caixaFindUniqueArgs<ExtArgs>>
+    ): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Controle_caixa that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {controle_caixaFindUniqueOrThrowArgs} args - Arguments to find a Controle_caixa
+     * @example
+     * // Get one Controle_caixa
+     * const controle_caixa = await prisma.controle_caixa.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends controle_caixaFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, controle_caixaFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Controle_caixa that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {controle_caixaFindFirstArgs} args - Arguments to find a Controle_caixa
+     * @example
+     * // Get one Controle_caixa
+     * const controle_caixa = await prisma.controle_caixa.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends controle_caixaFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, controle_caixaFindFirstArgs<ExtArgs>>
+    ): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Controle_caixa that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {controle_caixaFindFirstOrThrowArgs} args - Arguments to find a Controle_caixa
+     * @example
+     * // Get one Controle_caixa
+     * const controle_caixa = await prisma.controle_caixa.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends controle_caixaFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, controle_caixaFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Controle_caixas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {controle_caixaFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Controle_caixas
+     * const controle_caixas = await prisma.controle_caixa.findMany()
+     * 
+     * // Get first 10 Controle_caixas
+     * const controle_caixas = await prisma.controle_caixa.findMany({ take: 10 })
+     * 
+     * // Only select the `id_controle_caixa`
+     * const controle_caixaWithId_controle_caixaOnly = await prisma.controle_caixa.findMany({ select: { id_controle_caixa: true } })
+     * 
+    **/
+    findMany<T extends controle_caixaFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, controle_caixaFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Controle_caixa.
+     * @param {controle_caixaCreateArgs} args - Arguments to create a Controle_caixa.
+     * @example
+     * // Create one Controle_caixa
+     * const Controle_caixa = await prisma.controle_caixa.create({
+     *   data: {
+     *     // ... data to create a Controle_caixa
+     *   }
+     * })
+     * 
+    **/
+    create<T extends controle_caixaCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, controle_caixaCreateArgs<ExtArgs>>
+    ): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Controle_caixas.
+     *     @param {controle_caixaCreateManyArgs} args - Arguments to create many Controle_caixas.
+     *     @example
+     *     // Create many Controle_caixas
+     *     const controle_caixa = await prisma.controle_caixa.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends controle_caixaCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, controle_caixaCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Controle_caixa.
+     * @param {controle_caixaDeleteArgs} args - Arguments to delete one Controle_caixa.
+     * @example
+     * // Delete one Controle_caixa
+     * const Controle_caixa = await prisma.controle_caixa.delete({
+     *   where: {
+     *     // ... filter to delete one Controle_caixa
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends controle_caixaDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, controle_caixaDeleteArgs<ExtArgs>>
+    ): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Controle_caixa.
+     * @param {controle_caixaUpdateArgs} args - Arguments to update one Controle_caixa.
+     * @example
+     * // Update one Controle_caixa
+     * const controle_caixa = await prisma.controle_caixa.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends controle_caixaUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, controle_caixaUpdateArgs<ExtArgs>>
+    ): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Controle_caixas.
+     * @param {controle_caixaDeleteManyArgs} args - Arguments to filter Controle_caixas to delete.
+     * @example
+     * // Delete a few Controle_caixas
+     * const { count } = await prisma.controle_caixa.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends controle_caixaDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, controle_caixaDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Controle_caixas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {controle_caixaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Controle_caixas
+     * const controle_caixa = await prisma.controle_caixa.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends controle_caixaUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, controle_caixaUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Controle_caixa.
+     * @param {controle_caixaUpsertArgs} args - Arguments to update or create a Controle_caixa.
+     * @example
+     * // Update or create a Controle_caixa
+     * const controle_caixa = await prisma.controle_caixa.upsert({
+     *   create: {
+     *     // ... data to create a Controle_caixa
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Controle_caixa we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends controle_caixaUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, controle_caixaUpsertArgs<ExtArgs>>
+    ): Prisma__controle_caixaClient<$Result.GetResult<Prisma.$controle_caixaPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Controle_caixas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {controle_caixaCountArgs} args - Arguments to filter Controle_caixas to count.
+     * @example
+     * // Count the number of Controle_caixas
+     * const count = await prisma.controle_caixa.count({
+     *   where: {
+     *     // ... the filter for the Controle_caixas we want to count
+     *   }
+     * })
+    **/
+    count<T extends controle_caixaCountArgs>(
+      args?: Subset<T, controle_caixaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Controle_caixaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Controle_caixa.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Controle_caixaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Controle_caixaAggregateArgs>(args: Subset<T, Controle_caixaAggregateArgs>): Prisma.PrismaPromise<GetControle_caixaAggregateType<T>>
+
+    /**
+     * Group by Controle_caixa.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {controle_caixaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends controle_caixaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: controle_caixaGroupByArgs['orderBy'] }
+        : { orderBy?: controle_caixaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, controle_caixaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetControle_caixaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the controle_caixa model
+   */
+  readonly fields: controle_caixaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for controle_caixa.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__controle_caixaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    caixa_movimentacoes<T extends controle_caixa$caixa_movimentacoesArgs<ExtArgs> = {}>(args?: Subset<T, controle_caixa$caixa_movimentacoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the controle_caixa model
+   */ 
+  interface controle_caixaFieldRefs {
+    readonly id_controle_caixa: FieldRef<"controle_caixa", 'Int'>
+    readonly id_usuario_controle_caixa: FieldRef<"controle_caixa", 'Int'>
+    readonly data_abertura_controle_caixa: FieldRef<"controle_caixa", 'DateTime'>
+    readonly data_fechamento_controle_caixa: FieldRef<"controle_caixa", 'DateTime'>
+    readonly saldo_inicial_controle_caixa: FieldRef<"controle_caixa", 'Decimal'>
+    readonly saldo_final_controle_caixa: FieldRef<"controle_caixa", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * controle_caixa findUnique
+   */
+  export type controle_caixaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * Filter, which controle_caixa to fetch.
+     */
+    where: controle_caixaWhereUniqueInput
+  }
+
+
+  /**
+   * controle_caixa findUniqueOrThrow
+   */
+  export type controle_caixaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * Filter, which controle_caixa to fetch.
+     */
+    where: controle_caixaWhereUniqueInput
+  }
+
+
+  /**
+   * controle_caixa findFirst
+   */
+  export type controle_caixaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * Filter, which controle_caixa to fetch.
+     */
+    where?: controle_caixaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of controle_caixas to fetch.
+     */
+    orderBy?: controle_caixaOrderByWithRelationInput | controle_caixaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for controle_caixas.
+     */
+    cursor?: controle_caixaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` controle_caixas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` controle_caixas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of controle_caixas.
+     */
+    distinct?: Controle_caixaScalarFieldEnum | Controle_caixaScalarFieldEnum[]
+  }
+
+
+  /**
+   * controle_caixa findFirstOrThrow
+   */
+  export type controle_caixaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * Filter, which controle_caixa to fetch.
+     */
+    where?: controle_caixaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of controle_caixas to fetch.
+     */
+    orderBy?: controle_caixaOrderByWithRelationInput | controle_caixaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for controle_caixas.
+     */
+    cursor?: controle_caixaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` controle_caixas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` controle_caixas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of controle_caixas.
+     */
+    distinct?: Controle_caixaScalarFieldEnum | Controle_caixaScalarFieldEnum[]
+  }
+
+
+  /**
+   * controle_caixa findMany
+   */
+  export type controle_caixaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * Filter, which controle_caixas to fetch.
+     */
+    where?: controle_caixaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of controle_caixas to fetch.
+     */
+    orderBy?: controle_caixaOrderByWithRelationInput | controle_caixaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing controle_caixas.
+     */
+    cursor?: controle_caixaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` controle_caixas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` controle_caixas.
+     */
+    skip?: number
+    distinct?: Controle_caixaScalarFieldEnum | Controle_caixaScalarFieldEnum[]
+  }
+
+
+  /**
+   * controle_caixa create
+   */
+  export type controle_caixaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a controle_caixa.
+     */
+    data: XOR<controle_caixaCreateInput, controle_caixaUncheckedCreateInput>
+  }
+
+
+  /**
+   * controle_caixa createMany
+   */
+  export type controle_caixaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many controle_caixas.
+     */
+    data: controle_caixaCreateManyInput | controle_caixaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * controle_caixa update
+   */
+  export type controle_caixaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a controle_caixa.
+     */
+    data: XOR<controle_caixaUpdateInput, controle_caixaUncheckedUpdateInput>
+    /**
+     * Choose, which controle_caixa to update.
+     */
+    where: controle_caixaWhereUniqueInput
+  }
+
+
+  /**
+   * controle_caixa updateMany
+   */
+  export type controle_caixaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update controle_caixas.
+     */
+    data: XOR<controle_caixaUpdateManyMutationInput, controle_caixaUncheckedUpdateManyInput>
+    /**
+     * Filter which controle_caixas to update
+     */
+    where?: controle_caixaWhereInput
+  }
+
+
+  /**
+   * controle_caixa upsert
+   */
+  export type controle_caixaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the controle_caixa to update in case it exists.
+     */
+    where: controle_caixaWhereUniqueInput
+    /**
+     * In case the controle_caixa found by the `where` argument doesn't exist, create a new controle_caixa with this data.
+     */
+    create: XOR<controle_caixaCreateInput, controle_caixaUncheckedCreateInput>
+    /**
+     * In case the controle_caixa was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<controle_caixaUpdateInput, controle_caixaUncheckedUpdateInput>
+  }
+
+
+  /**
+   * controle_caixa delete
+   */
+  export type controle_caixaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+    /**
+     * Filter which controle_caixa to delete.
+     */
+    where: controle_caixaWhereUniqueInput
+  }
+
+
+  /**
+   * controle_caixa deleteMany
+   */
+  export type controle_caixaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which controle_caixas to delete
+     */
+    where?: controle_caixaWhereInput
+  }
+
+
+  /**
+   * controle_caixa.caixa_movimentacoes
+   */
+  export type controle_caixa$caixa_movimentacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    where?: caixa_movimentacoesWhereInput
+    orderBy?: caixa_movimentacoesOrderByWithRelationInput | caixa_movimentacoesOrderByWithRelationInput[]
+    cursor?: caixa_movimentacoesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Caixa_movimentacoesScalarFieldEnum | Caixa_movimentacoesScalarFieldEnum[]
+  }
+
+
+  /**
+   * controle_caixa without action
+   */
+  export type controle_caixaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the controle_caixa
+     */
+    select?: controle_caixaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: controle_caixaInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model forma_pagamento
+   */
+
+  export type AggregateForma_pagamento = {
+    _count: Forma_pagamentoCountAggregateOutputType | null
+    _avg: Forma_pagamentoAvgAggregateOutputType | null
+    _sum: Forma_pagamentoSumAggregateOutputType | null
+    _min: Forma_pagamentoMinAggregateOutputType | null
+    _max: Forma_pagamentoMaxAggregateOutputType | null
+  }
+
+  export type Forma_pagamentoAvgAggregateOutputType = {
+    id_fp: number | null
+  }
+
+  export type Forma_pagamentoSumAggregateOutputType = {
+    id_fp: number | null
+  }
+
+  export type Forma_pagamentoMinAggregateOutputType = {
+    id_fp: number | null
+    nm_fp: string | null
+  }
+
+  export type Forma_pagamentoMaxAggregateOutputType = {
+    id_fp: number | null
+    nm_fp: string | null
+  }
+
+  export type Forma_pagamentoCountAggregateOutputType = {
+    id_fp: number
+    nm_fp: number
+    _all: number
+  }
+
+
+  export type Forma_pagamentoAvgAggregateInputType = {
+    id_fp?: true
+  }
+
+  export type Forma_pagamentoSumAggregateInputType = {
+    id_fp?: true
+  }
+
+  export type Forma_pagamentoMinAggregateInputType = {
+    id_fp?: true
+    nm_fp?: true
+  }
+
+  export type Forma_pagamentoMaxAggregateInputType = {
+    id_fp?: true
+    nm_fp?: true
+  }
+
+  export type Forma_pagamentoCountAggregateInputType = {
+    id_fp?: true
+    nm_fp?: true
+    _all?: true
+  }
+
+  export type Forma_pagamentoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which forma_pagamento to aggregate.
+     */
+    where?: forma_pagamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of forma_pagamentos to fetch.
+     */
+    orderBy?: forma_pagamentoOrderByWithRelationInput | forma_pagamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: forma_pagamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` forma_pagamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` forma_pagamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned forma_pagamentos
+    **/
+    _count?: true | Forma_pagamentoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Forma_pagamentoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Forma_pagamentoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Forma_pagamentoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Forma_pagamentoMaxAggregateInputType
+  }
+
+  export type GetForma_pagamentoAggregateType<T extends Forma_pagamentoAggregateArgs> = {
+        [P in keyof T & keyof AggregateForma_pagamento]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateForma_pagamento[P]>
+      : GetScalarType<T[P], AggregateForma_pagamento[P]>
+  }
+
+
+
+
+  export type forma_pagamentoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: forma_pagamentoWhereInput
+    orderBy?: forma_pagamentoOrderByWithAggregationInput | forma_pagamentoOrderByWithAggregationInput[]
+    by: Forma_pagamentoScalarFieldEnum[] | Forma_pagamentoScalarFieldEnum
+    having?: forma_pagamentoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Forma_pagamentoCountAggregateInputType | true
+    _avg?: Forma_pagamentoAvgAggregateInputType
+    _sum?: Forma_pagamentoSumAggregateInputType
+    _min?: Forma_pagamentoMinAggregateInputType
+    _max?: Forma_pagamentoMaxAggregateInputType
+  }
+
+  export type Forma_pagamentoGroupByOutputType = {
+    id_fp: number
+    nm_fp: string | null
+    _count: Forma_pagamentoCountAggregateOutputType | null
+    _avg: Forma_pagamentoAvgAggregateOutputType | null
+    _sum: Forma_pagamentoSumAggregateOutputType | null
+    _min: Forma_pagamentoMinAggregateOutputType | null
+    _max: Forma_pagamentoMaxAggregateOutputType | null
+  }
+
+  type GetForma_pagamentoGroupByPayload<T extends forma_pagamentoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Forma_pagamentoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Forma_pagamentoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Forma_pagamentoGroupByOutputType[P]>
+            : GetScalarType<T[P], Forma_pagamentoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type forma_pagamentoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id_fp?: boolean
+    nm_fp?: boolean
+    caixa_movimentacoes?: boolean | forma_pagamento$caixa_movimentacoesArgs<ExtArgs>
+    pedidos_venda?: boolean | forma_pagamento$pedidos_vendaArgs<ExtArgs>
+    _count?: boolean | Forma_pagamentoCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["forma_pagamento"]>
+
+  export type forma_pagamentoSelectScalar = {
+    id_fp?: boolean
+    nm_fp?: boolean
+  }
+
+  export type forma_pagamentoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caixa_movimentacoes?: boolean | forma_pagamento$caixa_movimentacoesArgs<ExtArgs>
+    pedidos_venda?: boolean | forma_pagamento$pedidos_vendaArgs<ExtArgs>
+    _count?: boolean | Forma_pagamentoCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $forma_pagamentoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "forma_pagamento"
+    objects: {
+      caixa_movimentacoes: Prisma.$caixa_movimentacoesPayload<ExtArgs>[]
+      pedidos_venda: Prisma.$pedidos_vendaPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id_fp: number
+      nm_fp: string | null
+    }, ExtArgs["result"]["forma_pagamento"]>
+    composites: {}
+  }
+
+
+  type forma_pagamentoGetPayload<S extends boolean | null | undefined | forma_pagamentoDefaultArgs> = $Result.GetResult<Prisma.$forma_pagamentoPayload, S>
+
+  type forma_pagamentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<forma_pagamentoFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: Forma_pagamentoCountAggregateInputType | true
+    }
+
+  export interface forma_pagamentoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['forma_pagamento'], meta: { name: 'forma_pagamento' } }
+    /**
+     * Find zero or one Forma_pagamento that matches the filter.
+     * @param {forma_pagamentoFindUniqueArgs} args - Arguments to find a Forma_pagamento
+     * @example
+     * // Get one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends forma_pagamentoFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoFindUniqueArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Forma_pagamento that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {forma_pagamentoFindUniqueOrThrowArgs} args - Arguments to find a Forma_pagamento
+     * @example
+     * // Get one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends forma_pagamentoFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Forma_pagamento that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoFindFirstArgs} args - Arguments to find a Forma_pagamento
+     * @example
+     * // Get one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends forma_pagamentoFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoFindFirstArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Forma_pagamento that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoFindFirstOrThrowArgs} args - Arguments to find a Forma_pagamento
+     * @example
+     * // Get one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends forma_pagamentoFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Forma_pagamentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Forma_pagamentos
+     * const forma_pagamentos = await prisma.forma_pagamento.findMany()
+     * 
+     * // Get first 10 Forma_pagamentos
+     * const forma_pagamentos = await prisma.forma_pagamento.findMany({ take: 10 })
+     * 
+     * // Only select the `id_fp`
+     * const forma_pagamentoWithId_fpOnly = await prisma.forma_pagamento.findMany({ select: { id_fp: true } })
+     * 
+    **/
+    findMany<T extends forma_pagamentoFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Forma_pagamento.
+     * @param {forma_pagamentoCreateArgs} args - Arguments to create a Forma_pagamento.
+     * @example
+     * // Create one Forma_pagamento
+     * const Forma_pagamento = await prisma.forma_pagamento.create({
+     *   data: {
+     *     // ... data to create a Forma_pagamento
+     *   }
+     * })
+     * 
+    **/
+    create<T extends forma_pagamentoCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoCreateArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Forma_pagamentos.
+     *     @param {forma_pagamentoCreateManyArgs} args - Arguments to create many Forma_pagamentos.
+     *     @example
+     *     // Create many Forma_pagamentos
+     *     const forma_pagamento = await prisma.forma_pagamento.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends forma_pagamentoCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Forma_pagamento.
+     * @param {forma_pagamentoDeleteArgs} args - Arguments to delete one Forma_pagamento.
+     * @example
+     * // Delete one Forma_pagamento
+     * const Forma_pagamento = await prisma.forma_pagamento.delete({
+     *   where: {
+     *     // ... filter to delete one Forma_pagamento
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends forma_pagamentoDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoDeleteArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Forma_pagamento.
+     * @param {forma_pagamentoUpdateArgs} args - Arguments to update one Forma_pagamento.
+     * @example
+     * // Update one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends forma_pagamentoUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoUpdateArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Forma_pagamentos.
+     * @param {forma_pagamentoDeleteManyArgs} args - Arguments to filter Forma_pagamentos to delete.
+     * @example
+     * // Delete a few Forma_pagamentos
+     * const { count } = await prisma.forma_pagamento.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends forma_pagamentoDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Forma_pagamentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Forma_pagamentos
+     * const forma_pagamento = await prisma.forma_pagamento.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends forma_pagamentoUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Forma_pagamento.
+     * @param {forma_pagamentoUpsertArgs} args - Arguments to update or create a Forma_pagamento.
+     * @example
+     * // Update or create a Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.upsert({
+     *   create: {
+     *     // ... data to create a Forma_pagamento
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Forma_pagamento we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends forma_pagamentoUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoUpsertArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Forma_pagamentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoCountArgs} args - Arguments to filter Forma_pagamentos to count.
+     * @example
+     * // Count the number of Forma_pagamentos
+     * const count = await prisma.forma_pagamento.count({
+     *   where: {
+     *     // ... the filter for the Forma_pagamentos we want to count
+     *   }
+     * })
+    **/
+    count<T extends forma_pagamentoCountArgs>(
+      args?: Subset<T, forma_pagamentoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Forma_pagamentoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Forma_pagamento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Forma_pagamentoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Forma_pagamentoAggregateArgs>(args: Subset<T, Forma_pagamentoAggregateArgs>): Prisma.PrismaPromise<GetForma_pagamentoAggregateType<T>>
+
+    /**
+     * Group by Forma_pagamento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends forma_pagamentoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: forma_pagamentoGroupByArgs['orderBy'] }
+        : { orderBy?: forma_pagamentoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, forma_pagamentoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetForma_pagamentoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the forma_pagamento model
+   */
+  readonly fields: forma_pagamentoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for forma_pagamento.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__forma_pagamentoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    caixa_movimentacoes<T extends forma_pagamento$caixa_movimentacoesArgs<ExtArgs> = {}>(args?: Subset<T, forma_pagamento$caixa_movimentacoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$caixa_movimentacoesPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    pedidos_venda<T extends forma_pagamento$pedidos_vendaArgs<ExtArgs> = {}>(args?: Subset<T, forma_pagamento$pedidos_vendaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pedidos_vendaPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the forma_pagamento model
+   */ 
+  interface forma_pagamentoFieldRefs {
+    readonly id_fp: FieldRef<"forma_pagamento", 'Int'>
+    readonly nm_fp: FieldRef<"forma_pagamento", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * forma_pagamento findUnique
+   */
+  export type forma_pagamentoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamento to fetch.
+     */
+    where: forma_pagamentoWhereUniqueInput
+  }
+
+
+  /**
+   * forma_pagamento findUniqueOrThrow
+   */
+  export type forma_pagamentoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamento to fetch.
+     */
+    where: forma_pagamentoWhereUniqueInput
+  }
+
+
+  /**
+   * forma_pagamento findFirst
+   */
+  export type forma_pagamentoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamento to fetch.
+     */
+    where?: forma_pagamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of forma_pagamentos to fetch.
+     */
+    orderBy?: forma_pagamentoOrderByWithRelationInput | forma_pagamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for forma_pagamentos.
+     */
+    cursor?: forma_pagamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` forma_pagamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` forma_pagamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of forma_pagamentos.
+     */
+    distinct?: Forma_pagamentoScalarFieldEnum | Forma_pagamentoScalarFieldEnum[]
+  }
+
+
+  /**
+   * forma_pagamento findFirstOrThrow
+   */
+  export type forma_pagamentoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamento to fetch.
+     */
+    where?: forma_pagamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of forma_pagamentos to fetch.
+     */
+    orderBy?: forma_pagamentoOrderByWithRelationInput | forma_pagamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for forma_pagamentos.
+     */
+    cursor?: forma_pagamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` forma_pagamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` forma_pagamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of forma_pagamentos.
+     */
+    distinct?: Forma_pagamentoScalarFieldEnum | Forma_pagamentoScalarFieldEnum[]
+  }
+
+
+  /**
+   * forma_pagamento findMany
+   */
+  export type forma_pagamentoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamentos to fetch.
+     */
+    where?: forma_pagamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of forma_pagamentos to fetch.
+     */
+    orderBy?: forma_pagamentoOrderByWithRelationInput | forma_pagamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing forma_pagamentos.
+     */
+    cursor?: forma_pagamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` forma_pagamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` forma_pagamentos.
+     */
+    skip?: number
+    distinct?: Forma_pagamentoScalarFieldEnum | Forma_pagamentoScalarFieldEnum[]
+  }
+
+
+  /**
+   * forma_pagamento create
+   */
+  export type forma_pagamentoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a forma_pagamento.
+     */
+    data?: XOR<forma_pagamentoCreateInput, forma_pagamentoUncheckedCreateInput>
+  }
+
+
+  /**
+   * forma_pagamento createMany
+   */
+  export type forma_pagamentoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many forma_pagamentos.
+     */
+    data: forma_pagamentoCreateManyInput | forma_pagamentoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * forma_pagamento update
+   */
+  export type forma_pagamentoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a forma_pagamento.
+     */
+    data: XOR<forma_pagamentoUpdateInput, forma_pagamentoUncheckedUpdateInput>
+    /**
+     * Choose, which forma_pagamento to update.
+     */
+    where: forma_pagamentoWhereUniqueInput
+  }
+
+
+  /**
+   * forma_pagamento updateMany
+   */
+  export type forma_pagamentoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update forma_pagamentos.
+     */
+    data: XOR<forma_pagamentoUpdateManyMutationInput, forma_pagamentoUncheckedUpdateManyInput>
+    /**
+     * Filter which forma_pagamentos to update
+     */
+    where?: forma_pagamentoWhereInput
+  }
+
+
+  /**
+   * forma_pagamento upsert
+   */
+  export type forma_pagamentoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the forma_pagamento to update in case it exists.
+     */
+    where: forma_pagamentoWhereUniqueInput
+    /**
+     * In case the forma_pagamento found by the `where` argument doesn't exist, create a new forma_pagamento with this data.
+     */
+    create: XOR<forma_pagamentoCreateInput, forma_pagamentoUncheckedCreateInput>
+    /**
+     * In case the forma_pagamento was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<forma_pagamentoUpdateInput, forma_pagamentoUncheckedUpdateInput>
+  }
+
+
+  /**
+   * forma_pagamento delete
+   */
+  export type forma_pagamentoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+    /**
+     * Filter which forma_pagamento to delete.
+     */
+    where: forma_pagamentoWhereUniqueInput
+  }
+
+
+  /**
+   * forma_pagamento deleteMany
+   */
+  export type forma_pagamentoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which forma_pagamentos to delete
+     */
+    where?: forma_pagamentoWhereInput
+  }
+
+
+  /**
+   * forma_pagamento.caixa_movimentacoes
+   */
+  export type forma_pagamento$caixa_movimentacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the caixa_movimentacoes
+     */
+    select?: caixa_movimentacoesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: caixa_movimentacoesInclude<ExtArgs> | null
+    where?: caixa_movimentacoesWhereInput
+    orderBy?: caixa_movimentacoesOrderByWithRelationInput | caixa_movimentacoesOrderByWithRelationInput[]
+    cursor?: caixa_movimentacoesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Caixa_movimentacoesScalarFieldEnum | Caixa_movimentacoesScalarFieldEnum[]
+  }
+
+
+  /**
+   * forma_pagamento.pedidos_venda
+   */
+  export type forma_pagamento$pedidos_vendaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pedidos_venda
+     */
+    select?: pedidos_vendaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: pedidos_vendaInclude<ExtArgs> | null
+    where?: pedidos_vendaWhereInput
+    orderBy?: pedidos_vendaOrderByWithRelationInput | pedidos_vendaOrderByWithRelationInput[]
+    cursor?: pedidos_vendaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Pedidos_vendaScalarFieldEnum | Pedidos_vendaScalarFieldEnum[]
+  }
+
+
+  /**
+   * forma_pagamento without action
+   */
+  export type forma_pagamentoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: forma_pagamentoInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -36390,7 +39711,7 @@ export namespace Prisma {
     cliente_contato_pv: 'cliente_contato_pv',
     data_realizacao_pv: 'data_realizacao_pv',
     data_sincronizacao_pv: 'data_sincronizacao_pv',
-    id_condicao_pagamento_pv: 'id_condicao_pagamento_pv',
+    id_forma_pagamento_pv: 'id_forma_pagamento_pv',
     entrega_cep_pv: 'entrega_cep_pv',
     entrega_logradouro_pv: 'entrega_logradouro_pv',
     entrega_numero_pv: 'entrega_numero_pv',
@@ -36455,6 +39776,7 @@ export namespace Prisma {
   export const ProdutosScalarFieldEnum: {
     id_prod: 'id_prod',
     id_sirius_prod: 'id_sirius_prod',
+    id_submenu: 'id_submenu',
     cod_prod: 'cod_prod',
     descricao_prod: 'descricao_prod',
     cod_ean_prod: 'cod_ean_prod',
@@ -36477,8 +39799,7 @@ export namespace Prisma {
     gluten_prod: 'gluten_prod',
     vegetariano_prod: 'vegetariano_prod',
     vegano_prod: 'vegano_prod',
-    id_imagem: 'id_imagem',
-    id_submenu: 'id_submenu'
+    id_imagem: 'id_imagem'
   };
 
   export type ProdutosScalarFieldEnum = (typeof ProdutosScalarFieldEnum)[keyof typeof ProdutosScalarFieldEnum]
@@ -36596,6 +39917,40 @@ export namespace Prisma {
   export type Vendedores_usuariosScalarFieldEnum = (typeof Vendedores_usuariosScalarFieldEnum)[keyof typeof Vendedores_usuariosScalarFieldEnum]
 
 
+  export const Caixa_movimentacoesScalarFieldEnum: {
+    id_cm: 'id_cm',
+    id_controle_caixa_cm: 'id_controle_caixa_cm',
+    data_atual_cm: 'data_atual_cm',
+    tipo_operacao_cm: 'tipo_operacao_cm',
+    id_pedido_venda_cm: 'id_pedido_venda_cm',
+    id_forma_pagamento_cm: 'id_forma_pagamento_cm',
+    valor_pago_cm: 'valor_pago_cm',
+    valor_troco_cm: 'valor_troco_cm'
+  };
+
+  export type Caixa_movimentacoesScalarFieldEnum = (typeof Caixa_movimentacoesScalarFieldEnum)[keyof typeof Caixa_movimentacoesScalarFieldEnum]
+
+
+  export const Controle_caixaScalarFieldEnum: {
+    id_controle_caixa: 'id_controle_caixa',
+    id_usuario_controle_caixa: 'id_usuario_controle_caixa',
+    data_abertura_controle_caixa: 'data_abertura_controle_caixa',
+    data_fechamento_controle_caixa: 'data_fechamento_controle_caixa',
+    saldo_inicial_controle_caixa: 'saldo_inicial_controle_caixa',
+    saldo_final_controle_caixa: 'saldo_final_controle_caixa'
+  };
+
+  export type Controle_caixaScalarFieldEnum = (typeof Controle_caixaScalarFieldEnum)[keyof typeof Controle_caixaScalarFieldEnum]
+
+
+  export const Forma_pagamentoScalarFieldEnum: {
+    id_fp: 'id_fp',
+    nm_fp: 'nm_fp'
+  };
+
+  export type Forma_pagamentoScalarFieldEnum = (typeof Forma_pagamentoScalarFieldEnum)[keyof typeof Forma_pagamentoScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -36694,16 +40049,16 @@ export namespace Prisma {
 
   export type atividades_gruposWhereUniqueInput = Prisma.AtLeast<{
     id_ag?: number
-    nm_atividade_ag?: string
     AND?: atividades_gruposWhereInput | atividades_gruposWhereInput[]
     OR?: atividades_gruposWhereInput[]
     NOT?: atividades_gruposWhereInput | atividades_gruposWhereInput[]
     id_grupos_usuarios_ag?: IntFilter<"atividades_grupos"> | number
     id_atividade_ag?: IntFilter<"atividades_grupos"> | number
+    nm_atividade_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     valor_ag?: IntNullableFilter<"atividades_grupos"> | number | null
     descricao_ag?: StringNullableFilter<"atividades_grupos"> | string | null
     grupos_usuarios?: XOR<Grupos_usuariosRelationFilter, grupos_usuariosWhereInput>
-  }, "id_ag" | "nm_atividade_ag">
+  }, "id_ag">
 
   export type atividades_gruposOrderByWithAggregationInput = {
     id_ag?: SortOrder
@@ -37062,7 +40417,6 @@ export namespace Prisma {
     id_sirius_cp?: IntNullableFilter<"condicoes_pagamento"> | number | null
     descricao_cp?: StringFilter<"condicoes_pagamento"> | string
     clientes?: ClientesListRelationFilter
-    pedidos_venda?: Pedidos_vendaListRelationFilter
   }
 
   export type condicoes_pagamentoOrderByWithRelationInput = {
@@ -37070,7 +40424,6 @@ export namespace Prisma {
     id_sirius_cp?: SortOrderInput | SortOrder
     descricao_cp?: SortOrder
     clientes?: clientesOrderByRelationAggregateInput
-    pedidos_venda?: pedidos_vendaOrderByRelationAggregateInput
   }
 
   export type condicoes_pagamentoWhereUniqueInput = Prisma.AtLeast<{
@@ -37081,7 +40434,6 @@ export namespace Prisma {
     NOT?: condicoes_pagamentoWhereInput | condicoes_pagamentoWhereInput[]
     descricao_cp?: StringFilter<"condicoes_pagamento"> | string
     clientes?: ClientesListRelationFilter
-    pedidos_venda?: Pedidos_vendaListRelationFilter
   }, "id_cp" | "id_sirius_cp">
 
   export type condicoes_pagamentoOrderByWithAggregationInput = {
@@ -37893,7 +41245,7 @@ export namespace Prisma {
     cliente_contato_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     data_realizacao_pv?: DateTimeNullableFilter<"pedidos_venda"> | Date | string | null
     data_sincronizacao_pv?: DateTimeNullableFilter<"pedidos_venda"> | Date | string | null
-    id_condicao_pagamento_pv?: IntNullableFilter<"pedidos_venda"> | number | null
+    id_forma_pagamento_pv?: IntNullableFilter<"pedidos_venda"> | number | null
     entrega_cep_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     entrega_logradouro_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     entrega_numero_pv?: StringNullableFilter<"pedidos_venda"> | string | null
@@ -37906,8 +41258,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     pagamento_pv?: DecimalNullableFilter<"pedidos_venda"> | Decimal | DecimalJsLike | number | string | null
     troco_pv?: DecimalNullableFilter<"pedidos_venda"> | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: Caixa_movimentacoesListRelationFilter
     clientes?: XOR<ClientesNullableRelationFilter, clientesWhereInput> | null
-    condicoes_pagamento?: XOR<Condicoes_pagamentoNullableRelationFilter, condicoes_pagamentoWhereInput> | null
+    forma_pagamento?: XOR<Forma_pagamentoNullableRelationFilter, forma_pagamentoWhereInput> | null
     modalidade_frete?: XOR<Modalidade_freteNullableRelationFilter, modalidade_freteWhereInput> | null
     transportadores?: XOR<TransportadoresNullableRelationFilter, transportadoresWhereInput> | null
     vendedores?: XOR<VendedoresNullableRelationFilter, vendedoresWhereInput> | null
@@ -37931,7 +41284,7 @@ export namespace Prisma {
     cliente_contato_pv?: SortOrderInput | SortOrder
     data_realizacao_pv?: SortOrderInput | SortOrder
     data_sincronizacao_pv?: SortOrderInput | SortOrder
-    id_condicao_pagamento_pv?: SortOrderInput | SortOrder
+    id_forma_pagamento_pv?: SortOrderInput | SortOrder
     entrega_cep_pv?: SortOrderInput | SortOrder
     entrega_logradouro_pv?: SortOrderInput | SortOrder
     entrega_numero_pv?: SortOrderInput | SortOrder
@@ -37944,8 +41297,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: SortOrderInput | SortOrder
     pagamento_pv?: SortOrderInput | SortOrder
     troco_pv?: SortOrderInput | SortOrder
+    caixa_movimentacoes?: caixa_movimentacoesOrderByRelationAggregateInput
     clientes?: clientesOrderByWithRelationInput
-    condicoes_pagamento?: condicoes_pagamentoOrderByWithRelationInput
+    forma_pagamento?: forma_pagamentoOrderByWithRelationInput
     modalidade_frete?: modalidade_freteOrderByWithRelationInput
     transportadores?: transportadoresOrderByWithRelationInput
     vendedores?: vendedoresOrderByWithRelationInput
@@ -37972,7 +41326,7 @@ export namespace Prisma {
     cliente_contato_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     data_realizacao_pv?: DateTimeNullableFilter<"pedidos_venda"> | Date | string | null
     data_sincronizacao_pv?: DateTimeNullableFilter<"pedidos_venda"> | Date | string | null
-    id_condicao_pagamento_pv?: IntNullableFilter<"pedidos_venda"> | number | null
+    id_forma_pagamento_pv?: IntNullableFilter<"pedidos_venda"> | number | null
     entrega_cep_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     entrega_logradouro_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     entrega_numero_pv?: StringNullableFilter<"pedidos_venda"> | string | null
@@ -37985,8 +41339,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     pagamento_pv?: DecimalNullableFilter<"pedidos_venda"> | Decimal | DecimalJsLike | number | string | null
     troco_pv?: DecimalNullableFilter<"pedidos_venda"> | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: Caixa_movimentacoesListRelationFilter
     clientes?: XOR<ClientesNullableRelationFilter, clientesWhereInput> | null
-    condicoes_pagamento?: XOR<Condicoes_pagamentoNullableRelationFilter, condicoes_pagamentoWhereInput> | null
+    forma_pagamento?: XOR<Forma_pagamentoNullableRelationFilter, forma_pagamentoWhereInput> | null
     modalidade_frete?: XOR<Modalidade_freteNullableRelationFilter, modalidade_freteWhereInput> | null
     transportadores?: XOR<TransportadoresNullableRelationFilter, transportadoresWhereInput> | null
     vendedores?: XOR<VendedoresNullableRelationFilter, vendedoresWhereInput> | null
@@ -38010,7 +41365,7 @@ export namespace Prisma {
     cliente_contato_pv?: SortOrderInput | SortOrder
     data_realizacao_pv?: SortOrderInput | SortOrder
     data_sincronizacao_pv?: SortOrderInput | SortOrder
-    id_condicao_pagamento_pv?: SortOrderInput | SortOrder
+    id_forma_pagamento_pv?: SortOrderInput | SortOrder
     entrega_cep_pv?: SortOrderInput | SortOrder
     entrega_logradouro_pv?: SortOrderInput | SortOrder
     entrega_numero_pv?: SortOrderInput | SortOrder
@@ -38048,7 +41403,7 @@ export namespace Prisma {
     cliente_contato_pv?: StringNullableWithAggregatesFilter<"pedidos_venda"> | string | null
     data_realizacao_pv?: DateTimeNullableWithAggregatesFilter<"pedidos_venda"> | Date | string | null
     data_sincronizacao_pv?: DateTimeNullableWithAggregatesFilter<"pedidos_venda"> | Date | string | null
-    id_condicao_pagamento_pv?: IntNullableWithAggregatesFilter<"pedidos_venda"> | number | null
+    id_forma_pagamento_pv?: IntNullableWithAggregatesFilter<"pedidos_venda"> | number | null
     entrega_cep_pv?: StringNullableWithAggregatesFilter<"pedidos_venda"> | string | null
     entrega_logradouro_pv?: StringNullableWithAggregatesFilter<"pedidos_venda"> | string | null
     entrega_numero_pv?: StringNullableWithAggregatesFilter<"pedidos_venda"> | string | null
@@ -38301,6 +41656,7 @@ export namespace Prisma {
     NOT?: produtosWhereInput | produtosWhereInput[]
     id_prod?: IntFilter<"produtos"> | number
     id_sirius_prod?: IntNullableFilter<"produtos"> | number | null
+    id_submenu?: IntNullableFilter<"produtos"> | number | null
     cod_prod?: StringNullableFilter<"produtos"> | string | null
     descricao_prod?: StringFilter<"produtos"> | string
     cod_ean_prod?: StringNullableFilter<"produtos"> | string | null
@@ -38324,7 +41680,6 @@ export namespace Prisma {
     vegetariano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     vegano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     id_imagem?: IntNullableFilter<"produtos"> | number | null
-    id_submenu?: IntNullableFilter<"produtos"> | number | null
     clientes_produtos?: Clientes_produtosListRelationFilter
     listas_precos_produtos?: Listas_precos_produtosListRelationFilter
     pedidos_venda_itens?: Pedidos_venda_itensListRelationFilter
@@ -38337,6 +41692,7 @@ export namespace Prisma {
   export type produtosOrderByWithRelationInput = {
     id_prod?: SortOrder
     id_sirius_prod?: SortOrderInput | SortOrder
+    id_submenu?: SortOrderInput | SortOrder
     cod_prod?: SortOrderInput | SortOrder
     descricao_prod?: SortOrder
     cod_ean_prod?: SortOrderInput | SortOrder
@@ -38360,7 +41716,6 @@ export namespace Prisma {
     vegetariano_prod?: SortOrderInput | SortOrder
     vegano_prod?: SortOrderInput | SortOrder
     id_imagem?: SortOrderInput | SortOrder
-    id_submenu?: SortOrderInput | SortOrder
     clientes_produtos?: clientes_produtosOrderByRelationAggregateInput
     listas_precos_produtos?: listas_precos_produtosOrderByRelationAggregateInput
     pedidos_venda_itens?: pedidos_venda_itensOrderByRelationAggregateInput
@@ -38376,6 +41731,7 @@ export namespace Prisma {
     AND?: produtosWhereInput | produtosWhereInput[]
     OR?: produtosWhereInput[]
     NOT?: produtosWhereInput | produtosWhereInput[]
+    id_submenu?: IntNullableFilter<"produtos"> | number | null
     cod_prod?: StringNullableFilter<"produtos"> | string | null
     descricao_prod?: StringFilter<"produtos"> | string
     cod_ean_prod?: StringNullableFilter<"produtos"> | string | null
@@ -38399,7 +41755,6 @@ export namespace Prisma {
     vegetariano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     vegano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     id_imagem?: IntNullableFilter<"produtos"> | number | null
-    id_submenu?: IntNullableFilter<"produtos"> | number | null
     clientes_produtos?: Clientes_produtosListRelationFilter
     listas_precos_produtos?: Listas_precos_produtosListRelationFilter
     pedidos_venda_itens?: Pedidos_venda_itensListRelationFilter
@@ -38412,6 +41767,7 @@ export namespace Prisma {
   export type produtosOrderByWithAggregationInput = {
     id_prod?: SortOrder
     id_sirius_prod?: SortOrderInput | SortOrder
+    id_submenu?: SortOrderInput | SortOrder
     cod_prod?: SortOrderInput | SortOrder
     descricao_prod?: SortOrder
     cod_ean_prod?: SortOrderInput | SortOrder
@@ -38435,7 +41791,6 @@ export namespace Prisma {
     vegetariano_prod?: SortOrderInput | SortOrder
     vegano_prod?: SortOrderInput | SortOrder
     id_imagem?: SortOrderInput | SortOrder
-    id_submenu?: SortOrderInput | SortOrder
     _count?: produtosCountOrderByAggregateInput
     _avg?: produtosAvgOrderByAggregateInput
     _max?: produtosMaxOrderByAggregateInput
@@ -38449,6 +41804,7 @@ export namespace Prisma {
     NOT?: produtosScalarWhereWithAggregatesInput | produtosScalarWhereWithAggregatesInput[]
     id_prod?: IntWithAggregatesFilter<"produtos"> | number
     id_sirius_prod?: IntNullableWithAggregatesFilter<"produtos"> | number | null
+    id_submenu?: IntNullableWithAggregatesFilter<"produtos"> | number | null
     cod_prod?: StringNullableWithAggregatesFilter<"produtos"> | string | null
     descricao_prod?: StringWithAggregatesFilter<"produtos"> | string
     cod_ean_prod?: StringNullableWithAggregatesFilter<"produtos"> | string | null
@@ -38472,7 +41828,6 @@ export namespace Prisma {
     vegetariano_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
     vegano_prod?: BoolNullableWithAggregatesFilter<"produtos"> | boolean | null
     id_imagem?: IntNullableWithAggregatesFilter<"produtos"> | number | null
-    id_submenu?: IntNullableWithAggregatesFilter<"produtos"> | number | null
   }
 
   export type produtos_extrasWhereInput = {
@@ -39073,6 +42428,191 @@ export namespace Prisma {
     id_sirius_vendedor_vu?: IntNullableWithAggregatesFilter<"vendedores_usuarios"> | number | null
   }
 
+  export type caixa_movimentacoesWhereInput = {
+    AND?: caixa_movimentacoesWhereInput | caixa_movimentacoesWhereInput[]
+    OR?: caixa_movimentacoesWhereInput[]
+    NOT?: caixa_movimentacoesWhereInput | caixa_movimentacoesWhereInput[]
+    id_cm?: IntFilter<"caixa_movimentacoes"> | number
+    id_controle_caixa_cm?: IntFilter<"caixa_movimentacoes"> | number
+    data_atual_cm?: DateTimeFilter<"caixa_movimentacoes"> | Date | string
+    tipo_operacao_cm?: StringFilter<"caixa_movimentacoes"> | string
+    id_pedido_venda_cm?: IntNullableFilter<"caixa_movimentacoes"> | number | null
+    id_forma_pagamento_cm?: IntFilter<"caixa_movimentacoes"> | number
+    valor_pago_cm?: DecimalFilter<"caixa_movimentacoes"> | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFilter<"caixa_movimentacoes"> | Decimal | DecimalJsLike | number | string
+    controle_caixa?: XOR<Controle_caixaRelationFilter, controle_caixaWhereInput>
+    forma_pagamento?: XOR<Forma_pagamentoRelationFilter, forma_pagamentoWhereInput>
+    pedidos_venda?: XOR<Pedidos_vendaNullableRelationFilter, pedidos_vendaWhereInput> | null
+  }
+
+  export type caixa_movimentacoesOrderByWithRelationInput = {
+    id_cm?: SortOrder
+    id_controle_caixa_cm?: SortOrder
+    data_atual_cm?: SortOrder
+    tipo_operacao_cm?: SortOrder
+    id_pedido_venda_cm?: SortOrderInput | SortOrder
+    id_forma_pagamento_cm?: SortOrder
+    valor_pago_cm?: SortOrder
+    valor_troco_cm?: SortOrder
+    controle_caixa?: controle_caixaOrderByWithRelationInput
+    forma_pagamento?: forma_pagamentoOrderByWithRelationInput
+    pedidos_venda?: pedidos_vendaOrderByWithRelationInput
+  }
+
+  export type caixa_movimentacoesWhereUniqueInput = Prisma.AtLeast<{
+    id_cm?: number
+    AND?: caixa_movimentacoesWhereInput | caixa_movimentacoesWhereInput[]
+    OR?: caixa_movimentacoesWhereInput[]
+    NOT?: caixa_movimentacoesWhereInput | caixa_movimentacoesWhereInput[]
+    id_controle_caixa_cm?: IntFilter<"caixa_movimentacoes"> | number
+    data_atual_cm?: DateTimeFilter<"caixa_movimentacoes"> | Date | string
+    tipo_operacao_cm?: StringFilter<"caixa_movimentacoes"> | string
+    id_pedido_venda_cm?: IntNullableFilter<"caixa_movimentacoes"> | number | null
+    id_forma_pagamento_cm?: IntFilter<"caixa_movimentacoes"> | number
+    valor_pago_cm?: DecimalFilter<"caixa_movimentacoes"> | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFilter<"caixa_movimentacoes"> | Decimal | DecimalJsLike | number | string
+    controle_caixa?: XOR<Controle_caixaRelationFilter, controle_caixaWhereInput>
+    forma_pagamento?: XOR<Forma_pagamentoRelationFilter, forma_pagamentoWhereInput>
+    pedidos_venda?: XOR<Pedidos_vendaNullableRelationFilter, pedidos_vendaWhereInput> | null
+  }, "id_cm">
+
+  export type caixa_movimentacoesOrderByWithAggregationInput = {
+    id_cm?: SortOrder
+    id_controle_caixa_cm?: SortOrder
+    data_atual_cm?: SortOrder
+    tipo_operacao_cm?: SortOrder
+    id_pedido_venda_cm?: SortOrderInput | SortOrder
+    id_forma_pagamento_cm?: SortOrder
+    valor_pago_cm?: SortOrder
+    valor_troco_cm?: SortOrder
+    _count?: caixa_movimentacoesCountOrderByAggregateInput
+    _avg?: caixa_movimentacoesAvgOrderByAggregateInput
+    _max?: caixa_movimentacoesMaxOrderByAggregateInput
+    _min?: caixa_movimentacoesMinOrderByAggregateInput
+    _sum?: caixa_movimentacoesSumOrderByAggregateInput
+  }
+
+  export type caixa_movimentacoesScalarWhereWithAggregatesInput = {
+    AND?: caixa_movimentacoesScalarWhereWithAggregatesInput | caixa_movimentacoesScalarWhereWithAggregatesInput[]
+    OR?: caixa_movimentacoesScalarWhereWithAggregatesInput[]
+    NOT?: caixa_movimentacoesScalarWhereWithAggregatesInput | caixa_movimentacoesScalarWhereWithAggregatesInput[]
+    id_cm?: IntWithAggregatesFilter<"caixa_movimentacoes"> | number
+    id_controle_caixa_cm?: IntWithAggregatesFilter<"caixa_movimentacoes"> | number
+    data_atual_cm?: DateTimeWithAggregatesFilter<"caixa_movimentacoes"> | Date | string
+    tipo_operacao_cm?: StringWithAggregatesFilter<"caixa_movimentacoes"> | string
+    id_pedido_venda_cm?: IntNullableWithAggregatesFilter<"caixa_movimentacoes"> | number | null
+    id_forma_pagamento_cm?: IntWithAggregatesFilter<"caixa_movimentacoes"> | number
+    valor_pago_cm?: DecimalWithAggregatesFilter<"caixa_movimentacoes"> | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalWithAggregatesFilter<"caixa_movimentacoes"> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type controle_caixaWhereInput = {
+    AND?: controle_caixaWhereInput | controle_caixaWhereInput[]
+    OR?: controle_caixaWhereInput[]
+    NOT?: controle_caixaWhereInput | controle_caixaWhereInput[]
+    id_controle_caixa?: IntFilter<"controle_caixa"> | number
+    id_usuario_controle_caixa?: IntFilter<"controle_caixa"> | number
+    data_abertura_controle_caixa?: DateTimeFilter<"controle_caixa"> | Date | string
+    data_fechamento_controle_caixa?: DateTimeNullableFilter<"controle_caixa"> | Date | string | null
+    saldo_inicial_controle_caixa?: DecimalNullableFilter<"controle_caixa"> | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: DecimalNullableFilter<"controle_caixa"> | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: Caixa_movimentacoesListRelationFilter
+  }
+
+  export type controle_caixaOrderByWithRelationInput = {
+    id_controle_caixa?: SortOrder
+    id_usuario_controle_caixa?: SortOrder
+    data_abertura_controle_caixa?: SortOrder
+    data_fechamento_controle_caixa?: SortOrderInput | SortOrder
+    saldo_inicial_controle_caixa?: SortOrderInput | SortOrder
+    saldo_final_controle_caixa?: SortOrderInput | SortOrder
+    caixa_movimentacoes?: caixa_movimentacoesOrderByRelationAggregateInput
+  }
+
+  export type controle_caixaWhereUniqueInput = Prisma.AtLeast<{
+    id_controle_caixa?: number
+    AND?: controle_caixaWhereInput | controle_caixaWhereInput[]
+    OR?: controle_caixaWhereInput[]
+    NOT?: controle_caixaWhereInput | controle_caixaWhereInput[]
+    id_usuario_controle_caixa?: IntFilter<"controle_caixa"> | number
+    data_abertura_controle_caixa?: DateTimeFilter<"controle_caixa"> | Date | string
+    data_fechamento_controle_caixa?: DateTimeNullableFilter<"controle_caixa"> | Date | string | null
+    saldo_inicial_controle_caixa?: DecimalNullableFilter<"controle_caixa"> | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: DecimalNullableFilter<"controle_caixa"> | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: Caixa_movimentacoesListRelationFilter
+  }, "id_controle_caixa">
+
+  export type controle_caixaOrderByWithAggregationInput = {
+    id_controle_caixa?: SortOrder
+    id_usuario_controle_caixa?: SortOrder
+    data_abertura_controle_caixa?: SortOrder
+    data_fechamento_controle_caixa?: SortOrderInput | SortOrder
+    saldo_inicial_controle_caixa?: SortOrderInput | SortOrder
+    saldo_final_controle_caixa?: SortOrderInput | SortOrder
+    _count?: controle_caixaCountOrderByAggregateInput
+    _avg?: controle_caixaAvgOrderByAggregateInput
+    _max?: controle_caixaMaxOrderByAggregateInput
+    _min?: controle_caixaMinOrderByAggregateInput
+    _sum?: controle_caixaSumOrderByAggregateInput
+  }
+
+  export type controle_caixaScalarWhereWithAggregatesInput = {
+    AND?: controle_caixaScalarWhereWithAggregatesInput | controle_caixaScalarWhereWithAggregatesInput[]
+    OR?: controle_caixaScalarWhereWithAggregatesInput[]
+    NOT?: controle_caixaScalarWhereWithAggregatesInput | controle_caixaScalarWhereWithAggregatesInput[]
+    id_controle_caixa?: IntWithAggregatesFilter<"controle_caixa"> | number
+    id_usuario_controle_caixa?: IntWithAggregatesFilter<"controle_caixa"> | number
+    data_abertura_controle_caixa?: DateTimeWithAggregatesFilter<"controle_caixa"> | Date | string
+    data_fechamento_controle_caixa?: DateTimeNullableWithAggregatesFilter<"controle_caixa"> | Date | string | null
+    saldo_inicial_controle_caixa?: DecimalNullableWithAggregatesFilter<"controle_caixa"> | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: DecimalNullableWithAggregatesFilter<"controle_caixa"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type forma_pagamentoWhereInput = {
+    AND?: forma_pagamentoWhereInput | forma_pagamentoWhereInput[]
+    OR?: forma_pagamentoWhereInput[]
+    NOT?: forma_pagamentoWhereInput | forma_pagamentoWhereInput[]
+    id_fp?: IntFilter<"forma_pagamento"> | number
+    nm_fp?: StringNullableFilter<"forma_pagamento"> | string | null
+    caixa_movimentacoes?: Caixa_movimentacoesListRelationFilter
+    pedidos_venda?: Pedidos_vendaListRelationFilter
+  }
+
+  export type forma_pagamentoOrderByWithRelationInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrderInput | SortOrder
+    caixa_movimentacoes?: caixa_movimentacoesOrderByRelationAggregateInput
+    pedidos_venda?: pedidos_vendaOrderByRelationAggregateInput
+  }
+
+  export type forma_pagamentoWhereUniqueInput = Prisma.AtLeast<{
+    id_fp?: number
+    AND?: forma_pagamentoWhereInput | forma_pagamentoWhereInput[]
+    OR?: forma_pagamentoWhereInput[]
+    NOT?: forma_pagamentoWhereInput | forma_pagamentoWhereInput[]
+    nm_fp?: StringNullableFilter<"forma_pagamento"> | string | null
+    caixa_movimentacoes?: Caixa_movimentacoesListRelationFilter
+    pedidos_venda?: Pedidos_vendaListRelationFilter
+  }, "id_fp">
+
+  export type forma_pagamentoOrderByWithAggregationInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrderInput | SortOrder
+    _count?: forma_pagamentoCountOrderByAggregateInput
+    _avg?: forma_pagamentoAvgOrderByAggregateInput
+    _max?: forma_pagamentoMaxOrderByAggregateInput
+    _min?: forma_pagamentoMinOrderByAggregateInput
+    _sum?: forma_pagamentoSumOrderByAggregateInput
+  }
+
+  export type forma_pagamentoScalarWhereWithAggregatesInput = {
+    AND?: forma_pagamentoScalarWhereWithAggregatesInput | forma_pagamentoScalarWhereWithAggregatesInput[]
+    OR?: forma_pagamentoScalarWhereWithAggregatesInput[]
+    NOT?: forma_pagamentoScalarWhereWithAggregatesInput | forma_pagamentoScalarWhereWithAggregatesInput[]
+    id_fp?: IntWithAggregatesFilter<"forma_pagamento"> | number
+    nm_fp?: StringNullableWithAggregatesFilter<"forma_pagamento"> | string | null
+  }
+
   export type atividades_gruposCreateInput = {
     id_atividade_ag: number
     nm_atividade_ag?: string | null
@@ -39471,7 +43011,6 @@ export namespace Prisma {
     id_sirius_cp?: number | null
     descricao_cp: string
     clientes?: clientesCreateNestedManyWithoutCondicoes_pagamentoInput
-    pedidos_venda?: pedidos_vendaCreateNestedManyWithoutCondicoes_pagamentoInput
   }
 
   export type condicoes_pagamentoUncheckedCreateInput = {
@@ -39479,14 +43018,12 @@ export namespace Prisma {
     id_sirius_cp?: number | null
     descricao_cp: string
     clientes?: clientesUncheckedCreateNestedManyWithoutCondicoes_pagamentoInput
-    pedidos_venda?: pedidos_vendaUncheckedCreateNestedManyWithoutCondicoes_pagamentoInput
   }
 
   export type condicoes_pagamentoUpdateInput = {
     id_sirius_cp?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_cp?: StringFieldUpdateOperationsInput | string
     clientes?: clientesUpdateManyWithoutCondicoes_pagamentoNestedInput
-    pedidos_venda?: pedidos_vendaUpdateManyWithoutCondicoes_pagamentoNestedInput
   }
 
   export type condicoes_pagamentoUncheckedUpdateInput = {
@@ -39494,7 +43031,6 @@ export namespace Prisma {
     id_sirius_cp?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_cp?: StringFieldUpdateOperationsInput | string
     clientes?: clientesUncheckedUpdateManyWithoutCondicoes_pagamentoNestedInput
-    pedidos_venda?: pedidos_vendaUncheckedUpdateManyWithoutCondicoes_pagamentoNestedInput
   }
 
   export type condicoes_pagamentoCreateManyInput = {
@@ -40287,7 +43823,7 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
@@ -40301,8 +43837,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
     clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
     modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
     transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
     vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
@@ -40322,11 +43859,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -40339,6 +43876,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
@@ -40366,8 +43904,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
     clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
     modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
     transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
     vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
@@ -40391,7 +43930,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40404,6 +43943,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
@@ -40420,11 +43960,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -40478,7 +44018,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40760,6 +44300,7 @@ export namespace Prisma {
   export type produtosUncheckedCreateInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -40783,7 +44324,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
     id_imagem?: number | null
-    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -40827,6 +44367,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40850,7 +44391,6 @@ export namespace Prisma {
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -40861,6 +44401,7 @@ export namespace Prisma {
   export type produtosCreateManyInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -40884,7 +44425,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
     id_imagem?: number | null
-    id_submenu?: number | null
   }
 
   export type produtosUpdateManyMutationInput = {
@@ -40916,6 +44456,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateManyInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40939,7 +44480,6 @@ export namespace Prisma {
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type produtos_extrasCreateInput = {
@@ -41556,6 +45096,181 @@ export namespace Prisma {
     id_usuario_vu?: NullableIntFieldUpdateOperationsInput | number | null
     id_vendedor_vu?: NullableIntFieldUpdateOperationsInput | number | null
     id_sirius_vendedor_vu?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type caixa_movimentacoesCreateInput = {
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+    controle_caixa: controle_caixaCreateNestedOneWithoutCaixa_movimentacoesInput
+    forma_pagamento: forma_pagamentoCreateNestedOneWithoutCaixa_movimentacoesInput
+    pedidos_venda?: pedidos_vendaCreateNestedOneWithoutCaixa_movimentacoesInput
+  }
+
+  export type caixa_movimentacoesUncheckedCreateInput = {
+    id_cm?: number
+    id_controle_caixa_cm: number
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    id_pedido_venda_cm?: number | null
+    id_forma_pagamento_cm: number
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesUpdateInput = {
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    controle_caixa?: controle_caixaUpdateOneRequiredWithoutCaixa_movimentacoesNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneRequiredWithoutCaixa_movimentacoesNestedInput
+    pedidos_venda?: pedidos_vendaUpdateOneWithoutCaixa_movimentacoesNestedInput
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateInput = {
+    id_cm?: IntFieldUpdateOperationsInput | number
+    id_controle_caixa_cm?: IntFieldUpdateOperationsInput | number
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    id_pedido_venda_cm?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_cm?: IntFieldUpdateOperationsInput | number
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesCreateManyInput = {
+    id_cm?: number
+    id_controle_caixa_cm: number
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    id_pedido_venda_cm?: number | null
+    id_forma_pagamento_cm: number
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesUpdateManyMutationInput = {
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateManyInput = {
+    id_cm?: IntFieldUpdateOperationsInput | number
+    id_controle_caixa_cm?: IntFieldUpdateOperationsInput | number
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    id_pedido_venda_cm?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_cm?: IntFieldUpdateOperationsInput | number
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type controle_caixaCreateInput = {
+    id_usuario_controle_caixa: number
+    data_abertura_controle_caixa?: Date | string
+    data_fechamento_controle_caixa?: Date | string | null
+    saldo_inicial_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutControle_caixaInput
+  }
+
+  export type controle_caixaUncheckedCreateInput = {
+    id_controle_caixa?: number
+    id_usuario_controle_caixa: number
+    data_abertura_controle_caixa?: Date | string
+    data_fechamento_controle_caixa?: Date | string | null
+    saldo_inicial_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutControle_caixaInput
+  }
+
+  export type controle_caixaUpdateInput = {
+    id_usuario_controle_caixa?: IntFieldUpdateOperationsInput | number
+    data_abertura_controle_caixa?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fechamento_controle_caixa?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    saldo_inicial_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutControle_caixaNestedInput
+  }
+
+  export type controle_caixaUncheckedUpdateInput = {
+    id_controle_caixa?: IntFieldUpdateOperationsInput | number
+    id_usuario_controle_caixa?: IntFieldUpdateOperationsInput | number
+    data_abertura_controle_caixa?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fechamento_controle_caixa?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    saldo_inicial_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutControle_caixaNestedInput
+  }
+
+  export type controle_caixaCreateManyInput = {
+    id_controle_caixa?: number
+    id_usuario_controle_caixa: number
+    data_abertura_controle_caixa?: Date | string
+    data_fechamento_controle_caixa?: Date | string | null
+    saldo_inicial_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type controle_caixaUpdateManyMutationInput = {
+    id_usuario_controle_caixa?: IntFieldUpdateOperationsInput | number
+    data_abertura_controle_caixa?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fechamento_controle_caixa?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    saldo_inicial_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type controle_caixaUncheckedUpdateManyInput = {
+    id_controle_caixa?: IntFieldUpdateOperationsInput | number
+    id_usuario_controle_caixa?: IntFieldUpdateOperationsInput | number
+    data_abertura_controle_caixa?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fechamento_controle_caixa?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    saldo_inicial_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type forma_pagamentoCreateInput = {
+    nm_fp?: string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutForma_pagamentoInput
+    pedidos_venda?: pedidos_vendaCreateNestedManyWithoutForma_pagamentoInput
+  }
+
+  export type forma_pagamentoUncheckedCreateInput = {
+    id_fp?: number
+    nm_fp?: string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutForma_pagamentoInput
+    pedidos_venda?: pedidos_vendaUncheckedCreateNestedManyWithoutForma_pagamentoInput
+  }
+
+  export type forma_pagamentoUpdateInput = {
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutForma_pagamentoNestedInput
+    pedidos_venda?: pedidos_vendaUpdateManyWithoutForma_pagamentoNestedInput
+  }
+
+  export type forma_pagamentoUncheckedUpdateInput = {
+    id_fp?: IntFieldUpdateOperationsInput | number
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutForma_pagamentoNestedInput
+    pedidos_venda?: pedidos_vendaUncheckedUpdateManyWithoutForma_pagamentoNestedInput
+  }
+
+  export type forma_pagamentoCreateManyInput = {
+    id_fp?: number
+    nm_fp?: string | null
+  }
+
+  export type forma_pagamentoUpdateManyMutationInput = {
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type forma_pagamentoUncheckedUpdateManyInput = {
+    id_fp?: IntFieldUpdateOperationsInput | number
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -42721,9 +46436,20 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type Caixa_movimentacoesListRelationFilter = {
+    every?: caixa_movimentacoesWhereInput
+    some?: caixa_movimentacoesWhereInput
+    none?: caixa_movimentacoesWhereInput
+  }
+
   export type ClientesNullableRelationFilter = {
     is?: clientesWhereInput | null
     isNot?: clientesWhereInput | null
+  }
+
+  export type Forma_pagamentoNullableRelationFilter = {
+    is?: forma_pagamentoWhereInput | null
+    isNot?: forma_pagamentoWhereInput | null
   }
 
   export type Modalidade_freteNullableRelationFilter = {
@@ -42753,6 +46479,10 @@ export namespace Prisma {
     none?: produtos_movimentacoesWhereInput
   }
 
+  export type caixa_movimentacoesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type pedidos_venda_pagamentosOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -42776,7 +46506,7 @@ export namespace Prisma {
     cliente_contato_pv?: SortOrder
     data_realizacao_pv?: SortOrder
     data_sincronizacao_pv?: SortOrder
-    id_condicao_pagamento_pv?: SortOrder
+    id_forma_pagamento_pv?: SortOrder
     entrega_cep_pv?: SortOrder
     entrega_logradouro_pv?: SortOrder
     entrega_numero_pv?: SortOrder
@@ -42800,7 +46530,7 @@ export namespace Prisma {
     desconto_pv?: SortOrder
     valor_bruto_pv?: SortOrder
     valor_liquido_pv?: SortOrder
-    id_condicao_pagamento_pv?: SortOrder
+    id_forma_pagamento_pv?: SortOrder
     id_transportadores_pv?: SortOrder
     id_modalidade_frete_pv?: SortOrder
     pagamento_pv?: SortOrder
@@ -42822,7 +46552,7 @@ export namespace Prisma {
     cliente_contato_pv?: SortOrder
     data_realizacao_pv?: SortOrder
     data_sincronizacao_pv?: SortOrder
-    id_condicao_pagamento_pv?: SortOrder
+    id_forma_pagamento_pv?: SortOrder
     entrega_cep_pv?: SortOrder
     entrega_logradouro_pv?: SortOrder
     entrega_numero_pv?: SortOrder
@@ -42852,7 +46582,7 @@ export namespace Prisma {
     cliente_contato_pv?: SortOrder
     data_realizacao_pv?: SortOrder
     data_sincronizacao_pv?: SortOrder
-    id_condicao_pagamento_pv?: SortOrder
+    id_forma_pagamento_pv?: SortOrder
     entrega_cep_pv?: SortOrder
     entrega_logradouro_pv?: SortOrder
     entrega_numero_pv?: SortOrder
@@ -42876,7 +46606,7 @@ export namespace Prisma {
     desconto_pv?: SortOrder
     valor_bruto_pv?: SortOrder
     valor_liquido_pv?: SortOrder
-    id_condicao_pagamento_pv?: SortOrder
+    id_forma_pagamento_pv?: SortOrder
     id_transportadores_pv?: SortOrder
     id_modalidade_frete_pv?: SortOrder
     pagamento_pv?: SortOrder
@@ -43072,6 +46802,7 @@ export namespace Prisma {
   export type produtosCountOrderByAggregateInput = {
     id_prod?: SortOrder
     id_sirius_prod?: SortOrder
+    id_submenu?: SortOrder
     cod_prod?: SortOrder
     descricao_prod?: SortOrder
     cod_ean_prod?: SortOrder
@@ -43095,12 +46826,12 @@ export namespace Prisma {
     vegetariano_prod?: SortOrder
     vegano_prod?: SortOrder
     id_imagem?: SortOrder
-    id_submenu?: SortOrder
   }
 
   export type produtosAvgOrderByAggregateInput = {
     id_prod?: SortOrder
     id_sirius_prod?: SortOrder
+    id_submenu?: SortOrder
     qtd_com_prod?: SortOrder
     vlr_un_com_prod?: SortOrder
     vlr_prod?: SortOrder
@@ -43108,12 +46839,12 @@ export namespace Prisma {
     vlr_un_trib_prod?: SortOrder
     saldo_prod?: SortOrder
     id_imagem?: SortOrder
-    id_submenu?: SortOrder
   }
 
   export type produtosMaxOrderByAggregateInput = {
     id_prod?: SortOrder
     id_sirius_prod?: SortOrder
+    id_submenu?: SortOrder
     cod_prod?: SortOrder
     descricao_prod?: SortOrder
     cod_ean_prod?: SortOrder
@@ -43137,12 +46868,12 @@ export namespace Prisma {
     vegetariano_prod?: SortOrder
     vegano_prod?: SortOrder
     id_imagem?: SortOrder
-    id_submenu?: SortOrder
   }
 
   export type produtosMinOrderByAggregateInput = {
     id_prod?: SortOrder
     id_sirius_prod?: SortOrder
+    id_submenu?: SortOrder
     cod_prod?: SortOrder
     descricao_prod?: SortOrder
     cod_ean_prod?: SortOrder
@@ -43166,12 +46897,12 @@ export namespace Prisma {
     vegetariano_prod?: SortOrder
     vegano_prod?: SortOrder
     id_imagem?: SortOrder
-    id_submenu?: SortOrder
   }
 
   export type produtosSumOrderByAggregateInput = {
     id_prod?: SortOrder
     id_sirius_prod?: SortOrder
+    id_submenu?: SortOrder
     qtd_com_prod?: SortOrder
     vlr_un_com_prod?: SortOrder
     vlr_prod?: SortOrder
@@ -43179,7 +46910,6 @@ export namespace Prisma {
     vlr_un_trib_prod?: SortOrder
     saldo_prod?: SortOrder
     id_imagem?: SortOrder
-    id_submenu?: SortOrder
   }
 
   export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -43585,6 +47315,131 @@ export namespace Prisma {
     id_sirius_vendedor_vu?: SortOrder
   }
 
+  export type Controle_caixaRelationFilter = {
+    is?: controle_caixaWhereInput
+    isNot?: controle_caixaWhereInput
+  }
+
+  export type Forma_pagamentoRelationFilter = {
+    is?: forma_pagamentoWhereInput
+    isNot?: forma_pagamentoWhereInput
+  }
+
+  export type caixa_movimentacoesCountOrderByAggregateInput = {
+    id_cm?: SortOrder
+    id_controle_caixa_cm?: SortOrder
+    data_atual_cm?: SortOrder
+    tipo_operacao_cm?: SortOrder
+    id_pedido_venda_cm?: SortOrder
+    id_forma_pagamento_cm?: SortOrder
+    valor_pago_cm?: SortOrder
+    valor_troco_cm?: SortOrder
+  }
+
+  export type caixa_movimentacoesAvgOrderByAggregateInput = {
+    id_cm?: SortOrder
+    id_controle_caixa_cm?: SortOrder
+    id_pedido_venda_cm?: SortOrder
+    id_forma_pagamento_cm?: SortOrder
+    valor_pago_cm?: SortOrder
+    valor_troco_cm?: SortOrder
+  }
+
+  export type caixa_movimentacoesMaxOrderByAggregateInput = {
+    id_cm?: SortOrder
+    id_controle_caixa_cm?: SortOrder
+    data_atual_cm?: SortOrder
+    tipo_operacao_cm?: SortOrder
+    id_pedido_venda_cm?: SortOrder
+    id_forma_pagamento_cm?: SortOrder
+    valor_pago_cm?: SortOrder
+    valor_troco_cm?: SortOrder
+  }
+
+  export type caixa_movimentacoesMinOrderByAggregateInput = {
+    id_cm?: SortOrder
+    id_controle_caixa_cm?: SortOrder
+    data_atual_cm?: SortOrder
+    tipo_operacao_cm?: SortOrder
+    id_pedido_venda_cm?: SortOrder
+    id_forma_pagamento_cm?: SortOrder
+    valor_pago_cm?: SortOrder
+    valor_troco_cm?: SortOrder
+  }
+
+  export type caixa_movimentacoesSumOrderByAggregateInput = {
+    id_cm?: SortOrder
+    id_controle_caixa_cm?: SortOrder
+    id_pedido_venda_cm?: SortOrder
+    id_forma_pagamento_cm?: SortOrder
+    valor_pago_cm?: SortOrder
+    valor_troco_cm?: SortOrder
+  }
+
+  export type controle_caixaCountOrderByAggregateInput = {
+    id_controle_caixa?: SortOrder
+    id_usuario_controle_caixa?: SortOrder
+    data_abertura_controle_caixa?: SortOrder
+    data_fechamento_controle_caixa?: SortOrder
+    saldo_inicial_controle_caixa?: SortOrder
+    saldo_final_controle_caixa?: SortOrder
+  }
+
+  export type controle_caixaAvgOrderByAggregateInput = {
+    id_controle_caixa?: SortOrder
+    id_usuario_controle_caixa?: SortOrder
+    saldo_inicial_controle_caixa?: SortOrder
+    saldo_final_controle_caixa?: SortOrder
+  }
+
+  export type controle_caixaMaxOrderByAggregateInput = {
+    id_controle_caixa?: SortOrder
+    id_usuario_controle_caixa?: SortOrder
+    data_abertura_controle_caixa?: SortOrder
+    data_fechamento_controle_caixa?: SortOrder
+    saldo_inicial_controle_caixa?: SortOrder
+    saldo_final_controle_caixa?: SortOrder
+  }
+
+  export type controle_caixaMinOrderByAggregateInput = {
+    id_controle_caixa?: SortOrder
+    id_usuario_controle_caixa?: SortOrder
+    data_abertura_controle_caixa?: SortOrder
+    data_fechamento_controle_caixa?: SortOrder
+    saldo_inicial_controle_caixa?: SortOrder
+    saldo_final_controle_caixa?: SortOrder
+  }
+
+  export type controle_caixaSumOrderByAggregateInput = {
+    id_controle_caixa?: SortOrder
+    id_usuario_controle_caixa?: SortOrder
+    saldo_inicial_controle_caixa?: SortOrder
+    saldo_final_controle_caixa?: SortOrder
+  }
+
+  export type forma_pagamentoCountOrderByAggregateInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrder
+  }
+
+  export type forma_pagamentoAvgOrderByAggregateInput = {
+    id_fp?: SortOrder
+  }
+
+  export type forma_pagamentoMaxOrderByAggregateInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrder
+  }
+
+  export type forma_pagamentoMinOrderByAggregateInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrder
+  }
+
+  export type forma_pagamentoSumOrderByAggregateInput = {
+    id_fp?: SortOrder
+  }
+
   export type grupos_usuariosCreateNestedOneWithoutAtividades_gruposInput = {
     create?: XOR<grupos_usuariosCreateWithoutAtividades_gruposInput, grupos_usuariosUncheckedCreateWithoutAtividades_gruposInput>
     connectOrCreate?: grupos_usuariosCreateOrConnectWithoutAtividades_gruposInput
@@ -43884,25 +47739,11 @@ export namespace Prisma {
     connect?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
   }
 
-  export type pedidos_vendaCreateNestedManyWithoutCondicoes_pagamentoInput = {
-    create?: XOR<pedidos_vendaCreateWithoutCondicoes_pagamentoInput, pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput> | pedidos_vendaCreateWithoutCondicoes_pagamentoInput[] | pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput[]
-    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput | pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput[]
-    createMany?: pedidos_vendaCreateManyCondicoes_pagamentoInputEnvelope
-    connect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-  }
-
   export type clientesUncheckedCreateNestedManyWithoutCondicoes_pagamentoInput = {
     create?: XOR<clientesCreateWithoutCondicoes_pagamentoInput, clientesUncheckedCreateWithoutCondicoes_pagamentoInput> | clientesCreateWithoutCondicoes_pagamentoInput[] | clientesUncheckedCreateWithoutCondicoes_pagamentoInput[]
     connectOrCreate?: clientesCreateOrConnectWithoutCondicoes_pagamentoInput | clientesCreateOrConnectWithoutCondicoes_pagamentoInput[]
     createMany?: clientesCreateManyCondicoes_pagamentoInputEnvelope
     connect?: clientesWhereUniqueInput | clientesWhereUniqueInput[]
-  }
-
-  export type pedidos_vendaUncheckedCreateNestedManyWithoutCondicoes_pagamentoInput = {
-    create?: XOR<pedidos_vendaCreateWithoutCondicoes_pagamentoInput, pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput> | pedidos_vendaCreateWithoutCondicoes_pagamentoInput[] | pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput[]
-    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput | pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput[]
-    createMany?: pedidos_vendaCreateManyCondicoes_pagamentoInputEnvelope
-    connect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
   }
 
   export type clientesUpdateManyWithoutCondicoes_pagamentoNestedInput = {
@@ -43919,20 +47760,6 @@ export namespace Prisma {
     deleteMany?: clientesScalarWhereInput | clientesScalarWhereInput[]
   }
 
-  export type pedidos_vendaUpdateManyWithoutCondicoes_pagamentoNestedInput = {
-    create?: XOR<pedidos_vendaCreateWithoutCondicoes_pagamentoInput, pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput> | pedidos_vendaCreateWithoutCondicoes_pagamentoInput[] | pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput[]
-    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput | pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput[]
-    upsert?: pedidos_vendaUpsertWithWhereUniqueWithoutCondicoes_pagamentoInput | pedidos_vendaUpsertWithWhereUniqueWithoutCondicoes_pagamentoInput[]
-    createMany?: pedidos_vendaCreateManyCondicoes_pagamentoInputEnvelope
-    set?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-    disconnect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-    delete?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-    connect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-    update?: pedidos_vendaUpdateWithWhereUniqueWithoutCondicoes_pagamentoInput | pedidos_vendaUpdateWithWhereUniqueWithoutCondicoes_pagamentoInput[]
-    updateMany?: pedidos_vendaUpdateManyWithWhereWithoutCondicoes_pagamentoInput | pedidos_vendaUpdateManyWithWhereWithoutCondicoes_pagamentoInput[]
-    deleteMany?: pedidos_vendaScalarWhereInput | pedidos_vendaScalarWhereInput[]
-  }
-
   export type clientesUncheckedUpdateManyWithoutCondicoes_pagamentoNestedInput = {
     create?: XOR<clientesCreateWithoutCondicoes_pagamentoInput, clientesUncheckedCreateWithoutCondicoes_pagamentoInput> | clientesCreateWithoutCondicoes_pagamentoInput[] | clientesUncheckedCreateWithoutCondicoes_pagamentoInput[]
     connectOrCreate?: clientesCreateOrConnectWithoutCondicoes_pagamentoInput | clientesCreateOrConnectWithoutCondicoes_pagamentoInput[]
@@ -43945,20 +47772,6 @@ export namespace Prisma {
     update?: clientesUpdateWithWhereUniqueWithoutCondicoes_pagamentoInput | clientesUpdateWithWhereUniqueWithoutCondicoes_pagamentoInput[]
     updateMany?: clientesUpdateManyWithWhereWithoutCondicoes_pagamentoInput | clientesUpdateManyWithWhereWithoutCondicoes_pagamentoInput[]
     deleteMany?: clientesScalarWhereInput | clientesScalarWhereInput[]
-  }
-
-  export type pedidos_vendaUncheckedUpdateManyWithoutCondicoes_pagamentoNestedInput = {
-    create?: XOR<pedidos_vendaCreateWithoutCondicoes_pagamentoInput, pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput> | pedidos_vendaCreateWithoutCondicoes_pagamentoInput[] | pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput[]
-    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput | pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput[]
-    upsert?: pedidos_vendaUpsertWithWhereUniqueWithoutCondicoes_pagamentoInput | pedidos_vendaUpsertWithWhereUniqueWithoutCondicoes_pagamentoInput[]
-    createMany?: pedidos_vendaCreateManyCondicoes_pagamentoInputEnvelope
-    set?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-    disconnect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-    delete?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-    connect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
-    update?: pedidos_vendaUpdateWithWhereUniqueWithoutCondicoes_pagamentoInput | pedidos_vendaUpdateWithWhereUniqueWithoutCondicoes_pagamentoInput[]
-    updateMany?: pedidos_vendaUpdateManyWithWhereWithoutCondicoes_pagamentoInput | pedidos_vendaUpdateManyWithWhereWithoutCondicoes_pagamentoInput[]
-    deleteMany?: pedidos_vendaScalarWhereInput | pedidos_vendaScalarWhereInput[]
   }
 
   export type clientesCreateNestedOneWithoutContatosInput = {
@@ -44639,16 +48452,23 @@ export namespace Prisma {
     deleteMany?: pedidos_vendaScalarWhereInput | pedidos_vendaScalarWhereInput[]
   }
 
+  export type caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutPedidos_vendaInput, caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput> | caixa_movimentacoesCreateWithoutPedidos_vendaInput[] | caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput | caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput[]
+    createMany?: caixa_movimentacoesCreateManyPedidos_vendaInputEnvelope
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+  }
+
   export type clientesCreateNestedOneWithoutPedidos_vendaInput = {
     create?: XOR<clientesCreateWithoutPedidos_vendaInput, clientesUncheckedCreateWithoutPedidos_vendaInput>
     connectOrCreate?: clientesCreateOrConnectWithoutPedidos_vendaInput
     connect?: clientesWhereUniqueInput
   }
 
-  export type condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput = {
-    create?: XOR<condicoes_pagamentoCreateWithoutPedidos_vendaInput, condicoes_pagamentoUncheckedCreateWithoutPedidos_vendaInput>
-    connectOrCreate?: condicoes_pagamentoCreateOrConnectWithoutPedidos_vendaInput
-    connect?: condicoes_pagamentoWhereUniqueInput
+  export type forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput = {
+    create?: XOR<forma_pagamentoCreateWithoutPedidos_vendaInput, forma_pagamentoUncheckedCreateWithoutPedidos_vendaInput>
+    connectOrCreate?: forma_pagamentoCreateOrConnectWithoutPedidos_vendaInput
+    connect?: forma_pagamentoWhereUniqueInput
   }
 
   export type modalidade_freteCreateNestedOneWithoutPedidos_vendaInput = {
@@ -44690,6 +48510,13 @@ export namespace Prisma {
     connect?: produtos_movimentacoesWhereUniqueInput | produtos_movimentacoesWhereUniqueInput[]
   }
 
+  export type caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutPedidos_vendaInput, caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput> | caixa_movimentacoesCreateWithoutPedidos_vendaInput[] | caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput | caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput[]
+    createMany?: caixa_movimentacoesCreateManyPedidos_vendaInputEnvelope
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+  }
+
   export type pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput = {
     create?: XOR<pedidos_venda_itensCreateWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput, pedidos_venda_itensUncheckedCreateWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput> | pedidos_venda_itensCreateWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput[] | pedidos_venda_itensUncheckedCreateWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput[]
     connectOrCreate?: pedidos_venda_itensCreateOrConnectWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput | pedidos_venda_itensCreateOrConnectWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput[]
@@ -44715,6 +48542,20 @@ export namespace Prisma {
     set?: Date | string | null
   }
 
+  export type caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutPedidos_vendaInput, caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput> | caixa_movimentacoesCreateWithoutPedidos_vendaInput[] | caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput | caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput[]
+    upsert?: caixa_movimentacoesUpsertWithWhereUniqueWithoutPedidos_vendaInput | caixa_movimentacoesUpsertWithWhereUniqueWithoutPedidos_vendaInput[]
+    createMany?: caixa_movimentacoesCreateManyPedidos_vendaInputEnvelope
+    set?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    disconnect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    delete?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    update?: caixa_movimentacoesUpdateWithWhereUniqueWithoutPedidos_vendaInput | caixa_movimentacoesUpdateWithWhereUniqueWithoutPedidos_vendaInput[]
+    updateMany?: caixa_movimentacoesUpdateManyWithWhereWithoutPedidos_vendaInput | caixa_movimentacoesUpdateManyWithWhereWithoutPedidos_vendaInput[]
+    deleteMany?: caixa_movimentacoesScalarWhereInput | caixa_movimentacoesScalarWhereInput[]
+  }
+
   export type clientesUpdateOneWithoutPedidos_vendaNestedInput = {
     create?: XOR<clientesCreateWithoutPedidos_vendaInput, clientesUncheckedCreateWithoutPedidos_vendaInput>
     connectOrCreate?: clientesCreateOrConnectWithoutPedidos_vendaInput
@@ -44725,14 +48566,14 @@ export namespace Prisma {
     update?: XOR<XOR<clientesUpdateToOneWithWhereWithoutPedidos_vendaInput, clientesUpdateWithoutPedidos_vendaInput>, clientesUncheckedUpdateWithoutPedidos_vendaInput>
   }
 
-  export type condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput = {
-    create?: XOR<condicoes_pagamentoCreateWithoutPedidos_vendaInput, condicoes_pagamentoUncheckedCreateWithoutPedidos_vendaInput>
-    connectOrCreate?: condicoes_pagamentoCreateOrConnectWithoutPedidos_vendaInput
-    upsert?: condicoes_pagamentoUpsertWithoutPedidos_vendaInput
-    disconnect?: condicoes_pagamentoWhereInput | boolean
-    delete?: condicoes_pagamentoWhereInput | boolean
-    connect?: condicoes_pagamentoWhereUniqueInput
-    update?: XOR<XOR<condicoes_pagamentoUpdateToOneWithWhereWithoutPedidos_vendaInput, condicoes_pagamentoUpdateWithoutPedidos_vendaInput>, condicoes_pagamentoUncheckedUpdateWithoutPedidos_vendaInput>
+  export type forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput = {
+    create?: XOR<forma_pagamentoCreateWithoutPedidos_vendaInput, forma_pagamentoUncheckedCreateWithoutPedidos_vendaInput>
+    connectOrCreate?: forma_pagamentoCreateOrConnectWithoutPedidos_vendaInput
+    upsert?: forma_pagamentoUpsertWithoutPedidos_vendaInput
+    disconnect?: forma_pagamentoWhereInput | boolean
+    delete?: forma_pagamentoWhereInput | boolean
+    connect?: forma_pagamentoWhereUniqueInput
+    update?: XOR<XOR<forma_pagamentoUpdateToOneWithWhereWithoutPedidos_vendaInput, forma_pagamentoUpdateWithoutPedidos_vendaInput>, forma_pagamentoUncheckedUpdateWithoutPedidos_vendaInput>
   }
 
   export type modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput = {
@@ -44805,6 +48646,20 @@ export namespace Prisma {
     update?: produtos_movimentacoesUpdateWithWhereUniqueWithoutPedidos_vendaInput | produtos_movimentacoesUpdateWithWhereUniqueWithoutPedidos_vendaInput[]
     updateMany?: produtos_movimentacoesUpdateManyWithWhereWithoutPedidos_vendaInput | produtos_movimentacoesUpdateManyWithWhereWithoutPedidos_vendaInput[]
     deleteMany?: produtos_movimentacoesScalarWhereInput | produtos_movimentacoesScalarWhereInput[]
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutPedidos_vendaInput, caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput> | caixa_movimentacoesCreateWithoutPedidos_vendaInput[] | caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput | caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput[]
+    upsert?: caixa_movimentacoesUpsertWithWhereUniqueWithoutPedidos_vendaInput | caixa_movimentacoesUpsertWithWhereUniqueWithoutPedidos_vendaInput[]
+    createMany?: caixa_movimentacoesCreateManyPedidos_vendaInputEnvelope
+    set?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    disconnect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    delete?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    update?: caixa_movimentacoesUpdateWithWhereUniqueWithoutPedidos_vendaInput | caixa_movimentacoesUpdateWithWhereUniqueWithoutPedidos_vendaInput[]
+    updateMany?: caixa_movimentacoesUpdateManyWithWhereWithoutPedidos_vendaInput | caixa_movimentacoesUpdateManyWithWhereWithoutPedidos_vendaInput[]
+    deleteMany?: caixa_movimentacoesScalarWhereInput | caixa_movimentacoesScalarWhereInput[]
   }
 
   export type pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput = {
@@ -45585,6 +49440,176 @@ export namespace Prisma {
     update?: XOR<XOR<vendedoresUpdateToOneWithWhereWithoutVendedores_usuariosInput, vendedoresUpdateWithoutVendedores_usuariosInput>, vendedoresUncheckedUpdateWithoutVendedores_usuariosInput>
   }
 
+  export type controle_caixaCreateNestedOneWithoutCaixa_movimentacoesInput = {
+    create?: XOR<controle_caixaCreateWithoutCaixa_movimentacoesInput, controle_caixaUncheckedCreateWithoutCaixa_movimentacoesInput>
+    connectOrCreate?: controle_caixaCreateOrConnectWithoutCaixa_movimentacoesInput
+    connect?: controle_caixaWhereUniqueInput
+  }
+
+  export type forma_pagamentoCreateNestedOneWithoutCaixa_movimentacoesInput = {
+    create?: XOR<forma_pagamentoCreateWithoutCaixa_movimentacoesInput, forma_pagamentoUncheckedCreateWithoutCaixa_movimentacoesInput>
+    connectOrCreate?: forma_pagamentoCreateOrConnectWithoutCaixa_movimentacoesInput
+    connect?: forma_pagamentoWhereUniqueInput
+  }
+
+  export type pedidos_vendaCreateNestedOneWithoutCaixa_movimentacoesInput = {
+    create?: XOR<pedidos_vendaCreateWithoutCaixa_movimentacoesInput, pedidos_vendaUncheckedCreateWithoutCaixa_movimentacoesInput>
+    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutCaixa_movimentacoesInput
+    connect?: pedidos_vendaWhereUniqueInput
+  }
+
+  export type controle_caixaUpdateOneRequiredWithoutCaixa_movimentacoesNestedInput = {
+    create?: XOR<controle_caixaCreateWithoutCaixa_movimentacoesInput, controle_caixaUncheckedCreateWithoutCaixa_movimentacoesInput>
+    connectOrCreate?: controle_caixaCreateOrConnectWithoutCaixa_movimentacoesInput
+    upsert?: controle_caixaUpsertWithoutCaixa_movimentacoesInput
+    connect?: controle_caixaWhereUniqueInput
+    update?: XOR<XOR<controle_caixaUpdateToOneWithWhereWithoutCaixa_movimentacoesInput, controle_caixaUpdateWithoutCaixa_movimentacoesInput>, controle_caixaUncheckedUpdateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type forma_pagamentoUpdateOneRequiredWithoutCaixa_movimentacoesNestedInput = {
+    create?: XOR<forma_pagamentoCreateWithoutCaixa_movimentacoesInput, forma_pagamentoUncheckedCreateWithoutCaixa_movimentacoesInput>
+    connectOrCreate?: forma_pagamentoCreateOrConnectWithoutCaixa_movimentacoesInput
+    upsert?: forma_pagamentoUpsertWithoutCaixa_movimentacoesInput
+    connect?: forma_pagamentoWhereUniqueInput
+    update?: XOR<XOR<forma_pagamentoUpdateToOneWithWhereWithoutCaixa_movimentacoesInput, forma_pagamentoUpdateWithoutCaixa_movimentacoesInput>, forma_pagamentoUncheckedUpdateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type pedidos_vendaUpdateOneWithoutCaixa_movimentacoesNestedInput = {
+    create?: XOR<pedidos_vendaCreateWithoutCaixa_movimentacoesInput, pedidos_vendaUncheckedCreateWithoutCaixa_movimentacoesInput>
+    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutCaixa_movimentacoesInput
+    upsert?: pedidos_vendaUpsertWithoutCaixa_movimentacoesInput
+    disconnect?: pedidos_vendaWhereInput | boolean
+    delete?: pedidos_vendaWhereInput | boolean
+    connect?: pedidos_vendaWhereUniqueInput
+    update?: XOR<XOR<pedidos_vendaUpdateToOneWithWhereWithoutCaixa_movimentacoesInput, pedidos_vendaUpdateWithoutCaixa_movimentacoesInput>, pedidos_vendaUncheckedUpdateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type caixa_movimentacoesCreateNestedManyWithoutControle_caixaInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutControle_caixaInput, caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput> | caixa_movimentacoesCreateWithoutControle_caixaInput[] | caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput | caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput[]
+    createMany?: caixa_movimentacoesCreateManyControle_caixaInputEnvelope
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+  }
+
+  export type caixa_movimentacoesUncheckedCreateNestedManyWithoutControle_caixaInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutControle_caixaInput, caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput> | caixa_movimentacoesCreateWithoutControle_caixaInput[] | caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput | caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput[]
+    createMany?: caixa_movimentacoesCreateManyControle_caixaInputEnvelope
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+  }
+
+  export type caixa_movimentacoesUpdateManyWithoutControle_caixaNestedInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutControle_caixaInput, caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput> | caixa_movimentacoesCreateWithoutControle_caixaInput[] | caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput | caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput[]
+    upsert?: caixa_movimentacoesUpsertWithWhereUniqueWithoutControle_caixaInput | caixa_movimentacoesUpsertWithWhereUniqueWithoutControle_caixaInput[]
+    createMany?: caixa_movimentacoesCreateManyControle_caixaInputEnvelope
+    set?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    disconnect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    delete?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    update?: caixa_movimentacoesUpdateWithWhereUniqueWithoutControle_caixaInput | caixa_movimentacoesUpdateWithWhereUniqueWithoutControle_caixaInput[]
+    updateMany?: caixa_movimentacoesUpdateManyWithWhereWithoutControle_caixaInput | caixa_movimentacoesUpdateManyWithWhereWithoutControle_caixaInput[]
+    deleteMany?: caixa_movimentacoesScalarWhereInput | caixa_movimentacoesScalarWhereInput[]
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateManyWithoutControle_caixaNestedInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutControle_caixaInput, caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput> | caixa_movimentacoesCreateWithoutControle_caixaInput[] | caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput | caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput[]
+    upsert?: caixa_movimentacoesUpsertWithWhereUniqueWithoutControle_caixaInput | caixa_movimentacoesUpsertWithWhereUniqueWithoutControle_caixaInput[]
+    createMany?: caixa_movimentacoesCreateManyControle_caixaInputEnvelope
+    set?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    disconnect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    delete?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    update?: caixa_movimentacoesUpdateWithWhereUniqueWithoutControle_caixaInput | caixa_movimentacoesUpdateWithWhereUniqueWithoutControle_caixaInput[]
+    updateMany?: caixa_movimentacoesUpdateManyWithWhereWithoutControle_caixaInput | caixa_movimentacoesUpdateManyWithWhereWithoutControle_caixaInput[]
+    deleteMany?: caixa_movimentacoesScalarWhereInput | caixa_movimentacoesScalarWhereInput[]
+  }
+
+  export type caixa_movimentacoesCreateNestedManyWithoutForma_pagamentoInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutForma_pagamentoInput, caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput> | caixa_movimentacoesCreateWithoutForma_pagamentoInput[] | caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput | caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput[]
+    createMany?: caixa_movimentacoesCreateManyForma_pagamentoInputEnvelope
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+  }
+
+  export type pedidos_vendaCreateNestedManyWithoutForma_pagamentoInput = {
+    create?: XOR<pedidos_vendaCreateWithoutForma_pagamentoInput, pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput> | pedidos_vendaCreateWithoutForma_pagamentoInput[] | pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput[]
+    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput | pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput[]
+    createMany?: pedidos_vendaCreateManyForma_pagamentoInputEnvelope
+    connect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+  }
+
+  export type caixa_movimentacoesUncheckedCreateNestedManyWithoutForma_pagamentoInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutForma_pagamentoInput, caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput> | caixa_movimentacoesCreateWithoutForma_pagamentoInput[] | caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput | caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput[]
+    createMany?: caixa_movimentacoesCreateManyForma_pagamentoInputEnvelope
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+  }
+
+  export type pedidos_vendaUncheckedCreateNestedManyWithoutForma_pagamentoInput = {
+    create?: XOR<pedidos_vendaCreateWithoutForma_pagamentoInput, pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput> | pedidos_vendaCreateWithoutForma_pagamentoInput[] | pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput[]
+    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput | pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput[]
+    createMany?: pedidos_vendaCreateManyForma_pagamentoInputEnvelope
+    connect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+  }
+
+  export type caixa_movimentacoesUpdateManyWithoutForma_pagamentoNestedInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutForma_pagamentoInput, caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput> | caixa_movimentacoesCreateWithoutForma_pagamentoInput[] | caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput | caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput[]
+    upsert?: caixa_movimentacoesUpsertWithWhereUniqueWithoutForma_pagamentoInput | caixa_movimentacoesUpsertWithWhereUniqueWithoutForma_pagamentoInput[]
+    createMany?: caixa_movimentacoesCreateManyForma_pagamentoInputEnvelope
+    set?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    disconnect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    delete?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    update?: caixa_movimentacoesUpdateWithWhereUniqueWithoutForma_pagamentoInput | caixa_movimentacoesUpdateWithWhereUniqueWithoutForma_pagamentoInput[]
+    updateMany?: caixa_movimentacoesUpdateManyWithWhereWithoutForma_pagamentoInput | caixa_movimentacoesUpdateManyWithWhereWithoutForma_pagamentoInput[]
+    deleteMany?: caixa_movimentacoesScalarWhereInput | caixa_movimentacoesScalarWhereInput[]
+  }
+
+  export type pedidos_vendaUpdateManyWithoutForma_pagamentoNestedInput = {
+    create?: XOR<pedidos_vendaCreateWithoutForma_pagamentoInput, pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput> | pedidos_vendaCreateWithoutForma_pagamentoInput[] | pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput[]
+    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput | pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput[]
+    upsert?: pedidos_vendaUpsertWithWhereUniqueWithoutForma_pagamentoInput | pedidos_vendaUpsertWithWhereUniqueWithoutForma_pagamentoInput[]
+    createMany?: pedidos_vendaCreateManyForma_pagamentoInputEnvelope
+    set?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+    disconnect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+    delete?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+    connect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+    update?: pedidos_vendaUpdateWithWhereUniqueWithoutForma_pagamentoInput | pedidos_vendaUpdateWithWhereUniqueWithoutForma_pagamentoInput[]
+    updateMany?: pedidos_vendaUpdateManyWithWhereWithoutForma_pagamentoInput | pedidos_vendaUpdateManyWithWhereWithoutForma_pagamentoInput[]
+    deleteMany?: pedidos_vendaScalarWhereInput | pedidos_vendaScalarWhereInput[]
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateManyWithoutForma_pagamentoNestedInput = {
+    create?: XOR<caixa_movimentacoesCreateWithoutForma_pagamentoInput, caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput> | caixa_movimentacoesCreateWithoutForma_pagamentoInput[] | caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput[]
+    connectOrCreate?: caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput | caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput[]
+    upsert?: caixa_movimentacoesUpsertWithWhereUniqueWithoutForma_pagamentoInput | caixa_movimentacoesUpsertWithWhereUniqueWithoutForma_pagamentoInput[]
+    createMany?: caixa_movimentacoesCreateManyForma_pagamentoInputEnvelope
+    set?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    disconnect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    delete?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    connect?: caixa_movimentacoesWhereUniqueInput | caixa_movimentacoesWhereUniqueInput[]
+    update?: caixa_movimentacoesUpdateWithWhereUniqueWithoutForma_pagamentoInput | caixa_movimentacoesUpdateWithWhereUniqueWithoutForma_pagamentoInput[]
+    updateMany?: caixa_movimentacoesUpdateManyWithWhereWithoutForma_pagamentoInput | caixa_movimentacoesUpdateManyWithWhereWithoutForma_pagamentoInput[]
+    deleteMany?: caixa_movimentacoesScalarWhereInput | caixa_movimentacoesScalarWhereInput[]
+  }
+
+  export type pedidos_vendaUncheckedUpdateManyWithoutForma_pagamentoNestedInput = {
+    create?: XOR<pedidos_vendaCreateWithoutForma_pagamentoInput, pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput> | pedidos_vendaCreateWithoutForma_pagamentoInput[] | pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput[]
+    connectOrCreate?: pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput | pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput[]
+    upsert?: pedidos_vendaUpsertWithWhereUniqueWithoutForma_pagamentoInput | pedidos_vendaUpsertWithWhereUniqueWithoutForma_pagamentoInput[]
+    createMany?: pedidos_vendaCreateManyForma_pagamentoInputEnvelope
+    set?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+    disconnect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+    delete?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+    connect?: pedidos_vendaWhereUniqueInput | pedidos_vendaWhereUniqueInput[]
+    update?: pedidos_vendaUpdateWithWhereUniqueWithoutForma_pagamentoInput | pedidos_vendaUpdateWithWhereUniqueWithoutForma_pagamentoInput[]
+    updateMany?: pedidos_vendaUpdateManyWithWhereWithoutForma_pagamentoInput | pedidos_vendaUpdateManyWithWhereWithoutForma_pagamentoInput[]
+    deleteMany?: pedidos_vendaScalarWhereInput | pedidos_vendaScalarWhereInput[]
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -46010,14 +50035,12 @@ export namespace Prisma {
   export type condicoes_pagamentoCreateWithoutClientesInput = {
     id_sirius_cp?: number | null
     descricao_cp: string
-    pedidos_venda?: pedidos_vendaCreateNestedManyWithoutCondicoes_pagamentoInput
   }
 
   export type condicoes_pagamentoUncheckedCreateWithoutClientesInput = {
     id_cp?: number
     id_sirius_cp?: number | null
     descricao_cp: string
-    pedidos_venda?: pedidos_vendaUncheckedCreateNestedManyWithoutCondicoes_pagamentoInput
   }
 
   export type condicoes_pagamentoCreateOrConnectWithoutClientesInput = {
@@ -46118,7 +50141,7 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
@@ -46132,7 +50155,8 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
     modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
     transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
     vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
@@ -46151,11 +50175,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -46168,6 +50192,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
@@ -46197,14 +50222,12 @@ export namespace Prisma {
   export type condicoes_pagamentoUpdateWithoutClientesInput = {
     id_sirius_cp?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_cp?: StringFieldUpdateOperationsInput | string
-    pedidos_venda?: pedidos_vendaUpdateManyWithoutCondicoes_pagamentoNestedInput
   }
 
   export type condicoes_pagamentoUncheckedUpdateWithoutClientesInput = {
     id_cp?: IntFieldUpdateOperationsInput | number
     id_sirius_cp?: NullableIntFieldUpdateOperationsInput | number | null
     descricao_cp?: StringFieldUpdateOperationsInput | string
-    pedidos_venda?: pedidos_vendaUncheckedUpdateManyWithoutCondicoes_pagamentoNestedInput
   }
 
   export type clientes_produtosUpsertWithWhereUniqueWithoutClientesInput = {
@@ -46330,7 +50353,7 @@ export namespace Prisma {
     cliente_contato_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     data_realizacao_pv?: DateTimeNullableFilter<"pedidos_venda"> | Date | string | null
     data_sincronizacao_pv?: DateTimeNullableFilter<"pedidos_venda"> | Date | string | null
-    id_condicao_pagamento_pv?: IntNullableFilter<"pedidos_venda"> | number | null
+    id_forma_pagamento_pv?: IntNullableFilter<"pedidos_venda"> | number | null
     entrega_cep_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     entrega_logradouro_pv?: StringNullableFilter<"pedidos_venda"> | string | null
     entrega_numero_pv?: StringNullableFilter<"pedidos_venda"> | string | null
@@ -46440,6 +50463,7 @@ export namespace Prisma {
   export type produtosUncheckedCreateWithoutClientes_produtosInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -46463,7 +50487,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
     id_imagem?: number | null
-    id_submenu?: number | null
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -46587,6 +50610,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateWithoutClientes_produtosInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46610,7 +50634,6 @@ export namespace Prisma {
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -46682,79 +50705,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type pedidos_vendaCreateWithoutCondicoes_pagamentoInput = {
-    numero_pv?: number | null
-    id_usuario_pv?: number | null
-    desconto_pv?: Decimal | DecimalJsLike | number | string | null
-    valor_bruto_pv: Decimal | DecimalJsLike | number | string
-    valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
-    status_pv: string
-    observacoes_pv?: string | null
-    data_criacao_pv: Date | string
-    cliente_contato_pv?: string | null
-    data_realizacao_pv?: Date | string | null
-    data_sincronizacao_pv?: Date | string | null
-    entrega_cep_pv?: string | null
-    entrega_logradouro_pv?: string | null
-    entrega_numero_pv?: string | null
-    entrega_complemento_pv?: string | null
-    entrega_bairro_pv?: string | null
-    entrega_cidade_pv?: string | null
-    entrega_uf_pv?: string | null
-    id_cliente_escolheu_pv?: string | null
-    pagamento_pv?: Decimal | DecimalJsLike | number | string | null
-    troco_pv?: Decimal | DecimalJsLike | number | string | null
-    clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
-    modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
-    transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
-    vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
-    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
-    pedidos_venda_pagamentos?: pedidos_venda_pagamentosCreateNestedManyWithoutPedidos_vendaInput
-    produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
-  }
-
-  export type pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput = {
-    id_pv?: number
-    numero_pv?: number | null
-    id_vendedor_pv?: number | null
-    id_cliente_pv?: number | null
-    id_usuario_pv?: number | null
-    desconto_pv?: Decimal | DecimalJsLike | number | string | null
-    valor_bruto_pv: Decimal | DecimalJsLike | number | string
-    valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
-    status_pv: string
-    observacoes_pv?: string | null
-    data_criacao_pv: Date | string
-    cliente_contato_pv?: string | null
-    data_realizacao_pv?: Date | string | null
-    data_sincronizacao_pv?: Date | string | null
-    entrega_cep_pv?: string | null
-    entrega_logradouro_pv?: string | null
-    entrega_numero_pv?: string | null
-    entrega_complemento_pv?: string | null
-    entrega_bairro_pv?: string | null
-    entrega_cidade_pv?: string | null
-    entrega_uf_pv?: string | null
-    id_transportadores_pv?: number | null
-    id_modalidade_frete_pv?: number | null
-    id_cliente_escolheu_pv?: string | null
-    pagamento_pv?: Decimal | DecimalJsLike | number | string | null
-    troco_pv?: Decimal | DecimalJsLike | number | string | null
-    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
-    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
-    produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
-  }
-
-  export type pedidos_vendaCreateOrConnectWithoutCondicoes_pagamentoInput = {
-    where: pedidos_vendaWhereUniqueInput
-    create: XOR<pedidos_vendaCreateWithoutCondicoes_pagamentoInput, pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput>
-  }
-
-  export type pedidos_vendaCreateManyCondicoes_pagamentoInputEnvelope = {
-    data: pedidos_vendaCreateManyCondicoes_pagamentoInput | pedidos_vendaCreateManyCondicoes_pagamentoInput[]
-    skipDuplicates?: boolean
-  }
-
   export type clientesUpsertWithWhereUniqueWithoutCondicoes_pagamentoInput = {
     where: clientesWhereUniqueInput
     update: XOR<clientesUpdateWithoutCondicoes_pagamentoInput, clientesUncheckedUpdateWithoutCondicoes_pagamentoInput>
@@ -46797,22 +50747,6 @@ export namespace Prisma {
     contato_cliente?: StringNullableFilter<"clientes"> | string | null
     nm_contato_cliente?: StringNullableFilter<"clientes"> | string | null
     id_condicao_pagamento_sirius_cliente?: IntNullableFilter<"clientes"> | number | null
-  }
-
-  export type pedidos_vendaUpsertWithWhereUniqueWithoutCondicoes_pagamentoInput = {
-    where: pedidos_vendaWhereUniqueInput
-    update: XOR<pedidos_vendaUpdateWithoutCondicoes_pagamentoInput, pedidos_vendaUncheckedUpdateWithoutCondicoes_pagamentoInput>
-    create: XOR<pedidos_vendaCreateWithoutCondicoes_pagamentoInput, pedidos_vendaUncheckedCreateWithoutCondicoes_pagamentoInput>
-  }
-
-  export type pedidos_vendaUpdateWithWhereUniqueWithoutCondicoes_pagamentoInput = {
-    where: pedidos_vendaWhereUniqueInput
-    data: XOR<pedidos_vendaUpdateWithoutCondicoes_pagamentoInput, pedidos_vendaUncheckedUpdateWithoutCondicoes_pagamentoInput>
-  }
-
-  export type pedidos_vendaUpdateManyWithWhereWithoutCondicoes_pagamentoInput = {
-    where: pedidos_vendaScalarWhereInput
-    data: XOR<pedidos_vendaUpdateManyMutationInput, pedidos_vendaUncheckedUpdateManyWithoutCondicoes_pagamentoInput>
   }
 
   export type clientesCreateWithoutContatosInput = {
@@ -47469,6 +51403,7 @@ export namespace Prisma {
   export type produtosUncheckedCreateWithoutImagensInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -47491,7 +51426,6 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
-    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -47636,6 +51570,7 @@ export namespace Prisma {
     NOT?: produtosScalarWhereInput | produtosScalarWhereInput[]
     id_prod?: IntFilter<"produtos"> | number
     id_sirius_prod?: IntNullableFilter<"produtos"> | number | null
+    id_submenu?: IntNullableFilter<"produtos"> | number | null
     cod_prod?: StringNullableFilter<"produtos"> | string | null
     descricao_prod?: StringFilter<"produtos"> | string
     cod_ean_prod?: StringNullableFilter<"produtos"> | string | null
@@ -47659,7 +51594,6 @@ export namespace Prisma {
     vegetariano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     vegano_prod?: BoolNullableFilter<"produtos"> | boolean | null
     id_imagem?: IntNullableFilter<"produtos"> | number | null
-    id_submenu?: IntNullableFilter<"produtos"> | number | null
   }
 
   export type restaurantesUpsertWithWhereUniqueWithoutImagensInput = {
@@ -47865,6 +51799,7 @@ export namespace Prisma {
   export type produtosUncheckedCreateWithoutListas_precos_produtosInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -47888,7 +51823,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
     id_imagem?: number | null
-    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -47970,6 +51904,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateWithoutListas_precos_produtosInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -47993,7 +51928,6 @@ export namespace Prisma {
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -48161,7 +52095,7 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
@@ -48175,8 +52109,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
     clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
     transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
     vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
@@ -48195,11 +52130,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -48211,6 +52146,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
@@ -48240,6 +52176,35 @@ export namespace Prisma {
   export type pedidos_vendaUpdateManyWithWhereWithoutModalidade_freteInput = {
     where: pedidos_vendaScalarWhereInput
     data: XOR<pedidos_vendaUpdateManyMutationInput, pedidos_vendaUncheckedUpdateManyWithoutModalidade_freteInput>
+  }
+
+  export type caixa_movimentacoesCreateWithoutPedidos_vendaInput = {
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+    controle_caixa: controle_caixaCreateNestedOneWithoutCaixa_movimentacoesInput
+    forma_pagamento: forma_pagamentoCreateNestedOneWithoutCaixa_movimentacoesInput
+  }
+
+  export type caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput = {
+    id_cm?: number
+    id_controle_caixa_cm: number
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    id_forma_pagamento_cm: number
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesCreateOrConnectWithoutPedidos_vendaInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    create: XOR<caixa_movimentacoesCreateWithoutPedidos_vendaInput, caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput>
+  }
+
+  export type caixa_movimentacoesCreateManyPedidos_vendaInputEnvelope = {
+    data: caixa_movimentacoesCreateManyPedidos_vendaInput | caixa_movimentacoesCreateManyPedidos_vendaInput[]
+    skipDuplicates?: boolean
   }
 
   export type clientesCreateWithoutPedidos_vendaInput = {
@@ -48302,22 +52267,20 @@ export namespace Prisma {
     create: XOR<clientesCreateWithoutPedidos_vendaInput, clientesUncheckedCreateWithoutPedidos_vendaInput>
   }
 
-  export type condicoes_pagamentoCreateWithoutPedidos_vendaInput = {
-    id_sirius_cp?: number | null
-    descricao_cp: string
-    clientes?: clientesCreateNestedManyWithoutCondicoes_pagamentoInput
+  export type forma_pagamentoCreateWithoutPedidos_vendaInput = {
+    nm_fp?: string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutForma_pagamentoInput
   }
 
-  export type condicoes_pagamentoUncheckedCreateWithoutPedidos_vendaInput = {
-    id_cp?: number
-    id_sirius_cp?: number | null
-    descricao_cp: string
-    clientes?: clientesUncheckedCreateNestedManyWithoutCondicoes_pagamentoInput
+  export type forma_pagamentoUncheckedCreateWithoutPedidos_vendaInput = {
+    id_fp?: number
+    nm_fp?: string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutForma_pagamentoInput
   }
 
-  export type condicoes_pagamentoCreateOrConnectWithoutPedidos_vendaInput = {
-    where: condicoes_pagamentoWhereUniqueInput
-    create: XOR<condicoes_pagamentoCreateWithoutPedidos_vendaInput, condicoes_pagamentoUncheckedCreateWithoutPedidos_vendaInput>
+  export type forma_pagamentoCreateOrConnectWithoutPedidos_vendaInput = {
+    where: forma_pagamentoWhereUniqueInput
+    create: XOR<forma_pagamentoCreateWithoutPedidos_vendaInput, forma_pagamentoUncheckedCreateWithoutPedidos_vendaInput>
   }
 
   export type modalidade_freteCreateWithoutPedidos_vendaInput = {
@@ -48527,6 +52490,36 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type caixa_movimentacoesUpsertWithWhereUniqueWithoutPedidos_vendaInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    update: XOR<caixa_movimentacoesUpdateWithoutPedidos_vendaInput, caixa_movimentacoesUncheckedUpdateWithoutPedidos_vendaInput>
+    create: XOR<caixa_movimentacoesCreateWithoutPedidos_vendaInput, caixa_movimentacoesUncheckedCreateWithoutPedidos_vendaInput>
+  }
+
+  export type caixa_movimentacoesUpdateWithWhereUniqueWithoutPedidos_vendaInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    data: XOR<caixa_movimentacoesUpdateWithoutPedidos_vendaInput, caixa_movimentacoesUncheckedUpdateWithoutPedidos_vendaInput>
+  }
+
+  export type caixa_movimentacoesUpdateManyWithWhereWithoutPedidos_vendaInput = {
+    where: caixa_movimentacoesScalarWhereInput
+    data: XOR<caixa_movimentacoesUpdateManyMutationInput, caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaInput>
+  }
+
+  export type caixa_movimentacoesScalarWhereInput = {
+    AND?: caixa_movimentacoesScalarWhereInput | caixa_movimentacoesScalarWhereInput[]
+    OR?: caixa_movimentacoesScalarWhereInput[]
+    NOT?: caixa_movimentacoesScalarWhereInput | caixa_movimentacoesScalarWhereInput[]
+    id_cm?: IntFilter<"caixa_movimentacoes"> | number
+    id_controle_caixa_cm?: IntFilter<"caixa_movimentacoes"> | number
+    data_atual_cm?: DateTimeFilter<"caixa_movimentacoes"> | Date | string
+    tipo_operacao_cm?: StringFilter<"caixa_movimentacoes"> | string
+    id_pedido_venda_cm?: IntNullableFilter<"caixa_movimentacoes"> | number | null
+    id_forma_pagamento_cm?: IntFilter<"caixa_movimentacoes"> | number
+    valor_pago_cm?: DecimalFilter<"caixa_movimentacoes"> | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFilter<"caixa_movimentacoes"> | Decimal | DecimalJsLike | number | string
+  }
+
   export type clientesUpsertWithoutPedidos_vendaInput = {
     update: XOR<clientesUpdateWithoutPedidos_vendaInput, clientesUncheckedUpdateWithoutPedidos_vendaInput>
     create: XOR<clientesCreateWithoutPedidos_vendaInput, clientesUncheckedCreateWithoutPedidos_vendaInput>
@@ -48593,28 +52586,26 @@ export namespace Prisma {
     enderecos?: enderecosUncheckedUpdateManyWithoutClientesNestedInput
   }
 
-  export type condicoes_pagamentoUpsertWithoutPedidos_vendaInput = {
-    update: XOR<condicoes_pagamentoUpdateWithoutPedidos_vendaInput, condicoes_pagamentoUncheckedUpdateWithoutPedidos_vendaInput>
-    create: XOR<condicoes_pagamentoCreateWithoutPedidos_vendaInput, condicoes_pagamentoUncheckedCreateWithoutPedidos_vendaInput>
-    where?: condicoes_pagamentoWhereInput
+  export type forma_pagamentoUpsertWithoutPedidos_vendaInput = {
+    update: XOR<forma_pagamentoUpdateWithoutPedidos_vendaInput, forma_pagamentoUncheckedUpdateWithoutPedidos_vendaInput>
+    create: XOR<forma_pagamentoCreateWithoutPedidos_vendaInput, forma_pagamentoUncheckedCreateWithoutPedidos_vendaInput>
+    where?: forma_pagamentoWhereInput
   }
 
-  export type condicoes_pagamentoUpdateToOneWithWhereWithoutPedidos_vendaInput = {
-    where?: condicoes_pagamentoWhereInput
-    data: XOR<condicoes_pagamentoUpdateWithoutPedidos_vendaInput, condicoes_pagamentoUncheckedUpdateWithoutPedidos_vendaInput>
+  export type forma_pagamentoUpdateToOneWithWhereWithoutPedidos_vendaInput = {
+    where?: forma_pagamentoWhereInput
+    data: XOR<forma_pagamentoUpdateWithoutPedidos_vendaInput, forma_pagamentoUncheckedUpdateWithoutPedidos_vendaInput>
   }
 
-  export type condicoes_pagamentoUpdateWithoutPedidos_vendaInput = {
-    id_sirius_cp?: NullableIntFieldUpdateOperationsInput | number | null
-    descricao_cp?: StringFieldUpdateOperationsInput | string
-    clientes?: clientesUpdateManyWithoutCondicoes_pagamentoNestedInput
+  export type forma_pagamentoUpdateWithoutPedidos_vendaInput = {
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutForma_pagamentoNestedInput
   }
 
-  export type condicoes_pagamentoUncheckedUpdateWithoutPedidos_vendaInput = {
-    id_cp?: IntFieldUpdateOperationsInput | number
-    id_sirius_cp?: NullableIntFieldUpdateOperationsInput | number | null
-    descricao_cp?: StringFieldUpdateOperationsInput | string
-    clientes?: clientesUncheckedUpdateManyWithoutCondicoes_pagamentoNestedInput
+  export type forma_pagamentoUncheckedUpdateWithoutPedidos_vendaInput = {
+    id_fp?: IntFieldUpdateOperationsInput | number
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutForma_pagamentoNestedInput
   }
 
   export type modalidade_freteUpsertWithoutPedidos_vendaInput = {
@@ -48848,7 +52839,7 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
@@ -48862,8 +52853,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
     clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
     modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
     transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
     vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
@@ -48882,11 +52874,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -48899,6 +52891,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
   }
@@ -48943,6 +52936,7 @@ export namespace Prisma {
   export type produtosUncheckedCreateWithoutPedidos_venda_itensInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -48966,7 +52960,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
     id_imagem?: number | null
-    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     produtos_extras?: produtos_extrasUncheckedCreateNestedManyWithoutProdutosInput
@@ -49035,8 +53028,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
     clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
     modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
     transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
     vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
@@ -49059,7 +53053,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49072,6 +53066,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
   }
@@ -49122,6 +53117,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateWithoutPedidos_venda_itensInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49145,7 +53141,6 @@ export namespace Prisma {
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     produtos_extras?: produtos_extrasUncheckedUpdateManyWithoutProdutosNestedInput
@@ -49160,7 +53155,7 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
@@ -49174,8 +53169,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
     clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
     modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
     transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
     vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
@@ -49194,11 +53190,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -49211,6 +53207,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
   }
@@ -49253,8 +53250,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
     clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
     modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
     transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
     vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
@@ -49277,7 +53275,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49290,6 +53288,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
   }
@@ -49707,6 +53706,7 @@ export namespace Prisma {
   export type produtosUncheckedCreateWithoutProdutos_extrasInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -49730,7 +53730,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
     id_imagem?: number | null
-    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -49812,6 +53811,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateWithoutProdutos_extrasInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49835,7 +53835,6 @@ export namespace Prisma {
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -49850,7 +53849,7 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
@@ -49864,8 +53863,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
     clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
     modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
     transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
     vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
@@ -49884,11 +53884,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -49901,6 +53901,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
   }
@@ -49945,6 +53946,7 @@ export namespace Prisma {
   export type produtosUncheckedCreateWithoutProdutos_movimentacoesInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -49968,7 +53970,6 @@ export namespace Prisma {
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
     id_imagem?: number | null
-    id_submenu?: number | null
     clientes_produtos?: clientes_produtosUncheckedCreateNestedManyWithoutProdutosInput
     listas_precos_produtos?: listas_precos_produtosUncheckedCreateNestedManyWithoutProdutosInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedCreateNestedManyWithoutProdutosInput
@@ -50013,8 +54014,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
     clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
     modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
     transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
     vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
@@ -50037,7 +54039,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50050,6 +54052,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
   }
@@ -50100,6 +54103,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateWithoutProdutos_movimentacoesInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50123,7 +54127,6 @@ export namespace Prisma {
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     id_imagem?: NullableIntFieldUpdateOperationsInput | number | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -50442,7 +54445,7 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
@@ -50456,8 +54459,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
     clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
     modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
     vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
@@ -50476,11 +54480,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -50492,6 +54496,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
@@ -50577,7 +54582,7 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
@@ -50591,8 +54596,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
     clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
-    condicoes_pagamento?: condicoes_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
     modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
     transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
@@ -50610,11 +54616,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -50627,6 +54633,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: string | null
     pagamento_pv?: Decimal | DecimalJsLike | number | string | null
     troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
@@ -50863,6 +54870,421 @@ export namespace Prisma {
     pedidos_venda?: pedidos_vendaUncheckedUpdateManyWithoutVendedoresNestedInput
   }
 
+  export type controle_caixaCreateWithoutCaixa_movimentacoesInput = {
+    id_usuario_controle_caixa: number
+    data_abertura_controle_caixa?: Date | string
+    data_fechamento_controle_caixa?: Date | string | null
+    saldo_inicial_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type controle_caixaUncheckedCreateWithoutCaixa_movimentacoesInput = {
+    id_controle_caixa?: number
+    id_usuario_controle_caixa: number
+    data_abertura_controle_caixa?: Date | string
+    data_fechamento_controle_caixa?: Date | string | null
+    saldo_inicial_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type controle_caixaCreateOrConnectWithoutCaixa_movimentacoesInput = {
+    where: controle_caixaWhereUniqueInput
+    create: XOR<controle_caixaCreateWithoutCaixa_movimentacoesInput, controle_caixaUncheckedCreateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type forma_pagamentoCreateWithoutCaixa_movimentacoesInput = {
+    nm_fp?: string | null
+    pedidos_venda?: pedidos_vendaCreateNestedManyWithoutForma_pagamentoInput
+  }
+
+  export type forma_pagamentoUncheckedCreateWithoutCaixa_movimentacoesInput = {
+    id_fp?: number
+    nm_fp?: string | null
+    pedidos_venda?: pedidos_vendaUncheckedCreateNestedManyWithoutForma_pagamentoInput
+  }
+
+  export type forma_pagamentoCreateOrConnectWithoutCaixa_movimentacoesInput = {
+    where: forma_pagamentoWhereUniqueInput
+    create: XOR<forma_pagamentoCreateWithoutCaixa_movimentacoesInput, forma_pagamentoUncheckedCreateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type pedidos_vendaCreateWithoutCaixa_movimentacoesInput = {
+    numero_pv?: number | null
+    id_usuario_pv?: number | null
+    desconto_pv?: Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv: Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
+    status_pv: string
+    observacoes_pv?: string | null
+    data_criacao_pv?: Date | string
+    cliente_contato_pv?: string | null
+    data_realizacao_pv?: Date | string | null
+    data_sincronizacao_pv?: Date | string | null
+    entrega_cep_pv?: string | null
+    entrega_logradouro_pv?: string | null
+    entrega_numero_pv?: string | null
+    entrega_complemento_pv?: string | null
+    entrega_bairro_pv?: string | null
+    entrega_cidade_pv?: string | null
+    entrega_uf_pv?: string | null
+    id_cliente_escolheu_pv?: string | null
+    pagamento_pv?: Decimal | DecimalJsLike | number | string | null
+    troco_pv?: Decimal | DecimalJsLike | number | string | null
+    clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
+    forma_pagamento?: forma_pagamentoCreateNestedOneWithoutPedidos_vendaInput
+    modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
+    transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
+    vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
+    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
+    pedidos_venda_pagamentos?: pedidos_venda_pagamentosCreateNestedManyWithoutPedidos_vendaInput
+    produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
+  }
+
+  export type pedidos_vendaUncheckedCreateWithoutCaixa_movimentacoesInput = {
+    id_pv?: number
+    numero_pv?: number | null
+    id_vendedor_pv?: number | null
+    id_cliente_pv?: number | null
+    id_usuario_pv?: number | null
+    desconto_pv?: Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv: Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
+    status_pv: string
+    observacoes_pv?: string | null
+    data_criacao_pv?: Date | string
+    cliente_contato_pv?: string | null
+    data_realizacao_pv?: Date | string | null
+    data_sincronizacao_pv?: Date | string | null
+    id_forma_pagamento_pv?: number | null
+    entrega_cep_pv?: string | null
+    entrega_logradouro_pv?: string | null
+    entrega_numero_pv?: string | null
+    entrega_complemento_pv?: string | null
+    entrega_bairro_pv?: string | null
+    entrega_cidade_pv?: string | null
+    entrega_uf_pv?: string | null
+    id_transportadores_pv?: number | null
+    id_modalidade_frete_pv?: number | null
+    id_cliente_escolheu_pv?: string | null
+    pagamento_pv?: Decimal | DecimalJsLike | number | string | null
+    troco_pv?: Decimal | DecimalJsLike | number | string | null
+    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
+    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
+    produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
+  }
+
+  export type pedidos_vendaCreateOrConnectWithoutCaixa_movimentacoesInput = {
+    where: pedidos_vendaWhereUniqueInput
+    create: XOR<pedidos_vendaCreateWithoutCaixa_movimentacoesInput, pedidos_vendaUncheckedCreateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type controle_caixaUpsertWithoutCaixa_movimentacoesInput = {
+    update: XOR<controle_caixaUpdateWithoutCaixa_movimentacoesInput, controle_caixaUncheckedUpdateWithoutCaixa_movimentacoesInput>
+    create: XOR<controle_caixaCreateWithoutCaixa_movimentacoesInput, controle_caixaUncheckedCreateWithoutCaixa_movimentacoesInput>
+    where?: controle_caixaWhereInput
+  }
+
+  export type controle_caixaUpdateToOneWithWhereWithoutCaixa_movimentacoesInput = {
+    where?: controle_caixaWhereInput
+    data: XOR<controle_caixaUpdateWithoutCaixa_movimentacoesInput, controle_caixaUncheckedUpdateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type controle_caixaUpdateWithoutCaixa_movimentacoesInput = {
+    id_usuario_controle_caixa?: IntFieldUpdateOperationsInput | number
+    data_abertura_controle_caixa?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fechamento_controle_caixa?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    saldo_inicial_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type controle_caixaUncheckedUpdateWithoutCaixa_movimentacoesInput = {
+    id_controle_caixa?: IntFieldUpdateOperationsInput | number
+    id_usuario_controle_caixa?: IntFieldUpdateOperationsInput | number
+    data_abertura_controle_caixa?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fechamento_controle_caixa?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    saldo_inicial_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    saldo_final_controle_caixa?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type forma_pagamentoUpsertWithoutCaixa_movimentacoesInput = {
+    update: XOR<forma_pagamentoUpdateWithoutCaixa_movimentacoesInput, forma_pagamentoUncheckedUpdateWithoutCaixa_movimentacoesInput>
+    create: XOR<forma_pagamentoCreateWithoutCaixa_movimentacoesInput, forma_pagamentoUncheckedCreateWithoutCaixa_movimentacoesInput>
+    where?: forma_pagamentoWhereInput
+  }
+
+  export type forma_pagamentoUpdateToOneWithWhereWithoutCaixa_movimentacoesInput = {
+    where?: forma_pagamentoWhereInput
+    data: XOR<forma_pagamentoUpdateWithoutCaixa_movimentacoesInput, forma_pagamentoUncheckedUpdateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type forma_pagamentoUpdateWithoutCaixa_movimentacoesInput = {
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+    pedidos_venda?: pedidos_vendaUpdateManyWithoutForma_pagamentoNestedInput
+  }
+
+  export type forma_pagamentoUncheckedUpdateWithoutCaixa_movimentacoesInput = {
+    id_fp?: IntFieldUpdateOperationsInput | number
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+    pedidos_venda?: pedidos_vendaUncheckedUpdateManyWithoutForma_pagamentoNestedInput
+  }
+
+  export type pedidos_vendaUpsertWithoutCaixa_movimentacoesInput = {
+    update: XOR<pedidos_vendaUpdateWithoutCaixa_movimentacoesInput, pedidos_vendaUncheckedUpdateWithoutCaixa_movimentacoesInput>
+    create: XOR<pedidos_vendaCreateWithoutCaixa_movimentacoesInput, pedidos_vendaUncheckedCreateWithoutCaixa_movimentacoesInput>
+    where?: pedidos_vendaWhereInput
+  }
+
+  export type pedidos_vendaUpdateToOneWithWhereWithoutCaixa_movimentacoesInput = {
+    where?: pedidos_vendaWhereInput
+    data: XOR<pedidos_vendaUpdateWithoutCaixa_movimentacoesInput, pedidos_vendaUncheckedUpdateWithoutCaixa_movimentacoesInput>
+  }
+
+  export type pedidos_vendaUpdateWithoutCaixa_movimentacoesInput = {
+    numero_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_usuario_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    desconto_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_pv?: StringFieldUpdateOperationsInput | string
+    observacoes_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_criacao_pv?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_complemento_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_bairro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_cidade_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_uf_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
+    transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
+    vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
+    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
+    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUpdateManyWithoutPedidos_vendaNestedInput
+    produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
+  }
+
+  export type pedidos_vendaUncheckedUpdateWithoutCaixa_movimentacoesInput = {
+    id_pv?: IntFieldUpdateOperationsInput | number
+    numero_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_vendedor_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_cliente_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_usuario_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    desconto_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_pv?: StringFieldUpdateOperationsInput | string
+    observacoes_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_criacao_pv?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_complemento_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_bairro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_cidade_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_uf_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    id_transportadores_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_modalidade_frete_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
+    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
+    produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
+  }
+
+  export type caixa_movimentacoesCreateWithoutControle_caixaInput = {
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+    forma_pagamento: forma_pagamentoCreateNestedOneWithoutCaixa_movimentacoesInput
+    pedidos_venda?: pedidos_vendaCreateNestedOneWithoutCaixa_movimentacoesInput
+  }
+
+  export type caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput = {
+    id_cm?: number
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    id_pedido_venda_cm?: number | null
+    id_forma_pagamento_cm: number
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesCreateOrConnectWithoutControle_caixaInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    create: XOR<caixa_movimentacoesCreateWithoutControle_caixaInput, caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput>
+  }
+
+  export type caixa_movimentacoesCreateManyControle_caixaInputEnvelope = {
+    data: caixa_movimentacoesCreateManyControle_caixaInput | caixa_movimentacoesCreateManyControle_caixaInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type caixa_movimentacoesUpsertWithWhereUniqueWithoutControle_caixaInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    update: XOR<caixa_movimentacoesUpdateWithoutControle_caixaInput, caixa_movimentacoesUncheckedUpdateWithoutControle_caixaInput>
+    create: XOR<caixa_movimentacoesCreateWithoutControle_caixaInput, caixa_movimentacoesUncheckedCreateWithoutControle_caixaInput>
+  }
+
+  export type caixa_movimentacoesUpdateWithWhereUniqueWithoutControle_caixaInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    data: XOR<caixa_movimentacoesUpdateWithoutControle_caixaInput, caixa_movimentacoesUncheckedUpdateWithoutControle_caixaInput>
+  }
+
+  export type caixa_movimentacoesUpdateManyWithWhereWithoutControle_caixaInput = {
+    where: caixa_movimentacoesScalarWhereInput
+    data: XOR<caixa_movimentacoesUpdateManyMutationInput, caixa_movimentacoesUncheckedUpdateManyWithoutControle_caixaInput>
+  }
+
+  export type caixa_movimentacoesCreateWithoutForma_pagamentoInput = {
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+    controle_caixa: controle_caixaCreateNestedOneWithoutCaixa_movimentacoesInput
+    pedidos_venda?: pedidos_vendaCreateNestedOneWithoutCaixa_movimentacoesInput
+  }
+
+  export type caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput = {
+    id_cm?: number
+    id_controle_caixa_cm: number
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    id_pedido_venda_cm?: number | null
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesCreateOrConnectWithoutForma_pagamentoInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    create: XOR<caixa_movimentacoesCreateWithoutForma_pagamentoInput, caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput>
+  }
+
+  export type caixa_movimentacoesCreateManyForma_pagamentoInputEnvelope = {
+    data: caixa_movimentacoesCreateManyForma_pagamentoInput | caixa_movimentacoesCreateManyForma_pagamentoInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type pedidos_vendaCreateWithoutForma_pagamentoInput = {
+    numero_pv?: number | null
+    id_usuario_pv?: number | null
+    desconto_pv?: Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv: Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
+    status_pv: string
+    observacoes_pv?: string | null
+    data_criacao_pv?: Date | string
+    cliente_contato_pv?: string | null
+    data_realizacao_pv?: Date | string | null
+    data_sincronizacao_pv?: Date | string | null
+    entrega_cep_pv?: string | null
+    entrega_logradouro_pv?: string | null
+    entrega_numero_pv?: string | null
+    entrega_complemento_pv?: string | null
+    entrega_bairro_pv?: string | null
+    entrega_cidade_pv?: string | null
+    entrega_uf_pv?: string | null
+    id_cliente_escolheu_pv?: string | null
+    pagamento_pv?: Decimal | DecimalJsLike | number | string | null
+    troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
+    clientes?: clientesCreateNestedOneWithoutPedidos_vendaInput
+    modalidade_frete?: modalidade_freteCreateNestedOneWithoutPedidos_vendaInput
+    transportadores?: transportadoresCreateNestedOneWithoutPedidos_vendaInput
+    vendedores?: vendedoresCreateNestedOneWithoutPedidos_vendaInput
+    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
+    pedidos_venda_pagamentos?: pedidos_venda_pagamentosCreateNestedManyWithoutPedidos_vendaInput
+    produtos_movimentacoes?: produtos_movimentacoesCreateNestedManyWithoutPedidos_vendaInput
+  }
+
+  export type pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput = {
+    id_pv?: number
+    numero_pv?: number | null
+    id_vendedor_pv?: number | null
+    id_cliente_pv?: number | null
+    id_usuario_pv?: number | null
+    desconto_pv?: Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv: Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
+    status_pv: string
+    observacoes_pv?: string | null
+    data_criacao_pv?: Date | string
+    cliente_contato_pv?: string | null
+    data_realizacao_pv?: Date | string | null
+    data_sincronizacao_pv?: Date | string | null
+    entrega_cep_pv?: string | null
+    entrega_logradouro_pv?: string | null
+    entrega_numero_pv?: string | null
+    entrega_complemento_pv?: string | null
+    entrega_bairro_pv?: string | null
+    entrega_cidade_pv?: string | null
+    entrega_uf_pv?: string | null
+    id_transportadores_pv?: number | null
+    id_modalidade_frete_pv?: number | null
+    id_cliente_escolheu_pv?: string | null
+    pagamento_pv?: Decimal | DecimalJsLike | number | string | null
+    troco_pv?: Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
+    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedCreateNestedManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput
+    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedCreateNestedManyWithoutPedidos_vendaInput
+    produtos_movimentacoes?: produtos_movimentacoesUncheckedCreateNestedManyWithoutPedidos_vendaInput
+  }
+
+  export type pedidos_vendaCreateOrConnectWithoutForma_pagamentoInput = {
+    where: pedidos_vendaWhereUniqueInput
+    create: XOR<pedidos_vendaCreateWithoutForma_pagamentoInput, pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput>
+  }
+
+  export type pedidos_vendaCreateManyForma_pagamentoInputEnvelope = {
+    data: pedidos_vendaCreateManyForma_pagamentoInput | pedidos_vendaCreateManyForma_pagamentoInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type caixa_movimentacoesUpsertWithWhereUniqueWithoutForma_pagamentoInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    update: XOR<caixa_movimentacoesUpdateWithoutForma_pagamentoInput, caixa_movimentacoesUncheckedUpdateWithoutForma_pagamentoInput>
+    create: XOR<caixa_movimentacoesCreateWithoutForma_pagamentoInput, caixa_movimentacoesUncheckedCreateWithoutForma_pagamentoInput>
+  }
+
+  export type caixa_movimentacoesUpdateWithWhereUniqueWithoutForma_pagamentoInput = {
+    where: caixa_movimentacoesWhereUniqueInput
+    data: XOR<caixa_movimentacoesUpdateWithoutForma_pagamentoInput, caixa_movimentacoesUncheckedUpdateWithoutForma_pagamentoInput>
+  }
+
+  export type caixa_movimentacoesUpdateManyWithWhereWithoutForma_pagamentoInput = {
+    where: caixa_movimentacoesScalarWhereInput
+    data: XOR<caixa_movimentacoesUpdateManyMutationInput, caixa_movimentacoesUncheckedUpdateManyWithoutForma_pagamentoInput>
+  }
+
+  export type pedidos_vendaUpsertWithWhereUniqueWithoutForma_pagamentoInput = {
+    where: pedidos_vendaWhereUniqueInput
+    update: XOR<pedidos_vendaUpdateWithoutForma_pagamentoInput, pedidos_vendaUncheckedUpdateWithoutForma_pagamentoInput>
+    create: XOR<pedidos_vendaCreateWithoutForma_pagamentoInput, pedidos_vendaUncheckedCreateWithoutForma_pagamentoInput>
+  }
+
+  export type pedidos_vendaUpdateWithWhereUniqueWithoutForma_pagamentoInput = {
+    where: pedidos_vendaWhereUniqueInput
+    data: XOR<pedidos_vendaUpdateWithoutForma_pagamentoInput, pedidos_vendaUncheckedUpdateWithoutForma_pagamentoInput>
+  }
+
+  export type pedidos_vendaUpdateManyWithWhereWithoutForma_pagamentoInput = {
+    where: pedidos_vendaScalarWhereInput
+    data: XOR<pedidos_vendaUpdateManyMutationInput, pedidos_vendaUncheckedUpdateManyWithoutForma_pagamentoInput>
+  }
+
   export type clientes_produtosCreateManyClientesInput = {
     id_clipro?: number
     valor_clipro: Decimal | DecimalJsLike | number | string
@@ -50902,11 +55324,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -51027,7 +55449,8 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
     modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
     transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
     vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
@@ -51050,7 +55473,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51063,6 +55486,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
@@ -51082,7 +55506,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51119,35 +55543,6 @@ export namespace Prisma {
     contato_cliente?: string | null
     nm_contato_cliente?: string | null
     id_condicao_pagamento_sirius_cliente?: number | null
-  }
-
-  export type pedidos_vendaCreateManyCondicoes_pagamentoInput = {
-    id_pv?: number
-    numero_pv?: number | null
-    id_vendedor_pv?: number | null
-    id_cliente_pv?: number | null
-    id_usuario_pv?: number | null
-    desconto_pv?: Decimal | DecimalJsLike | number | string | null
-    valor_bruto_pv: Decimal | DecimalJsLike | number | string
-    valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
-    status_pv: string
-    observacoes_pv?: string | null
-    data_criacao_pv: Date | string
-    cliente_contato_pv?: string | null
-    data_realizacao_pv?: Date | string | null
-    data_sincronizacao_pv?: Date | string | null
-    entrega_cep_pv?: string | null
-    entrega_logradouro_pv?: string | null
-    entrega_numero_pv?: string | null
-    entrega_complemento_pv?: string | null
-    entrega_bairro_pv?: string | null
-    entrega_cidade_pv?: string | null
-    entrega_uf_pv?: string | null
-    id_transportadores_pv?: number | null
-    id_modalidade_frete_pv?: number | null
-    id_cliente_escolheu_pv?: string | null
-    pagamento_pv?: Decimal | DecimalJsLike | number | string | null
-    troco_pv?: Decimal | DecimalJsLike | number | string | null
   }
 
   export type clientesUpdateWithoutCondicoes_pagamentoInput = {
@@ -51227,98 +55622,6 @@ export namespace Prisma {
     contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     nm_contato_cliente?: NullableStringFieldUpdateOperationsInput | string | null
     id_condicao_pagamento_sirius_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type pedidos_vendaUpdateWithoutCondicoes_pagamentoInput = {
-    numero_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_usuario_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    desconto_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    valor_bruto_pv?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    valor_liquido_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    status_pv?: StringFieldUpdateOperationsInput | string
-    observacoes_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    data_criacao_pv?: DateTimeFieldUpdateOperationsInput | Date | string
-    cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_complemento_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_bairro_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_cidade_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_uf_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
-    modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
-    transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
-    vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
-    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
-    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUpdateManyWithoutPedidos_vendaNestedInput
-    produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
-  }
-
-  export type pedidos_vendaUncheckedUpdateWithoutCondicoes_pagamentoInput = {
-    id_pv?: IntFieldUpdateOperationsInput | number
-    numero_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_vendedor_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_cliente_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_usuario_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    desconto_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    valor_bruto_pv?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    valor_liquido_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    status_pv?: StringFieldUpdateOperationsInput | string
-    observacoes_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    data_criacao_pv?: DateTimeFieldUpdateOperationsInput | Date | string
-    cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_complemento_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_bairro_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_cidade_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_uf_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    id_transportadores_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_modalidade_frete_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
-    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
-    produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
-  }
-
-  export type pedidos_vendaUncheckedUpdateManyWithoutCondicoes_pagamentoInput = {
-    id_pv?: IntFieldUpdateOperationsInput | number
-    numero_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_vendedor_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_cliente_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_usuario_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    desconto_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    valor_bruto_pv?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    valor_liquido_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    status_pv?: StringFieldUpdateOperationsInput | string
-    observacoes_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    data_criacao_pv?: DateTimeFieldUpdateOperationsInput | Date | string
-    cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_complemento_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_bairro_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_cidade_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    entrega_uf_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    id_transportadores_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_modalidade_frete_pv?: NullableIntFieldUpdateOperationsInput | number | null
-    id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
-    pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
   }
 
   export type produtos_extrasCreateManyExtrasInput = {
@@ -51447,6 +55750,7 @@ export namespace Prisma {
   export type produtosCreateManyImagensInput = {
     id_prod?: number
     id_sirius_prod?: number | null
+    id_submenu?: number | null
     cod_prod?: string | null
     descricao_prod: string
     cod_ean_prod?: string | null
@@ -51469,7 +55773,6 @@ export namespace Prisma {
     gluten_prod?: boolean | null
     vegetariano_prod?: boolean | null
     vegano_prod?: boolean | null
-    id_submenu?: number | null
   }
 
   export type restaurantesCreateManyImagensInput = {
@@ -51566,6 +55869,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateWithoutImagensInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51588,7 +55892,6 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     clientes_produtos?: clientes_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     listas_precos_produtos?: listas_precos_produtosUncheckedUpdateManyWithoutProdutosNestedInput
     pedidos_venda_itens?: pedidos_venda_itensUncheckedUpdateManyWithoutProdutosNestedInput
@@ -51599,6 +55902,7 @@ export namespace Prisma {
   export type produtosUncheckedUpdateManyWithoutImagensInput = {
     id_prod?: IntFieldUpdateOperationsInput | number
     id_sirius_prod?: NullableIntFieldUpdateOperationsInput | number | null
+    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
     cod_prod?: NullableStringFieldUpdateOperationsInput | string | null
     descricao_prod?: StringFieldUpdateOperationsInput | string
     cod_ean_prod?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51621,7 +55925,6 @@ export namespace Prisma {
     gluten_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegetariano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
     vegano_prod?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    id_submenu?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type restaurantesUpdateWithoutImagensInput = {
@@ -51769,11 +56072,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -51809,8 +56112,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
     clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
     transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
     vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
@@ -51833,7 +56137,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51845,6 +56149,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
@@ -51865,7 +56170,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51877,6 +56182,16 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type caixa_movimentacoesCreateManyPedidos_vendaInput = {
+    id_cm?: number
+    id_controle_caixa_cm: number
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    id_forma_pagamento_cm: number
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
   }
 
   export type pedidos_venda_itensCreateManyPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput = {
@@ -51912,6 +56227,35 @@ export namespace Prisma {
     data_hora_pm?: Date | string
     numero_nota_fiscal_pm?: number | null
     observacao_pm?: string | null
+  }
+
+  export type caixa_movimentacoesUpdateWithoutPedidos_vendaInput = {
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    controle_caixa?: controle_caixaUpdateOneRequiredWithoutCaixa_movimentacoesNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneRequiredWithoutCaixa_movimentacoesNestedInput
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateWithoutPedidos_vendaInput = {
+    id_cm?: IntFieldUpdateOperationsInput | number
+    id_controle_caixa_cm?: IntFieldUpdateOperationsInput | number
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    id_forma_pagamento_cm?: IntFieldUpdateOperationsInput | number
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaInput = {
+    id_cm?: IntFieldUpdateOperationsInput | number
+    id_controle_caixa_cm?: IntFieldUpdateOperationsInput | number
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    id_forma_pagamento_cm?: IntFieldUpdateOperationsInput | number
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type pedidos_venda_itensUpdateWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaInput = {
@@ -52399,11 +56743,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -52439,8 +56783,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
     clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
     modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
     vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
@@ -52463,7 +56808,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52475,6 +56820,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
@@ -52495,7 +56841,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52519,11 +56865,11 @@ export namespace Prisma {
     valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
     status_pv: string
     observacoes_pv?: string | null
-    data_criacao_pv: Date | string
+    data_criacao_pv?: Date | string
     cliente_contato_pv?: string | null
     data_realizacao_pv?: Date | string | null
     data_sincronizacao_pv?: Date | string | null
-    id_condicao_pagamento_pv?: number | null
+    id_forma_pagamento_pv?: number | null
     entrega_cep_pv?: string | null
     entrega_logradouro_pv?: string | null
     entrega_numero_pv?: string | null
@@ -52566,8 +56912,9 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
     clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
-    condicoes_pagamento?: condicoes_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
+    forma_pagamento?: forma_pagamentoUpdateOneWithoutPedidos_vendaNestedInput
     modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
     transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
@@ -52589,7 +56936,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52602,6 +56949,7 @@ export namespace Prisma {
     id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
     pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
     pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
     produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
@@ -52621,7 +56969,7 @@ export namespace Prisma {
     cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
     data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    id_condicao_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_pv?: NullableIntFieldUpdateOperationsInput | number | null
     entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
     entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52651,6 +56999,207 @@ export namespace Prisma {
     id_vu?: IntFieldUpdateOperationsInput | number
     id_usuario_vu?: NullableIntFieldUpdateOperationsInput | number | null
     id_sirius_vendedor_vu?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type caixa_movimentacoesCreateManyControle_caixaInput = {
+    id_cm?: number
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    id_pedido_venda_cm?: number | null
+    id_forma_pagamento_cm: number
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesUpdateWithoutControle_caixaInput = {
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    forma_pagamento?: forma_pagamentoUpdateOneRequiredWithoutCaixa_movimentacoesNestedInput
+    pedidos_venda?: pedidos_vendaUpdateOneWithoutCaixa_movimentacoesNestedInput
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateWithoutControle_caixaInput = {
+    id_cm?: IntFieldUpdateOperationsInput | number
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    id_pedido_venda_cm?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_cm?: IntFieldUpdateOperationsInput | number
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateManyWithoutControle_caixaInput = {
+    id_cm?: IntFieldUpdateOperationsInput | number
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    id_pedido_venda_cm?: NullableIntFieldUpdateOperationsInput | number | null
+    id_forma_pagamento_cm?: IntFieldUpdateOperationsInput | number
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesCreateManyForma_pagamentoInput = {
+    id_cm?: number
+    id_controle_caixa_cm: number
+    data_atual_cm?: Date | string
+    tipo_operacao_cm: string
+    id_pedido_venda_cm?: number | null
+    valor_pago_cm: Decimal | DecimalJsLike | number | string
+    valor_troco_cm: Decimal | DecimalJsLike | number | string
+  }
+
+  export type pedidos_vendaCreateManyForma_pagamentoInput = {
+    id_pv?: number
+    numero_pv?: number | null
+    id_vendedor_pv?: number | null
+    id_cliente_pv?: number | null
+    id_usuario_pv?: number | null
+    desconto_pv?: Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv: Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: Decimal | DecimalJsLike | number | string | null
+    status_pv: string
+    observacoes_pv?: string | null
+    data_criacao_pv?: Date | string
+    cliente_contato_pv?: string | null
+    data_realizacao_pv?: Date | string | null
+    data_sincronizacao_pv?: Date | string | null
+    entrega_cep_pv?: string | null
+    entrega_logradouro_pv?: string | null
+    entrega_numero_pv?: string | null
+    entrega_complemento_pv?: string | null
+    entrega_bairro_pv?: string | null
+    entrega_cidade_pv?: string | null
+    entrega_uf_pv?: string | null
+    id_transportadores_pv?: number | null
+    id_modalidade_frete_pv?: number | null
+    id_cliente_escolheu_pv?: string | null
+    pagamento_pv?: Decimal | DecimalJsLike | number | string | null
+    troco_pv?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type caixa_movimentacoesUpdateWithoutForma_pagamentoInput = {
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    controle_caixa?: controle_caixaUpdateOneRequiredWithoutCaixa_movimentacoesNestedInput
+    pedidos_venda?: pedidos_vendaUpdateOneWithoutCaixa_movimentacoesNestedInput
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateWithoutForma_pagamentoInput = {
+    id_cm?: IntFieldUpdateOperationsInput | number
+    id_controle_caixa_cm?: IntFieldUpdateOperationsInput | number
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    id_pedido_venda_cm?: NullableIntFieldUpdateOperationsInput | number | null
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type caixa_movimentacoesUncheckedUpdateManyWithoutForma_pagamentoInput = {
+    id_cm?: IntFieldUpdateOperationsInput | number
+    id_controle_caixa_cm?: IntFieldUpdateOperationsInput | number
+    data_atual_cm?: DateTimeFieldUpdateOperationsInput | Date | string
+    tipo_operacao_cm?: StringFieldUpdateOperationsInput | string
+    id_pedido_venda_cm?: NullableIntFieldUpdateOperationsInput | number | null
+    valor_pago_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_troco_cm?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type pedidos_vendaUpdateWithoutForma_pagamentoInput = {
+    numero_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_usuario_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    desconto_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_pv?: StringFieldUpdateOperationsInput | string
+    observacoes_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_criacao_pv?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_complemento_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_bairro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_cidade_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_uf_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
+    clientes?: clientesUpdateOneWithoutPedidos_vendaNestedInput
+    modalidade_frete?: modalidade_freteUpdateOneWithoutPedidos_vendaNestedInput
+    transportadores?: transportadoresUpdateOneWithoutPedidos_vendaNestedInput
+    vendedores?: vendedoresUpdateOneWithoutPedidos_vendaNestedInput
+    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
+    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUpdateManyWithoutPedidos_vendaNestedInput
+    produtos_movimentacoes?: produtos_movimentacoesUpdateManyWithoutPedidos_vendaNestedInput
+  }
+
+  export type pedidos_vendaUncheckedUpdateWithoutForma_pagamentoInput = {
+    id_pv?: IntFieldUpdateOperationsInput | number
+    numero_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_vendedor_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_cliente_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_usuario_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    desconto_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_pv?: StringFieldUpdateOperationsInput | string
+    observacoes_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_criacao_pv?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_complemento_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_bairro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_cidade_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_uf_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    id_transportadores_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_modalidade_frete_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    caixa_movimentacoes?: caixa_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
+    pedidos_venda_itens_pedidos_venda_itens_id_pedido_pviTopedidos_venda?: pedidos_venda_itensUncheckedUpdateManyWithoutPedidos_venda_pedidos_venda_itens_id_pedido_pviTopedidos_vendaNestedInput
+    pedidos_venda_pagamentos?: pedidos_venda_pagamentosUncheckedUpdateManyWithoutPedidos_vendaNestedInput
+    produtos_movimentacoes?: produtos_movimentacoesUncheckedUpdateManyWithoutPedidos_vendaNestedInput
+  }
+
+  export type pedidos_vendaUncheckedUpdateManyWithoutForma_pagamentoInput = {
+    id_pv?: IntFieldUpdateOperationsInput | number
+    numero_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_vendedor_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_cliente_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_usuario_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    desconto_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    valor_bruto_pv?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    valor_liquido_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status_pv?: StringFieldUpdateOperationsInput | string
+    observacoes_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_criacao_pv?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente_contato_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    data_realizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    data_sincronizacao_pv?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    entrega_cep_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_logradouro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_numero_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_complemento_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_bairro_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_cidade_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    entrega_uf_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    id_transportadores_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_modalidade_frete_pv?: NullableIntFieldUpdateOperationsInput | number | null
+    id_cliente_escolheu_pv?: NullableStringFieldUpdateOperationsInput | string | null
+    pagamento_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    troco_pv?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
   }
 
 
@@ -52714,6 +57263,14 @@ export namespace Prisma {
      * @deprecated Use VendedoresCountOutputTypeDefaultArgs instead
      */
     export type VendedoresCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = VendedoresCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Controle_caixaCountOutputTypeDefaultArgs instead
+     */
+    export type Controle_caixaCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Controle_caixaCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Forma_pagamentoCountOutputTypeDefaultArgs instead
+     */
+    export type Forma_pagamentoCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Forma_pagamentoCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use atividades_gruposDefaultArgs instead
      */
@@ -52838,6 +57395,18 @@ export namespace Prisma {
      * @deprecated Use vendedores_usuariosDefaultArgs instead
      */
     export type vendedores_usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = vendedores_usuariosDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use caixa_movimentacoesDefaultArgs instead
+     */
+    export type caixa_movimentacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = caixa_movimentacoesDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use controle_caixaDefaultArgs instead
+     */
+    export type controle_caixaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = controle_caixaDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use forma_pagamentoDefaultArgs instead
+     */
+    export type forma_pagamentoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = forma_pagamentoDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

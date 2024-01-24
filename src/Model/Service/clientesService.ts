@@ -1,11 +1,11 @@
-import { PrismaClient as PrismaClientAntigo} from "../../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientAntigo } from "../../../prisma/databases/antigoprisma";
 import { PrismaClient as PrismaClientNovo } from "../../../prisma/databases/novoprisma";
 import { ErrorResponse } from "../Error/ErrorResponse";
 import { clienteNovo } from "../Interfaces/clientesInterface";
 import { convertBigIntToString } from "../Utils";
 
-export default class ClientesService{
-	async troca(condicao_pagamento: number,prismaNovo:PrismaClientNovo, prismaAntigo: PrismaClientAntigo){
+export default class ClientesService {
+	async troca(condicao_pagamento: number, prismaNovo: PrismaClientNovo, prismaAntigo: PrismaClientAntigo) {
 		try {
 			const clientesAntigos = await prismaAntigo.clientes.findMany({});
 			const clientes: clienteNovo[] = clientesAntigos.map((clienteAntigo) => ({
@@ -30,20 +30,21 @@ export default class ClientesService{
 				id_vendedor_sirius_cliente: parseInt(convertBigIntToString(clienteAntigo.vendedor_id_sirius)),
 				contato_cliente: clienteAntigo.contato,
 				nm_contato_cliente: clienteAntigo.contato_nome,
-				id_condicao_pagamento_sirius_cliente: clienteAntigo.condicao_pagamento_id_sirius,
+				id_condicao_pagamento_sirius_cliente: null,
 			}));
-			if(clientes.length > 0){
-				await prismaNovo.clientes.createMany({data: clientes});
+			if (clientes.length > 0) {
+				await prismaNovo.clientes.createMany({ data: clientes });
 				const totalProdutos = await prismaNovo.clientes.count();
 				const antigoCertiticado = await prismaAntigo.clientes.count();
 				console.log(antigoCertiticado, " registros localizados em Clientes antigo");
 				console.log(totalProdutos, " registros adicionados em Clientes novo");
 				console.log("-----------------------------------------------------");
-			}else{
+			} else {
 				console.log("Clientes vazio");
 			}
 		} catch (error) {
-			throw new ErrorResponse(500, "Erro interno do servidor ao trocar clientes: " + error);
+			console.log(error);
+			throw new ErrorResponse(500, "Erro interno do servidor ao trocar clientes: ");
 		}
 	}
 }

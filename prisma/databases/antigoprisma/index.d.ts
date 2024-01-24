@@ -153,6 +153,11 @@ export type vendedores = $Result.DefaultSelection<Prisma.$vendedoresPayload>
  * 
  */
 export type vendedores_x_usuarios = $Result.DefaultSelection<Prisma.$vendedores_x_usuariosPayload>
+/**
+ * Model forma_pagamento
+ * 
+ */
+export type forma_pagamento = $Result.DefaultSelection<Prisma.$forma_pagamentoPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -555,6 +560,16 @@ export class PrismaClient<
     * ```
     */
   get vendedores_x_usuarios(): Prisma.vendedores_x_usuariosDelegate<ExtArgs>;
+
+  /**
+   * `prisma.forma_pagamento`: Exposes CRUD operations for the **forma_pagamento** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Forma_pagamentos
+    * const forma_pagamentos = await prisma.forma_pagamento.findMany()
+    * ```
+    */
+  get forma_pagamento(): Prisma.forma_pagamentoDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -1052,7 +1067,8 @@ export namespace Prisma {
     transportadores: 'transportadores',
     usuarios_x_grupos: 'usuarios_x_grupos',
     vendedores: 'vendedores',
-    vendedores_x_usuarios: 'vendedores_x_usuarios'
+    vendedores_x_usuarios: 'vendedores_x_usuarios',
+    forma_pagamento: 'forma_pagamento'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1069,7 +1085,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'certificado' | 'clientes' | 'clientes_x_produtos' | 'condicoes_pagamento' | 'contatos' | 'docreferenciado' | 'enderecos' | 'fornecedores' | 'grupos_usuarios' | 'listas_precos' | 'listas_precos_x_produtos' | 'nfeconfig' | 'notafiscal' | 'notafiscalitem' | 'notafiscalpagamentos' | 'parametros' | 'pedido_compra_itens' | 'pedido_compra_pagamentos' | 'pedidos_compra' | 'pedidos_venda' | 'pedidos_venda_itens' | 'pedidos_venda_pagamentos' | 'permissoes' | 'produtos' | 'transportadores' | 'usuarios_x_grupos' | 'vendedores' | 'vendedores_x_usuarios'
+      modelProps: 'certificado' | 'clientes' | 'clientes_x_produtos' | 'condicoes_pagamento' | 'contatos' | 'docreferenciado' | 'enderecos' | 'fornecedores' | 'grupos_usuarios' | 'listas_precos' | 'listas_precos_x_produtos' | 'nfeconfig' | 'notafiscal' | 'notafiscalitem' | 'notafiscalpagamentos' | 'parametros' | 'pedido_compra_itens' | 'pedido_compra_pagamentos' | 'pedidos_compra' | 'pedidos_venda' | 'pedidos_venda_itens' | 'pedidos_venda_pagamentos' | 'permissoes' | 'produtos' | 'transportadores' | 'usuarios_x_grupos' | 'vendedores' | 'vendedores_x_usuarios' | 'forma_pagamento'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -2921,6 +2937,72 @@ export namespace Prisma {
           }
         }
       }
+      forma_pagamento: {
+        payload: Prisma.$forma_pagamentoPayload<ExtArgs>
+        fields: Prisma.forma_pagamentoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.forma_pagamentoFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.forma_pagamentoFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          findFirst: {
+            args: Prisma.forma_pagamentoFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.forma_pagamentoFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          findMany: {
+            args: Prisma.forma_pagamentoFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>[]
+          }
+          create: {
+            args: Prisma.forma_pagamentoCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          createMany: {
+            args: Prisma.forma_pagamentoCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.forma_pagamentoDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          update: {
+            args: Prisma.forma_pagamentoUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          deleteMany: {
+            args: Prisma.forma_pagamentoDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.forma_pagamentoUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.forma_pagamentoUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$forma_pagamentoPayload>
+          }
+          aggregate: {
+            args: Prisma.Forma_pagamentoAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateForma_pagamento>
+          }
+          groupBy: {
+            args: Prisma.forma_pagamentoGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<Forma_pagamentoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.forma_pagamentoCountArgs<ExtArgs>,
+            result: $Utils.Optional<Forma_pagamentoCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -4169,7 +4251,6 @@ export namespace Prisma {
     vendedor_id_sirius: number | null
     lista_preco_id: number | null
     condicao_pagamento_id: number | null
-    condicao_pagamento_id_sirius: number | null
   }
 
   export type ClientesSumAggregateOutputType = {
@@ -4180,7 +4261,6 @@ export namespace Prisma {
     vendedor_id_sirius: bigint | null
     lista_preco_id: bigint | null
     condicao_pagamento_id: bigint | null
-    condicao_pagamento_id_sirius: number | null
   }
 
   export type ClientesMinAggregateOutputType = {
@@ -4207,7 +4287,6 @@ export namespace Prisma {
     condicao_pagamento_id: bigint | null
     contato: string | null
     contato_nome: string | null
-    condicao_pagamento_id_sirius: number | null
   }
 
   export type ClientesMaxAggregateOutputType = {
@@ -4234,7 +4313,6 @@ export namespace Prisma {
     condicao_pagamento_id: bigint | null
     contato: string | null
     contato_nome: string | null
-    condicao_pagamento_id_sirius: number | null
   }
 
   export type ClientesCountAggregateOutputType = {
@@ -4261,7 +4339,6 @@ export namespace Prisma {
     condicao_pagamento_id: number
     contato: number
     contato_nome: number
-    condicao_pagamento_id_sirius: number
     _all: number
   }
 
@@ -4274,7 +4351,6 @@ export namespace Prisma {
     vendedor_id_sirius?: true
     lista_preco_id?: true
     condicao_pagamento_id?: true
-    condicao_pagamento_id_sirius?: true
   }
 
   export type ClientesSumAggregateInputType = {
@@ -4285,7 +4361,6 @@ export namespace Prisma {
     vendedor_id_sirius?: true
     lista_preco_id?: true
     condicao_pagamento_id?: true
-    condicao_pagamento_id_sirius?: true
   }
 
   export type ClientesMinAggregateInputType = {
@@ -4312,7 +4387,6 @@ export namespace Prisma {
     condicao_pagamento_id?: true
     contato?: true
     contato_nome?: true
-    condicao_pagamento_id_sirius?: true
   }
 
   export type ClientesMaxAggregateInputType = {
@@ -4339,7 +4413,6 @@ export namespace Prisma {
     condicao_pagamento_id?: true
     contato?: true
     contato_nome?: true
-    condicao_pagamento_id_sirius?: true
   }
 
   export type ClientesCountAggregateInputType = {
@@ -4366,7 +4439,6 @@ export namespace Prisma {
     condicao_pagamento_id?: true
     contato?: true
     contato_nome?: true
-    condicao_pagamento_id_sirius?: true
     _all?: true
   }
 
@@ -4480,7 +4552,6 @@ export namespace Prisma {
     condicao_pagamento_id: bigint | null
     contato: string | null
     contato_nome: string | null
-    condicao_pagamento_id_sirius: number | null
     _count: ClientesCountAggregateOutputType | null
     _avg: ClientesAvgAggregateOutputType | null
     _sum: ClientesSumAggregateOutputType | null
@@ -4526,7 +4597,6 @@ export namespace Prisma {
     condicao_pagamento_id?: boolean
     contato?: boolean
     contato_nome?: boolean
-    condicao_pagamento_id_sirius?: boolean
     contatos?: boolean | clientes$contatosArgs<ExtArgs>
     enderecos?: boolean | clientes$enderecosArgs<ExtArgs>
     notafiscal?: boolean | clientes$notafiscalArgs<ExtArgs>
@@ -4557,7 +4627,6 @@ export namespace Prisma {
     condicao_pagamento_id?: boolean
     contato?: boolean
     contato_nome?: boolean
-    condicao_pagamento_id_sirius?: boolean
   }
 
   export type clientesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4599,7 +4668,6 @@ export namespace Prisma {
       condicao_pagamento_id: bigint | null
       contato: string | null
       contato_nome: string | null
-      condicao_pagamento_id_sirius: number | null
     }, ExtArgs["result"]["clientes"]>
     composites: {}
   }
@@ -5022,7 +5090,6 @@ export namespace Prisma {
     readonly condicao_pagamento_id: FieldRef<"clientes", 'BigInt'>
     readonly contato: FieldRef<"clientes", 'String'>
     readonly contato_nome: FieldRef<"clientes", 'String'>
-    readonly condicao_pagamento_id_sirius: FieldRef<"clientes", 'Int'>
   }
     
 
@@ -32782,6 +32849,877 @@ export namespace Prisma {
 
 
   /**
+   * Model forma_pagamento
+   */
+
+  export type AggregateForma_pagamento = {
+    _count: Forma_pagamentoCountAggregateOutputType | null
+    _avg: Forma_pagamentoAvgAggregateOutputType | null
+    _sum: Forma_pagamentoSumAggregateOutputType | null
+    _min: Forma_pagamentoMinAggregateOutputType | null
+    _max: Forma_pagamentoMaxAggregateOutputType | null
+  }
+
+  export type Forma_pagamentoAvgAggregateOutputType = {
+    id_fp: number | null
+  }
+
+  export type Forma_pagamentoSumAggregateOutputType = {
+    id_fp: number | null
+  }
+
+  export type Forma_pagamentoMinAggregateOutputType = {
+    id_fp: number | null
+    nm_fp: string | null
+  }
+
+  export type Forma_pagamentoMaxAggregateOutputType = {
+    id_fp: number | null
+    nm_fp: string | null
+  }
+
+  export type Forma_pagamentoCountAggregateOutputType = {
+    id_fp: number
+    nm_fp: number
+    _all: number
+  }
+
+
+  export type Forma_pagamentoAvgAggregateInputType = {
+    id_fp?: true
+  }
+
+  export type Forma_pagamentoSumAggregateInputType = {
+    id_fp?: true
+  }
+
+  export type Forma_pagamentoMinAggregateInputType = {
+    id_fp?: true
+    nm_fp?: true
+  }
+
+  export type Forma_pagamentoMaxAggregateInputType = {
+    id_fp?: true
+    nm_fp?: true
+  }
+
+  export type Forma_pagamentoCountAggregateInputType = {
+    id_fp?: true
+    nm_fp?: true
+    _all?: true
+  }
+
+  export type Forma_pagamentoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which forma_pagamento to aggregate.
+     */
+    where?: forma_pagamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of forma_pagamentos to fetch.
+     */
+    orderBy?: forma_pagamentoOrderByWithRelationInput | forma_pagamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: forma_pagamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` forma_pagamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` forma_pagamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned forma_pagamentos
+    **/
+    _count?: true | Forma_pagamentoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Forma_pagamentoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Forma_pagamentoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Forma_pagamentoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Forma_pagamentoMaxAggregateInputType
+  }
+
+  export type GetForma_pagamentoAggregateType<T extends Forma_pagamentoAggregateArgs> = {
+        [P in keyof T & keyof AggregateForma_pagamento]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateForma_pagamento[P]>
+      : GetScalarType<T[P], AggregateForma_pagamento[P]>
+  }
+
+
+
+
+  export type forma_pagamentoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: forma_pagamentoWhereInput
+    orderBy?: forma_pagamentoOrderByWithAggregationInput | forma_pagamentoOrderByWithAggregationInput[]
+    by: Forma_pagamentoScalarFieldEnum[] | Forma_pagamentoScalarFieldEnum
+    having?: forma_pagamentoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Forma_pagamentoCountAggregateInputType | true
+    _avg?: Forma_pagamentoAvgAggregateInputType
+    _sum?: Forma_pagamentoSumAggregateInputType
+    _min?: Forma_pagamentoMinAggregateInputType
+    _max?: Forma_pagamentoMaxAggregateInputType
+  }
+
+  export type Forma_pagamentoGroupByOutputType = {
+    id_fp: number
+    nm_fp: string | null
+    _count: Forma_pagamentoCountAggregateOutputType | null
+    _avg: Forma_pagamentoAvgAggregateOutputType | null
+    _sum: Forma_pagamentoSumAggregateOutputType | null
+    _min: Forma_pagamentoMinAggregateOutputType | null
+    _max: Forma_pagamentoMaxAggregateOutputType | null
+  }
+
+  type GetForma_pagamentoGroupByPayload<T extends forma_pagamentoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Forma_pagamentoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Forma_pagamentoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Forma_pagamentoGroupByOutputType[P]>
+            : GetScalarType<T[P], Forma_pagamentoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type forma_pagamentoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id_fp?: boolean
+    nm_fp?: boolean
+  }, ExtArgs["result"]["forma_pagamento"]>
+
+  export type forma_pagamentoSelectScalar = {
+    id_fp?: boolean
+    nm_fp?: boolean
+  }
+
+
+  export type $forma_pagamentoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "forma_pagamento"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id_fp: number
+      nm_fp: string | null
+    }, ExtArgs["result"]["forma_pagamento"]>
+    composites: {}
+  }
+
+
+  type forma_pagamentoGetPayload<S extends boolean | null | undefined | forma_pagamentoDefaultArgs> = $Result.GetResult<Prisma.$forma_pagamentoPayload, S>
+
+  type forma_pagamentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<forma_pagamentoFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: Forma_pagamentoCountAggregateInputType | true
+    }
+
+  export interface forma_pagamentoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['forma_pagamento'], meta: { name: 'forma_pagamento' } }
+    /**
+     * Find zero or one Forma_pagamento that matches the filter.
+     * @param {forma_pagamentoFindUniqueArgs} args - Arguments to find a Forma_pagamento
+     * @example
+     * // Get one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends forma_pagamentoFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoFindUniqueArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Forma_pagamento that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {forma_pagamentoFindUniqueOrThrowArgs} args - Arguments to find a Forma_pagamento
+     * @example
+     * // Get one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends forma_pagamentoFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Forma_pagamento that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoFindFirstArgs} args - Arguments to find a Forma_pagamento
+     * @example
+     * // Get one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends forma_pagamentoFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoFindFirstArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Forma_pagamento that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoFindFirstOrThrowArgs} args - Arguments to find a Forma_pagamento
+     * @example
+     * // Get one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends forma_pagamentoFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Forma_pagamentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Forma_pagamentos
+     * const forma_pagamentos = await prisma.forma_pagamento.findMany()
+     * 
+     * // Get first 10 Forma_pagamentos
+     * const forma_pagamentos = await prisma.forma_pagamento.findMany({ take: 10 })
+     * 
+     * // Only select the `id_fp`
+     * const forma_pagamentoWithId_fpOnly = await prisma.forma_pagamento.findMany({ select: { id_fp: true } })
+     * 
+    **/
+    findMany<T extends forma_pagamentoFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Forma_pagamento.
+     * @param {forma_pagamentoCreateArgs} args - Arguments to create a Forma_pagamento.
+     * @example
+     * // Create one Forma_pagamento
+     * const Forma_pagamento = await prisma.forma_pagamento.create({
+     *   data: {
+     *     // ... data to create a Forma_pagamento
+     *   }
+     * })
+     * 
+    **/
+    create<T extends forma_pagamentoCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoCreateArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Forma_pagamentos.
+     *     @param {forma_pagamentoCreateManyArgs} args - Arguments to create many Forma_pagamentos.
+     *     @example
+     *     // Create many Forma_pagamentos
+     *     const forma_pagamento = await prisma.forma_pagamento.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends forma_pagamentoCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Forma_pagamento.
+     * @param {forma_pagamentoDeleteArgs} args - Arguments to delete one Forma_pagamento.
+     * @example
+     * // Delete one Forma_pagamento
+     * const Forma_pagamento = await prisma.forma_pagamento.delete({
+     *   where: {
+     *     // ... filter to delete one Forma_pagamento
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends forma_pagamentoDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoDeleteArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Forma_pagamento.
+     * @param {forma_pagamentoUpdateArgs} args - Arguments to update one Forma_pagamento.
+     * @example
+     * // Update one Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends forma_pagamentoUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoUpdateArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Forma_pagamentos.
+     * @param {forma_pagamentoDeleteManyArgs} args - Arguments to filter Forma_pagamentos to delete.
+     * @example
+     * // Delete a few Forma_pagamentos
+     * const { count } = await prisma.forma_pagamento.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends forma_pagamentoDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, forma_pagamentoDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Forma_pagamentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Forma_pagamentos
+     * const forma_pagamento = await prisma.forma_pagamento.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends forma_pagamentoUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Forma_pagamento.
+     * @param {forma_pagamentoUpsertArgs} args - Arguments to update or create a Forma_pagamento.
+     * @example
+     * // Update or create a Forma_pagamento
+     * const forma_pagamento = await prisma.forma_pagamento.upsert({
+     *   create: {
+     *     // ... data to create a Forma_pagamento
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Forma_pagamento we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends forma_pagamentoUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, forma_pagamentoUpsertArgs<ExtArgs>>
+    ): Prisma__forma_pagamentoClient<$Result.GetResult<Prisma.$forma_pagamentoPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Forma_pagamentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoCountArgs} args - Arguments to filter Forma_pagamentos to count.
+     * @example
+     * // Count the number of Forma_pagamentos
+     * const count = await prisma.forma_pagamento.count({
+     *   where: {
+     *     // ... the filter for the Forma_pagamentos we want to count
+     *   }
+     * })
+    **/
+    count<T extends forma_pagamentoCountArgs>(
+      args?: Subset<T, forma_pagamentoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Forma_pagamentoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Forma_pagamento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Forma_pagamentoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Forma_pagamentoAggregateArgs>(args: Subset<T, Forma_pagamentoAggregateArgs>): Prisma.PrismaPromise<GetForma_pagamentoAggregateType<T>>
+
+    /**
+     * Group by Forma_pagamento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {forma_pagamentoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends forma_pagamentoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: forma_pagamentoGroupByArgs['orderBy'] }
+        : { orderBy?: forma_pagamentoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, forma_pagamentoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetForma_pagamentoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the forma_pagamento model
+   */
+  readonly fields: forma_pagamentoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for forma_pagamento.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__forma_pagamentoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the forma_pagamento model
+   */ 
+  interface forma_pagamentoFieldRefs {
+    readonly id_fp: FieldRef<"forma_pagamento", 'Int'>
+    readonly nm_fp: FieldRef<"forma_pagamento", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * forma_pagamento findUnique
+   */
+  export type forma_pagamentoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamento to fetch.
+     */
+    where: forma_pagamentoWhereUniqueInput
+  }
+
+
+  /**
+   * forma_pagamento findUniqueOrThrow
+   */
+  export type forma_pagamentoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamento to fetch.
+     */
+    where: forma_pagamentoWhereUniqueInput
+  }
+
+
+  /**
+   * forma_pagamento findFirst
+   */
+  export type forma_pagamentoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamento to fetch.
+     */
+    where?: forma_pagamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of forma_pagamentos to fetch.
+     */
+    orderBy?: forma_pagamentoOrderByWithRelationInput | forma_pagamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for forma_pagamentos.
+     */
+    cursor?: forma_pagamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` forma_pagamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` forma_pagamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of forma_pagamentos.
+     */
+    distinct?: Forma_pagamentoScalarFieldEnum | Forma_pagamentoScalarFieldEnum[]
+  }
+
+
+  /**
+   * forma_pagamento findFirstOrThrow
+   */
+  export type forma_pagamentoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamento to fetch.
+     */
+    where?: forma_pagamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of forma_pagamentos to fetch.
+     */
+    orderBy?: forma_pagamentoOrderByWithRelationInput | forma_pagamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for forma_pagamentos.
+     */
+    cursor?: forma_pagamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` forma_pagamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` forma_pagamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of forma_pagamentos.
+     */
+    distinct?: Forma_pagamentoScalarFieldEnum | Forma_pagamentoScalarFieldEnum[]
+  }
+
+
+  /**
+   * forma_pagamento findMany
+   */
+  export type forma_pagamentoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Filter, which forma_pagamentos to fetch.
+     */
+    where?: forma_pagamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of forma_pagamentos to fetch.
+     */
+    orderBy?: forma_pagamentoOrderByWithRelationInput | forma_pagamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing forma_pagamentos.
+     */
+    cursor?: forma_pagamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` forma_pagamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` forma_pagamentos.
+     */
+    skip?: number
+    distinct?: Forma_pagamentoScalarFieldEnum | Forma_pagamentoScalarFieldEnum[]
+  }
+
+
+  /**
+   * forma_pagamento create
+   */
+  export type forma_pagamentoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * The data needed to create a forma_pagamento.
+     */
+    data?: XOR<forma_pagamentoCreateInput, forma_pagamentoUncheckedCreateInput>
+  }
+
+
+  /**
+   * forma_pagamento createMany
+   */
+  export type forma_pagamentoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many forma_pagamentos.
+     */
+    data: forma_pagamentoCreateManyInput | forma_pagamentoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * forma_pagamento update
+   */
+  export type forma_pagamentoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * The data needed to update a forma_pagamento.
+     */
+    data: XOR<forma_pagamentoUpdateInput, forma_pagamentoUncheckedUpdateInput>
+    /**
+     * Choose, which forma_pagamento to update.
+     */
+    where: forma_pagamentoWhereUniqueInput
+  }
+
+
+  /**
+   * forma_pagamento updateMany
+   */
+  export type forma_pagamentoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update forma_pagamentos.
+     */
+    data: XOR<forma_pagamentoUpdateManyMutationInput, forma_pagamentoUncheckedUpdateManyInput>
+    /**
+     * Filter which forma_pagamentos to update
+     */
+    where?: forma_pagamentoWhereInput
+  }
+
+
+  /**
+   * forma_pagamento upsert
+   */
+  export type forma_pagamentoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * The filter to search for the forma_pagamento to update in case it exists.
+     */
+    where: forma_pagamentoWhereUniqueInput
+    /**
+     * In case the forma_pagamento found by the `where` argument doesn't exist, create a new forma_pagamento with this data.
+     */
+    create: XOR<forma_pagamentoCreateInput, forma_pagamentoUncheckedCreateInput>
+    /**
+     * In case the forma_pagamento was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<forma_pagamentoUpdateInput, forma_pagamentoUncheckedUpdateInput>
+  }
+
+
+  /**
+   * forma_pagamento delete
+   */
+  export type forma_pagamentoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+    /**
+     * Filter which forma_pagamento to delete.
+     */
+    where: forma_pagamentoWhereUniqueInput
+  }
+
+
+  /**
+   * forma_pagamento deleteMany
+   */
+  export type forma_pagamentoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which forma_pagamentos to delete
+     */
+    where?: forma_pagamentoWhereInput
+  }
+
+
+  /**
+   * forma_pagamento without action
+   */
+  export type forma_pagamentoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forma_pagamento
+     */
+    select?: forma_pagamentoSelect<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -32829,8 +33767,7 @@ export namespace Prisma {
     lista_preco_nome: 'lista_preco_nome',
     condicao_pagamento_id: 'condicao_pagamento_id',
     contato: 'contato',
-    contato_nome: 'contato_nome',
-    condicao_pagamento_id_sirius: 'condicao_pagamento_id_sirius'
+    contato_nome: 'contato_nome'
   };
 
   export type ClientesScalarFieldEnum = (typeof ClientesScalarFieldEnum)[keyof typeof ClientesScalarFieldEnum]
@@ -33371,6 +34308,14 @@ export namespace Prisma {
   export type Vendedores_x_usuariosScalarFieldEnum = (typeof Vendedores_x_usuariosScalarFieldEnum)[keyof typeof Vendedores_x_usuariosScalarFieldEnum]
 
 
+  export const Forma_pagamentoScalarFieldEnum: {
+    id_fp: 'id_fp',
+    nm_fp: 'nm_fp'
+  };
+
+  export type Forma_pagamentoScalarFieldEnum = (typeof Forma_pagamentoScalarFieldEnum)[keyof typeof Forma_pagamentoScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -33525,7 +34470,6 @@ export namespace Prisma {
     condicao_pagamento_id?: BigIntNullableFilter<"clientes"> | bigint | number | null
     contato?: StringNullableFilter<"clientes"> | string | null
     contato_nome?: StringNullableFilter<"clientes"> | string | null
-    condicao_pagamento_id_sirius?: IntNullableFilter<"clientes"> | number | null
     contatos?: ContatosListRelationFilter
     enderecos?: EnderecosListRelationFilter
     notafiscal?: NotafiscalListRelationFilter
@@ -33555,7 +34499,6 @@ export namespace Prisma {
     condicao_pagamento_id?: SortOrderInput | SortOrder
     contato?: SortOrderInput | SortOrder
     contato_nome?: SortOrderInput | SortOrder
-    condicao_pagamento_id_sirius?: SortOrderInput | SortOrder
     contatos?: contatosOrderByRelationAggregateInput
     enderecos?: enderecosOrderByRelationAggregateInput
     notafiscal?: notafiscalOrderByRelationAggregateInput
@@ -33588,7 +34531,6 @@ export namespace Prisma {
     condicao_pagamento_id?: BigIntNullableFilter<"clientes"> | bigint | number | null
     contato?: StringNullableFilter<"clientes"> | string | null
     contato_nome?: StringNullableFilter<"clientes"> | string | null
-    condicao_pagamento_id_sirius?: IntNullableFilter<"clientes"> | number | null
     contatos?: ContatosListRelationFilter
     enderecos?: EnderecosListRelationFilter
     notafiscal?: NotafiscalListRelationFilter
@@ -33618,7 +34560,6 @@ export namespace Prisma {
     condicao_pagamento_id?: SortOrderInput | SortOrder
     contato?: SortOrderInput | SortOrder
     contato_nome?: SortOrderInput | SortOrder
-    condicao_pagamento_id_sirius?: SortOrderInput | SortOrder
     _count?: clientesCountOrderByAggregateInput
     _avg?: clientesAvgOrderByAggregateInput
     _max?: clientesMaxOrderByAggregateInput
@@ -33653,7 +34594,6 @@ export namespace Prisma {
     condicao_pagamento_id?: BigIntNullableWithAggregatesFilter<"clientes"> | bigint | number | null
     contato?: StringNullableWithAggregatesFilter<"clientes"> | string | null
     contato_nome?: StringNullableWithAggregatesFilter<"clientes"> | string | null
-    condicao_pagamento_id_sirius?: IntNullableWithAggregatesFilter<"clientes"> | number | null
   }
 
   export type clientes_x_produtosWhereInput = {
@@ -36344,6 +37284,45 @@ export namespace Prisma {
     id_vendedor_sirius?: BigIntNullableWithAggregatesFilter<"vendedores_x_usuarios"> | bigint | number | null
   }
 
+  export type forma_pagamentoWhereInput = {
+    AND?: forma_pagamentoWhereInput | forma_pagamentoWhereInput[]
+    OR?: forma_pagamentoWhereInput[]
+    NOT?: forma_pagamentoWhereInput | forma_pagamentoWhereInput[]
+    id_fp?: IntFilter<"forma_pagamento"> | number
+    nm_fp?: StringNullableFilter<"forma_pagamento"> | string | null
+  }
+
+  export type forma_pagamentoOrderByWithRelationInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrderInput | SortOrder
+  }
+
+  export type forma_pagamentoWhereUniqueInput = Prisma.AtLeast<{
+    id_fp?: number
+    AND?: forma_pagamentoWhereInput | forma_pagamentoWhereInput[]
+    OR?: forma_pagamentoWhereInput[]
+    NOT?: forma_pagamentoWhereInput | forma_pagamentoWhereInput[]
+    nm_fp?: StringNullableFilter<"forma_pagamento"> | string | null
+  }, "id_fp">
+
+  export type forma_pagamentoOrderByWithAggregationInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrderInput | SortOrder
+    _count?: forma_pagamentoCountOrderByAggregateInput
+    _avg?: forma_pagamentoAvgOrderByAggregateInput
+    _max?: forma_pagamentoMaxOrderByAggregateInput
+    _min?: forma_pagamentoMinOrderByAggregateInput
+    _sum?: forma_pagamentoSumOrderByAggregateInput
+  }
+
+  export type forma_pagamentoScalarWhereWithAggregatesInput = {
+    AND?: forma_pagamentoScalarWhereWithAggregatesInput | forma_pagamentoScalarWhereWithAggregatesInput[]
+    OR?: forma_pagamentoScalarWhereWithAggregatesInput[]
+    NOT?: forma_pagamentoScalarWhereWithAggregatesInput | forma_pagamentoScalarWhereWithAggregatesInput[]
+    id_fp?: IntWithAggregatesFilter<"forma_pagamento"> | number
+    nm_fp?: StringNullableWithAggregatesFilter<"forma_pagamento"> | string | null
+  }
+
   export type certificadoCreateInput = {
     senhaCert?: string | null
     serieCert?: string | null
@@ -36421,7 +37400,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
     contatos?: contatosCreateNestedManyWithoutClientesInput
     enderecos?: enderecosCreateNestedManyWithoutClientesInput
     notafiscal?: notafiscalCreateNestedManyWithoutClientesInput
@@ -36451,7 +37429,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
     contatos?: contatosUncheckedCreateNestedManyWithoutClientesInput
     enderecos?: enderecosUncheckedCreateNestedManyWithoutClientesInput
     notafiscal?: notafiscalUncheckedCreateNestedManyWithoutClientesInput
@@ -36481,7 +37458,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
     contatos?: contatosUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUpdateManyWithoutClientesNestedInput
     notafiscal?: notafiscalUpdateManyWithoutClientesNestedInput
@@ -36511,7 +37487,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
     contatos?: contatosUncheckedUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUncheckedUpdateManyWithoutClientesNestedInput
     notafiscal?: notafiscalUncheckedUpdateManyWithoutClientesNestedInput
@@ -36541,7 +37516,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
   }
 
   export type clientesUpdateManyMutationInput = {
@@ -36568,7 +37542,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type clientesUncheckedUpdateManyInput = {
@@ -36595,7 +37568,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type clientes_x_produtosCreateInput = {
@@ -39788,6 +40760,38 @@ export namespace Prisma {
     id_vendedor_sirius?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   }
 
+  export type forma_pagamentoCreateInput = {
+    nm_fp?: string | null
+  }
+
+  export type forma_pagamentoUncheckedCreateInput = {
+    id_fp?: number
+    nm_fp?: string | null
+  }
+
+  export type forma_pagamentoUpdateInput = {
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type forma_pagamentoUncheckedUpdateInput = {
+    id_fp?: IntFieldUpdateOperationsInput | number
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type forma_pagamentoCreateManyInput = {
+    id_fp?: number
+    nm_fp?: string | null
+  }
+
+  export type forma_pagamentoUpdateManyMutationInput = {
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type forma_pagamentoUncheckedUpdateManyInput = {
+    id_fp?: IntFieldUpdateOperationsInput | number
+    nm_fp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -39995,7 +40999,6 @@ export namespace Prisma {
     condicao_pagamento_id?: SortOrder
     contato?: SortOrder
     contato_nome?: SortOrder
-    condicao_pagamento_id_sirius?: SortOrder
   }
 
   export type clientesAvgOrderByAggregateInput = {
@@ -40006,7 +41009,6 @@ export namespace Prisma {
     vendedor_id_sirius?: SortOrder
     lista_preco_id?: SortOrder
     condicao_pagamento_id?: SortOrder
-    condicao_pagamento_id_sirius?: SortOrder
   }
 
   export type clientesMaxOrderByAggregateInput = {
@@ -40033,7 +41035,6 @@ export namespace Prisma {
     condicao_pagamento_id?: SortOrder
     contato?: SortOrder
     contato_nome?: SortOrder
-    condicao_pagamento_id_sirius?: SortOrder
   }
 
   export type clientesMinOrderByAggregateInput = {
@@ -40060,7 +41061,6 @@ export namespace Prisma {
     condicao_pagamento_id?: SortOrder
     contato?: SortOrder
     contato_nome?: SortOrder
-    condicao_pagamento_id_sirius?: SortOrder
   }
 
   export type clientesSumOrderByAggregateInput = {
@@ -40071,7 +41071,6 @@ export namespace Prisma {
     vendedor_id_sirius?: SortOrder
     lista_preco_id?: SortOrder
     condicao_pagamento_id?: SortOrder
-    condicao_pagamento_id_sirius?: SortOrder
   }
 
   export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -42180,6 +43179,29 @@ export namespace Prisma {
     id_vendedor_sirius?: SortOrder
   }
 
+  export type forma_pagamentoCountOrderByAggregateInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrder
+  }
+
+  export type forma_pagamentoAvgOrderByAggregateInput = {
+    id_fp?: SortOrder
+  }
+
+  export type forma_pagamentoMaxOrderByAggregateInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrder
+  }
+
+  export type forma_pagamentoMinOrderByAggregateInput = {
+    id_fp?: SortOrder
+    nm_fp?: SortOrder
+  }
+
+  export type forma_pagamentoSumOrderByAggregateInput = {
+    id_fp?: SortOrder
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -43460,7 +44482,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
     enderecos?: enderecosCreateNestedManyWithoutClientesInput
     notafiscal?: notafiscalCreateNestedManyWithoutClientesInput
   }
@@ -43489,7 +44510,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
     enderecos?: enderecosUncheckedCreateNestedManyWithoutClientesInput
     notafiscal?: notafiscalUncheckedCreateNestedManyWithoutClientesInput
   }
@@ -43534,7 +44554,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
     enderecos?: enderecosUpdateManyWithoutClientesNestedInput
     notafiscal?: notafiscalUpdateManyWithoutClientesNestedInput
   }
@@ -43563,7 +44582,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
     enderecos?: enderecosUncheckedUpdateManyWithoutClientesNestedInput
     notafiscal?: notafiscalUncheckedUpdateManyWithoutClientesNestedInput
   }
@@ -43960,7 +44978,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
     contatos?: contatosCreateNestedManyWithoutClientesInput
     notafiscal?: notafiscalCreateNestedManyWithoutClientesInput
   }
@@ -43989,7 +45006,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
     contatos?: contatosUncheckedCreateNestedManyWithoutClientesInput
     notafiscal?: notafiscalUncheckedCreateNestedManyWithoutClientesInput
   }
@@ -44220,7 +45236,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
     contatos?: contatosUpdateManyWithoutClientesNestedInput
     notafiscal?: notafiscalUpdateManyWithoutClientesNestedInput
   }
@@ -44249,7 +45264,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
     contatos?: contatosUncheckedUpdateManyWithoutClientesNestedInput
     notafiscal?: notafiscalUncheckedUpdateManyWithoutClientesNestedInput
   }
@@ -44315,7 +45329,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
     contatos?: contatosCreateNestedManyWithoutClientesInput
     enderecos?: enderecosCreateNestedManyWithoutClientesInput
   }
@@ -44344,7 +45357,6 @@ export namespace Prisma {
     condicao_pagamento_id?: bigint | number | null
     contato?: string | null
     contato_nome?: string | null
-    condicao_pagamento_id_sirius?: number | null
     contatos?: contatosUncheckedCreateNestedManyWithoutClientesInput
     enderecos?: enderecosUncheckedCreateNestedManyWithoutClientesInput
   }
@@ -44637,7 +45649,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
     contatos?: contatosUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUpdateManyWithoutClientesNestedInput
   }
@@ -44666,7 +45677,6 @@ export namespace Prisma {
     condicao_pagamento_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     contato?: NullableStringFieldUpdateOperationsInput | string | null
     contato_nome?: NullableStringFieldUpdateOperationsInput | string | null
-    condicao_pagamento_id_sirius?: NullableIntFieldUpdateOperationsInput | number | null
     contatos?: contatosUncheckedUpdateManyWithoutClientesNestedInput
     enderecos?: enderecosUncheckedUpdateManyWithoutClientesNestedInput
   }
@@ -47399,6 +48409,10 @@ export namespace Prisma {
      * @deprecated Use vendedores_x_usuariosDefaultArgs instead
      */
     export type vendedores_x_usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = vendedores_x_usuariosDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use forma_pagamentoDefaultArgs instead
+     */
+    export type forma_pagamentoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = forma_pagamentoDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

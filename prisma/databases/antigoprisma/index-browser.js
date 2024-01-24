@@ -138,8 +138,7 @@ exports.Prisma.ClientesScalarFieldEnum = {
   lista_preco_nome: 'lista_preco_nome',
   condicao_pagamento_id: 'condicao_pagamento_id',
   contato: 'contato',
-  contato_nome: 'contato_nome',
-  condicao_pagamento_id_sirius: 'condicao_pagamento_id_sirius'
+  contato_nome: 'contato_nome'
 };
 
 exports.Prisma.Clientes_x_produtosScalarFieldEnum = {
@@ -599,6 +598,11 @@ exports.Prisma.Vendedores_x_usuariosScalarFieldEnum = {
   id_vendedor_sirius: 'id_vendedor_sirius'
 };
 
+exports.Prisma.Forma_pagamentoScalarFieldEnum = {
+  id_fp: 'id_fp',
+  nm_fp: 'nm_fp'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -638,7 +642,8 @@ exports.Prisma.ModelName = {
   transportadores: 'transportadores',
   usuarios_x_grupos: 'usuarios_x_grupos',
   vendedores: 'vendedores',
-  vendedores_x_usuarios: 'vendedores_x_usuarios'
+  vendedores_x_usuarios: 'vendedores_x_usuarios',
+  forma_pagamento: 'forma_pagamento'
 };
 
 /**

@@ -14,7 +14,7 @@ model atividades_grupos {
   id_ag                 Int             @id @default(autoincrement())
   id_grupos_usuarios_ag Int
   id_atividade_ag       Int
-  nm_atividade_ag       String?         @unique(map: "nm_atividade_ag_UNIQUE") @db2.VarChar(150)
+  nm_atividade_ag       String?         @db2.VarChar(150)
   valor_ag              Int?            @default(0)
   descricao_ag          String?         @db2.VarChar(60)
   grupos_usuarios       grupos_usuarios @relation(fields: [id_grupos_usuarios_ag], references: [id_gu], onUpdate: Restrict, map: "fk_ag_grupos_usuarios_idx")
@@ -88,11 +88,10 @@ model clientes_produtos {
 }
 
 model condicoes_pagamento {
-  id_cp         Int             @id @default(autoincrement())
-  id_sirius_cp  Int?            @unique(map: "id_sirius_cp_UNIQUE")
-  descricao_cp  String          @db2.VarChar(50)
-  clientes      clientes[]
-  pedidos_venda pedidos_venda[]
+  id_cp        Int        @id @default(autoincrement())
+  id_sirius_cp Int?       @unique(map: "id_sirius_cp_UNIQUE")
+  descricao_cp String     @db2.VarChar(50)
+  clientes     clientes[]
 }
 
 model contatos {
@@ -248,11 +247,11 @@ model pedidos_venda {
   valor_liquido_pv                                                     Decimal?                   @db2.Decimal(20, 10)
   status_pv                                                            String                     @db2.VarChar(1)
   observacoes_pv                                                       String?                    @db2.VarChar(80)
-  data_criacao_pv                                                      DateTime                   @db2.DateTime(0)
+  data_criacao_pv                                                      DateTime                   @default(now())
   cliente_contato_pv                                                   String?                    @db2.VarChar(45)
   data_realizacao_pv                                                   DateTime?                  @db2.DateTime(0)
   data_sincronizacao_pv                                                DateTime?                  @db2.DateTime(0)
-  id_condicao_pagamento_pv                                             Int?
+  id_forma_pagamento_pv                                                Int?
   entrega_cep_pv                                                       String?                    @db2.VarChar(8)
   entrega_logradouro_pv                                                String?                    @db2.VarChar(60)
   entrega_numero_pv                                                    String?                    @db2.VarChar(8)
@@ -265,8 +264,9 @@ model pedidos_venda {
   id_cliente_escolheu_pv                                               String?                    @db2.VarChar(40)
   pagamento_pv                                                         Decimal?                   @db2.Decimal(20, 10)
   troco_pv                                                             Decimal?                   @db2.Decimal(20, 10)
+  caixa_movimentacoes                                                  caixa_movimentacoes[]
   clientes                                                             clientes?                  @relation(fields: [id_cliente_pv], references: [id_cliente], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_clientes_idx")
-  condicoes_pagamento                                                  condicoes_pagamento?       @relation(fields: [id_condicao_pagamento_pv], references: [id_cp], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_condicoes_pagamento_idx")
+  forma_pagamento                                                      forma_pagamento?           @relation(fields: [id_forma_pagamento_pv], references: [id_fp], onDelete: NoAction, onUpdate: NoAction, map: "fk_pv_forma_pagamento_idx")
   modalidade_frete                                                     modalidade_frete?          @relation(fields: [id_modalidade_frete_pv], references: [id_mf], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_modalidade_frete_idx")
   transportadores                                                      transportadores?           @relation(fields: [id_transportadores_pv], references: [id_transportador], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_transportadores_idx")
   vendedores                                                           vendedores?                @relation(fields: [id_vendedor_pv], references: [id_vendedor], onDelete: Restrict, onUpdate: Restrict, map: "fk_pv_vendedores_idx")
@@ -275,10 +275,10 @@ model pedidos_venda {
   produtos_movimentacoes                                               produtos_movimentacoes[]
 
   @@index([id_cliente_pv], map: "fk_pv_clientes_idx")
-  @@index([id_condicao_pagamento_pv], map: "fk_pv_condicoes_pagamento_idx")
   @@index([id_modalidade_frete_pv], map: "fk_pv_modalidade_frete_idx")
   @@index([id_transportadores_pv], map: "fk_pv_transportadores_idx")
   @@index([id_vendedor_pv], map: "fk_pv_vendedores_idx")
+  @@index([id_forma_pagamento_pv], map: "fk_pv_forma_pagamento_idx_idx")
 }
 
 model pedidos_venda_itens {
@@ -332,6 +332,7 @@ model permissoes {
 model produtos {
   id_prod                Int                      @id @default(autoincrement())
   id_sirius_prod         Int?                     @unique(map: "id_sirius_prod_UNIQUE")
+  id_submenu             Int?
   cod_prod               String?                  @db2.VarChar(60)
   descricao_prod         String                   @db2.VarChar(120)
   cod_ean_prod           String?                  @db2.VarChar(14)
@@ -355,7 +356,6 @@ model produtos {
   vegetariano_prod       Boolean?                 @default(false)
   vegano_prod            Boolean?                 @default(false)
   id_imagem              Int?
-  id_submenu             Int?
   clientes_produtos      clientes_produtos[]
   listas_precos_produtos listas_precos_produtos[]
   pedidos_venda_itens    pedidos_venda_itens[]
@@ -484,4 +484,39 @@ model vendedores_usuarios {
   vendedores            vendedores? @relation(fields: [id_vendedor_vu], references: [id_vendedor], onDelete: Restrict, onUpdate: Restrict, map: "fk_vu_vendedores_idx")
 
   @@index([id_vendedor_vu], map: "fk_vu_vendedores_idx")
+}
+
+model caixa_movimentacoes {
+  id_cm                 Int             @id @default(autoincrement())
+  id_controle_caixa_cm  Int
+  data_atual_cm         DateTime        @default(now()) @db2.Timestamp(3)
+  tipo_operacao_cm      String          @db2.VarChar(10)
+  id_pedido_venda_cm    Int?
+  id_forma_pagamento_cm Int
+  valor_pago_cm         Decimal         @db2.Decimal(20, 10)
+  valor_troco_cm        Decimal         @db2.Decimal(20, 10)
+  controle_caixa        controle_caixa  @relation(fields: [id_controle_caixa_cm], references: [id_controle_caixa], onUpdate: Restrict, map: "fk_cm_controle_caixa_idx")
+  forma_pagamento       forma_pagamento @relation(fields: [id_forma_pagamento_cm], references: [id_fp], onUpdate: Restrict, map: "fk_cm_forma_pagamento_idx")
+  pedidos_venda         pedidos_venda?  @relation(fields: [id_pedido_venda_cm], references: [id_pv], onDelete: Restrict, onUpdate: Restrict, map: "fk_cm_pedido_venda_idx")
+
+  @@index([id_controle_caixa_cm], map: "fk_cm_controle_caixa_idx")
+  @@index([id_forma_pagamento_cm], map: "fk_cm_forma_pagamento_idx")
+  @@index([id_pedido_venda_cm], map: "fk_cm_pedido_venda_idx")
+}
+
+model controle_caixa {
+  id_controle_caixa              Int                   @id @default(autoincrement())
+  id_usuario_controle_caixa      Int
+  data_abertura_controle_caixa   DateTime              @default(now()) @db2.Timestamp(0)
+  data_fechamento_controle_caixa DateTime?             @db2.Timestamp(0)
+  saldo_inicial_controle_caixa   Decimal?              @db2.Decimal(20, 10)
+  saldo_final_controle_caixa     Decimal?              @db2.Decimal(20, 10)
+  caixa_movimentacoes            caixa_movimentacoes[]
+}
+
+model forma_pagamento {
+  id_fp               Int                   @id @default(autoincrement())
+  nm_fp               String?               @db2.VarChar(100)
+  caixa_movimentacoes caixa_movimentacoes[]
+  pedidos_venda       pedidos_venda[]
 }

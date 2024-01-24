@@ -179,7 +179,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\usuario022\\Desktop\\GitHub\\Script-SQL-01\\prisma\\databases\\bancaoprisma",
+      "value": "C:\\Users\\Natan\\Documents\\GitHub\\Script-SQL-01\\prisma\\databases\\bancaoprisma",
       "fromEnvVar": null
     },
     "config": {

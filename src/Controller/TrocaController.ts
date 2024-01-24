@@ -1,10 +1,11 @@
 
-import { PrismaClient as PrismaClientAntigo} from "../../prisma/databases/antigoprisma";
+import { PrismaClient as PrismaClientAntigo } from "../../prisma/databases/antigoprisma";
 import { PrismaClient as PrismaClientNovo } from "../../prisma/databases/novoprisma";
 import BancaoGrupoDeUsuariosService from "../Model/Service/Bancao/bancaoGrupoDeUsuariosService";
 import ClientesProdutosService from "../Model/Service/ClientesProdutosService";
 import ContatosService from "../Model/Service/ContatosService";
 import EnderecosService from "../Model/Service/EnderecosService";
+import FormaPagamentoService from "../Model/Service/FormaPagamento";
 import FornecedoresService from "../Model/Service/FornecedoresService";
 import ListasPrecosProdutos from "../Model/Service/ListasPrecosProdutos";
 import ListasPrecos from "../Model/Service/ListasPrecosService";
@@ -20,8 +21,8 @@ import ClientesService from "../Model/Service/clientesService";
 import CondicoesPagamentoService from "../Model/Service/condicoesPagamentoService";
 import VendedoresService from "../Model/Service/vendedoresService";
 
-export class TrocaController{
-	async troca(prismaNovo:PrismaClientNovo, prismaVelho: PrismaClientAntigo){
+export class TrocaController {
+	async troca(prismaNovo: PrismaClientNovo, prismaVelho: PrismaClientAntigo) {
 		const certificado = new CertificadoService();
 		const vendedores = new VendedoresService(); //funfou
 		const condicao_pagamento = new CondicoesPagamentoService();
@@ -29,6 +30,7 @@ export class TrocaController{
 		const enderecos = new EnderecosService();
 		const contatos = new ContatosService();
 		const fornecedores = new FornecedoresService();
+		const forma_pagamento = new FormaPagamentoService();
 		//const grupos_usuarios = new GruposUsuariosService();
 		const vendedores_usuarios = new VendedoresUsuarios();
 		const bancao_grupo_usuarios = new BancaoGrupoDeUsuariosService();
@@ -44,16 +46,17 @@ export class TrocaController{
 		const pedidos_venda_pagamentos = new PedidosVendaPagamentosService();
 		const clientes_produtos = new ClientesProdutosService();
 
-		await certificado.troca(prismaNovo,prismaVelho);
-		await vendedores.troca(prismaNovo,prismaVelho);
+		await certificado.troca(prismaNovo, prismaVelho);
+		await vendedores.troca(prismaNovo, prismaVelho);
+		await forma_pagamento.troca(prismaNovo);
 		// const vendedorNovoComMaiorPK = await prismaNovo.vendedores.findFirst({});
-		await condicao_pagamento.troca(prismaNovo,prismaVelho);
+		await condicao_pagamento.troca(prismaNovo, prismaVelho);
 		const condicaoPagamentoAntigaComMaiorPK = await prismaNovo.condicoes_pagamento.findFirst({
 			orderBy: {
 				id_cp: "desc",
 			},
 		});
-		await lista_preco.troca(prismaNovo,prismaVelho); //Mudei de lugar por conta q cliente se relaciona com ela tambem
+		await lista_preco.troca(prismaNovo, prismaVelho); //Mudei de lugar por conta q cliente se relaciona com ela tambem
 		const listaPrecoNovaComMaiorPK = await prismaNovo.listas_precos.findFirst({
 			orderBy: {
 				id_lp: "desc",
@@ -64,23 +67,23 @@ export class TrocaController{
 				id_lp: "asc",
 			},
 		});
-		await clientes.troca(condicaoPagamentoAntigaComMaiorPK.id_cp,prismaNovo,prismaVelho);
-		await enderecos.troca(prismaNovo,prismaVelho);
-		await contatos.troca(prismaNovo,prismaVelho);
-		await fornecedores.troca(prismaNovo,prismaVelho);
+		await clientes.troca(condicaoPagamentoAntigaComMaiorPK.id_cp, prismaNovo, prismaVelho);
+		await enderecos.troca(prismaNovo, prismaVelho);
+		await contatos.troca(prismaNovo, prismaVelho);
+		await fornecedores.troca(prismaNovo, prismaVelho);
 		//await grupos_usuarios.troca(prismaNovo,prismaVelho); //vai ser feita em bancao_grupo_usuarios
 		await bancao_grupo_usuarios.troca(prismaNovo);
-		await vendedores_usuarios.troca(prismaNovo,prismaVelho);
+		await vendedores_usuarios.troca(prismaNovo, prismaVelho);
 		//await usuarios_grupos_usuarios.troca(prismaNovo,prismaVelho);  //pode ficar vazia no inicio devido ao zerofill do grupoUsuarios
 		//await permissoes.troca(prismaNovo,prismaVelho); //vai ser feita em bancao_grupo_usuarios
-		await parametros.troca(prismaNovo,prismaVelho);
-		await transportadores.troca(prismaNovo,prismaVelho);
-		await produtos.troca(prismaNovo,prismaVelho);
-		await listas_precos_produtos.troca(prismaNovo,prismaVelho);
-		await pedidos_venda.troca(prismaNovo,prismaVelho);
-		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp, listaPrecoNovaComMenorPK.id_lp, prismaNovo,prismaVelho);
-		await pedidos_venda_pagamentos.troca(prismaNovo,prismaVelho);
-		await clientes_produtos.troca(prismaNovo,prismaVelho);
+		await parametros.troca(prismaNovo, prismaVelho);
+		await transportadores.troca(prismaNovo, prismaVelho);
+		await produtos.troca(prismaNovo, prismaVelho);
+		await listas_precos_produtos.troca(prismaNovo, prismaVelho);
+		await pedidos_venda.troca(prismaNovo, prismaVelho);
+		await pedidos_venda_itens.troca(listaPrecoNovaComMaiorPK.id_lp, listaPrecoNovaComMenorPK.id_lp, prismaNovo, prismaVelho);
+		await pedidos_venda_pagamentos.troca(prismaNovo, prismaVelho);
+		await clientes_produtos.troca(prismaNovo, prismaVelho);
 		console.log("-----------------------------------------------------");
 		console.log("CABOOOOOOOOOOOOOOOOOOOOOOOOOOU");
 	}

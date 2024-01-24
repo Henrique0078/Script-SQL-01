@@ -3,7 +3,7 @@ import { PrismaClient as PrismaClientNovo } from "../../../../prisma/databases/n
 import { atividades_grupos } from "../../../../prisma/databases/novoprisma";
 
 export default class BancaoAtividadeGruposService {
-	async troca(prismaNovo:PrismaClientNovo) {
+	async troca(prismaNovo: PrismaClientNovo) {
 		const grupoUsuarios = await prismaNovo.grupos_usuarios.findMany({});
 		const atividades = await prismaBancao.atividades.findMany({});
 		const atividadesXGrupos: atividades_grupos[] = [];
@@ -18,13 +18,13 @@ export default class BancaoAtividadeGruposService {
 					descricao_ag: atividades[j].descricao_atividade,
 				});
 			}
-		}
-		if(atividadesXGrupos.length > 0){
-			await prismaNovo.atividades_grupos.createMany({data: atividadesXGrupos});
-			const totalParametro = await  prismaNovo.atividades_grupos.count();
-			console.log(totalParametro, " registros adicionados em Atividades Novas");
-		}else{
-			console.log("Atividades Grupos vazio");
+			if (atividadesXGrupos.length > 0) {
+				await prismaNovo.atividades_grupos.createMany({ data: atividadesXGrupos });
+				const totalParametro = await prismaNovo.atividades_grupos.count();
+				console.log(totalParametro, " registros adicionados em Atividades Novas");
+			} else {
+				console.log("Atividades Grupos vazio");
+			}
 		}
 	}
 }

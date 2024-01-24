@@ -10,7 +10,7 @@ import { TrocaController } from "./TrocaController";
 import { Request, Response } from "express";
 
 export class migracao {
-	async init(req:Request, res:Response) {
+	async init(req: Request, res: Response) {
 		try {
 			//atualizando nome Empresas
 			const empresas = await prismaBancao.empresas.findMany({});
@@ -31,14 +31,20 @@ export class migracao {
 				await createDatabase(empresasNew[i].banco_empresa);
 				const empresaVelha = empresasOld[i];
 				const empresaNova = empresasNew[i];
-				const { velhoPrisma, novoPrisma } = gerarPrismas(empresaVelha,empresaNova);
+				const { velhoPrisma, novoPrisma } = gerarPrismas(empresaVelha, empresaNova);
 				console.log(empresasNew[i].banco_empresa);
 				const Service = new TrocaController();
 				await Service.troca(novoPrisma, velhoPrisma);
+				console.log("-------------------------------------------");
+				console.log(`------------------BANCO ${i}-----------------`);
+				console.log("------------------Terminou-----------------");
+				console.log("-------------------------------------------");
 			}
 			console.log("-------------------------------------------");
+			console.log("--------------------SQL--------------------");
 			console.log("------------------Terminou-----------------");
-			res.status(200).json({message:"Ook"});
+			console.log("-------------------------------------------");
+			res.status(200).json({ message: "Ook" });
 		} catch (error: any) {
 			throw new ErrorResponse(500, error);
 		}
